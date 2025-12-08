@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { Toaster, toast } from 'sonner'
+import { X, Trash2, Clipboard, Archive } from 'lucide-react'
 import { WaveformDisplay } from './components/WaveformDisplay'
 import { RecordingBar, type ScribeLanguageCode } from './components/RecordingBar'
 import { TranscriptBox } from './components/TranscriptBox'
@@ -91,14 +92,20 @@ function App() {
     
     // Start recording directly
     setIsStarting(true)
+    toast.info('Connecting to ElevenLabs...')
     try {
+      console.log('Starting recording with API key:', apiKey ? 'present' : 'missing')
       await start()
       setRecordingStartTime(Date.now())
       toast.success('Recording started')
+    } catch (error) {
+      console.error('Failed to start recording:', error)
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      toast.error(`Failed: ${message}`)
     } finally {
       setIsStarting(false)
     }
-  }, [hasExistingContent, start])
+  }, [hasExistingContent, start, apiKey])
 
   // Start recording after handling existing content
   const startNewRecording = useCallback(async () => {
@@ -128,16 +135,15 @@ function App() {
           speakers: [],
           hasConsent: true,
         })
-        toast.success('Previous recording archived')
+        setIsArchived(true)
+        toast.success('Recording archived')
+        setShowNewRecordingDialog(false)
       } catch (err) {
         console.error('Failed to archive:', err)
         toast.error('Failed to archive')
-        return
       }
     }
-    
-    await startNewRecording()
-  }, [transcript, partialTranscript, segments, isArchived, archiveTranscript, startNewRecording])
+  }, [transcript, partialTranscript, segments, isArchived, archiveTranscript])
 
   // Copy existing content then start new recording  
   const copyAndStartNew = useCallback(async () => {
@@ -460,26 +466,11 @@ function App() {
           </AlertDialogHeader>
           <AlertDialogFooter className="flex-col sm:flex-row gap-2">
             <Button
-              variant="outline"
-              onClick={() => setShowNewRecordingDialog(false)}
-              className="w-full sm:w-auto gap-2"
-            >
-              Cancel
-              <kbd className="ml-1 px-1.5 py-0.5 rounded bg-muted/80 border border-border/50 text-[10px] font-medium">Esc</kbd>
-            </Button>
-            <Button
-              variant="destructive"
-              onClick={startNewRecording}
-              className="w-full sm:w-auto gap-2"
-            >
-              Delete
-              <kbd className="ml-1 px-1.5 py-0.5 rounded bg-destructive/80 border border-destructive/50 text-[10px] font-medium">D</kbd>
-            </Button>
-            <Button
               variant="secondary"
               onClick={copyAndStartNew}
               className="w-full sm:w-auto gap-2"
             >
+              <Clipboard className="h-4 w-4" />
               Copy
               <kbd className="ml-1 px-1.5 py-0.5 rounded bg-muted/80 border border-border/50 text-[10px] font-medium">C</kbd>
             </Button>
@@ -489,8 +480,27 @@ function App() {
               disabled={isArchived}
               className="w-full sm:w-auto gap-2"
             >
+              <Archive className="h-4 w-4" />
               Archive
               <kbd className="ml-1 px-1.5 py-0.5 rounded bg-primary/80 border border-primary/50 text-[10px] font-medium text-primary-foreground">A</kbd>
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={startNewRecording}
+              className="w-full sm:w-auto gap-2"
+            >
+              <Trash2 className="h-4 w-4" />
+              Delete
+              <kbd className="ml-1 px-1.5 py-0.5 rounded bg-destructive/80 border border-destructive/50 text-[10px] font-medium">D</kbd>
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => setShowNewRecordingDialog(false)}
+              className="w-full sm:w-auto gap-2"
+            >
+              <X className="h-4 w-4" />
+              Cancel
+              <kbd className="ml-1 px-1.5 py-0.5 rounded bg-muted/80 border border-border/50 text-[10px] font-medium">Esc</kbd>
             </Button>
           </AlertDialogFooter>
           <p className="text-xs text-muted-foreground/60 mt-2 text-center">

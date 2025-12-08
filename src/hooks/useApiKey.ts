@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 // Hardcoded API key for internal distribution
-const EMBEDDED_API_KEY = '' // Add your ElevenLabs API key here
+const EMBEDDED_API_KEY = ''
 
 export function useApiKey() {
   const [isLoaded, setIsLoaded] = useState(false)

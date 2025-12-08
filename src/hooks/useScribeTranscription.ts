@@ -123,21 +123,28 @@ export function useScribeTranscription({
 
   const start = useCallback(async () => {
     if (!apiKey) {
+      console.error('No API key provided')
       setTokenError('API key is required')
-      return
+      throw new Error('API key is required')
     }
 
     setTokenError(null)
 
     try {
+      console.log('Fetching token with API key...')
       const token = await fetchToken(apiKey)
+      console.log('Token received:', token.substring(0, 20) + '...')
+      console.log('Connecting to scribe...')
       await scribe.connect({ token })
+      console.log('Scribe connected, status:', scribe.status)
     } catch (error) {
+      console.error('Start transcription error:', error)
       const errorMessage = error instanceof Error ? error.message : 'Failed to start transcription'
       setTokenError(errorMessage)
       if (onError && error instanceof Error) {
         onError(error)
       }
+      throw error
     }
   }, [apiKey, scribe, onError])
 

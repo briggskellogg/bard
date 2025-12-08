@@ -156,10 +156,9 @@ export function RecordingBar({
       {isRecording && (
         <Button
           variant="secondary"
-          size="icon"
           onClick={handlePauseToggle}
           className={cn(
-            'h-10 w-10 shrink-0',
+            'h-10 px-3 shrink-0 gap-2',
             isPaused && 'bg-amber-500/20 text-amber-500 hover:bg-amber-500/30'
           )}
         >
@@ -168,6 +167,7 @@ export function RecordingBar({
           ) : (
             <Pause className="h-4 w-4" />
           )}
+          <Kbd className={isPaused ? 'bg-amber-500/30 border-amber-500/50' : ''}>P</Kbd>
         </Button>
       )}
 
