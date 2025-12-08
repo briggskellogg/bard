@@ -79,6 +79,12 @@ export function RecordingBar({
 
   // Fetch available audio input devices
   useEffect(() => {
+    // Check if mediaDevices API is available
+    if (!navigator.mediaDevices) {
+      console.warn('navigator.mediaDevices is not available')
+      return
+    }
+
     async function getDevices() {
       try {
         // Request permission first

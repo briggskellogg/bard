@@ -26,6 +26,8 @@ export interface UseScribeTranscriptionReturn {
   error: string | null
   start: () => Promise<void>
   stop: () => void
+  pause: () => void
+  resume: () => Promise<void>
   clearTranscript: () => void
 }
 
@@ -143,6 +145,32 @@ export function useScribeTranscription({
     scribe.disconnect()
   }, [scribe])
 
+  // Pause by disconnecting (stops API calls, preserves transcript)
+  const pause = useCallback(() => {
+    scribe.disconnect()
+  }, [scribe])
+
+  // Resume by reconnecting
+  const resume = useCallback(async () => {
+    if (!apiKey) {
+      setTokenError('API key is required')
+      return
+    }
+
+    setTokenError(null)
+
+    try {
+      const token = await fetchToken(apiKey)
+      await scribe.connect({ token })
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to resume transcription'
+      setTokenError(errorMessage)
+      if (onError && error instanceof Error) {
+        onError(error)
+      }
+    }
+  }, [apiKey, scribe, onError])
+
   const clearTranscript = useCallback(() => {
     setSegments([])
     setSpeakers(new Set())
@@ -166,6 +194,8 @@ export function useScribeTranscription({
     error: combinedError,
     start,
     stop,
+    pause,
+    resume,
     clearTranscript,
   }
 }

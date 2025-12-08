@@ -41,36 +41,36 @@ export function ActionBar({
   const archiveDisabled = !hasContent || isArchived || isProcessing
 
   return (
-    <div className="flex items-center gap-1">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={onArchive}
-          disabled={archiveDisabled}
-          className={cn(
-            'h-8 px-2.5 gap-2 transition-all',
-            archiveTriggered && 'bg-green-500/20 text-green-500',
-            isArchived && hasContent && 'opacity-50'
-          )}
-          aria-label="Archive transcript"
-          title={isArchived ? 'Already archived' : isProcessing ? 'Processing...' : 'Archive transcript'}
-        >
-          {archiveTriggered || isArchived ? (
-            <Check className="h-4 w-4" />
-          ) : isProcessing ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
-          ) : (
-            <Archive className="h-4 w-4" />
-          )}
-          <Kbd>A</Kbd>
-        </Button>
+    <div className="flex items-center gap-2">
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={onArchive}
+        disabled={archiveDisabled}
+        className={cn(
+          'h-8 px-2 gap-1.5 transition-all',
+          archiveTriggered && 'bg-green-500/20 text-green-500',
+          isArchived && hasContent && 'opacity-50'
+        )}
+        aria-label="Archive transcript"
+        title={isArchived ? 'Already archived' : isProcessing ? 'Processing...' : 'Archive transcript'}
+      >
+        {archiveTriggered || isArchived ? (
+          <Check className="h-4 w-4" />
+        ) : isProcessing ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          <Archive className="h-4 w-4" />
+        )}
+        <Kbd>A</Kbd>
+      </Button>
       <Button
         variant="ghost"
         size="sm"
         onClick={onCopy}
         disabled={!hasContent}
         className={cn(
-          'h-8 px-2.5 gap-2 transition-all',
+          'h-8 px-2 gap-1.5 transition-all',
           copyTriggered && 'bg-green-500/20 text-green-500'
         )}
         aria-label="Copy transcript"
@@ -88,7 +88,7 @@ export function ActionBar({
         onClick={onClear}
         disabled={!hasContent}
         className={cn(
-          'h-8 px-2.5 gap-2 transition-all',
+          'h-8 px-2 gap-1.5 transition-all',
           clearTriggered && 'bg-red-500/20 text-red-500'
         )}
         aria-label="Clear transcript"

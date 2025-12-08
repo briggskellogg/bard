@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { History, FileText, Search, X } from 'lucide-react'
+import { History, FileText, Search, X, Clipboard, Trash2 } from 'lucide-react'
 import {
   Sheet,
   SheetContent,
@@ -227,8 +227,6 @@ export function ArchiveDialog() {
             <div className="flex items-center gap-6 pb-4 text-xs text-muted-foreground/70">
               <span className="flex items-center gap-2"><Kbd>↑</Kbd><Kbd>↓</Kbd> Navigate</span>
               <span className="flex items-center gap-2"><Kbd>Enter</Kbd> Expand</span>
-              <span className="flex items-center gap-2"><Kbd>C</Kbd> Copy</span>
-              <span className="flex items-center gap-2"><Kbd>D</Kbd> Delete</span>
             </div>
           )}
 
@@ -285,6 +283,33 @@ export function ArchiveDialog() {
                             : truncateText(transcript.text)
                           }
                         </p>
+                      </div>
+                      {/* Copy and Delete buttons */}
+                      <div className="flex items-center gap-1 shrink-0">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 w-8 p-0"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            copyTranscript(transcript.text)
+                          }}
+                          aria-label="Copy transcript"
+                        >
+                          <Clipboard className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 w-8 p-0 text-destructive hover:text-destructive hover:bg-destructive/10"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleDelete(transcript.id)
+                          }}
+                          aria-label="Delete transcript"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
                     </div>
                   </div>

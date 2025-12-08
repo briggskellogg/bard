@@ -21,6 +21,8 @@
         "maximized": false,
         "center": true,
         "decorations": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
         "alwaysOnTop": false,
         "transparent": false,
         "shadow": true,
@@ -33,7 +35,7 @@
     "macOSPrivateApi": false
   },
   "bundle": {
-    "createUpdaterArtifacts": true,
+    "createUpdaterArtifacts": false,
     "active": true,
     "targets": "all",
     "icon": [
@@ -53,18 +55,17 @@
       "minimumSystemVersion": "10.15",
       "signingIdentity": "-",
       "providerShortName": null,
-      "entitlements": null,
-      "exceptionDomain": ""
+      "entitlements": "entitlements.plist",
+      "exceptionDomain": "",
+      "infoPlist": "Info.plist"
     }
   },
   "plugins": {
     "updater": {
-      "active": true,
-      "endpoints": [
-        "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/latest/download/latest.json"
-      ],
-      "dialog": true,
-      "pubkey": "YOUR_UPDATER_PUBLIC_KEY_HERE"
+      "active": false,
+      "endpoints": [],
+      "dialog": false,
+      "pubkey": ""
     }
   }
 }

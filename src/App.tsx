@@ -5,10 +5,8 @@ import { RecordingBar, type ScribeLanguageCode } from './components/RecordingBar
 import { TranscriptBox } from './components/TranscriptBox'
 import { ActionBar } from './components/ActionBar'
 import { ArchiveDialog } from './components/ArchiveDialog'
-import { SettingsDialog } from './components/SettingsDialog'
 import { ThemeToggle } from './components/ThemeToggle'
 import { useApiKey } from './hooks/useApiKey'
-import { AlertCircle } from 'lucide-react'
 import { useArchive } from './hooks/useArchive'
 import { useScribeTranscription } from './hooks/useScribeTranscription'
 import { useSettingsStore } from './store/settings'
@@ -21,17 +19,15 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
-import bekLogoDark from './assets/bek-dark.svg'
-import bekLogoLight from './assets/bek-light.svg'
-import memoLogoDark from './assets/eleven-memo-tool-dark.svg'
-import memoLogoLight from './assets/eleven-memo-tool-light.svg'
+import llmemoLogoDark from './assets/llmemo-logo-dark.svg'
+import llmemoLogoLight from './assets/llmemo-logo-light.svg'
 import orbLogo from './assets/orb-logo.png'
 import './App.css'
 
 function App() {
-  const { apiKey, isLoaded, hasApiKey } = useApiKey()
+  const { apiKey, isLoaded } = useApiKey()
   const { archiveTranscript } = useArchive()
-  const { setArchiveDialogOpen, setSettingsDialogOpen, theme } = useSettingsStore()
+  const { setArchiveDialogOpen, theme } = useSettingsStore()
   const [isStarting, setIsStarting] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [recordingStartTime, setRecordingStartTime] = useState<number | null>(null)
@@ -58,6 +54,8 @@ function App() {
     partialTranscript,
     start,
     stop,
+    pause,
+    resume,
     clearTranscript,
   } = useScribeTranscription({
     apiKey,
@@ -85,11 +83,6 @@ function App() {
   const hasExistingContent = !!(transcript || partialTranscript)
 
   const handleStartRecording = useCallback(async () => {
-    if (!hasApiKey) {
-      setSettingsDialogOpen(true)
-      return
-    }
-    
     // If there's existing content, show confirmation dialog
     if (hasExistingContent) {
       setShowNewRecordingDialog(true)
@@ -105,7 +98,7 @@ function App() {
     } finally {
       setIsStarting(false)
     }
-  }, [hasApiKey, hasExistingContent, setSettingsDialogOpen, start])
+  }, [hasExistingContent, start])
 
   // Start recording after handling existing content
   const startNewRecording = useCallback(async () => {
@@ -171,14 +164,16 @@ function App() {
   }, [stop])
 
   const handlePauseRecording = useCallback(() => {
+    pause()
     setIsPaused(true)
     toast.success('Recording paused')
-  }, [])
+  }, [pause])
 
-  const handleResumeRecording = useCallback(() => {
+  const handleResumeRecording = useCallback(async () => {
+    await resume()
     setIsPaused(false)
     toast.success('Recording resumed')
-  }, [])
+  }, [resume])
 
   const handleDiscard = useCallback(() => {
     stop()
@@ -323,10 +318,6 @@ function App() {
           e.preventDefault()
           setArchiveDialogOpen(true)
           break
-        case 's':
-          e.preventDefault()
-          setSettingsDialogOpen(true)
-          break
         case 't':
           e.preventDefault()
           handleToggleTheme()
@@ -346,7 +337,7 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isConnected, isPaused, showNewRecordingDialog, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleArchive, handleDiscard, handleToggleTheme, setArchiveDialogOpen, setSettingsDialogOpen, archiveAndStartNew, copyAndStartNew, startNewRecording])
+  }, [isConnected, isPaused, showNewRecordingDialog, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleArchive, handleDiscard, handleToggleTheme, setArchiveDialogOpen, archiveAndStartNew, copyAndStartNew, startNewRecording])
 
   const isRecording = isConnected || isTranscribing
   const hasContent = !!(transcript || partialTranscript)
@@ -354,8 +345,7 @@ function App() {
   // Determine which logos to use based on theme
   const isDark = theme === 'dark' || 
     (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  const footerLogo = isDark ? bekLogoDark : bekLogoLight
-  const headerLogo = isDark ? memoLogoDark : memoLogoLight
+  const headerLogo = isDark ? llmemoLogoLight : llmemoLogoDark
 
   return (
     <div className="flex flex-col h-screen bg-background text-foreground">
@@ -369,48 +359,24 @@ function App() {
         closeButton
       />
 
-      {/* Security Banner */}
-      <div className="flex items-center justify-center gap-1.5 px-4 py-1.5 bg-emerald-500/5 border-b border-emerald-500/10 text-xs text-emerald-500/80">
-        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <span>Local storage only · Audio processed by ElevenLabs</span>
-      </div>
-
-      {/* Header */}
-      <header className="flex items-center justify-between px-4 py-3 border-b border-border/50">
-        <div className="flex items-center gap-2.5">
-          <img 
-            src={orbLogo} 
-            alt="ElevenMemo" 
-            className="h-7 w-7 rounded-md"
-          />
-          <img 
-            src={headerLogo} 
-            alt="ElevenMemo" 
-            className="h-5 w-auto"
-          />
-        </div>
-        <div className="flex items-center gap-1">
+      {/* Header with logo and controls */}
+      <div 
+        className="relative flex items-center justify-center py-3"
+        data-tauri-drag-region
+      >
+        <img 
+          src={headerLogo} 
+          alt="llMemo" 
+          className="h-5 w-auto"
+        />
+        <div className="absolute right-3 flex items-center gap-1">
           <ArchiveDialog />
           <ThemeToggle />
-          <SettingsDialog />
         </div>
-      </header>
+      </div>
 
       {/* Main Content */}
       <main className="flex flex-col flex-1 p-4 gap-4 overflow-hidden">
-        {/* No API Key Banner */}
-        {isLoaded && !hasApiKey && (
-          <button
-            onClick={() => setSettingsDialogOpen(true)}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-sm hover:bg-amber-500/20 transition-colors"
-          >
-            <AlertCircle className="h-4 w-4 flex-shrink-0" />
-            <span>Add your ElevenLabs API key to start transcribing</span>
-          </button>
-        )}
-
         {/* Recording Bar - above waveform */}
         <RecordingBar
           isRecording={isRecording}
@@ -464,7 +430,7 @@ function App() {
       {/* Footer */}
       <footer className="relative flex flex-col items-center justify-center px-4 py-3 border-t border-border/30">
         <div className="text-center leading-relaxed">
-          <p className="text-xs text-muted-foreground font-medium">"An agent can carry out tasks, but the final responsibility should always remain with a human."</p>
+          <p className="text-xs text-muted-foreground">"An agent can carry out tasks, but the final responsibility should always remain with a human."</p>
           <p className="text-[11px] text-muted-foreground/80 mt-0.5">Policy based on{' '}
             <a
               href="https://linear.app/developers/aig"
@@ -477,9 +443,9 @@ function App() {
           </p>
         </div>
         <img 
-          src={footerLogo} 
-          alt="BEK" 
-          className="absolute right-3 bottom-3 h-5 w-auto opacity-60 hover:opacity-100 transition-opacity"
+          src={orbLogo} 
+          alt="" 
+          className="absolute right-3 bottom-3 h-6 w-6 rounded-full opacity-60 hover:opacity-100 transition-opacity"
         />
       </footer>
 

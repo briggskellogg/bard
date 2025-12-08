@@ -276,6 +276,12 @@ export const LiveWaveform = ({
     isInitializedRef.current = false
 
     const setupMicrophone = async () => {
+      // Check if mediaDevices API is available
+      if (!navigator.mediaDevices) {
+        onError?.(new Error('navigator.mediaDevices is not available'))
+        return
+      }
+      
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           audio: deviceId

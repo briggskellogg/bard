@@ -2,11 +2,9 @@
 
 A sleek desktop application for real-time voice transcription powered by [ElevenLabs Scribe v2](https://elevenlabs.io/docs/capabilities/speech-to-text).
 
-## ⬇️ Download
+## ⬇️ Build & Install
 
-**[Download ElevenMemo for macOS](https://github.com/briggskellogg/elevenmemo/releases/latest/download/ElevenMemo_0.1.0_aarch64.dmg)** (Apple Silicon)
-
-> After downloading, open the `.dmg` file and drag ElevenMemo to your Applications folder.
+This app requires your own [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys) to function. See the [Setup](#setup-for-developers) section below for instructions.
 
 ## Features
 
@@ -18,12 +16,18 @@ A sleek desktop application for real-time voice transcription powered by [Eleven
 - **Dark & Light themes** — Easy on the eyes, day or night
 - **Privacy-focused** — All data stored locally on your device
 
-## Setup
+## Setup (For Developers)
 
-1. Download and install ElevenMemo
-2. Open the app and click on **Settings** (gear icon) or press `S`
-3. Enter your [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys)
-4. Start recording!
+To use ElevenMemo, you need to add your own ElevenLabs API key:
+
+1. Get an API key from [ElevenLabs](https://elevenlabs.io/app/settings/api-keys)
+2. Open `src/hooks/useApiKey.ts`
+3. Add your API key to the `EMBEDDED_API_KEY` constant:
+   ```typescript
+   const EMBEDDED_API_KEY = 'your_api_key_here'
+   ```
+4. Build the app with `pnpm tauri build`
+5. Install and start recording!
 
 ## Hotkeys
 
@@ -35,7 +39,6 @@ A sleek desktop application for real-time voice transcription powered by [Eleven
 | Delete Transcript | `D` |
 | Archive Transcript | `A` |
 | Open Archive | `H` |
-| Open Settings | `S` |
 | Toggle Theme | `T` |
 | Discard Recording | `Esc` |
 

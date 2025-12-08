@@ -40,18 +40,23 @@ export function useArchive() {
   useEffect(() => {
     async function loadArchive() {
       try {
-        const store = await getStore()
-        const stored = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY)
-        if (stored && Array.isArray(stored)) {
-          // Migrate old transcripts without new fields
-          const migrated = stored.map(t => ({
-            ...t,
-            title: t.title || 'Untitled Recording',
-            segments: t.segments || [],
-            speakers: t.speakers || [],
-            hasConsent: t.hasConsent ?? true,
-          }))
-          setArchivedTranscripts(migrated)
+        // Check if we're in a Tauri environment
+        if (typeof window !== 'undefined' && '__TAURI__' in window) {
+          const store = await getStore()
+          const stored = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY)
+          if (stored && Array.isArray(stored)) {
+            // Migrate old transcripts without new fields
+            const migrated = stored.map(t => ({
+              ...t,
+              title: t.title || 'Untitled Recording',
+              segments: t.segments || [],
+              speakers: t.speakers || [],
+              hasConsent: t.hasConsent ?? true,
+            }))
+            setArchivedTranscripts(migrated)
+          }
+        } else {
+          console.warn('Not in Tauri environment, skipping archive load')
         }
       } catch (error) {
         console.error('Failed to load archive:', error)
@@ -83,10 +88,14 @@ export function useArchive() {
 
     try {
       addArchivedTranscript(transcript)
-      const store = await getStore()
-      const current = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY) || []
-      await store.set(ARCHIVE_STORE_KEY, [transcript, ...current])
-      await store.save()
+      
+      // Only persist to Tauri store if available
+      if (typeof window !== 'undefined' && '__TAURI__' in window) {
+        const store = await getStore()
+        const current = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY) || []
+        await store.set(ARCHIVE_STORE_KEY, [transcript, ...current])
+        await store.save()
+      }
       return transcript
     } catch (error) {
       console.error('Failed to archive transcript:', error)
@@ -98,11 +107,15 @@ export function useArchive() {
   const updateTranscript = useCallback(async (id: string, updates: Partial<ArchivedTranscript>) => {
     try {
       updateArchivedTranscript(id, updates)
-      const store = await getStore()
-      const current = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY) || []
-      const updated = current.map(t => t.id === id ? { ...t, ...updates } : t)
-      await store.set(ARCHIVE_STORE_KEY, updated)
-      await store.save()
+      
+      // Only persist to Tauri store if available
+      if (typeof window !== 'undefined' && '__TAURI__' in window) {
+        const store = await getStore()
+        const current = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY) || []
+        const updated = current.map(t => t.id === id ? { ...t, ...updates } : t)
+        await store.set(ARCHIVE_STORE_KEY, updated)
+        await store.save()
+      }
     } catch (error) {
       console.error('Failed to update transcript:', error)
       throw error
@@ -113,10 +126,14 @@ export function useArchive() {
   const deleteTranscript = useCallback(async (id: string) => {
     try {
       removeArchivedTranscript(id)
-      const store = await getStore()
-      const current = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY) || []
-      await store.set(ARCHIVE_STORE_KEY, current.filter(t => t.id !== id))
-      await store.save()
+      
+      // Only persist to Tauri store if available
+      if (typeof window !== 'undefined' && '__TAURI__' in window) {
+        const store = await getStore()
+        const current = await store.get<ArchivedTranscript[]>(ARCHIVE_STORE_KEY) || []
+        await store.set(ARCHIVE_STORE_KEY, current.filter(t => t.id !== id))
+        await store.save()
+      }
     } catch (error) {
       console.error('Failed to delete transcript:', error)
       throw error
