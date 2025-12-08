@@ -1,43 +1,36 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tauri-app",
+  "productName": "ElevenMemo",
   "version": "0.1.0",
-  "identifier": "com.tauri-app.app",
+  "identifier": "com.elevenlabs.elevenmemo",
   "build": {
     "removeUnusedCommands": true,
-    "beforeDevCommand": "npm run dev",
+    "beforeDevCommand": "pnpm run dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "npm run build",
+    "beforeBuildCommand": "pnpm run build",
     "frontendDist": "../dist"
   },
   "app": {
     "windows": [
       {
-        "title": "tauri-app",
-        "width": 800,
-        "height": 600,
-        "minWidth": 1000,
-        "minHeight": 700,
-        "resizable": true,
+        "title": "ElevenMemo",
+        "width": 600,
+        "height": 800,
+        "resizable": false,
         "fullscreen": false,
         "maximized": false,
         "center": true,
-        "decorations": false,
+        "decorations": true,
         "alwaysOnTop": false,
-        "transparent": true,
+        "transparent": false,
         "shadow": true,
-        "dragDropEnabled": true,
-        "windowEffects": {
-          "effects": ["hudWindow"],
-          "radius": 12.0,
-          "state": "active"
-        }
+        "dragDropEnabled": false
       }
     ],
     "security": {
       "csp": null
     },
-    "macOSPrivateApi": true
+    "macOSPrivateApi": false
   },
   "bundle": {
     "createUpdaterArtifacts": true,
@@ -50,11 +43,11 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "publisher": "Your Name",
-    "category": "DeveloperTool",
-    "shortDescription": "A Tauri React template application",
-    "longDescription": "A modern Tauri React template with comprehensive boilerplate code, TypeScript, Tailwind CSS, and shadcn/ui components.",
-    "copyright": "Copyright © 2025 Your Name. All rights reserved.",
+    "publisher": "ElevenLabs",
+    "category": "Productivity",
+    "shortDescription": "Real-time voice transcription powered by Scribe v2",
+    "longDescription": "ElevenMemo is a desktop application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
+    "copyright": "Copyright © 2025 ElevenLabs. All rights reserved.",
     "macOS": {
       "frameworks": [],
       "minimumSystemVersion": "10.15",

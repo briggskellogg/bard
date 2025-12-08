@@ -1,205 +1,91 @@
-# Tauri React Template
+# ElevenMemo
 
-A production-ready template for building modern desktop applications with Tauri v2, React 19, and TypeScript. This template provides a solid foundation with best practices, comprehensive documentation, and quality tooling built-in.
+A sleek desktop application for real-time voice transcription powered by [ElevenLabs Scribe v2](https://elevenlabs.io/docs/capabilities/speech-to-text).
 
-## 🚀 Features
+## ⬇️ Download
 
-- **Modern Stack**: Tauri v2 + React 19 + TypeScript + Vite
-- **UI Components**: shadcn/ui v4 + Tailwind CSS v4 + Lucide React
-- **State Management**: Zustand v5 + TanStack Query v5
-- **Testing**: Vitest v3 + Testing Library
-- **Quality Tools**: ESLint + Prettier + Rust clippy + comprehensive CI
-- **Native Integration**: Menu system + keyboard shortcuts + notifications + auto-updater
-- **Documentation**: Comprehensive developer and user guides
-- **AI-Ready**: Claude Code agents and documentation structure
+**[Download ElevenMemo for macOS](https://github.com/briggskellogg/elevenmemo/releases/latest/download/ElevenMemo_0.1.0_aarch64.dmg)** (Apple Silicon)
 
-## 🛠 Architecture
+> After downloading, open the `.dmg` file and drag ElevenMemo to your Applications folder.
 
-### Command System
+## Features
 
-Centralized command palette with keyboard shortcuts and menu integration:
+- **Real-time transcription** — Watch your words appear as you speak
+- **Multi-language support** — English, French, German, Italian, Spanish, Portuguese, Hindi, Japanese, Thai
+- **Live waveform visualization** — See your audio input in real-time
+- **Archive system** — Save and search through past transcriptions
+- **Keyboard-first design** — Full hotkey support for power users
+- **Dark & Light themes** — Easy on the eyes, day or night
+- **Privacy-focused** — All data stored locally on your device
 
-```typescript
-// Execute commands via palette (Cmd+K), shortcuts, or menus
-const commands = [
-  { id: 'preferences', label: 'Open Preferences', shortcut: 'Cmd+,' },
-  { id: 'toggle-sidebar', label: 'Toggle Sidebar', shortcut: 'Cmd+1' },
-]
-```
+## Setup
 
-### State Management Onion
+1. Download and install ElevenMemo
+2. Open the app and click on **Settings** (gear icon) or press `S`
+3. Enter your [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys)
+4. Start recording!
 
-Layered state management approach:
+## Hotkeys
 
-- **useState**: Component-local state
-- **Zustand**: App-wide UI state (sidebar visibility, themes)
-- **TanStack Query**: Server state and caching (preferences, data)
+| Action | Key |
+|--------|-----|
+| Start/Stop Recording | `R` |
+| Pause/Resume | `P` |
+| Copy Transcript | `C` |
+| Delete Transcript | `D` |
+| Archive Transcript | `A` |
+| Open Archive | `H` |
+| Open Settings | `S` |
+| Toggle Theme | `T` |
+| Discard Recording | `Esc` |
 
-### Performance Patterns
+## Tech Stack
 
-```typescript
-// ✅ Use getState() to avoid render cascades
-const handleAction = useCallback(() => {
-  const { data, setData } = useStore.getState()
-  setData(newData)
-}, []) // Stable callback
-```
+- **[Tauri v2](https://tauri.app)** — Lightweight, secure desktop framework
+- **[React 19](https://react.dev)** — UI library
+- **[TypeScript](https://typescriptlang.org)** — Type safety
+- **[Tailwind CSS](https://tailwindcss.com)** — Styling
+- **[shadcn/ui](https://ui.shadcn.com)** — Component library
+- **[ElevenLabs Scribe v2](https://elevenlabs.io)** — Speech-to-text API
 
-## 📚 Documentation
-
-- **[User Guide](docs/userguide/userguide.md)** - End-user documentation
-- **[Developer Docs](docs/developer/)** - Architecture, patterns, and guides
-- **[Testing Guide](docs/developer/testing.md)** - Testing strategies and utilities
-- **[Claude Agents](.claude/agents/)** - AI development assistants
-
-## 🏗 Quick Start
+## Development
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18+)
-- [Rust](https://rustup.rs/) (latest stable)
-- Platform-specific dependencies (see [Tauri Prerequisites](https://tauri.app/start/prerequisites/))
+- [Node.js](https://nodejs.org) (v18+)
+- [pnpm](https://pnpm.io)
+- [Rust](https://rustup.rs)
 
-### Development
+### Setup
 
 ```bash
-# Clone and install
-git clone <your-repo>
-cd tauri-template
-npm install
+# Clone the repository
+git clone https://github.com/briggskellogg/elevenmemo.git
+cd elevenmemo
 
-# Start development server
-npm run dev
+# Install dependencies
+pnpm install
 
-# Run tests and quality checks
-npm run check:all
+# Run in development mode
+pnpm tauri dev
 
 # Build for production
-npm run build
+pnpm tauri build
 ```
 
-### Project Structure
+## Privacy & Security
 
-```
-├── src/                    # React frontend
-│   ├── components/         # UI components
-│   ├── hooks/             # Custom hooks
-│   ├── store/             # Zustand stores
-│   └── services/          # API and external services
-├── src-tauri/             # Rust backend
-├── docs/                  # Documentation
-│   ├── developer/         # Developer guides
-│   └── userguide/         # User documentation
-└── .claude/agents/        # AI development assistants
-```
+- 🔒 **Local storage only** — Archives and settings are stored on your device
+- 🎙️ **Audio processing** — Audio is streamed to ElevenLabs for real-time transcription
+- 🔑 **API key security** — Your API key is stored securely in Tauri's encrypted store
 
-## 🧪 Quality Assurance
+## License
 
-This template includes comprehensive quality gates:
-
-```bash
-npm run check:all  # Runs all checks below:
-```
-
-- ✅ TypeScript type checking
-- ✅ ESLint code linting
-- ✅ Prettier code formatting
-- ✅ Rust formatting (cargo fmt)
-- ✅ Rust linting (cargo clippy)
-- ✅ React component tests
-- ✅ Rust unit tests
-
-## 🎯 What You Get
-
-### Native Desktop Experience
-
-- **Native menus** with keyboard shortcuts
-- **System notifications** and tray integration
-- **Auto-updater** with GitHub releases
-- **File system access** with security validation
-- **Cross-platform** builds (macOS, Windows, Linux)
-
-### Developer Experience
-
-- **Hot reload** in development
-- **Comprehensive testing** setup
-- **Type-safe** Rust ↔ React communication
-- **CLI tools** for common tasks
-- **AI assistants** for code generation and review
-
-### Production Ready
-
-- **Security best practices** built-in
-- **Error handling** and logging
-- **Performance optimization** patterns
-- **CI/CD workflows** included
-- **Documentation** for maintenance
-
-## 🔧 Customization
-
-### Adding New Features
-
-1. **Commands**: Add to `src/lib/commands/`
-2. **UI State**: Extend Zustand stores in `src/store/`
-3. **Rust APIs**: Add Tauri commands in `src-tauri/src/lib.rs`
-4. **Documentation**: Update relevant docs in `docs/`
-
-### Configuration
-
-- **App metadata**: `src-tauri/tauri.conf.json`
-- **Build settings**: `src-tauri/Cargo.toml`
-- **Dependencies**: `package.json`
-
-## 🚀 Production Checklist
-
-Before deploying your application to production, ensure you complete these critical steps:
-
-### Security Requirements (CRITICAL)
-
-- [ ] **Generate proper Ed25519 updater keys** - Replace placeholder keys in `src-tauri/tauri.conf.json`
-- [ ] **Store private keys securely** - Never commit signing keys to version control
-- [ ] **Review plugin permissions** - Remove unused permissions in `src-tauri/capabilities/desktop.json`
-
-### App Configuration
-
-- [ ] **Update app metadata** - Change productName, version, identifier, publisher in `tauri.conf.json`
-- [ ] **Update package.json** - Set correct name, author, license, and copyright
-- [ ] **Configure proper logging** - Set production log levels (Info, not Debug)
-- [ ] **Set up error tracking** - Add Sentry, Rollbar, or similar service
-
-### Quality Assurance
-
-- [ ] **Run full test suite** - `npm run check:all` must pass
-- [ ] **Test on all target platforms** - macOS, Windows, Linux as needed
-- [ ] **Verify auto-updater flow** - Test with signed releases
-- [ ] **Performance testing** - Ensure app performs well with real data
-
-### Distribution
-
-- [ ] **Code signing certificates** - Set up proper certificates for each platform
-- [ ] **Release automation** - Configure CI/CD for automated builds and releases
-- [ ] **Update server setup** - Configure server for hosting app updates
-- [ ] **Analytics setup** - Add usage analytics if desired
-
-**📖 For detailed security instructions, see [SECURITY_PRODUCTION.md](docs/SECURITY_PRODUCTION.md)**
-
-## 📋 License
-
-This project is licensed under the [MIT](LICENSE.md) license.
-
-**Note:** Earlier versions incorrectly stated AGPL-3.0-or-later licensing. This was an error; all versions should be considered MIT licensed.
-
-## 🤝 Contributing
-
-Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for contribution guidelines.
-
-## 🔒 Security
-
-For security concerns, please see [SECURITY.md](docs/SECURITY.md).
+MIT
 
 ---
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-- [Cursor](https://cursor.sh/) with the included `.claude/agents/` for AI-assisted development
+<p align="center">
+  <em>"An agent can carry out tasks, but the final responsibility should always remain with a human."</em><br>
+  <small>Policy based on <a href="https://linear.app/developers/aig">Linear's framework</a></small>
+</p>
