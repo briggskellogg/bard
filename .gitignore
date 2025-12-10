@@ -29,3 +29,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IDE-specific
+.cursor/
+
+# Lock files (using pnpm)
+package-lock.json
+yarn.lock

@@ -11,10 +11,7 @@ Archives persist locally. Search with H. Everything keyboard-driven.
 ## Setup
 
 1. Get an [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys)
-2. Add it to `src/hooks/useApiKey.ts`:
-   ```typescript
-   const EMBEDDED_API_KEY = 'your_key'
-   ```
+2. Copy `.env.example` to `.env` and add your keys
 3. `pnpm install && pnpm tauri build`
 
 ## Keys
