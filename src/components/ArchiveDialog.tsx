@@ -421,10 +421,10 @@ export function ArchiveDialog() {
             </div>
           </SheetHeader>
 
-          {/* Search bar and filter row */}
-          <div className="flex items-center gap-3 mb-[21px]">
+          {/* Search bar and filter row - same width as memo cards */}
+          <div className="flex items-center gap-3 mb-[21px] -mx-[34px] sm:-mx-[55px] px-[34px] sm:px-[55px]">
             {/* Search bar - takes remaining space */}
-            <div className="relative flex-1">
+            <div className="relative flex-1 min-w-0">
               <div className="absolute left-[13px] top-1/2 -translate-y-1/2">
                 <BrandSearchIcon size={18} className="opacity-40" />
               </div>
