@@ -6,7 +6,8 @@ import { useState, useCallback } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { ExternalLink, Key, Loader2 } from 'lucide-react'
+import { ArrowRight, Loader2 } from 'lucide-react'
+import orbLogo from '@/assets/orb-logo.png'
 
 interface ApiKeySetupDialogProps {
   onSave: (apiKey: string) => Promise<boolean>
@@ -26,7 +27,6 @@ export function ApiKeySetupDialog({ onSave, isOpen }: ApiKeySetupDialogProps) {
       return
     }
 
-    // Basic validation - ElevenLabs keys typically start with specific patterns
     if (trimmedKey.length < 20) {
       setError('API key seems too short')
       return
@@ -57,33 +57,36 @@ export function ApiKeySetupDialog({ onSave, isOpen }: ApiKeySetupDialogProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      
       <div className={cn(
-        'relative w-full max-w-md mx-4 p-8 rounded-2xl',
-        'bg-background border border-border/50 shadow-2xl',
-        'animate-in fade-in-0 zoom-in-95 duration-300'
+        'relative w-full max-w-sm mx-6 p-8',
+        'animate-in fade-in-0 zoom-in-95 duration-500'
       )}>
-        {/* Logo/Branding */}
-        <div className="flex flex-col items-center mb-8">
-          <div className="w-16 h-16 mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/20">
-            <Key className="w-8 h-8 text-primary" />
-          </div>
-          <h1 className="text-2xl font-semibold tracking-tight">Welcome to ElevenMemo</h1>
-          <p className="text-sm text-muted-foreground mt-2 text-center">
-            Enter your ElevenLabs API key to get started with voice transcription.
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-10">
+          <img 
+            src={orbLogo} 
+            alt="ElevenMemo" 
+            className="w-20 h-20 mb-6 rounded-[22px] shadow-lg"
+          />
+          <h1 className="text-xl font-medium tracking-tight text-foreground">
+            Welcome to ElevenMemo
+          </h1>
+          <p className="text-sm text-muted-foreground mt-2 text-center max-w-[280px]">
+            Real-time voice transcription powered by ElevenLabs Scribe
           </p>
         </div>
 
         {/* API Key Input */}
-        <div className="space-y-4">
+        <div className="space-y-5">
           <div className="space-y-2">
-            <label htmlFor="api-key" className="text-sm font-medium text-foreground/80">
-              ElevenLabs API Key
-            </label>
             <Input
               id="api-key"
               type="password"
-              placeholder="sk_..."
+              placeholder="Paste your ElevenLabs API key"
               value={apiKey}
               onChange={(e) => {
                 setApiKey(e.target.value)
@@ -92,63 +95,58 @@ export function ApiKeySetupDialog({ onSave, isOpen }: ApiKeySetupDialogProps) {
               onKeyDown={handleKeyDown}
               disabled={isSaving}
               className={cn(
-                'h-12 text-base',
-                error && 'border-red-500 focus-visible:ring-red-500'
+                'h-12 text-base bg-muted/50 border-border/50 placeholder:text-muted-foreground/50',
+                'focus:bg-background focus:border-primary/50',
+                'transition-all duration-200',
+                error && 'border-red-500/50 focus:border-red-500'
               )}
               autoFocus
             />
             {error && (
-              <p className="text-sm text-red-500">{error}</p>
+              <p className="text-xs text-red-400 pl-1">{error}</p>
             )}
           </div>
 
-          {/* Get API Key Link */}
-          <a
-            href="https://elevenlabs.io/app/settings/api-keys"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80',
-              'transition-colors'
-            )}
-            onClick={(e) => {
-              e.preventDefault()
-              // Open in default browser via Tauri
-              import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
-                openUrl('https://elevenlabs.io/app/settings/api-keys')
-              }).catch(() => {
-                // Fallback to window.open
-                window.open('https://elevenlabs.io/app/settings/api-keys', '_blank')
-              })
-            }}
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-            Get your API key from ElevenLabs
-          </a>
-
-          {/* Save Button */}
+          {/* Continue Button */}
           <Button
             onClick={handleSave}
             disabled={isSaving || !apiKey.trim()}
-            className="w-full h-12 text-base font-medium mt-4"
+            className={cn(
+              'w-full h-12 text-base font-medium',
+              'bg-primary hover:bg-primary/90',
+              'transition-all duration-200'
+            )}
           >
             {isSaving ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Saving...
-              </>
+              <Loader2 className="w-4 h-4 animate-spin" />
             ) : (
-              'Get Started'
+              <>
+                Continue
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </>
             )}
           </Button>
+
+          {/* Get API Key Link */}
+          <button
+            onClick={() => {
+              import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
+                openUrl('https://elevenlabs.io/app/settings/api-keys')
+              }).catch(() => {
+                window.open('https://elevenlabs.io/app/settings/api-keys', '_blank')
+              })
+            }}
+            className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Don't have a key? <span className="underline underline-offset-2">Get one free</span>
+          </button>
         </div>
 
-        {/* Footer Note */}
-        <p className="text-xs text-muted-foreground/60 text-center mt-6">
-          Your API key is stored locally and never shared.
+        {/* Footer */}
+        <p className="text-[11px] text-muted-foreground/40 text-center mt-8">
+          Your key is stored locally on this device
         </p>
       </div>
     </div>
   )
 }
-
