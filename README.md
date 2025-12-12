@@ -4,7 +4,7 @@ Voice-to-text that archives. Built because every transcription app either loses 
 
 ## Download
 
-[![Download ElevenMemo](https://img.shields.io/badge/Download-ElevenMemo%20v0.4-blue?style=for-the-badge)](https://github.com/briggskellogg/elevenmemo/releases/latest/download/ElevenMemo_0.4.0_aarch64.dmg)
+[![Download ElevenMemo](https://img.shields.io/badge/Download-ElevenMemo%20v0.4.1-blue?style=for-the-badge)](https://github.com/briggskellogg/elevenmemo/releases/latest/download/ElevenMemo.dmg)
 
 1. Download the DMG above
 2. Drag ElevenMemo to Applications
