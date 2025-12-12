@@ -320,7 +320,7 @@ function App() {
           alt="llMemo" 
           className="h-[21px] w-auto opacity-90"
         />
-        <div className="absolute right-[21px] flex items-center gap-2">
+        <div className="absolute right-[21px] flex items-center gap-1">
           <ArchiveDialog />
           <ThemeToggle />
         </div>
@@ -361,7 +361,7 @@ function App() {
                 size="sm"
                 onClick={isPaused ? handleResumeRecording : handlePauseRecording}
                 className={cn(
-                  'h-[34px] px-3 gap-2 rounded-lg transition-all',
+                  'h-[34px] px-2 gap-1 rounded-lg transition-all',
                   isPaused && 'bg-[#F58633]/15 hover:bg-[#F58633]/25'
                 )}
                 aria-label={isPaused ? "Resume recording" : "Pause recording"}
@@ -383,7 +383,7 @@ function App() {
             onClick={handleCopy}
             disabled={!hasContent}
             className={cn(
-              'h-[34px] px-3 gap-2 rounded-lg transition-all',
+              'h-[34px] px-2 gap-1 rounded-lg transition-all',
               copyTriggered && 'bg-[#2DD28D]/15'
             )}
             aria-label="Copy transcript"

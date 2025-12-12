@@ -133,7 +133,7 @@ export function RecordingBar({
         onClick={isRecording ? onStopRecording : onStartRecording}
         disabled={disabled || isLoading || isProcessing}
         className={cn(
-          'flex-1 h-[42px] gap-3 font-medium rounded-xl transition-all duration-200',
+          'flex-1 h-[42px] gap-1.5 font-medium rounded-xl transition-all duration-200',
           !isRecording && !isProcessing && 'bg-muted/50 hover:bg-muted/80 border border-border/30',
           isProcessing && 'opacity-70'
         )}

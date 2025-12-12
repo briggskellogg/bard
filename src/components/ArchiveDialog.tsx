@@ -371,7 +371,7 @@ export function ArchiveDialog() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-[34px] px-3 gap-2 rounded-lg"
+          className="h-[34px] px-2 gap-1 rounded-lg"
           aria-label="Vault"
           onClick={(e) => {
             e.preventDefault()
@@ -446,8 +446,8 @@ export function ArchiveDialog() {
               )}
             </div>
 
-            {/* Starred filter toggle - fixed width container */}
-            <div className="flex items-center gap-2 shrink-0 w-[70px]">
+            {/* Starred filter toggle */}
+            <div className="flex items-center gap-1.5 shrink-0">
               <Switch
                 id="starred-filter"
                 checked={showImportantOnly}
@@ -541,30 +541,8 @@ export function ArchiveDialog() {
                         {/* Spacer */}
                         <div className="flex-1" />
 
-                        {/* Action buttons - tighter spacing */}
-                        <div className="flex items-center gap-1 shrink-0">
-                          {/* Star button */}
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className={cn(
-                              "h-[28px] w-[28px] p-0 rounded-lg",
-                              transcript.isImportant && "text-amber-400"
-                            )}
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              updateTranscript(transcript.id, { isImportant: !transcript.isImportant })
-                            }}
-                            aria-label={transcript.isImportant ? "Unmark" : "Mark important"}
-                          >
-                            <Star 
-                              className={cn(
-                                "h-4 w-4",
-                                transcript.isImportant && "fill-amber-400"
-                              )} 
-                            />
-                          </Button>
-
+                        {/* Action buttons - Copy, Delete, Star */}
+                        <div className="flex items-center gap-0.5 shrink-0">
                           {/* Copy button */}
                           <Button
                             variant="ghost"
@@ -593,6 +571,28 @@ export function ArchiveDialog() {
                           >
                             <BrandTrashIcon size={15} />
                             <Kbd>D</Kbd>
+                          </Button>
+
+                          {/* Star button */}
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className={cn(
+                              "h-[28px] w-[28px] p-0 rounded-lg",
+                              transcript.isImportant && "text-amber-400"
+                            )}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              updateTranscript(transcript.id, { isImportant: !transcript.isImportant })
+                            }}
+                            aria-label={transcript.isImportant ? "Unmark" : "Mark important"}
+                          >
+                            <Star 
+                              className={cn(
+                                "h-4 w-4",
+                                transcript.isImportant && "fill-amber-400"
+                              )} 
+                            />
                           </Button>
                         </div>
                       </div>
@@ -627,7 +627,7 @@ export function ArchiveDialog() {
                   setSelectedIndex(0)
                 }}
                 disabled={currentPage === 0}
-                className="h-[32px] px-3 gap-2 rounded-lg"
+                className="h-[32px] px-2 gap-1 rounded-lg"
               >
                 <ChevronLeft className="h-4 w-4" />
                 <span className="text-[12px]">Prev</span>
@@ -643,7 +643,7 @@ export function ArchiveDialog() {
                   setSelectedIndex(0)
                 }}
                 disabled={currentPage === totalPages - 1}
-                className="h-[32px] px-3 gap-2 rounded-lg"
+                className="h-[32px] px-2 gap-1 rounded-lg"
               >
                 <span className="text-[12px]">Next</span>
                 <ChevronRight className="h-4 w-4" />
