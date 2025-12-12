@@ -461,6 +461,17 @@ fn create_app_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error
         .item(&PredefinedMenuItem::quit(app, Some("Quit Tauri Template"))?)
         .build()?;
 
+    // Build the Edit submenu with standard copy/paste/cut functionality
+    let edit_submenu = SubmenuBuilder::new(app, "Edit")
+        .item(&PredefinedMenuItem::undo(app, None)?)
+        .item(&PredefinedMenuItem::redo(app, None)?)
+        .separator()
+        .item(&PredefinedMenuItem::cut(app, None)?)
+        .item(&PredefinedMenuItem::copy(app, None)?)
+        .item(&PredefinedMenuItem::paste(app, None)?)
+        .item(&PredefinedMenuItem::select_all(app, None)?)
+        .build()?;
+
     // Build the View submenu
     let view_submenu = SubmenuBuilder::new(app, "View")
         .item(
@@ -478,6 +489,7 @@ fn create_app_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error
     // Build the main menu with submenus
     let menu = MenuBuilder::new(app)
         .item(&app_submenu)
+        .item(&edit_submenu)
         .item(&view_submenu)
         .build()?;
 
