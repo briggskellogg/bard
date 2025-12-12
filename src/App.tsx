@@ -5,6 +5,7 @@ import { RecordingBar, type ScribeLanguageCode } from './components/RecordingBar
 import { TranscriptBox } from './components/TranscriptBox'
 import { ArchiveDialog } from './components/ArchiveDialog'
 import { ThemeToggle } from './components/ThemeToggle'
+import { ApiKeySetupDialog } from './components/ApiKeySetupDialog'
 import { useApiKey } from './hooks/useApiKey'
 import { useAnthropicApiKey } from './hooks/useAnthropicApiKey'
 import { useArchive } from './hooks/useArchive'
@@ -36,7 +37,7 @@ function Kbd({ children, className }: { children: React.ReactNode; className?: s
 }
 
 function App() {
-  const { apiKey, isLoaded } = useApiKey()
+  const { apiKey, isLoaded, hasApiKey, saveApiKey } = useApiKey()
   useAnthropicApiKey() // Initialize Anthropic API key from env/localStorage
   const { archiveTranscript } = useArchive()
   const { setArchiveDialogOpen, theme } = useSettingsStore()
@@ -288,6 +289,24 @@ function App() {
   const isDark = theme === 'dark' || 
     (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
   const headerLogo = isDark ? llmemoLogoLight : llmemoLogoDark
+
+  // Show loading state while API key is being loaded
+  if (!isLoaded) {
+    return (
+      <div className="flex flex-col h-screen bg-background text-foreground items-center justify-center">
+        <div className="animate-pulse text-muted-foreground">Loading...</div>
+      </div>
+    )
+  }
+
+  // Show API key setup dialog if no key configured
+  if (!hasApiKey) {
+    return (
+      <div className="flex flex-col h-screen bg-background text-foreground">
+        <ApiKeySetupDialog isOpen={true} onSave={saveApiKey} />
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col h-screen bg-background text-foreground">

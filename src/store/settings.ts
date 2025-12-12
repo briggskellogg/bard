@@ -12,7 +12,7 @@ export interface ArchivedSpeaker {
 }
 
 // Default category tags
-export const DEFAULT_CATEGORIES = ['Note', 'Message', 'Rant', 'Idea', 'Meeting', 'Conversation', 'Task'] as const
+export const DEFAULT_CATEGORIES = ['Note', 'Message', 'Rant', 'Idea', 'Meeting', 'Conversation', 'Task', 'Journal'] as const
 export type DefaultCategory = typeof DEFAULT_CATEGORIES[number]
 
 export interface ArchivedTranscript {

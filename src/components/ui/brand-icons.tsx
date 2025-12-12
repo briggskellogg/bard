@@ -776,6 +776,27 @@ export function CategoryTaskIcon({ size = 24, className }: BrandIconProps) {
   )
 }
 
+// Journal icon - open book for personal entries
+export function CategoryJournalIcon({ size = 24, className }: BrandIconProps) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 48 48" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn('shrink-0', className)}
+    >
+      {/* Open book - left page */}
+      <path d="M24 14C24 11.79 21.31 10 18 10H8V34H18.5C20.16 34 21.72 34.42 23 35.2C22.09 35.72 21.05 36 20 36H18.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Open book - right page */}
+      <path d="M24 14C24 11.79 26.69 10 30 10H40V34H29.5C27.84 34 26.28 34.42 25 35.2C25.91 35.72 26.95 36 28 36H29.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Spine */}
+      <path d="M24 14V38" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 // Gem icon - for most interesting/deep transcripts
 export function GemIcon({ size = 24, className }: BrandIconProps) {
   return (

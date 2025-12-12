@@ -12,6 +12,7 @@ import {
   CategoryMeetingIcon,
   CategoryConversationIcon,
   CategoryTaskIcon,
+  CategoryJournalIcon,
 } from '@/components/ui/brand-icons'
 
 // ElevenLabs brand color mapping for categories
@@ -51,6 +52,11 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string
     text: 'text-[#2DD28D]',
     border: 'border-[#2DD28D]/30',
   },
+  Journal: {
+    bg: 'bg-[#F59E0B]/15',
+    text: 'text-[#F59E0B]',
+    border: 'border-[#F59E0B]/30',
+  },
 }
 
 // Category icon mapping
@@ -62,6 +68,7 @@ const CATEGORY_ICONS: Record<string, React.ComponentType<{ size?: number; classN
   Meeting: CategoryMeetingIcon,
   Conversation: CategoryConversationIcon,
   Task: CategoryTaskIcon,
+  Journal: CategoryJournalIcon,
 }
 
 // Helper to get category icon component
@@ -269,11 +276,11 @@ interface CategorySelectorProps {
 export function CategorySelector({
   value,
   onChange,
-  categories = ['Note', 'Message', 'Rant', 'Idea', 'Meeting', 'Conversation', 'Task'],
+  categories = ['Note', 'Message', 'Rant', 'Idea', 'Meeting', 'Conversation', 'Task', 'Journal'],
   className,
 }: CategorySelectorProps) {
   return (
-    <div className={cn('flex flex-wrap gap-2', className)}>
+    <div className={cn('flex flex-wrap gap-1.5', className)}>
       {categories.map((category) => (
         <CategoryTag
           key={category}
@@ -281,7 +288,7 @@ export function CategorySelector({
           size="sm"
           selected={value === category}
           onClick={() => onChange(category)}
-          showLabel={true}
+          showLabel={value === category} // Only show label for selected category
         />
       ))}
     </div>
