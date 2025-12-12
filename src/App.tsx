@@ -10,6 +10,7 @@ import { useApiKey } from './hooks/useApiKey'
 import { useAnthropicApiKey } from './hooks/useAnthropicApiKey'
 import { useArchive } from './hooks/useArchive'
 import { useScribeTranscription } from './hooks/useScribeTranscription'
+import { usePlatform } from './hooks/use-platform'
 import { useSettingsStore } from './store/settings'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -41,6 +42,7 @@ function App() {
   useAnthropicApiKey() // Initialize Anthropic API key from env/localStorage
   const { archiveTranscript } = useArchive()
   const { setArchiveDialogOpen, theme } = useSettingsStore()
+  const { isMobile, isDesktop } = usePlatform()
   const [isStarting, setIsStarting] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
@@ -210,8 +212,11 @@ function App() {
     useSettingsStore.getState().setTheme(newTheme)
   }, [theme])
 
-  // Global keyboard shortcuts
+  // Global keyboard shortcuts (desktop only)
   useEffect(() => {
+    // Skip keyboard shortcuts on mobile
+    if (isMobile) return
+
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't trigger shortcuts when typing in inputs
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
@@ -283,7 +288,7 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
+  }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
   // Determine which logos to use based on theme
   const isDark = theme === 'dark' || 
@@ -310,24 +315,33 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen bg-background text-foreground">
-      {/* Header - φ⁴ height (55px) */}
+      {/* Header - φ⁴ height (55px), with safe area padding for iOS notch */}
       <header 
-        className="relative flex items-center justify-center h-[55px] shrink-0"
-        data-tauri-drag-region
+        className={cn(
+          "relative flex items-center justify-center shrink-0",
+          isMobile ? "h-[55px] pt-[env(safe-area-inset-top)]" : "h-[55px]"
+        )}
+        {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
         <img 
           src={headerLogo} 
           alt="llMemo" 
           className="h-[21px] w-auto opacity-90"
         />
-        <div className="absolute right-[21px] flex items-center gap-1">
+        <div className={cn(
+          "absolute flex items-center gap-1",
+          isMobile ? "right-[16px]" : "right-[21px]"
+        )}>
           <ArchiveDialog />
           <ThemeToggle />
         </div>
       </header>
 
-      {/* Main Content - φ² padding (21px) */}
-      <main className="flex flex-col flex-1 px-[21px] pb-[13px] gap-[13px] overflow-hidden">
+      {/* Main Content - φ² padding (21px on desktop, 16px on mobile) */}
+      <main className={cn(
+        "flex flex-col flex-1 pb-[13px] gap-[13px] overflow-hidden",
+        isMobile ? "px-[16px]" : "px-[21px]"
+      )}>
         {/* Recording Bar */}
         <RecordingBar
           isRecording={isRecording}
@@ -371,7 +385,8 @@ function App() {
                 ) : (
                   <BrandPauseIcon size={18} />
                 )}
-                <Kbd>P</Kbd>
+                {/* Hide keyboard hint on mobile */}
+                {!isMobile && <Kbd>P</Kbd>}
               </Button>
             )}
           </div>
@@ -393,7 +408,8 @@ function App() {
             ) : (
               <BrandCopyIcon size={18} />
             )}
-            <Kbd>C</Kbd>
+            {/* Hide keyboard hint on mobile */}
+            {!isMobile && <Kbd>C</Kbd>}
           </Button>
         </div>
 
@@ -411,8 +427,13 @@ function App() {
         />
       </main>
 
-      {/* Footer - minimal, elegant */}
-      <footer className="relative flex items-center justify-center h-[55px] px-[21px] border-t border-border/20">
+      {/* Footer - minimal, elegant, with safe area padding for iOS home indicator */}
+      <footer className={cn(
+        "relative flex items-center justify-center border-t border-border/20",
+        isMobile 
+          ? "h-auto min-h-[55px] px-[16px] pb-[env(safe-area-inset-bottom)]" 
+          : "h-[55px] px-[21px]"
+      )}>
         <p className="text-[10px] text-muted-foreground/50 tracking-wide">
           All processing happens locally on your device
         </p>
@@ -424,7 +445,10 @@ function App() {
               window.open('https://github.com/briggskellogg/elevenmemo', '_blank')
             })
           }}
-          className="absolute right-[21px] p-0 border-0 bg-transparent cursor-pointer"
+          className={cn(
+            "absolute p-0 border-0 bg-transparent cursor-pointer",
+            isMobile ? "right-[16px]" : "right-[21px]"
+          )}
           aria-label="View on GitHub"
         >
           <img 

@@ -49,7 +49,7 @@
     "publisher": "ElevenLabs",
     "category": "Productivity",
     "shortDescription": "Real-time voice transcription powered by Scribe v2",
-    "longDescription": "ElevenMemo is a desktop application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
+    "longDescription": "ElevenMemo is a mobile application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
     "copyright": "Copyright © 2025 ElevenLabs. All rights reserved.",
     "macOS": {
       "frameworks": [],
@@ -59,6 +59,10 @@
       "entitlements": "entitlements.plist",
       "exceptionDomain": "",
       "infoPlist": "Info.plist"
+    },
+    "iOS": {
+      "developmentTeam": "24KAG7M42P",
+      "minimumSystemVersion": "14.0"
     }
   },
   "plugins": {

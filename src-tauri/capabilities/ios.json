@@ -1,0 +1,37 @@
+{
+  "$schema": "../gen/schemas/ios-schema.json",
+  "identifier": "ios",
+  "description": "Capability for iOS mobile devices",
+  "platforms": ["iOS"],
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:default",
+    "opener:default",
+    "os:default",
+    "clipboard-manager:default",
+    "dialog:default",
+    "fs:default",
+    {
+      "identifier": "fs:allow-read-text-file",
+      "allow": [{ "path": "$APPDATA/**" }]
+    },
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [{ "path": "$APPDATA/**" }]
+    },
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [{ "path": "$APPDATA/**" }]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [{ "path": "$APPDATA/**" }]
+    },
+    "log:default",
+    "notification:default",
+    "process:default",
+    "store:default"
+  ]
+}
+

@@ -446,8 +446,8 @@ export function ArchiveDialog() {
               )}
             </div>
 
-            {/* Starred filter toggle */}
-            <div className="flex items-center gap-1.5 shrink-0">
+            {/* Starred filter toggle - fixed width to prevent search bar resizing */}
+            <div className="flex items-center justify-end gap-1.5 shrink-0 w-[60px]">
               <Switch
                 id="starred-filter"
                 checked={showImportantOnly}

@@ -3,8 +3,11 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::path::PathBuf;
 use std::time::{SystemTime, UNIX_EPOCH};
+#[cfg(not(mobile))]
 use tauri::menu::{MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuilder};
-use tauri::{AppHandle, Emitter, Manager};
+#[cfg(not(mobile))]
+use tauri::Emitter;
+use tauri::{AppHandle, Manager};
 
 
 // Validation functions
@@ -438,7 +441,8 @@ async fn cleanup_old_recovery_files(app: AppHandle) -> Result<u32, String> {
     Ok(removed_count)
 }
 
-// Create the native menu system
+// Create the native menu system (desktop only)
+#[cfg(not(mobile))]
 fn create_app_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     log::info!("Setting up native menu system");
 
@@ -500,10 +504,75 @@ fn create_app_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error
     Ok(())
 }
 
+// Setup menu event handlers (desktop only)
+#[cfg(not(mobile))]
+fn setup_menu_events(app: &tauri::App) {
+    app.on_menu_event(move |app, event| {
+        log::debug!("Menu event received: {:?}", event.id());
+
+        match event.id().as_ref() {
+            "about" => {
+                log::info!("About menu item clicked");
+                match app.emit("menu-about", ()) {
+                    Ok(_) => log::debug!("Successfully emitted menu-about event"),
+                    Err(e) => log::error!("Failed to emit menu-about event: {e}"),
+                }
+            }
+            "check-updates" => {
+                log::info!("Check for Updates menu item clicked");
+                match app.emit("menu-check-updates", ()) {
+                    Ok(_) => log::debug!("Successfully emitted menu-check-updates event"),
+                    Err(e) => log::error!("Failed to emit menu-check-updates event: {e}"),
+                }
+            }
+            "preferences" => {
+                log::info!("Preferences menu item clicked");
+                match app.emit("menu-preferences", ()) {
+                    Ok(_) => log::debug!("Successfully emitted menu-preferences event"),
+                    Err(e) => log::error!("Failed to emit menu-preferences event: {e}"),
+                }
+            }
+            "toggle-left-sidebar" => {
+                log::info!("Toggle Left Sidebar menu item clicked");
+                match app.emit("menu-toggle-left-sidebar", ()) {
+                    Ok(_) => {
+                        log::debug!("Successfully emitted menu-toggle-left-sidebar event")
+                    }
+                    Err(e) => {
+                        log::error!("Failed to emit menu-toggle-left-sidebar event: {e}")
+                    }
+                }
+            }
+            "toggle-right-sidebar" => {
+                log::info!("Toggle Right Sidebar menu item clicked");
+                match app.emit("menu-toggle-right-sidebar", ()) {
+                    Ok(_) => {
+                        log::debug!("Successfully emitted menu-toggle-right-sidebar event")
+                    }
+                    Err(e) => {
+                        log::error!("Failed to emit menu-toggle-right-sidebar event: {e}")
+                    }
+                }
+            }
+            _ => {
+                log::debug!("Unhandled menu event: {:?}", event.id());
+            }
+        }
+    });
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    tauri::Builder::default()
-        .plugin(tauri_plugin_updater::Builder::new().build())
+    let mut builder = tauri::Builder::default();
+
+    // Add updater plugin only on desktop platforms
+    #[cfg(not(mobile))]
+    {
+        builder = builder.plugin(tauri_plugin_updater::Builder::new().build());
+    }
+
+    builder
+        .plugin(tauri_plugin_os::init())
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_notification::init())
         .plugin(
@@ -540,70 +609,15 @@ pub fn run() {
                 app.package_info().name
             );
 
-            // Set up native menu system
-            if let Err(e) = create_app_menu(app) {
-                log::error!("Failed to create app menu: {e}");
-                return Err(e);
-            }
-
-            // Set up menu event handlers
-            app.on_menu_event(move |app, event| {
-                log::debug!("Menu event received: {:?}", event.id());
-
-                match event.id().as_ref() {
-                    "about" => {
-                        log::info!("About menu item clicked");
-                        // Emit event to React for handling
-                        match app.emit("menu-about", ()) {
-                            Ok(_) => log::debug!("Successfully emitted menu-about event"),
-                            Err(e) => log::error!("Failed to emit menu-about event: {e}"),
-                        }
-                    }
-                    "check-updates" => {
-                        log::info!("Check for Updates menu item clicked");
-                        // Emit event to React for handling
-                        match app.emit("menu-check-updates", ()) {
-                            Ok(_) => log::debug!("Successfully emitted menu-check-updates event"),
-                            Err(e) => log::error!("Failed to emit menu-check-updates event: {e}"),
-                        }
-                    }
-                    "preferences" => {
-                        log::info!("Preferences menu item clicked");
-                        // Emit event to React for handling
-                        match app.emit("menu-preferences", ()) {
-                            Ok(_) => log::debug!("Successfully emitted menu-preferences event"),
-                            Err(e) => log::error!("Failed to emit menu-preferences event: {e}"),
-                        }
-                    }
-                    "toggle-left-sidebar" => {
-                        log::info!("Toggle Left Sidebar menu item clicked");
-                        // Emit event to React for handling
-                        match app.emit("menu-toggle-left-sidebar", ()) {
-                            Ok(_) => {
-                                log::debug!("Successfully emitted menu-toggle-left-sidebar event")
-                            }
-                            Err(e) => {
-                                log::error!("Failed to emit menu-toggle-left-sidebar event: {e}")
-                            }
-                        }
-                    }
-                    "toggle-right-sidebar" => {
-                        log::info!("Toggle Right Sidebar menu item clicked");
-                        // Emit event to React for handling
-                        match app.emit("menu-toggle-right-sidebar", ()) {
-                            Ok(_) => {
-                                log::debug!("Successfully emitted menu-toggle-right-sidebar event")
-                            }
-                            Err(e) => {
-                                log::error!("Failed to emit menu-toggle-right-sidebar event: {e}")
-                            }
-                        }
-                    }
-                    _ => {
-                        log::debug!("Unhandled menu event: {:?}", event.id());
-                    }
+            // Set up native menu system (desktop only)
+            #[cfg(not(mobile))]
+            {
+                if let Err(e) = create_app_menu(app) {
+                    log::error!("Failed to create app menu: {e}");
+                    return Err(e);
                 }
-            });
+                setup_menu_events(app);
+            }
 
             // Example of different log levels
             log::trace!("This is a trace message (most verbose)");
