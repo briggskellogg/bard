@@ -416,11 +416,23 @@ function App() {
         <p className="text-[10px] text-muted-foreground/50 tracking-wide">
           All processing happens locally on your device
         </p>
-        <img 
-          src={orbLogo} 
-          alt="" 
-          className="absolute right-[21px] h-[21px] w-[21px] rounded-full opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300"
-        />
+        <button
+          onClick={() => {
+            import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
+              openUrl('https://github.com/briggskellogg/elevenmemo')
+            }).catch(() => {
+              window.open('https://github.com/briggskellogg/elevenmemo', '_blank')
+            })
+          }}
+          className="absolute right-[21px] p-0 border-0 bg-transparent cursor-pointer"
+          aria-label="View on GitHub"
+        >
+          <img 
+            src={orbLogo} 
+            alt="GitHub" 
+            className="h-[21px] w-[21px] rounded-full opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300"
+          />
+        </button>
       </footer>
     </div>
   )

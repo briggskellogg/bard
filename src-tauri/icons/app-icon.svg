@@ -1,0 +1,62 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C85A54"/>
+      <stop offset="50%" style="stop-color:#B85550"/>
+      <stop offset="100%" style="stop-color:#A84A45"/>
+    </linearGradient>
+    <!-- Noise texture overlay -->
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="overlay" />
+    </filter>
+  </defs>
+  
+  <!-- Background fill -->
+  <rect width="1024" height="1024" fill="url(#bgGradient)"/>
+  
+  <!-- Main circle outline -->
+  <circle cx="512" cy="512" r="380" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="4"/>
+  
+  <!-- Outer curved petals - top area (lighter) -->
+  <path d="M512 132 Q720 250 720 512" fill="#D4847D" stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
+  <path d="M512 132 Q304 250 304 512" fill="#E0A099" stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
+  
+  <!-- Outer curved petals - bottom area -->
+  <path d="M720 512 Q720 774 512 892" fill="#C47068" stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
+  <path d="M304 512 Q304 774 512 892" fill="#D08078" stroke="rgba(255,255,255,0.8)" stroke-width="3"/>
+  
+  <!-- Inner flower pattern - 6 curved petals radiating from center -->
+  <!-- Petal 1 - top right -->
+  <path d="M512 512 Q620 380 512 280 Q560 400 512 512" fill="#D4847D" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  
+  <!-- Petal 2 - right -->
+  <path d="M512 512 Q700 450 760 512 Q650 512 512 512" fill="#C87068" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  
+  <!-- Petal 3 - bottom right -->
+  <path d="M512 512 Q620 644 512 744 Q560 624 512 512" fill="#D4847D" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  
+  <!-- Petal 4 - bottom left -->
+  <path d="M512 512 Q404 644 512 744 Q464 624 512 512" fill="#C47068" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  
+  <!-- Petal 5 - left -->
+  <path d="M512 512 Q324 450 264 512 Q374 512 512 512" fill="#D08078" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  
+  <!-- Petal 6 - top left -->
+  <path d="M512 512 Q404 380 512 280 Q464 400 512 512" fill="#E0A099" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  
+  <!-- Decorative curved lines connecting outer to inner -->
+  <path d="M350 200 Q250 350 280 500" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+  <path d="M674 200 Q774 350 744 500" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+  <path d="M200 600 Q280 750 450 824" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+  <path d="M824 600 Q744 750 574 824" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+  
+  <!-- Additional inner curves for depth -->
+  <path d="M400 300 Q350 420 400 512" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+  <path d="M624 300 Q674 420 624 512" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+  <path d="M400 724 Q350 604 400 512" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+  <path d="M624 724 Q674 604 624 512" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+</svg>
+
