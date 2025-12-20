@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
 import { FolderArchive } from 'lucide-react'
-import echoIconTransparent from './assets/echo-icon-transparent.png'
+import echoLogo from './assets/echo-logo.png'
 import bekBlack from './assets/bek-black.png'
 import bekWhite from './assets/bek-white.png'
 import './App.css'
@@ -291,7 +291,7 @@ function App() {
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
   // Echo logo
-  const headerLogo = echoIconTransparent
+  const headerLogo = echoLogo
   // BEK logo for footer - theme-aware
   const footerLogo = theme === 'dark' ? bekWhite : bekBlack
 
