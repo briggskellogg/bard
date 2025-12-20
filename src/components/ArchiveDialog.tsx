@@ -542,19 +542,19 @@ export function ArchiveDialog() {
                         <div className="flex-1" />
 
                         {/* Action buttons - Copy, Delete */}
-                        <div className="flex items-center gap-1 shrink-0">
+                        <div className="flex items-center -mr-1 shrink-0">
                           {/* Copy button */}
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[24px] px-1 gap-0.5 rounded-md"
+                            className="h-[22px] px-0.5 gap-0 rounded-md"
                             onClick={(e) => {
                               e.stopPropagation()
                               copyTranscript(transcript.text)
                             }}
                             aria-label="Copy"
                           >
-                            <BrandCopyIcon size={13} />
+                            <BrandCopyIcon size={12} />
                             <Kbd>C</Kbd>
                           </Button>
 
@@ -562,14 +562,14 @@ export function ArchiveDialog() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[24px] px-1 gap-0.5 rounded-md hover:bg-destructive/10 hover:text-destructive"
+                            className="h-[22px] px-0.5 gap-0 rounded-md hover:bg-destructive/10 hover:text-destructive"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleDelete(transcript.id)
                             }}
                             aria-label="Delete"
                           >
-                            <BrandTrashIcon size={13} />
+                            <BrandTrashIcon size={12} />
                             <Kbd>D</Kbd>
                           </Button>
                         </div>
