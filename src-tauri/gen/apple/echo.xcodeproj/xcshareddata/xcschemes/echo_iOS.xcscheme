@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5202E45D3361A928DAA2E52A"
-               BuildableName = "ElevenMemo.app"
-               BlueprintName = "elevenmemo_iOS"
-               ReferencedContainer = "container:elevenmemo.xcodeproj">
+               BuildableName = "Echo.app"
+               BlueprintName = "echo_iOS"
+               ReferencedContainer = "container:echo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5202E45D3361A928DAA2E52A"
-            BuildableName = "ElevenMemo.app"
-            BlueprintName = "elevenmemo_iOS"
-            ReferencedContainer = "container:elevenmemo.xcodeproj">
+            BuildableName = "Echo.app"
+            BlueprintName = "echo_iOS"
+            ReferencedContainer = "container:echo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5202E45D3361A928DAA2E52A"
-            BuildableName = "ElevenMemo.app"
-            BlueprintName = "elevenmemo_iOS"
-            ReferencedContainer = "container:elevenmemo.xcodeproj">
+            BuildableName = "Echo.app"
+            BlueprintName = "echo_iOS"
+            ReferencedContainer = "container:echo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5202E45D3361A928DAA2E52A"
-            BuildableName = "ElevenMemo.app"
-            BlueprintName = "elevenmemo_iOS"
-            ReferencedContainer = "container:elevenmemo.xcodeproj">
+            BuildableName = "Echo.app"
+            BlueprintName = "echo_iOS"
+            ReferencedContainer = "container:echo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>

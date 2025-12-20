@@ -1,6 +1,6 @@
-name: elevenmemo
+name: echo
 options:
-  bundleIdPrefix: com.elevenlabs.elevenmemo
+  bundleIdPrefix: com.echo.app
   deploymentTarget:
     iOS: 14.0
 fileGroups: [../../src]
@@ -10,8 +10,8 @@ configs:
 settingGroups:
   app:
     base:
-      PRODUCT_NAME: ElevenMemo
-      PRODUCT_BUNDLE_IDENTIFIER: com.elevenlabs.elevenmemo
+      PRODUCT_NAME: Echo
+      PRODUCT_BUNDLE_IDENTIFIER: com.echo.app
       DEVELOPMENT_TEAM: 24KAG7M42P
 targetTemplates:
   app:
@@ -25,20 +25,20 @@ targetTemplates:
     settings:
       groups: [app]
 targets:
-  elevenmemo_iOS:
+  echo_iOS:
     type: application
     platform: iOS
     sources:
       - path: Sources
       - path: Assets.xcassets
       - path: Externals
-      - path: elevenmemo_iOS
+      - path: echo_iOS
       - path: assets
         buildPhase: resources
         type: folder
       - path: LaunchScreen.storyboard
     info:
-      path: elevenmemo_iOS/Info.plist
+      path: echo_iOS/Info.plist
       properties:
         LSRequiresIPhoneOS: true
         UILaunchStoryboardName: LaunchScreen
@@ -54,10 +54,10 @@ targets:
           - UIInterfaceOrientationLandscapeRight
         CFBundleShortVersionString: 0.4.1
         CFBundleVersion: "0.4.1"
-        NSMicrophoneUsageDescription: "ElevenMemo needs microphone access to transcribe your voice recordings in real-time."
-        NSSpeechRecognitionUsageDescription: "ElevenMemo uses speech recognition to provide real-time voice transcription."
+        NSMicrophoneUsageDescription: "Echo needs microphone access to transcribe your voice recordings in real-time."
+        NSSpeechRecognitionUsageDescription: "Echo uses speech recognition to provide real-time voice transcription."
     entitlements:
-      path: elevenmemo_iOS/elevenmemo_iOS.entitlements
+      path: echo_iOS/echo_iOS.entitlements
     scheme:
       environmentVariables:
         RUST_BACKTRACE: full
