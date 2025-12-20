@@ -451,7 +451,7 @@ function App() {
           <img 
             src={echoIcon} 
             alt="GitHub" 
-            className="h-[16px] w-[16px] grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-200"
+            className="h-[16px] w-[16px] opacity-40"
           />
         </button>
       </footer>

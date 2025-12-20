@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
 import {
   BrandMicIcon,
   BrandLanguagesIcon,
@@ -127,41 +126,41 @@ export function RecordingBar({
 
   return (
     <div className="flex items-center gap-2 p-[6px] rounded-2xl bg-muted/10 border border-border/20">
-      {/* Start/Stop Recording Button */}
-      <Button
-        variant={isRecording || isProcessing ? "destructive" : "secondary"}
+      {/* Start/Stop Recording Button - 1/3 width */}
+      <button
         onClick={isRecording ? onStopRecording : onStartRecording}
         disabled={disabled || isLoading || isProcessing}
         className={cn(
-          'flex-1 h-[40px] gap-2 font-medium rounded-xl transition-all duration-300',
-          !isRecording && !isProcessing && 'bg-muted/40 hover:bg-muted/60 border-0 shadow-sm',
-          isRecording && 'shadow-lg shadow-destructive/20',
-          isProcessing && 'opacity-70'
+          'flex-1 basis-1/3 h-[40px] flex items-center gap-2 px-4 rounded-xl transition-all duration-200',
+          'bg-muted/40 hover:bg-muted/60 shadow-sm',
+          isRecording && 'bg-destructive/20 hover:bg-destructive/30',
+          isProcessing && 'opacity-70',
+          (disabled || isLoading || isProcessing) && 'cursor-not-allowed opacity-50'
         )}
       >
         {isLoading || isProcessing ? (
-          <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+          <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent opacity-50" />
         ) : isRecording ? (
-          <BrandStopIcon size={18} />
+          <BrandStopIcon size={18} className="opacity-50 shrink-0" />
         ) : (
-          <BrandRecordIcon size={18} />
+          <BrandRecordIcon size={18} className="opacity-50 shrink-0" />
         )}
-        <span className="text-[13px] tracking-wide">
+        <span className="truncate text-[12px] opacity-70">
           {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New' : 'Record'}
         </span>
-        {!isProcessing && <Kbd className="ml-1">{isRecording ? 'E' : 'R'}</Kbd>}
-      </Button>
+        {!isProcessing && <Kbd className="ml-auto shrink-0">{isRecording ? 'E' : 'R'}</Kbd>}
+      </button>
 
-      {/* Microphone Selector */}
+      {/* Microphone Selector - 1/3 width */}
       <Select
         value={effectiveDeviceId}
         onValueChange={onDeviceChange}
         disabled={isRecording}
       >
-        <SelectTrigger className="flex-1 min-w-0 h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
+        <SelectTrigger className="flex-1 basis-1/3 min-w-0 h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
           <BrandMicIcon size={18} className="opacity-50 shrink-0" />
           <SelectValue placeholder="Select mic">
-            <span className="truncate text-[12px] block max-w-[80px] opacity-70">
+            <span className="truncate text-[12px] opacity-70">
               {getSelectedDeviceDisplay()}
             </span>
           </SelectValue>
@@ -180,13 +179,13 @@ export function RecordingBar({
         </SelectContent>
       </Select>
 
-      {/* Language Selector */}
+      {/* Language Selector - 1/3 width */}
       <Select
         value={selectedLanguage}
         onValueChange={(value) => onLanguageChange(value as ScribeLanguageCode)}
         disabled={isRecording}
       >
-        <SelectTrigger className="w-[100px] h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
+        <SelectTrigger className="flex-1 basis-1/3 min-w-0 h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
           <BrandLanguagesIcon size={18} className="opacity-50 shrink-0" />
           <SelectValue>
             <span className="truncate text-[12px] opacity-70">{currentLanguage?.name}</span>
