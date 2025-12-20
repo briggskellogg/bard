@@ -16,9 +16,8 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
 import { FolderArchive } from 'lucide-react'
-import llmemoLogoDark from './assets/llmemo-logo-dark.svg'
-import llmemoLogoLight from './assets/llmemo-logo-light.svg'
-import orbLogo from './assets/orb-logo.png'
+import echoLogo from './assets/echo-logo.png'
+import echoIcon from './assets/echo-icon.png'
 import './App.css'
 
 // Golden ratio based spacing (φ ≈ 1.618)
@@ -290,10 +289,8 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
-  // Determine which logos to use based on theme
-  const isDark = theme === 'dark' || 
-    (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  const headerLogo = isDark ? llmemoLogoLight : llmemoLogoDark
+  // Echo logo
+  const headerLogo = echoLogo
 
   // Show loading state while API key is being loaded
   if (!isLoaded) {
@@ -325,7 +322,7 @@ function App() {
       >
         <img 
           src={headerLogo} 
-          alt="llMemo" 
+          alt="Echo" 
           className="h-[21px] w-auto opacity-90"
         />
         <div className={cn(
@@ -440,9 +437,9 @@ function App() {
         <button
           onClick={() => {
             import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
-              openUrl('https://github.com/briggskellogg/elevenmemo')
+              openUrl('https://github.com/briggskellogg/echo')
             }).catch(() => {
-              window.open('https://github.com/briggskellogg/elevenmemo', '_blank')
+              window.open('https://github.com/briggskellogg/echo', '_blank')
             })
           }}
           className={cn(
@@ -452,7 +449,7 @@ function App() {
           aria-label="View on GitHub"
         >
           <img 
-            src={orbLogo} 
+            src={echoIcon} 
             alt="GitHub" 
             className="h-[21px] w-[21px] rounded-full opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300"
           />

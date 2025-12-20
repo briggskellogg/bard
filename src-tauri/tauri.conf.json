@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "ElevenMemo",
+  "productName": "Echo",
   "version": "0.4.1",
-  "identifier": "com.elevenlabs.elevenmemo",
+  "identifier": "com.echo.app",
   "build": {
     "removeUnusedCommands": true,
     "beforeDevCommand": "pnpm run dev",
@@ -14,7 +14,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "ElevenMemo",
+        "title": "Echo",
         "width": 600,
         "height": 800,
         "resizable": false,
@@ -46,11 +46,11 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "publisher": "ElevenLabs",
+    "publisher": "Briggs Kellogg",
     "category": "Productivity",
     "shortDescription": "Real-time voice transcription powered by Scribe v2",
-    "longDescription": "ElevenMemo is a mobile application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
-    "copyright": "Copyright © 2025 ElevenLabs. All rights reserved.",
+    "longDescription": "Echo is a voice transcription application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
+    "copyright": "Copyright © 2025 Briggs Kellogg. All rights reserved.",
     "macOS": {
       "frameworks": [],
       "minimumSystemVersion": "10.15",

@@ -1,10 +1,10 @@
 {
-  "name": "elevenmemo",
+  "name": "echo",
   "private": true,
   "version": "0.4.1",
   "type": "module",
   "author": "Briggs Kellogg",
-  "copyright": "Copyright © 2025 ElevenLabs. All rights reserved.",
+  "copyright": "Copyright © 2025 Briggs Kellogg. All rights reserved.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",

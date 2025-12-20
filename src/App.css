@@ -1,51 +1,50 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* Eleven Waldenburg - ElevenLabs brand font */
+/* PP Neue Montreal Mono - primary body font */
 @font-face {
-  font-family: 'Eleven Waldenburg';
-  src: url('/fonts/Eleven-Waldenburg-Regular.otf') format('opentype');
+  font-family: 'PP Neue Montreal Mono';
+  src: url('/fonts/PPNeueMontrealMono-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Mono';
+  src: url('/fonts/PPNeueMontrealMono-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Eleven Waldenburg';
-  src: url('/fonts/Eleven-Waldenburg-Medium.otf') format('opentype');
+  font-family: 'PP Neue Montreal Mono';
+  src: url('/fonts/PPNeueMontrealMono-Book.ttf') format('truetype');
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Mono';
+  src: url('/fonts/PPNeueMontrealMono-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Eleven Waldenburg';
-  src: url('/fonts/Eleven-Waldenburg-Bold.otf') format('opentype');
+  font-family: 'PP Neue Montreal Mono';
+  src: url('/fonts/PPNeueMontrealMono-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* Neue Machina - for display/titles (fallback) */
+/* PP Neue Montreal - for headers */
 @font-face {
-  font-family: 'Neue Machina';
-  src: url('/fonts/PPNeueMachina-InktrapRegular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Neue Machina';
-  src: url('/fonts/PPNeueMachina-InktrapMedium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Neue Montreal Plain - for body text (fallback) */
-@font-face {
-  font-family: 'Neue Montreal';
+  font-family: 'PP Neue Montreal';
   src: url('/fonts/PPNeueMontreal-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
@@ -53,7 +52,7 @@
 }
 
 @font-face {
-  font-family: 'Neue Montreal';
+  font-family: 'PP Neue Montreal';
   src: url('/fonts/PPNeueMontreal-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -61,7 +60,15 @@
 }
 
 @font-face {
-  font-family: 'Neue Montreal';
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNeueMontreal-Book.ttf') format('truetype');
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
   src: url('/fonts/PPNeueMontreal-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
@@ -129,7 +136,7 @@
   --border: oklch(0.90 0 0);
   --input: oklch(0.90 0 0);
   --ring: oklch(0.70 0 0);
-  /* ElevenLabs brand colors */
+  /* Brand colors */
   --el-purple: #C47DE5;
   --el-pink: #E273D5;
   --el-red: #EB524B;
@@ -154,7 +161,7 @@
   --sidebar-ring: oklch(0.70 0 0);
 }
 
-/* Dark theme - refined, Things 3-inspired with ElevenLabs accents */
+/* Dark theme - refined, Things 3-inspired */
 .dark {
   --background: oklch(0.12 0.005 260);
   --foreground: oklch(0.95 0 0);
@@ -174,7 +181,7 @@
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 10%);
   --ring: oklch(0.50 0 0);
-  /* ElevenLabs brand colors (same in dark mode) */
+  /* Brand colors (same in dark mode) */
   --el-purple: #C47DE5;
   --el-pink: #E273D5;
   --el-red: #EB524B;
@@ -208,10 +215,10 @@
 
   body {
     @apply text-foreground;
-    font-family: 'Eleven Waldenburg', 'Neue Montreal', -apple-system, 'SF Pro Display', 'Segoe UI', sans-serif;
+    font-family: 'PP Neue Montreal Mono', 'SF Mono', 'Menlo', monospace;
     font-size: 15px;
     line-height: 1.618; /* Golden ratio */
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     user-select: none;
@@ -225,25 +232,25 @@
     position: relative;
   }
 
-  /* All headers use Eleven Waldenburg */
+  /* All headers use PP Neue Montreal */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Eleven Waldenburg', 'Neue Machina', -apple-system, 'SF Pro Display', sans-serif;
+    font-family: 'PP Neue Montreal', -apple-system, 'SF Pro Display', sans-serif;
     font-weight: 500;
     letter-spacing: -0.02em;
   }
 
   /* Font utility classes */
   .font-display {
-    font-family: 'Eleven Waldenburg', 'Neue Machina', -apple-system, 'SF Pro Display', sans-serif;
+    font-family: 'PP Neue Montreal', -apple-system, 'SF Pro Display', sans-serif;
   }
 
   .font-body {
-    font-family: 'Eleven Waldenburg', 'Neue Montreal', -apple-system, 'SF Pro Display', sans-serif;
+    font-family: 'PP Neue Montreal Mono', 'SF Mono', 'Menlo', monospace;
   }
 
-  /* Eleven Waldenburg specific */
-  .font-eleven {
-    font-family: 'Eleven Waldenburg', -apple-system, 'SF Pro Display', sans-serif;
+  /* Mono font utility */
+  .font-mono {
+    font-family: 'PP Neue Montreal Mono', 'SF Mono', 'Menlo', monospace;
   }
 
   svg {

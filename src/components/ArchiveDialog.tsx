@@ -43,7 +43,7 @@ async function authenticateWithBiometric(): Promise<boolean> {
   try {
     const { invoke } = await import('@tauri-apps/api/core')
     const result = await invoke<boolean>('authenticate_biometric', {
-      reason: 'ElevenMemo requires authentication to access your saved memos.'
+      reason: 'Echo requires authentication to access your saved memos.'
     })
     return result
   } catch (e) {

@@ -1,13 +1,13 @@
-# ElevenMemo
+# Echo
 
 Voice-to-text that archives. Built because every transcription app either loses your recordings or makes you manage files.
 
 ## Download
 
-[![Download ElevenMemo](https://img.shields.io/badge/Download-ElevenMemo%20v0.4.1-blue?style=for-the-badge)](https://github.com/briggskellogg/elevenmemo/releases/latest/download/ElevenMemo.dmg)
+[Download the latest release](https://github.com/briggskellogg/echo/releases/latest)
 
-1. Download the DMG above
-2. Drag ElevenMemo to Applications
+1. Download `Echo.dmg` from the releases page
+2. Drag Echo to Applications
 3. Open and enter your [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys)
 
 That's it. You're ready to transcribe.
