@@ -16,8 +16,9 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
 import { FolderArchive } from 'lucide-react'
-import echoLogo from './assets/echo-logo.png'
-import echoIcon from './assets/echo-icon.png'
+import echoIconTransparent from './assets/echo-icon-transparent.png'
+import bekBlack from './assets/bek-black.png'
+import bekWhite from './assets/bek-white.png'
 import './App.css'
 
 // Golden ratio based spacing (φ ≈ 1.618)
@@ -290,7 +291,9 @@ function App() {
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
   // Echo logo
-  const headerLogo = echoLogo
+  const headerLogo = echoIconTransparent
+  // BEK logo for footer - theme-aware
+  const footerLogo = theme === 'dark' ? bekWhite : bekBlack
 
   // Show loading state while API key is being loaded
   if (!isLoaded) {
@@ -449,12 +452,12 @@ function App() {
             "group absolute p-0 border-0 bg-transparent cursor-pointer",
             isMobile ? "right-[16px]" : "right-[21px]"
           )}
-          aria-label="Echo"
+          aria-label="BEK"
         >
           <img 
-            src={echoIcon} 
-            alt="Echo" 
-            className="h-[16px] w-[16px] opacity-40"
+            src={footerLogo} 
+            alt="BEK" 
+            className="h-[16px] w-auto opacity-40 hover:opacity-70 transition-opacity duration-200"
           />
         </button>
       </footer>
