@@ -542,19 +542,19 @@ export function ArchiveDialog() {
                         <div className="flex-1" />
 
                         {/* Action buttons - Copy, Delete, Star */}
-                        <div className="flex items-center gap-0.5 shrink-0">
+                        <div className="flex items-center shrink-0">
                           {/* Copy button */}
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[28px] px-2 gap-1 rounded-lg"
+                            className="h-[26px] px-1.5 gap-0.5 rounded-md"
                             onClick={(e) => {
                               e.stopPropagation()
                               copyTranscript(transcript.text)
                             }}
                             aria-label="Copy"
                           >
-                            <BrandCopyIcon size={15} />
+                            <BrandCopyIcon size={14} />
                             <Kbd>C</Kbd>
                           </Button>
 
@@ -562,14 +562,14 @@ export function ArchiveDialog() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[28px] px-2 gap-1 rounded-lg hover:bg-destructive/10 hover:text-destructive"
+                            className="h-[26px] px-1.5 gap-0.5 rounded-md hover:bg-destructive/10 hover:text-destructive"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleDelete(transcript.id)
                             }}
                             aria-label="Delete"
                           >
-                            <BrandTrashIcon size={15} />
+                            <BrandTrashIcon size={14} />
                             <Kbd>D</Kbd>
                           </Button>
 
@@ -578,7 +578,7 @@ export function ArchiveDialog() {
                             variant="ghost"
                             size="sm"
                             className={cn(
-                              "h-[28px] w-[28px] p-0 rounded-lg",
+                              "h-[26px] w-[26px] p-0 rounded-md",
                               transcript.isImportant && "text-amber-400"
                             )}
                             onClick={(e) => {
@@ -589,7 +589,7 @@ export function ArchiveDialog() {
                           >
                             <Star 
                               className={cn(
-                                "h-4 w-4",
+                                "h-3.5 w-3.5",
                                 transcript.isImportant && "fill-amber-400"
                               )} 
                             />
