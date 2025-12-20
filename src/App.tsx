@@ -323,7 +323,7 @@ function App() {
         <img 
           src={headerLogo} 
           alt="Echo" 
-          className="h-[21px] w-auto opacity-90"
+          className="h-[14px] w-auto opacity-90"
         />
         <div className={cn(
           "absolute flex items-center gap-1",
@@ -451,7 +451,7 @@ function App() {
           <img 
             src={echoIcon} 
             alt="GitHub" 
-            className="h-[21px] w-[21px] rounded-full opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300"
+            className="h-[16px] w-[16px] opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300"
           />
         </button>
       </footer>
