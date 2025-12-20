@@ -14,18 +14,7 @@ That's it. You're ready to transcribe.
 
 ## What it does
 
-Press R. Talk. It transcribes in real-time via ElevenLabs Scribe. Your transcripts are automatically saved to a local vault. Everything keyboard-driven.
-
-## Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| R | Start/stop recording |
-| P | Pause/resume |
-| V | Open vault |
-| C | Copy transcript |
-| D | Clear transcript |
-| T | Toggle theme |
+Press Record. Talk. It transcribes in real-time via ElevenLabs Scribe. Your transcripts are automatically saved to a local vault.
 
 ## Development
 
