@@ -1,13 +1,13 @@
 # Uncomment the next line to define a global platform for your project
 
-target 'echo_iOS' do
+target 'bard_iOS' do
 platform :ios, '14.0'
-  # Pods for echo_iOS
+  # Pods for bard_iOS
 end
 
-target 'echo_macOS' do
+target 'bard_macOS' do
 platform :osx, '11.0'
-  # Pods for echo_macOS
+  # Pods for bard_macOS
 end
 
 # Delete the deployment target for iOS and macOS, causing it to be inherited from the Podfile

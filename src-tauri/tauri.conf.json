@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Echo",
+  "productName": "Bard",
   "version": "0.8.0",
-  "identifier": "com.echo.app",
+  "identifier": "com.bard.app",
   "build": {
     "removeUnusedCommands": true,
     "beforeDevCommand": "pnpm run dev",
@@ -14,7 +14,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Echo",
+        "title": "Bard",
         "width": 600,
         "height": 800,
         "resizable": false,
@@ -49,7 +49,7 @@
     "publisher": "Briggs Kellogg",
     "category": "Productivity",
     "shortDescription": "Real-time voice transcription powered by Scribe v2",
-    "longDescription": "Echo is a voice transcription application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
+    "longDescription": "Bard is a voice transcription application for real-time voice transcription using ElevenLabs Scribe v2 Realtime API.",
     "copyright": "Copyright © 2025 Briggs Kellogg. All rights reserved.",
     "macOS": {
       "frameworks": [],

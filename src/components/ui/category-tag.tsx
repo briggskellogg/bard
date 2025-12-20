@@ -1,6 +1,6 @@
 /**
  * CategoryTag - Icon-based pill component for memo categories
- * Uses Echo brand palette colors with category-specific icons
+ * Uses Bard brand palette colors with category-specific icons
  */
 
 import { cn } from '@/lib/utils'
@@ -15,7 +15,7 @@ import {
   CategoryJournalIcon,
 } from '@/components/ui/brand-icons'
 
-// Echo brand color mapping for categories
+// Bard brand color mapping for categories
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   Note: {
     bg: 'bg-[#00D4FF]/15',

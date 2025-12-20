@@ -228,7 +228,11 @@ export function TranscriptBox({
       <ScrollArea ref={scrollRef} className="flex-1 min-h-0">
         <div className="p-[21px] pb-[55px]">
           {hasContent ? (
-            <div className="text-[15px] leading-[1.7] tracking-[-0.01em]">
+            <div className={cn(
+              "text-[15px] leading-[1.7] tracking-[-0.01em]",
+              // Use PP NeueBit (8-bit font) while transcribing, PP Neue Montreal Mono when archived
+              isRecording ? "font-transcribe" : "font-body"
+            )}>
               {/* Multi-speaker view - show speaker labels */}
               {hasSpeakers ? (
                 <div className="space-y-[13px]">

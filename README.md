@@ -1,13 +1,13 @@
-# Echo
+# Bard
 
 Voice-to-text that archives. Built because every transcription app either loses your recordings or makes you manage files.
 
 ## Download
 
-[![Download Echo](https://img.shields.io/badge/Download-Echo%20v0.8.0-blue?style=for-the-badge)](https://github.com/briggskellogg/echo/releases/latest/download/Echo.dmg)
+[![Download Bard](https://img.shields.io/badge/Download-Bard%20v0.8.0-EAB308?style=for-the-badge)](https://github.com/briggskellogg/bard/releases/latest/download/Bard.dmg)
 
 1. Download the DMG above
-2. Drag Echo to Applications
+2. Drag Bard to Applications
 3. Open and enter your [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys)
 
 That's it. You're ready to transcribe.

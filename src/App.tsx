@@ -16,9 +16,8 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
 import { FolderArchive } from 'lucide-react'
-import echoLogo from './assets/echo-logo.png'
-import bekBlack from './assets/bek-black.png'
-import bekWhite from './assets/bek-white.png'
+import bardLogo from './assets/bard-logo.png'
+import bekGold from './assets/bek-gold.png'
 import './App.css'
 
 // Golden ratio based spacing (φ ≈ 1.618)
@@ -290,10 +289,10 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
-  // Echo logo
-  const headerLogo = echoLogo
-  // BEK logo for footer - theme-aware
-  const footerLogo = theme === 'dark' ? bekWhite : bekBlack
+  // Bard logo
+  const headerLogo = bardLogo
+  // BEK logo for footer - gold color
+  const footerLogo = bekGold
 
   // Show loading state while API key is being loaded
   if (!isLoaded) {
@@ -325,7 +324,7 @@ function App() {
       >
         <img 
           src={headerLogo} 
-          alt="Echo" 
+          alt="Bard" 
           className="h-[14px] w-auto opacity-90"
         />
         <div className={cn(

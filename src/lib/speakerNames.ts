@@ -38,7 +38,7 @@ const ANIMALS = [
   'Chinchilla',
 ]
 
-// Echo brand color palette for speakers
+// Bard brand color palette for speakers
 export const SPEAKER_COLOR_PALETTE = [
   { bg: 'bg-[#EF4444]/20', text: 'text-[#EF4444]', border: 'border-[#EF4444]/30', hex: '#EF4444' }, // Red
   { bg: 'bg-[#00D4FF]/20', text: 'text-[#00D4FF]', border: 'border-[#00D4FF]/30', hex: '#00D4FF' }, // Cyan

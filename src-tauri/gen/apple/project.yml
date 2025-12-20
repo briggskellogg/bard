@@ -1,6 +1,6 @@
-name: echo
+name: bard
 options:
-  bundleIdPrefix: com.echo.app
+  bundleIdPrefix: com.bard.app
   deploymentTarget:
     iOS: 14.0
 fileGroups: [../../src]
@@ -10,8 +10,8 @@ configs:
 settingGroups:
   app:
     base:
-      PRODUCT_NAME: Echo
-      PRODUCT_BUNDLE_IDENTIFIER: com.echo.app
+      PRODUCT_NAME: Bard
+      PRODUCT_BUNDLE_IDENTIFIER: com.bard.app
       DEVELOPMENT_TEAM: 24KAG7M42P
 targetTemplates:
   app:
@@ -25,20 +25,20 @@ targetTemplates:
     settings:
       groups: [app]
 targets:
-  echo_iOS:
+  bard_iOS:
     type: application
     platform: iOS
     sources:
       - path: Sources
       - path: Assets.xcassets
       - path: Externals
-      - path: echo_iOS
+      - path: bard_iOS
       - path: assets
         buildPhase: resources
         type: folder
       - path: LaunchScreen.storyboard
     info:
-      path: echo_iOS/Info.plist
+      path: bard_iOS/Info.plist
       properties:
         LSRequiresIPhoneOS: true
         UILaunchStoryboardName: LaunchScreen
@@ -54,10 +54,10 @@ targets:
           - UIInterfaceOrientationLandscapeRight
         CFBundleShortVersionString: 0.8.0
         CFBundleVersion: "0.8.0"
-        NSMicrophoneUsageDescription: "Echo needs microphone access to transcribe your voice recordings in real-time."
-        NSSpeechRecognitionUsageDescription: "Echo uses speech recognition to provide real-time voice transcription."
+        NSMicrophoneUsageDescription: "Bard needs microphone access to transcribe your voice recordings in real-time."
+        NSSpeechRecognitionUsageDescription: "Bard uses speech recognition to provide real-time voice transcription."
     entitlements:
-      path: echo_iOS/echo_iOS.entitlements
+      path: bard_iOS/bard_iOS.entitlements
     scheme:
       environmentVariables:
         RUST_BACKTRACE: full

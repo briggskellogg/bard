@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>NSMicrophoneUsageDescription</key>
-    <string>Echo needs microphone access for voice transcription</string>
+    <string>Bard needs microphone access for voice transcription</string>
 </dict>
 </plist>
 

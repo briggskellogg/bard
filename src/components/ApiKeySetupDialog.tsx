@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ArrowRight, Loader2 } from 'lucide-react'
-import echoIcon from '@/assets/echo-icon.png'
+import bardIcon from '@/assets/bard-icon.png'
 
 interface ApiKeySetupDialogProps {
   onSave: (apiKey: string) => Promise<boolean>
@@ -68,12 +68,12 @@ export function ApiKeySetupDialog({ onSave, isOpen }: ApiKeySetupDialogProps) {
         {/* Logo */}
         <div className="flex flex-col items-center mb-10">
           <img 
-            src={echoIcon} 
-            alt="Echo" 
+            src={bardIcon} 
+            alt="Bard" 
             className="w-20 h-20 mb-6 rounded-[22px] shadow-lg"
           />
           <h1 className="text-xl font-medium tracking-tight text-foreground">
-            Welcome to Echo
+            Welcome to Bard
           </h1>
           <p className="text-sm text-muted-foreground mt-2 text-center max-w-[280px]">
             Real-time voice transcription powered by ElevenLabs Scribe

@@ -1,6 +1,32 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* PP Neue Machina Inktrap - for logo/brand */
+@font-face {
+  font-family: 'PP Neue Machina Inktrap';
+  src: url('/fonts/PPNeueMachina-InktrapUltrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PP NeueBit - for live transcription */
+@font-face {
+  font-family: 'PP NeueBit';
+  src: url('/fonts/PPNeueBit-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP NeueBit';
+  src: url('/fonts/PPNeueBit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* PP Neue Montreal Mono - primary body font */
 @font-face {
   font-family: 'PP Neue Montreal Mono';
@@ -136,11 +162,11 @@
   --border: oklch(0.82 0 0);
   --input: oklch(0.85 0 0);
   --ring: oklch(0.70 0 0);
-  /* Echo brand colors */
-  --echo-red: #EF4444;
-  --echo-pink: #E040FB;
-  --echo-cyan: #00D4FF;
-  --echo-yellow: #EAB308;
+  /* Bard brand colors */
+  --bard-red: #EF4444;
+  --bard-pink: #E040FB;
+  --bard-cyan: #00D4FF;
+  --bard-yellow: #EAB308;
   --chart-1: #EF4444;
   --chart-2: #E040FB;
   --chart-3: #00D4FF;
@@ -175,11 +201,11 @@
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 10%);
   --ring: oklch(0.50 0 0);
-  /* Echo brand colors */
-  --echo-red: #EF4444;
-  --echo-pink: #E040FB;
-  --echo-cyan: #00D4FF;
-  --echo-yellow: #EAB308;
+  /* Bard brand colors */
+  --bard-red: #EF4444;
+  --bard-pink: #E040FB;
+  --bard-cyan: #00D4FF;
+  --bard-yellow: #EAB308;
   --chart-1: #EF4444;
   --chart-2: #E040FB;
   --chart-3: #00D4FF;
@@ -239,6 +265,17 @@
   /* Mono font utility */
   .font-mono {
     font-family: 'PP Neue Montreal Mono', 'SF Mono', 'Menlo', monospace;
+  }
+
+  /* Brand logo font */
+  .font-brand {
+    font-family: 'PP Neue Machina Inktrap', 'PP Neue Montreal', sans-serif;
+    font-weight: 800;
+  }
+
+  /* Live transcription font (8-bit style) */
+  .font-transcribe {
+    font-family: 'PP NeueBit', 'PP Neue Montreal Mono', monospace;
   }
 
   svg {

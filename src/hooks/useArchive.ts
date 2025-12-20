@@ -5,8 +5,8 @@ import { analyzeTranscript } from '@/lib/claude'
 import type { TranscriptSegment } from '@/hooks/useScribeTranscription'
 
 // localStorage keys as fallback
-const STORAGE_KEY = 'echo-archive'
-const CATEGORIES_KEY = 'echo-categories'
+const STORAGE_KEY = 'bard-archive'
+const CATEGORIES_KEY = 'bard-categories'
 
 // Check if running in Tauri
 function isTauri(): boolean {
@@ -252,7 +252,7 @@ export function useArchive() {
     
     const csv = transcriptsToExportCSV(archivedTranscripts)
     const date = new Date().toISOString().split('T')[0]
-    const filename = `echo-export-${date}.csv`
+    const filename = `bard-export-${date}.csv`
     
     await downloadCSV(csv, filename)
     console.log('[Archive] Exported', archivedTranscripts.length, 'transcripts to', filename)

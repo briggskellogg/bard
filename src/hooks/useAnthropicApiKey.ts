@@ -3,7 +3,7 @@ import { useSettingsStore } from '@/store/settings'
 
 // Anthropic API key from environment variable or localStorage
 const ENV_API_KEY = import.meta.env.VITE_ANTHROPIC_API_KEY || ''
-const LOCALSTORAGE_KEY = 'echo-anthropic-api-key'
+const LOCALSTORAGE_KEY = 'bard-anthropic-api-key'
 
 export function useAnthropicApiKey() {
   const { anthropicApiKey, setAnthropicApiKey } = useSettingsStore()

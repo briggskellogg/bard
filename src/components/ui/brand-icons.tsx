@@ -1,5 +1,5 @@
 /**
- * Echo Brand Icons
+ * Bard Brand Icons
  * Based on Icons_Black_Transparent_BG.svg and Icons_White_Transparent_BG.svg
  * Monochrome stroke icons that adapt to light/dark mode via currentColor
  */

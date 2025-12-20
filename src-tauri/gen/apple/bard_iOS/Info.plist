@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Echo needs microphone access for voice transcription</string>
+	<string>Bard needs microphone access for voice transcription</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Echo uses speech recognition to provide real-time voice transcription.</string>
+	<string>Bard uses speech recognition to provide real-time voice transcription.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
