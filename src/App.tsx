@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { WaveformDisplay } from './components/WaveformDisplay'
-import { BrandCopyIcon, BrandCheckIcon, BrandPauseIcon, BrandPlayIcon } from '@/components/ui/brand-icons'
+import { BrandCopyIcon, BrandCheckIcon, BrandPauseIcon, BrandPlayIcon, ShieldIcon } from '@/components/ui/brand-icons'
 import { RecordingBar, type ScribeLanguageCode } from './components/RecordingBar'
 import { TranscriptBox } from './components/TranscriptBox'
 import { ArchiveDialog } from './components/ArchiveDialog'
@@ -431,9 +431,12 @@ function App() {
           ? "h-auto min-h-[55px] px-[16px] pb-[env(safe-area-inset-bottom)]" 
           : "h-[55px] px-[21px]"
       )}>
-        <p className="text-[10px] text-muted-foreground/50 tracking-wide">
-          All data processed and stored locally on your device
-        </p>
+        <div className="flex items-center gap-2">
+          <ShieldIcon size={13} className="text-[#00D4FF]/60" />
+          <span className="text-[10px] text-muted-foreground/50 tracking-wide">
+            All data processed and stored locally on your device
+          </span>
+        </div>
         <button
           onClick={() => {
             import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
