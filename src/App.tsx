@@ -432,7 +432,7 @@ function App() {
           : "h-[55px] px-[21px]"
       )}>
         <p className="text-[10px] text-muted-foreground/50 tracking-wide">
-          All processing happens locally on your device
+          All data processed and stored locally on your device
         </p>
         <button
           onClick={() => {

@@ -395,7 +395,7 @@ export function ArchiveDialog() {
           {/* Header */}
           <SheetHeader className="pb-[21px]">
             <div className="flex items-center justify-center gap-[13px]">
-              <SheetTitle className="text-[21px] font-medium tracking-tight">
+              <SheetTitle className="text-[21px] font-semibold tracking-tight font-display">
                 Vault
               </SheetTitle>
               {archivedTranscripts.length > 0 && (
@@ -654,8 +654,8 @@ export function ArchiveDialog() {
           {/* Footer */}
           <div className="flex items-center justify-center gap-2 py-[13px] border-t border-border/20">
             <ShieldIcon size={13} className="text-[#00D4FF]/60" />
-            <span className="text-[10px] text-muted-foreground/40 tracking-wide">
-              All data stored locally on your device
+            <span className="text-[10px] text-muted-foreground/40 tracking-wide font-mono">
+              All data processed and stored locally on your device
             </span>
           </div>
         </div>

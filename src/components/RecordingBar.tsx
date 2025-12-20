@@ -126,29 +126,30 @@ export function RecordingBar({
   }
 
   return (
-    <div className="flex items-center gap-3 p-[8px] rounded-2xl bg-muted/20 border border-border/30">
-      {/* Start/Stop Recording Button - φ³ height (34px) */}
+    <div className="flex items-center gap-2 p-[6px] rounded-2xl bg-muted/10 border border-border/20">
+      {/* Start/Stop Recording Button */}
       <Button
         variant={isRecording || isProcessing ? "destructive" : "secondary"}
         onClick={isRecording ? onStopRecording : onStartRecording}
         disabled={disabled || isLoading || isProcessing}
         className={cn(
-          'flex-1 h-[42px] gap-1.5 font-medium rounded-xl transition-all duration-200',
-          !isRecording && !isProcessing && 'bg-muted/50 hover:bg-muted/80 border border-border/30',
+          'flex-1 h-[40px] gap-2 font-medium rounded-xl transition-all duration-300',
+          !isRecording && !isProcessing && 'bg-muted/40 hover:bg-muted/60 border-0 shadow-sm',
+          isRecording && 'shadow-lg shadow-destructive/20',
           isProcessing && 'opacity-70'
         )}
       >
-          {isLoading || isProcessing ? (
-          <div className="h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+        {isLoading || isProcessing ? (
+          <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
         ) : isRecording ? (
-          <BrandStopIcon size={20} />
+          <BrandStopIcon size={18} />
         ) : (
-          <BrandRecordIcon size={20} />
+          <BrandRecordIcon size={18} />
         )}
-        <span className="min-w-[100px] tracking-wide">
-          {isProcessing ? 'Processing' : isRecording ? 'End Recording' : hasContent ? 'New Recording' : 'Record'}
+        <span className="text-[13px] tracking-wide">
+          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New' : 'Record'}
         </span>
-        {!isProcessing && <Kbd>{isRecording ? 'E' : 'R'}</Kbd>}
+        {!isProcessing && <Kbd className="ml-1">{isRecording ? 'E' : 'R'}</Kbd>}
       </Button>
 
       {/* Microphone Selector */}
@@ -157,24 +158,22 @@ export function RecordingBar({
         onValueChange={onDeviceChange}
         disabled={isRecording}
       >
-        <SelectTrigger className="flex-1 min-w-0 h-[42px] bg-transparent border-0 gap-2 rounded-xl hover:bg-muted/30 transition-colors">
-          <BrandMicIcon size={20} className="opacity-60" />
+        <SelectTrigger className="flex-1 min-w-0 h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
+          <BrandMicIcon size={18} className="opacity-50 shrink-0" />
           <SelectValue placeholder="Select mic">
-            <span className="truncate text-[13px] block max-w-[100px] opacity-80">
+            <span className="truncate text-[12px] block max-w-[80px] opacity-70">
               {getSelectedDeviceDisplay()}
             </span>
           </SelectValue>
         </SelectTrigger>
-        <SelectContent className="rounded-xl">
-          {/* Default option */}
-          <SelectItem value="default" className="rounded-lg">
+        <SelectContent className="rounded-xl border-border/30 shadow-xl">
+          <SelectItem value="default" className="rounded-lg text-[13px]">
             Default · {defaultDeviceLabel}
           </SelectItem>
-          {/* Other devices - exclude the actual 'default' device to avoid duplication */}
           {devices
             .filter(d => d.deviceId !== 'default')
             .map((device) => (
-              <SelectItem key={device.deviceId} value={device.deviceId} className="rounded-lg">
+              <SelectItem key={device.deviceId} value={device.deviceId} className="rounded-lg text-[13px]">
                 {device.label || `Microphone ${device.deviceId.slice(0, 8)}`}
               </SelectItem>
             ))}
@@ -187,15 +186,15 @@ export function RecordingBar({
         onValueChange={(value) => onLanguageChange(value as ScribeLanguageCode)}
         disabled={isRecording}
       >
-        <SelectTrigger className="w-[120px] h-[42px] bg-transparent border-0 gap-2 rounded-xl hover:bg-muted/30 transition-colors">
-          <BrandLanguagesIcon size={20} className="opacity-60" />
+        <SelectTrigger className="w-[100px] h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
+          <BrandLanguagesIcon size={18} className="opacity-50 shrink-0" />
           <SelectValue>
-            <span className="truncate text-[13px] opacity-80">{currentLanguage?.name}</span>
+            <span className="truncate text-[12px] opacity-70">{currentLanguage?.name}</span>
           </SelectValue>
         </SelectTrigger>
-        <SelectContent className="rounded-xl">
+        <SelectContent className="rounded-xl border-border/30 shadow-xl">
           {SCRIBE_LANGUAGES.map((lang) => (
-            <SelectItem key={lang.code} value={lang.code} className="rounded-lg">
+            <SelectItem key={lang.code} value={lang.code} className="rounded-lg text-[13px]">
               {lang.name}
             </SelectItem>
           ))}
