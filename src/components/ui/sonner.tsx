@@ -1,8 +1,8 @@
-import { useTheme } from '@/hooks/use-theme'
+import { useSettingsStore } from '@/store/settings'
 import { Toaster as Sonner, type ToasterProps } from 'sonner'
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = 'system' } = useTheme()
+  const theme = useSettingsStore((s) => s.theme)
 
   return (
     <Sonner
