@@ -1,7 +1,7 @@
 {
   "name": "echo",
   "private": true,
-  "version": "0.4.1",
+  "version": "0.8.0",
   "type": "module",
   "author": "Briggs Kellogg",
   "copyright": "Copyright © 2025 Briggs Kellogg. All rights reserved.",

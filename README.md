@@ -4,7 +4,7 @@ Voice-to-text that archives. Built because every transcription app either loses 
 
 ## Download
 
-[![Download Echo](https://img.shields.io/badge/Download-Echo%20v0.4.1-blue?style=for-the-badge)](https://github.com/briggskellogg/echo/releases/latest/download/Echo.dmg)
+[![Download Echo](https://img.shields.io/badge/Download-Echo%20v0.8.0-blue?style=for-the-badge)](https://github.com/briggskellogg/echo/releases/latest/download/Echo.dmg)
 
 1. Download the DMG above
 2. Drag Echo to Applications

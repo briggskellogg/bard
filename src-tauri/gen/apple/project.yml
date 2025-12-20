@@ -52,8 +52,8 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
-        CFBundleShortVersionString: 0.4.1
-        CFBundleVersion: "0.4.1"
+        CFBundleShortVersionString: 0.8.0
+        CFBundleVersion: "0.8.0"
         NSMicrophoneUsageDescription: "Echo needs microphone access to transcribe your voice recordings in real-time."
         NSSpeechRecognitionUsageDescription: "Echo uses speech recognition to provide real-time voice transcription."
     entitlements:
