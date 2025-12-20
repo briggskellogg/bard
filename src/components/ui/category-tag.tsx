@@ -1,6 +1,6 @@
 /**
  * CategoryTag - Icon-based pill component for memo categories
- * Uses ElevenLabs brand palette colors with category-specific icons
+ * Uses Echo brand palette colors with category-specific icons
  */
 
 import { cn } from '@/lib/utils'
@@ -15,47 +15,47 @@ import {
   CategoryJournalIcon,
 } from '@/components/ui/brand-icons'
 
-// ElevenLabs brand color mapping for categories
+// Echo brand color mapping for categories
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   Note: {
-    bg: 'bg-[#5D79DF]/15',
-    text: 'text-[#5D79DF]',
-    border: 'border-[#5D79DF]/30',
+    bg: 'bg-[#00D4FF]/15',
+    text: 'text-[#00D4FF]',
+    border: 'border-[#00D4FF]/30',
   },
   Message: {
-    bg: 'bg-[#4EC7E0]/15',
-    text: 'text-[#4EC7E0]',
-    border: 'border-[#4EC7E0]/30',
+    bg: 'bg-[#00D4FF]/15',
+    text: 'text-[#00D4FF]',
+    border: 'border-[#00D4FF]/30',
   },
   Rant: {
-    bg: 'bg-[#EB524B]/15',
-    text: 'text-[#EB524B]',
-    border: 'border-[#EB524B]/30',
+    bg: 'bg-[#EF4444]/15',
+    text: 'text-[#EF4444]',
+    border: 'border-[#EF4444]/30',
   },
   Idea: {
-    bg: 'bg-[#EFDE44]/15',
-    text: 'text-[#EFDE44] dark:text-[#EFDE44]',
-    border: 'border-[#EFDE44]/30',
+    bg: 'bg-[#EAB308]/15',
+    text: 'text-[#EAB308]',
+    border: 'border-[#EAB308]/30',
   },
   Meeting: {
-    bg: 'bg-[#C47DE5]/15',
-    text: 'text-[#C47DE5]',
-    border: 'border-[#C47DE5]/30',
+    bg: 'bg-[#E040FB]/15',
+    text: 'text-[#E040FB]',
+    border: 'border-[#E040FB]/30',
   },
   Conversation: {
-    bg: 'bg-[#37C8B5]/15',
-    text: 'text-[#37C8B5]',
-    border: 'border-[#37C8B5]/30',
+    bg: 'bg-[#00D4FF]/15',
+    text: 'text-[#00D4FF]',
+    border: 'border-[#00D4FF]/30',
   },
   Task: {
-    bg: 'bg-[#2DD28D]/15',
-    text: 'text-[#2DD28D]',
-    border: 'border-[#2DD28D]/30',
+    bg: 'bg-[#00D4FF]/15',
+    text: 'text-[#00D4FF]',
+    border: 'border-[#00D4FF]/30',
   },
   Journal: {
-    bg: 'bg-[#F59E0B]/15',
-    text: 'text-[#F59E0B]',
-    border: 'border-[#F59E0B]/30',
+    bg: 'bg-[#EAB308]/15',
+    text: 'text-[#EAB308]',
+    border: 'border-[#EAB308]/30',
   },
 }
 
@@ -83,9 +83,9 @@ export function getCategoryColors(category: string): { bg: string; text: string;
 
 // Default/fallback for custom categories
 const DEFAULT_COLOR = {
-  bg: 'bg-[#37C8B5]/15',
-  text: 'text-[#37C8B5]',
-  border: 'border-[#37C8B5]/30',
+  bg: 'bg-[#00D4FF]/15',
+  text: 'text-[#00D4FF]',
+  border: 'border-[#00D4FF]/30',
 }
 
 interface CategoryTagProps {
@@ -161,11 +161,11 @@ export function UrgencyIndicator({ level, size = 'md', className }: UrgencyIndic
 
   // Color intensity based on urgency level
   const colorClasses: Record<number, string> = {
-    1: 'text-[#F58633]/50',
-    2: 'text-[#F58633]/70',
-    3: 'text-[#EB524B]/80',
-    4: 'text-[#EB524B]',
-    5: 'text-[#EB524B]',
+    1: 'text-[#EAB308]/50',
+    2: 'text-[#EAB308]/70',
+    3: 'text-[#EF4444]/80',
+    4: 'text-[#EF4444]',
+    5: 'text-[#EF4444]',
   }
 
   const label = level >= 4 ? 'Urgent' : level >= 2 ? 'Time-sensitive' : 'Low priority'
@@ -221,11 +221,11 @@ export function NoveltyIndicator({ level, size = 'md', className }: NoveltyIndic
 
   // Color intensity based on novelty level
   const colorClasses: Record<number, string> = {
-    1: 'text-[#EFDE44]/50',
-    2: 'text-[#EFDE44]/70',
-    3: 'text-[#EFDE44]/90',
-    4: 'text-[#EFDE44]',
-    5: 'text-[#EFDE44]',
+    1: 'text-[#EAB308]/50',
+    2: 'text-[#EAB308]/70',
+    3: 'text-[#EAB308]/90',
+    4: 'text-[#EAB308]',
+    5: 'text-[#EAB308]',
   }
 
   const label = level >= 4 ? 'Genuinely novel' : level >= 2 ? 'Interesting' : 'Standard'

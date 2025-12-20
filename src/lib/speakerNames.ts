@@ -38,21 +38,16 @@ const ANIMALS = [
   'Chinchilla',
 ]
 
-// ElevenLabs brand color palette for speakers
+// Echo brand color palette for speakers
 export const SPEAKER_COLOR_PALETTE = [
-  { bg: 'bg-[#EB524B]/20', text: 'text-[#EB524B]', border: 'border-[#EB524B]/30', hex: '#EB524B' }, // Red
-  { bg: 'bg-[#2DD28D]/20', text: 'text-[#2DD28D]', border: 'border-[#2DD28D]/30', hex: '#2DD28D' }, // Green
-  { bg: 'bg-[#5D79DF]/20', text: 'text-[#5D79DF]', border: 'border-[#5D79DF]/30', hex: '#5D79DF' }, // Blue
-  { bg: 'bg-[#E273D5]/20', text: 'text-[#E273D5]', border: 'border-[#E273D5]/30', hex: '#E273D5' }, // Pink
-  { bg: 'bg-[#F58633]/20', text: 'text-[#F58633]', border: 'border-[#F58633]/30', hex: '#F58633' }, // Orange
-  { bg: 'bg-[#37C8B5]/20', text: 'text-[#37C8B5]', border: 'border-[#37C8B5]/30', hex: '#37C8B5' }, // Teal
-  { bg: 'bg-[#C47DE5]/20', text: 'text-[#C47DE5]', border: 'border-[#C47DE5]/30', hex: '#C47DE5' }, // Purple
-  { bg: 'bg-[#EFDE44]/20', text: 'text-[#EFDE44]', border: 'border-[#EFDE44]/30', hex: '#EFDE44' }, // Yellow
-  { bg: 'bg-[#4EC7E0]/20', text: 'text-[#4EC7E0]', border: 'border-[#4EC7E0]/30', hex: '#4EC7E0' }, // Cyan
+  { bg: 'bg-[#EF4444]/20', text: 'text-[#EF4444]', border: 'border-[#EF4444]/30', hex: '#EF4444' }, // Red
+  { bg: 'bg-[#00D4FF]/20', text: 'text-[#00D4FF]', border: 'border-[#00D4FF]/30', hex: '#00D4FF' }, // Cyan
+  { bg: 'bg-[#E040FB]/20', text: 'text-[#E040FB]', border: 'border-[#E040FB]/30', hex: '#E040FB' }, // Pink
+  { bg: 'bg-[#EAB308]/20', text: 'text-[#EAB308]', border: 'border-[#EAB308]/30', hex: '#EAB308' }, // Yellow
 ]
 
 // Default palette for fallback
-const DEFAULT_PALETTE = { bg: 'bg-[#5D79DF]/20', text: 'text-[#5D79DF]', border: 'border-[#5D79DF]/30', hex: '#5D79DF' }
+const DEFAULT_PALETTE = { bg: 'bg-[#00D4FF]/20', text: 'text-[#00D4FF]', border: 'border-[#00D4FF]/30', hex: '#00D4FF' }
 
 // Generate a deterministic but whimsical name from a speaker ID
 export function generateWhimsicalName(speakerId: string, index: number): string {

@@ -209,16 +209,16 @@ export function TranscriptBox({
       {(isProcessing || isArchived) && (
         <div className="absolute bottom-[13px] right-[13px] z-10">
           {isProcessing ? (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2DD28D]/10 border border-[#2DD28D]/20 backdrop-blur-sm">
-              <div className="h-2.5 w-2.5 animate-spin rounded-full border-[1.5px] border-[#2DD28D] border-t-transparent" />
-              <span className="text-[11px] text-[#2DD28D] font-medium tracking-wide">Processing</span>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00D4FF]/10 border border-[#00D4FF]/20 backdrop-blur-sm">
+              <div className="h-2.5 w-2.5 animate-spin rounded-full border-[1.5px] border-[#00D4FF] border-t-transparent" />
+              <span className="text-[11px] text-[#00D4FF] font-medium tracking-wide">Processing</span>
             </div>
           ) : isArchived ? (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2DD28D]/10 border border-[#2DD28D]/20 backdrop-blur-sm">
-              <svg className="h-2.5 w-2.5 text-[#2DD28D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00D4FF]/10 border border-[#00D4FF]/20 backdrop-blur-sm">
+              <svg className="h-2.5 w-2.5 text-[#00D4FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12L10 17L19 8" />
               </svg>
-              <span className="text-[11px] text-[#2DD28D] font-medium tracking-wide">Saved</span>
+              <span className="text-[11px] text-[#00D4FF] font-medium tracking-wide">Saved</span>
             </div>
           ) : null}
         </div>
@@ -316,10 +316,10 @@ export function TranscriptBox({
       {/* Timer - only show when recording */}
       {isRecording && recordingStartTime && (
         <div className="absolute bottom-[13px] right-[13px] flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background/80 backdrop-blur-sm border border-border/30">
-          <Clock className={cn('h-3.5 w-3.5', isLowTime ? 'text-[#F58633]' : 'text-muted-foreground/60')} />
+          <Clock className={cn('h-3.5 w-3.5', isLowTime ? 'text-[#EAB308]' : 'text-muted-foreground/60')} />
           <span className={cn(
             'text-[11px] font-mono tabular-nums tracking-wide',
-            isLowTime ? 'text-[#F58633]' : 'text-muted-foreground/60'
+            isLowTime ? 'text-[#EAB308]' : 'text-muted-foreground/60'
           )}>
             {formatTime(remainingTime)}
           </span>

@@ -38,7 +38,7 @@ export function ActionBar({
         disabled={!hasContent}
         className={cn(
           'h-9 px-2 gap-1 transition-all',
-          copyTriggered && 'bg-[#2DD28D]/20'
+          copyTriggered && 'bg-[#00D4FF]/20'
         )}
         aria-label="Copy transcript"
       >

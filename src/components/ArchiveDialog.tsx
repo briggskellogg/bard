@@ -411,7 +411,7 @@ export function ArchiveDialog() {
                       toast.error('Failed to export')
                     }
                   }}
-                  className="h-[28px] gap-2 px-3 text-[11px] font-medium rounded-lg border-[#2DD28D]/30 text-[#2DD28D] hover:bg-[#2DD28D]/10 hover:border-[#2DD28D]/50 transition-colors"
+                  className="h-[28px] gap-2 px-3 text-[11px] font-medium rounded-lg border-[#00D4FF]/30 text-[#00D4FF] hover:bg-[#00D4FF]/10 hover:border-[#00D4FF]/50 transition-colors"
                   aria-label="Export all transcripts to CSV"
                 >
                   <Download className="h-3 w-3" />
@@ -653,7 +653,7 @@ export function ArchiveDialog() {
 
           {/* Footer */}
           <div className="flex items-center justify-center gap-2 py-[13px] border-t border-border/20">
-            <ShieldIcon size={13} className="text-[#2DD28D]/60" />
+            <ShieldIcon size={13} className="text-[#00D4FF]/60" />
             <span className="text-[10px] text-muted-foreground/40 tracking-wide">
               All data stored locally on your device
             </span>

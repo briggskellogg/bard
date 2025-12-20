@@ -32,8 +32,8 @@ Press R. Talk. It transcribes in real-time via ElevenLabs Scribe. Your transcrip
 If you want to build from source:
 
 1. Clone the repo
-2. Copy \`.env.example\` to \`.env\` and add your keys
-3. \`pnpm install && pnpm tauri build\`
+2. Copy `.env.example` to `.env` and add your keys
+3. `pnpm install && pnpm tauri build`
 
 ### Requirements
 

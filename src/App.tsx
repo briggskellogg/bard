@@ -373,7 +373,7 @@ function App() {
                 onClick={isPaused ? handleResumeRecording : handlePauseRecording}
                 className={cn(
                   'h-[34px] px-2 gap-1 rounded-lg transition-all',
-                  isPaused && 'bg-[#F58633]/15 hover:bg-[#F58633]/25'
+                  isPaused && 'bg-[#EAB308]/15 hover:bg-[#EAB308]/25'
                 )}
                 aria-label={isPaused ? "Resume recording" : "Pause recording"}
               >
@@ -396,7 +396,7 @@ function App() {
             disabled={!hasContent}
             className={cn(
               'h-[34px] px-2 gap-1 rounded-lg transition-all',
-              copyTriggered && 'bg-[#2DD28D]/15'
+              copyTriggered && 'bg-[#00D4FF]/15'
             )}
             aria-label="Copy transcript"
           >
