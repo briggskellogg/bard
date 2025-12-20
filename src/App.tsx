@@ -440,20 +440,20 @@ function App() {
         <button
           onClick={() => {
             import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
-              openUrl('https://github.com/briggskellogg/echo')
+              openUrl('https://briggskellogg.com')
             }).catch(() => {
-              window.open('https://github.com/briggskellogg/echo', '_blank')
+              window.open('https://briggskellogg.com', '_blank')
             })
           }}
           className={cn(
             "group absolute p-0 border-0 bg-transparent cursor-pointer",
             isMobile ? "right-[16px]" : "right-[21px]"
           )}
-          aria-label="View on GitHub"
+          aria-label="Echo"
         >
           <img 
             src={echoIcon} 
-            alt="GitHub" 
+            alt="Echo" 
             className="h-[16px] w-[16px] opacity-40"
           />
         </button>
