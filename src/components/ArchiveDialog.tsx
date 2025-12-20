@@ -541,20 +541,20 @@ export function ArchiveDialog() {
                         {/* Spacer */}
                         <div className="flex-1" />
 
-                        {/* Action buttons - Copy, Delete, Star */}
-                        <div className="flex items-center shrink-0">
+                        {/* Action buttons - Copy, Delete */}
+                        <div className="flex items-center gap-1 shrink-0">
                           {/* Copy button */}
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[26px] px-1.5 gap-0.5 rounded-md"
+                            className="h-[24px] px-1 gap-0.5 rounded-md"
                             onClick={(e) => {
                               e.stopPropagation()
                               copyTranscript(transcript.text)
                             }}
                             aria-label="Copy"
                           >
-                            <BrandCopyIcon size={14} />
+                            <BrandCopyIcon size={13} />
                             <Kbd>C</Kbd>
                           </Button>
 
@@ -562,37 +562,15 @@ export function ArchiveDialog() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[26px] px-1.5 gap-0.5 rounded-md hover:bg-destructive/10 hover:text-destructive"
+                            className="h-[24px] px-1 gap-0.5 rounded-md hover:bg-destructive/10 hover:text-destructive"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleDelete(transcript.id)
                             }}
                             aria-label="Delete"
                           >
-                            <BrandTrashIcon size={14} />
+                            <BrandTrashIcon size={13} />
                             <Kbd>D</Kbd>
-                          </Button>
-
-                          {/* Star button */}
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className={cn(
-                              "h-[26px] w-[26px] p-0 rounded-md",
-                              transcript.isImportant && "text-amber-400"
-                            )}
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              updateTranscript(transcript.id, { isImportant: !transcript.isImportant })
-                            }}
-                            aria-label={transcript.isImportant ? "Unmark" : "Mark important"}
-                          >
-                            <Star 
-                              className={cn(
-                                "h-3.5 w-3.5",
-                                transcript.isImportant && "fill-amber-400"
-                              )} 
-                            />
                           </Button>
                         </div>
                       </div>
@@ -602,13 +580,37 @@ export function ArchiveDialog() {
                         {formatDate(transcript.createdAt)}
                       </div>
                       
-                      {/* Transcript text */}
-                      <p className="text-[14px] leading-[1.7] text-foreground/70">
-                        {expandedId === transcript.id
-                          ? transcript.text
-                          : truncateText(transcript.text)
-                        }
-                      </p>
+                      {/* Transcript text with star in bottom right */}
+                      <div className="relative">
+                        <p className="text-[14px] leading-[1.7] text-foreground/70 pr-8">
+                          {expandedId === transcript.id
+                            ? transcript.text
+                            : truncateText(transcript.text)
+                          }
+                        </p>
+                        
+                        {/* Star button - bottom right */}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className={cn(
+                            "absolute bottom-0 right-0 h-[24px] w-[24px] p-0 rounded-md",
+                            transcript.isImportant && "text-amber-400"
+                          )}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            updateTranscript(transcript.id, { isImportant: !transcript.isImportant })
+                          }}
+                          aria-label={transcript.isImportant ? "Unmark" : "Mark important"}
+                        >
+                          <Star 
+                            className={cn(
+                              "h-4 w-4",
+                              transcript.isImportant && "fill-amber-400"
+                            )} 
+                          />
+                        </Button>
+                      </div>
                     </div>
                   )
                 })}
