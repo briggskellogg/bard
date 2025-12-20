@@ -443,7 +443,7 @@ function App() {
             })
           }}
           className={cn(
-            "absolute p-0 border-0 bg-transparent cursor-pointer",
+            "group absolute p-0 border-0 bg-transparent cursor-pointer",
             isMobile ? "right-[16px]" : "right-[21px]"
           )}
           aria-label="View on GitHub"
@@ -451,7 +451,7 @@ function App() {
           <img 
             src={echoIcon} 
             alt="GitHub" 
-            className="h-[16px] w-[16px] opacity-60 hover:opacity-100 transition-opacity duration-200"
+            className="h-[16px] w-[16px] opacity-60 group-hover:opacity-100 transition-opacity duration-200"
           />
         </button>
       </footer>
