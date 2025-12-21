@@ -55,12 +55,16 @@ export function ApiKeyEditDialog({
   }, [apiKey, onUpdate, onClose])
 
   const handleRemove = useCallback(async () => {
+    console.log('[ApiKeyEditDialog] Remove button clicked')
     setIsRemoving(true)
     try {
-      const success = await onRemove()
-      if (success) {
-        onClose()
-      }
+      await onRemove()
+      console.log('[ApiKeyEditDialog] onRemove completed, closing dialog')
+      // Always close dialog after removal attempt
+      onClose()
+    } catch (error) {
+      console.error('[ApiKeyEditDialog] Remove failed:', error)
+      onClose()
     } finally {
       setIsRemoving(false)
     }

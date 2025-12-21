@@ -69,14 +69,18 @@ export function useApiKey() {
 
   // Clear API key from Tauri Store
   const clearApiKey = useCallback(async () => {
+    console.log('[useApiKey] clearApiKey called')
     try {
       const store = await getStore()
+      console.log('[useApiKey] Store loaded:', !!store)
       if (store) {
         await store.delete(STORE_KEY)
         await store.save()
+        console.log('[useApiKey] Key deleted from store')
       }
       // Always clear local state regardless of store success
       setStoredKey(null)
+      console.log('[useApiKey] Local state cleared, storedKey set to null')
       return true
     } catch (error) {
       console.error('[useApiKey] Failed to clear API key:', error)
