@@ -329,7 +329,7 @@ function App() {
         {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
         <div className="flex items-center gap-2">
-          <img src={bardIcon} alt="" className="h-[18px] w-auto" />
+          <img src={bardIcon} alt="" className="h-[18px] w-auto brightness-0 dark:invert" />
           <span 
             className="font-brand text-[18px] tracking-tight"
             style={{ 
