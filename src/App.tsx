@@ -454,9 +454,9 @@ function App() {
           ? "h-auto min-h-[55px] px-[16px] pb-[env(safe-area-inset-bottom)]" 
           : "h-[55px] px-[21px]"
       )}>
-        <div className="flex items-center gap-1.5">
-          <img src={bardIcon} alt="" className="h-[12px] w-auto opacity-40" />
-          <span className="text-[10px] text-muted-foreground/40 tracking-wide">
+        <div className="flex items-center gap-2">
+          <img src={bardIcon} alt="" className="h-[16px] w-auto opacity-40" />
+          <span className="text-[12px] text-muted-foreground/40 tracking-wide">
             Bard v1.0.0
           </span>
         </div>
@@ -474,7 +474,7 @@ function App() {
           <img 
             src={footerLogo} 
             alt="BEK" 
-            className="h-[16px] w-auto opacity-40 hover:opacity-70 transition-opacity duration-200"
+            className="h-[20px] w-auto opacity-40 hover:opacity-70 transition-opacity duration-200"
           />
         </button>
       </footer>
