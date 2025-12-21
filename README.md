@@ -4,7 +4,7 @@ Voice-to-text that archives. Built because every transcription app either loses 
 
 ## Download
 
-[![Download Bard](https://img.shields.io/badge/Download-Bard%20v0.8.0-EAB308?style=for-the-badge)](https://github.com/briggskellogg/bard/releases/latest/download/Bard.dmg)
+[![Download Bard](https://img.shields.io/badge/Download-Bard%20v0.8.1-EAB308?style=for-the-badge)](https://github.com/briggskellogg/bard/releases/latest/download/Bard.dmg)
 
 1. Download the DMG above
 2. Drag Bard to Applications
