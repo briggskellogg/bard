@@ -126,7 +126,7 @@ export function RecordingBar({
         onClick={isRecording ? onStopRecording : onStartRecording}
         disabled={disabled || isLoading || isProcessing}
         className={cn(
-          'flex-1 basis-1/3 h-[40px] flex items-center px-4 rounded-xl transition-all duration-200',
+          'flex-1 basis-1/3 min-w-0 h-[40px] flex items-center gap-2 px-4 rounded-xl transition-all duration-200',
           'bg-muted/40 hover:bg-muted/60 shadow-sm',
           isRecording && 'bg-destructive/20 hover:bg-destructive/30',
           isProcessing && 'opacity-70',
@@ -140,7 +140,7 @@ export function RecordingBar({
         ) : (
           <PlayCircle size={18} className="opacity-50 shrink-0" />
         )}
-        <span className="flex-1 text-center text-[12px] opacity-70 truncate min-w-0">
+        <span className="flex-1 text-[12px] opacity-70 truncate">
           {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New Recording' : 'Record'}
         </span>
         {!isProcessing && <Kbd className="shrink-0 gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">↩</span></Kbd>}
