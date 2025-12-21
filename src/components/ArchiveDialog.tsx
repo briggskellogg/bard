@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { FolderOpen, Search, X, Copy, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import { FolderOpen, Search, X, Copy, Check, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import {
   Dialog,
   DialogClose,
@@ -60,6 +60,7 @@ export function ArchiveDialog() {
   const [currentPage, setCurrentPage] = useState(0)
   const [showImportantOnly, setShowImportantOnly] = useState(false)
   const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
   
   // Open library directly (no auth required)
   const handleOpenLibrary = useCallback(() => {
@@ -112,9 +113,13 @@ export function ArchiveDialog() {
     setPendingDeleteId(null)
   }, [searchQuery])
 
-  const copyTranscript = useCallback(async (text: string) => {
+  const copyTranscript = useCallback(async (text: string, id?: string) => {
     try {
       await navigator.clipboard.writeText(text)
+      if (id) {
+        setCopiedId(id)
+        setTimeout(() => setCopiedId(null), 2000)
+      }
       toast.success('Copied to clipboard')
     } catch (error) {
       console.error('Failed to copy:', error)
@@ -245,7 +250,7 @@ export function ArchiveDialog() {
           } else {
             const toCopy = paginatedTranscripts[selectedIndex]
             if (toCopy) {
-              copyTranscript(toCopy.text)
+              copyTranscript(toCopy.text, toCopy.id)
             }
           }
           break
@@ -450,15 +455,18 @@ export function ArchiveDialog() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[22px] px-1.5 gap-1 rounded-md"
+                            className={cn(
+                              "h-[22px] px-1.5 gap-1 rounded-md",
+                              copiedId === transcript.id && "text-green-500"
+                            )}
                             onClick={(e) => {
                               e.stopPropagation()
-                              copyTranscript(transcript.text)
+                              copyTranscript(transcript.text, transcript.id)
                             }}
                             aria-label="Copy"
                           >
-                            <Copy size={12} />
-                            <Kbd><span className="text-[10px]">C</span></Kbd>
+                            {copiedId === transcript.id ? <Check size={12} /> : <Copy size={12} />}
+                            <Kbd><span className="text-[10px]">{copiedId === transcript.id ? '✓' : 'C'}</span></Kbd>
                           </Button>
 
                           {/* Delete button */}
