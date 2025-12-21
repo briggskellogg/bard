@@ -133,7 +133,7 @@ export function WaveformDisplay({
             className="p-1 rounded-md hover:bg-muted/50 transition-colors cursor-pointer"
             aria-label="Edit API key"
           >
-            <Key className="h-4 w-4 text-[#00D4FF]/70 hover:text-[#00D4FF] transition-colors" />
+            <Key className="h-4 w-4 text-muted-foreground/70 hover:text-foreground transition-colors" />
           </button>
         </div>
       </div>
