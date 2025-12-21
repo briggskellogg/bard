@@ -25,7 +25,7 @@ jobs:
           version: 8
 
       - name: Install Rust
-        uses: dtolnay/rust-action@stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install dependencies
         run: pnpm install
@@ -69,10 +69,15 @@ jobs:
           name: Bard-macOS
           path: ./artifacts
 
+      - name: Rename DMG for release
+        run: |
+          cd ./artifacts
+          mv *.dmg Bard.dmg
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./artifacts/*.dmg
+          files: ./artifacts/Bard.dmg
           draft: false
           prerelease: false
         env:
