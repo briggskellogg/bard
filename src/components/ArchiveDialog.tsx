@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { FolderOpen, Search, X, Copy, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import {
   Dialog,
@@ -15,33 +15,6 @@ import { useSettingsStore } from '@/store/settings'
 import { useArchive } from '@/hooks/useArchive'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
-
-// Auth expiration time (5 minutes)
-const AUTH_EXPIRATION_MS = 5 * 60 * 1000
-
-// Check if running in Tauri
-function isTauri(): boolean {
-  return typeof window !== 'undefined' && '__TAURI__' in window
-}
-
-// Biometric authentication helper using custom Tauri command
-async function authenticateWithBiometric(): Promise<boolean> {
-  if (!isTauri()) {
-    console.log('[Biometric] Not in Tauri, skipping auth')
-    return true // Allow access in dev mode
-  }
-  
-  try {
-    const { invoke } = await import('@tauri-apps/api/core')
-    const result = await invoke<boolean>('authenticate_biometric', {
-      reason: 'access your Bard vault'
-    })
-    return result
-  } catch (e) {
-    console.error('[Biometric] Authentication failed:', e)
-    return false
-  }
-}
 
 function Kbd({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -87,78 +60,17 @@ export function ArchiveDialog() {
   const [currentPage, setCurrentPage] = useState(0)
   const [showImportantOnly, setShowImportantOnly] = useState(false)
   
-  // Biometric auth state
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [isAuthenticating, setIsAuthenticating] = useState(false)
-  const authTimestampRef = useRef<number>(0)
+  // Open vault directly (no auth required)
+  const handleOpenVault = useCallback(() => {
+    setArchiveDialogOpen(true)
+  }, [setArchiveDialogOpen])
   
-  // Check if auth has expired
-  const isAuthExpired = useCallback(() => {
-    if (!isAuthenticated) return true
-    return Date.now() - authTimestampRef.current > AUTH_EXPIRATION_MS
-  }, [isAuthenticated])
-  
-  // Reset auth when page becomes hidden (screen lock, tab switch, etc.)
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        // Page is hidden - reset auth after a short delay (in case user is just alt-tabbing briefly)
-        const timeout = setTimeout(() => {
-          if (document.hidden) {
-            console.log('[Vault] Page hidden, resetting authentication')
-            setIsAuthenticated(false)
-            authTimestampRef.current = 0
-          }
-        }, 3000) // 3 second grace period
-        return () => clearTimeout(timeout)
-      }
-    }
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange)
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
-  }, [])
-  
-  // Authenticate and open dialog
-  const handleOpenVault = useCallback(async () => {
-    // Check if already authenticated and not expired
-    if (isAuthenticated && !isAuthExpired()) {
-      setArchiveDialogOpen(true)
-      return
-    }
-    
-    setIsAuthenticating(true)
-    
-    try {
-      const success = await authenticateWithBiometric()
-      if (success) {
-        setIsAuthenticated(true)
-        authTimestampRef.current = Date.now()
-        setArchiveDialogOpen(true)
-      } else {
-        toast.error('Authentication failed')
-      }
-    } catch (error) {
-      console.error('[Vault] Auth error:', error)
-      toast.error('Failed to authenticate')
-    } finally {
-      setIsAuthenticating(false)
-    }
-  }, [isAuthenticated, isAuthExpired, setArchiveDialogOpen])
-  
-  // Handle dialog open/close with auth check
+  // Handle dialog open/close
   const handleDialogChange = useCallback((open: boolean) => {
     if (!open) {
       setArchiveDialogOpen(false)
     }
   }, [setArchiveDialogOpen])
-  
-  // Intercept programmatic opens (V hotkey) and require auth
-  useEffect(() => {
-    if (archiveDialogOpen && (!isAuthenticated || isAuthExpired()) && !isAuthenticating) {
-      setArchiveDialogOpen(false)
-      handleOpenVault()
-    }
-  }, [archiveDialogOpen, isAuthenticated, isAuthExpired, isAuthenticating, setArchiveDialogOpen, handleOpenVault])
 
   // Filter transcripts based on search and important
   const filteredTranscripts = archivedTranscripts.filter(t => {
@@ -370,13 +282,8 @@ export function ArchiveDialog() {
             e.preventDefault()
             handleOpenVault()
           }}
-          disabled={isAuthenticating}
         >
-          {isAuthenticating ? (
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
-          ) : (
-            <FolderOpen size={20} className="opacity-70" />
-          )}
+          <FolderOpen size={20} className="opacity-70" />
           <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">V</span></Kbd>
         </Button>
       </DialogTrigger>
