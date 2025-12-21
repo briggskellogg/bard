@@ -61,8 +61,8 @@ export function ArchiveDialog() {
   const [showImportantOnly, setShowImportantOnly] = useState(false)
   const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
   
-  // Open vault directly (no auth required)
-  const handleOpenVault = useCallback(() => {
+  // Open library directly (no auth required)
+  const handleOpenLibrary = useCallback(() => {
     setArchiveDialogOpen(true)
   }, [setArchiveDialogOpen])
   
@@ -284,10 +284,10 @@ export function ArchiveDialog() {
           variant="ghost"
           size="sm"
           className="h-[34px] px-1.5 gap-0.5 rounded-lg"
-          aria-label="Vault"
+          aria-label="Library"
           onClick={(e) => {
             e.preventDefault()
-            handleOpenVault()
+            handleOpenLibrary()
           }}
         >
           <FolderOpen size={20} className="opacity-70" />
@@ -303,7 +303,7 @@ export function ArchiveDialog() {
           <DialogHeader className="pb-[21px]">
             <div className="flex items-center justify-between">
               <DialogTitle className="text-[21px] font-semibold tracking-tight font-display">
-                Vault
+                Library
               </DialogTitle>
               <div className="flex items-center gap-2">
                 {archivedTranscripts.length > 0 && (
@@ -515,27 +515,25 @@ export function ArchiveDialog() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
+                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1"
                               onClick={(e) => {
                                 e.stopPropagation()
                                 setPendingDeleteId(null)
                               }}
                             >
-                              Cancel
-                              <Kbd><span className="text-[9px]">ESC</span></Kbd>
+                              Cancel <Kbd><span className="text-[9px]">ESC</span></Kbd>
                             </Button>
                             <Button
                               variant="destructive"
                               size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
+                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1"
                               onClick={(e) => {
                                 e.stopPropagation()
                                 handleDelete(transcript.id)
                                 setPendingDeleteId(null)
                               }}
                             >
-                              Delete
-                              <Kbd className="bg-white/20 border-white/30 text-white"><span className="text-[9px]">↩</span></Kbd>
+                              Delete <Kbd className="bg-white/20 border-white/30 text-white"><span className="text-[9px]">ENT</span></Kbd>
                             </Button>
                           </div>
                         </div>
