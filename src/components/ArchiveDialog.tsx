@@ -239,7 +239,10 @@ export function ArchiveDialog() {
         case 'C':
           if (e.metaKey || e.ctrlKey) break // Let native copy work
           e.preventDefault()
-          {
+          // If pending delete, cancel it; otherwise copy
+          if (pendingDeleteId) {
+            setPendingDeleteId(null)
+          } else {
             const toCopy = paginatedTranscripts[selectedIndex]
             if (toCopy) {
               copyTranscript(toCopy.text)
@@ -515,25 +518,25 @@ export function ArchiveDialog() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1"
+                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
                               onClick={(e) => {
                                 e.stopPropagation()
                                 setPendingDeleteId(null)
                               }}
                             >
-                              Cancel <Kbd><span className="text-[9px]">ESC</span></Kbd>
+                              Cancel <Kbd><span className="text-[9px]">C</span></Kbd>
                             </Button>
                             <Button
                               variant="destructive"
                               size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1"
+                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
                               onClick={(e) => {
                                 e.stopPropagation()
                                 handleDelete(transcript.id)
                                 setPendingDeleteId(null)
                               }}
                             >
-                              Delete <Kbd className="bg-white/20 border-white/30 text-white"><span className="text-[9px]">ENT</span></Kbd>
+                              Delete <Kbd className="bg-white/20 border-white/30 text-white px-1.5"><span className="text-[9px]">ENT</span></Kbd>
                             </Button>
                           </div>
                         </div>
