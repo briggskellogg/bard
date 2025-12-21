@@ -146,7 +146,7 @@ export function RecordingBar({
           <BrandRecordIcon size={18} className="opacity-50 shrink-0" />
         )}
         <span className="flex-1 text-center text-[12px] opacity-70">
-          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New' : 'Record'}
+          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New Recording' : 'Record'}
         </span>
         {!isProcessing && <Kbd className="shrink-0">{isRecording ? 'E' : 'R'}</Kbd>}
       </button>

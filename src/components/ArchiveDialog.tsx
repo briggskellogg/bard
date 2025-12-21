@@ -19,7 +19,6 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
-import { CategoryTag, CategorySelector } from '@/components/ui/category-tag'
 import { useSettingsStore } from '@/store/settings'
 import { useArchive } from '@/hooks/useArchive'
 import { cn } from '@/lib/utils'
@@ -91,7 +90,6 @@ export function ArchiveDialog() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
-  const [showCategorySelector, setShowCategorySelector] = useState<string | null>(null)
   const [editingTitleId, setEditingTitleId] = useState<string | null>(null)
   const [editingTitleValue, setEditingTitleValue] = useState('')
   const [currentPage, setCurrentPage] = useState(0)
@@ -230,14 +228,6 @@ export function ArchiveDialog() {
     }
   }, [deleteTranscript, expandedId])
 
-  const handleCategoryChange = useCallback(async (id: string, category: string) => {
-    try {
-      await updateTranscript(id, { category })
-    } catch (error) {
-      console.error('Failed to update category:', error)
-      toast.error('Failed to update')
-    }
-  }, [updateTranscript])
 
   const handleTitleEdit = useCallback((id: string, currentTitle: string) => {
     setEditingTitleId(id)
@@ -280,8 +270,6 @@ export function ArchiveDialog() {
             setEditingTitleValue('')
           } else if (searchQuery) {
             setSearchQuery('')
-          } else if (showCategorySelector) {
-            setShowCategorySelector(null)
           } else {
             setArchiveDialogOpen(false)
           }
@@ -363,7 +351,7 @@ export function ArchiveDialog() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [archiveDialogOpen, paginatedTranscripts, selectedIndex, expandedId, copyTranscript, handleDelete, setArchiveDialogOpen, searchQuery, showCategorySelector, currentPage, totalPages, editingTitleId])
+  }, [archiveDialogOpen, paginatedTranscripts, selectedIndex, expandedId, copyTranscript, handleDelete, setArchiveDialogOpen, searchQuery, currentPage, totalPages, editingTitleId])
 
   return (
     <Sheet open={archiveDialogOpen} onOpenChange={handleDialogChange}>
@@ -487,8 +475,8 @@ export function ArchiveDialog() {
                         setExpandedId(expandedId === transcript.id ? null : transcript.id)
                       }}
                     >
-                      {/* Header row - all items aligned horizontally */}
-                      <div className="flex items-center gap-3 mb-[8px]">
+                      {/* Header row - Title and Date */}
+                      <div className="flex items-center gap-3 mb-[13px]">
                         {/* Editable Title */}
                         {editingTitleId === transcript.id ? (
                           <Input
@@ -513,30 +501,10 @@ export function ArchiveDialog() {
                           </h3>
                         )}
                         
-                        {/* Category tag */}
-                        <div className="relative shrink-0" onClick={(e) => e.stopPropagation()}>
-                          <CategoryTag
-                            category={transcript.category || 'Note'}
-                            size="sm"
-                            showLabel={true}
-                            onClick={() => setShowCategorySelector(
-                              showCategorySelector === transcript.id ? null : transcript.id
-                            )}
-                          />
-                          
-                          {/* Category selector dropdown */}
-                          {showCategorySelector === transcript.id && (
-                            <div className="absolute top-full left-0 mt-2 p-3 bg-popover border border-border/50 rounded-xl shadow-lg z-10 min-w-[200px]">
-                              <CategorySelector
-                                value={transcript.category || 'Note'}
-                                onChange={(cat) => {
-                                  handleCategoryChange(transcript.id, cat)
-                                  setShowCategorySelector(null)
-                                }}
-                              />
-                            </div>
-                          )}
-                        </div>
+                        {/* Date - right next to title */}
+                        <span className="text-[11px] text-muted-foreground/40 tracking-wide shrink-0">
+                          {formatDate(transcript.createdAt)}
+                        </span>
 
                         {/* Spacer */}
                         <div className="flex-1" />
@@ -573,11 +541,6 @@ export function ArchiveDialog() {
                             <Kbd>D</Kbd>
                           </Button>
                         </div>
-                      </div>
-
-                      {/* Date */}
-                      <div className="mb-[13px] text-[11px] text-muted-foreground/40 tracking-wide">
-                        {formatDate(transcript.createdAt)}
                       </div>
                       
                       {/* Transcript text with star in bottom right */}
