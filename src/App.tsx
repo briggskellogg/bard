@@ -394,15 +394,20 @@ function App() {
           </div>
           
           {/* Exit button - right side */}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleToggleCompact}
-            className="absolute right-[13px] h-[24px] w-[24px] p-0 rounded-lg"
-            aria-label="Exit compact mode"
-          >
-            <X className="h-3.5 w-3.5 opacity-60" />
-          </Button>
+          <div className="absolute right-[13px] flex items-center gap-1.5">
+            <kbd className="inline-flex items-center justify-center px-[5px] py-[1px] rounded-[3px] bg-background/60 border border-border/40 text-[8px] font-medium text-muted-foreground/60 backdrop-blur-sm">
+              ESC
+            </kbd>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleToggleCompact}
+              className="h-[20px] w-[20px] p-0 rounded-md"
+              aria-label="Exit compact mode"
+            >
+              <X className="h-3 w-3 opacity-60" />
+            </Button>
+          </div>
         </header>
         
         {/* Compact Content */}
