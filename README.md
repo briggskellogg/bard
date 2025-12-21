@@ -1,124 +1,31 @@
 # Bard
 
-**Real-time voice transcription for macOS** — powered by [ElevenLabs Scribe v2](https://elevenlabs.io/scribe).
+## The Problem
 
-Talk. It transcribes. It saves.
+I wanted a way to transcribe my thoughts in real-time without leaving my computer or switching apps. Every transcription tool I found was either cloud-heavy, required uploading files after recording, or felt clunky for quick capture.
 
----
+What I needed was **local-first live transcription** — something that sits quietly on my Mac, ready to go when I am.
 
-## What is Bard?
+## The Process
 
-Bard is a lightweight macOS app that turns your spoken words into text in real-time. Whether you're taking meeting notes, dictating ideas, or capturing thoughts on the fly — just hit record and let Bard handle the rest.
+I built Bard for one specific workflow: **ranting**.
 
-**Features:**
-- 🎙️ **Real-time transcription** — See your words appear as you speak
-- 💾 **Auto-archive** — Transcripts are automatically saved and organized
-- 🏷️ **Smart tagging** — Claude AI categorizes and titles your notes
-- 🌙 **Dark & Light mode** — Easy on your eyes, day or night
-- ⌨️ **Keyboard shortcuts** — Power-user friendly (⌘+Enter to record, ⌘+C to copy)
-- 📱 **iOS support** — Coming soon
+When I have an idea, a frustration, or something I need to work through — I don't want to type. I want to talk. I hit record, say what I'm thinking, and watch the words appear. When I'm done, it's saved. That's it.
 
----
+No file management. No exports. No friction.
 
-## Getting Started
+The best thinking happens when you're not thinking about the tool.
 
-### Step 1: Download
+## The Product
 
-[![Download Bard](https://img.shields.io/badge/Download-Bard-EAB308?style=for-the-badge)](https://github.com/briggskellogg/bard/releases/latest/download/Bard.dmg)
+Bard is a lightweight macOS app powered by [ElevenLabs Scribe](https://elevenlabs.io/scribe). It transcribes your voice in real-time, auto-saves everything to a local library, and stays out of your way.
 
-1. Click the button above to download `Bard.dmg`
-2. Open the DMG file
-3. Drag **Bard** into your **Applications** folder
-4. Open Bard from Applications (you may need to right-click → Open the first time)
+I built this for myself, but you can use it too.
 
-### Step 2: Get an ElevenLabs API Key
-
-Bard uses [ElevenLabs](https://elevenlabs.io) for transcription. You'll need a free API key:
-
-1. Go to [elevenlabs.io](https://elevenlabs.io) and create an account
-2. Navigate to **Settings → API Keys** ([direct link](https://elevenlabs.io/app/settings/api-keys))
-3. Click **Create API Key** and copy it
-4. Paste it into Bard when prompted
-
-> 💡 **Tip:** ElevenLabs offers free credits to get started. The Scribe API is pay-per-use and very affordable.
-
-### Step 3: Start Recording
-
-1. Click the **Record** button (or press `⌘+Enter`)
-2. Speak into your microphone
-3. Watch your words appear in real-time
-4. Click **Stop** when done — your transcript is auto-saved!
-
----
-
-## Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `⌘ + Enter` | Start/Stop recording |
-| `⌘ + P` | Pause/Resume recording |
-| `⌘ + C` | Copy transcript |
-| `⌘ + V` | Open archive |
-| `⌘ + T` | Toggle dark/light mode |
-| `Esc` | Discard current recording |
-
----
-
-## Building from Source
-
-Want to run the latest development version or contribute? Here's how:
-
-### Prerequisites
-
-- **macOS** 10.15 or later
-- **Node.js** 18+ ([download](https://nodejs.org))
-- **pnpm** (`npm install -g pnpm`)
-- **Rust** ([install via rustup](https://rustup.rs))
-- **Xcode Command Line Tools** (`xcode-select --install`)
-
-### Build Steps
-
-```bash
-# Clone the repository
-git clone https://github.com/briggskellogg/bard.git
-cd bard
-
-# Install dependencies
-pnpm install
-
-# Run in development mode
-pnpm tauri dev
-
-# Or build for production
-pnpm tauri build
-```
-
-The built app will be in `src-tauri/target/release/bundle/`.
-
----
-
-## FAQ
-
-**Q: Is my audio sent to the cloud?**  
-A: Yes, audio is streamed to ElevenLabs for transcription. Your transcripts are stored locally on your device.
-
-**Q: Does it work offline?**  
-A: No, Bard requires an internet connection for transcription.
-
-**Q: What languages are supported?**  
-A: Bard supports 100+ languages with varying accuracy levels (Excellent, High, Good, Moderate). Top languages include English, Spanish, French, German, Japanese, Hindi, Portuguese, and many more. Select your language from the dropdown before recording — each language shows its accuracy tier.
-
-**Q: How much does it cost?**  
-A: Bard itself is free. You pay ElevenLabs directly for API usage (they offer free credits to start).
-
----
-
-## License
-
-MIT — do whatever you want with it.
+If you'd like to try it and don't know how to download it: **[me@briggskellogg.com](mailto:me@briggskellogg.com)**
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://briggskellogg.com">Briggs Kellogg</a>
+  <a href="https://briggskellogg.com">briggskellogg.com</a>
 </p>
