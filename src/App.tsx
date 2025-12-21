@@ -439,7 +439,7 @@ function App() {
           Bard
         </span>
         <div className={cn(
-          "absolute flex items-center gap-1",
+          "absolute flex items-center gap-0",
           isMobile ? "right-[16px]" : "right-[21px]"
         )}>
           {/* Compact mode toggle */}
@@ -448,7 +448,7 @@ function App() {
               variant="ghost"
               size="sm"
               onClick={handleToggleCompact}
-              className="h-[34px] px-2 gap-1 rounded-lg"
+              className="h-[34px] px-1.5 gap-0.5 rounded-lg"
               aria-label="Compact mode"
             >
               <PictureInPicture2 className="h-4 w-4 opacity-60" />

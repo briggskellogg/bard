@@ -359,7 +359,7 @@ export function ArchiveDialog() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-[34px] px-2 gap-1 rounded-lg"
+          className="h-[34px] px-1.5 gap-0.5 rounded-lg"
           aria-label="Vault"
           onClick={(e) => {
             e.preventDefault()

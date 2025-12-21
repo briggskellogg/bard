@@ -63,7 +63,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="sm"
       onClick={toggleTheme}
-      className="h-9 px-2 gap-1.5"
+      className="h-9 px-1.5 gap-0.5"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
