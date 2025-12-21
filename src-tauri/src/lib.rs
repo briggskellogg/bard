@@ -13,49 +13,6 @@ use tauri::menu::{MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuild
 use tauri::Emitter;
 use tauri::{AppHandle, Manager, WebviewWindow};
 
-// Set window to float above fullscreen apps (macOS only)
-#[tauri::command]
-async fn set_floating_window_level(window: WebviewWindow, floating: bool) -> Result<(), String> {
-    #[cfg(target_os = "macos")]
-    {
-        use cocoa::appkit::{NSWindow, NSWindowCollectionBehavior};
-        use cocoa::base::id;
-        
-        let ns_window = window.ns_window().map_err(|e| format!("Failed to get NSWindow: {}", e))? as id;
-        
-        unsafe {
-            if floating {
-                // Set window level to status bar level (above fullscreen apps)
-                let _: () = msg_send![ns_window, setLevel: 25_i64];
-                
-                // Set collection behavior to work with fullscreen and all spaces
-                let behavior = NSWindowCollectionBehavior::NSWindowCollectionBehaviorCanJoinAllSpaces
-                    | NSWindowCollectionBehavior::NSWindowCollectionBehaviorStationary
-                    | NSWindowCollectionBehavior::NSWindowCollectionBehaviorFullScreenAuxiliary;
-                ns_window.setCollectionBehavior_(behavior);
-            } else {
-                // Reset to normal window level
-                let _: () = msg_send![ns_window, setLevel: 0_i64];
-                
-                // Reset collection behavior to default
-                let behavior = NSWindowCollectionBehavior::NSWindowCollectionBehaviorDefault;
-                ns_window.setCollectionBehavior_(behavior);
-            }
-        }
-        
-        log::info!("Set floating window level: {}", floating);
-        Ok(())
-    }
-    
-    #[cfg(not(target_os = "macos"))]
-    {
-        let _ = (window, floating); // Suppress unused variable warnings
-        log::warn!("Floating window level not supported on this platform");
-        Ok(())
-    }
-}
-
-
 // Validation functions
 fn validate_filename(filename: &str) -> Result<(), String> {
     // Regex pattern: only alphanumeric, dash, underscore, dot
@@ -682,8 +639,7 @@ pub fn run() {
             send_native_notification,
             save_emergency_data,
             load_emergency_data,
-            cleanup_old_recovery_files,
-            set_floating_window_level
+            cleanup_old_recovery_files
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

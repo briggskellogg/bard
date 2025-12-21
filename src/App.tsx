@@ -15,7 +15,7 @@ import { useSettingsStore } from './store/settings'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
-import { FolderArchive, PictureInPicture2, X } from 'lucide-react'
+import { FolderArchive } from 'lucide-react'
 // Logo is rendered as text using PP Neue Machina Inktrap font
 import bekGold from './assets/bek-gold.png'
 import bardIcon from './assets/bard-icon.png'
@@ -41,7 +41,7 @@ function App() {
   const { apiKey, isLoaded, hasApiKey, saveApiKey } = useApiKey()
   useAnthropicApiKey() // Initialize Anthropic API key from env/localStorage
   const { archiveTranscript } = useArchive()
-  const { setArchiveDialogOpen, theme, compactMode, setCompactMode } = useSettingsStore()
+  const { setArchiveDialogOpen, theme } = useSettingsStore()
   const { isMobile, isDesktop } = usePlatform()
   const [isStarting, setIsStarting] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
@@ -213,35 +213,6 @@ function App() {
     useSettingsStore.getState().setTheme(newTheme)
   }, [theme])
 
-  // Toggle compact floating mode
-  const handleToggleCompact = useCallback(async () => {
-    const newCompactMode = !compactMode
-    setCompactMode(newCompactMode)
-    
-    // Resize window using Tauri API
-    try {
-      const { getCurrentWindow, LogicalSize } = await import('@tauri-apps/api/window')
-      const { invoke } = await import('@tauri-apps/api/core')
-      const appWindow = getCurrentWindow()
-      
-      if (newCompactMode) {
-        // Compact mode: small floating window that hovers above everything including fullscreen
-        await appWindow.setResizable(false)
-        await appWindow.setSize(new LogicalSize(280, 240))
-        // Use native macOS API to float above fullscreen apps
-        await invoke('set_floating_window_level', { floating: true })
-      } else {
-        // Normal mode: regular window behavior
-        await invoke('set_floating_window_level', { floating: false })
-        await appWindow.setResizable(true)
-        await appWindow.setSize(new LogicalSize(600, 800))
-        await appWindow.center()
-      }
-    } catch (error) {
-      console.error('Failed to resize window:', error)
-    }
-  }, [compactMode, setCompactMode])
-
   // Global keyboard shortcuts (desktop only)
   useEffect(() => {
     // Skip keyboard shortcuts on mobile
@@ -314,16 +285,12 @@ function App() {
             }
           }
           break
-        case 'f':
-          e.preventDefault()
-          handleToggleCompact()
-          break
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, handleToggleCompact, setArchiveDialogOpen])
+  }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
   // Bard logo is rendered as text with PP Neue Machina Inktrap font
   // BEK logo for footer - gold color
@@ -343,91 +310,6 @@ function App() {
     return (
       <div className="flex flex-col h-screen bg-background text-foreground">
         <ApiKeySetupDialog isOpen={true} onSave={saveApiKey} />
-      </div>
-    )
-  }
-
-  // Compact mode - minimal floating window
-  if (compactMode) {
-    return (
-      <div className="flex flex-col h-screen bg-background text-foreground">
-        {/* Compact Header */}
-        <header 
-          className="relative flex items-center justify-center shrink-0 h-[36px] px-[13px]"
-          {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
-        >
-          {/* Logo - centered */}
-          <div className="flex items-center gap-1.5">
-            <img src={bardIcon} alt="" className="h-[14px] w-auto" />
-            <span 
-              className="font-brand text-[14px] tracking-tight"
-              style={{ 
-                fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
-                fontWeight: 800,
-                background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Bard
-            </span>
-            <span 
-              className="px-1 py-0.5 rounded bg-muted/40 border border-border/30 text-[8px] text-muted-foreground/60"
-              style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 400 }}
-            >
-              v1
-            </span>
-          </div>
-          
-          {/* Exit button - right side */}
-          <div className="absolute right-[13px] flex items-center gap-1.5">
-            <kbd className="inline-flex items-center justify-center px-[5px] py-[1px] rounded-[3px] bg-background/60 border border-border/40 text-[8px] font-medium text-muted-foreground/60 backdrop-blur-sm">
-              ESC
-            </kbd>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleToggleCompact}
-              className="h-[20px] w-[20px] p-0 rounded-md"
-              aria-label="Exit compact mode"
-            >
-              <X className="h-3 w-3 opacity-60" />
-            </Button>
-          </div>
-        </header>
-        
-        {/* Compact Content */}
-        <main className="flex flex-col flex-1 px-[13px] pb-[13px] gap-[8px] overflow-hidden">
-          {/* Waveform */}
-          <WaveformDisplay
-            isRecording={isRecording}
-            isPaused={isPaused}
-            isProcessing={status === 'connecting'}
-            deviceId={selectedDeviceId}
-          />
-          
-          {/* Transcript */}
-          <div className="flex-1 min-h-0 rounded-xl bg-muted/20 border border-border/30 overflow-y-auto p-[10px]">
-            {hasContent ? (
-              <p className="text-[12px] leading-[1.5] text-foreground/80">
-                {transcript || ''}
-                {partialTranscript && (
-                  <span className="text-muted-foreground/60">
-                    {transcript ? ' ' : ''}{partialTranscript}
-                    {isRecording && (
-                      <span className="inline-block w-[2px] h-[13px] bg-primary/80 ml-1 animate-pulse align-text-bottom rounded-full" />
-                    )}
-                  </span>
-                )}
-              </p>
-            ) : (
-              <p className="text-[10px] text-muted-foreground/30 text-center pt-2">
-                ⌘F to exit · ⌘↩ to record
-              </p>
-            )}
-          </div>
-        </main>
       </div>
     )
   }
@@ -468,19 +350,6 @@ function App() {
           "absolute flex items-center gap-0",
           isMobile ? "right-[16px]" : "right-[21px]"
         )}>
-          {/* Compact mode toggle */}
-          {!isMobile && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleToggleCompact}
-              className="h-[34px] px-1.5 gap-0.5 rounded-lg"
-              aria-label="Compact mode"
-            >
-              <PictureInPicture2 className="h-4 w-4 opacity-60" />
-              <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">F</span></Kbd>
-            </Button>
-          )}
           <ArchiveDialog />
           <ThemeToggle />
         </div>

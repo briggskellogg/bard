@@ -15,8 +15,10 @@
     "windows": [
       {
         "title": "Bard",
-        "width": 600,
-        "height": 800,
+        "width": 400,
+        "height": 600,
+        "minWidth": 400,
+        "minHeight": 600,
         "resizable": true,
         "fullscreen": false,
         "maximized": false,
