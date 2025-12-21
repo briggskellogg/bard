@@ -10,12 +10,12 @@ import {
 } from '@/components/ui/brand-icons'
 import { Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
@@ -367,8 +367,8 @@ export function ArchiveDialog() {
   }, [archiveDialogOpen, paginatedTranscripts, selectedIndex, expandedId, copyTranscript, handleDelete, setArchiveDialogOpen, searchQuery, currentPage, totalPages, editingTitleId])
 
   return (
-    <Sheet open={archiveDialogOpen} onOpenChange={handleDialogChange}>
-      <SheetTrigger asChild>
+    <Dialog open={archiveDialogOpen} onOpenChange={handleDialogChange}>
+      <DialogTrigger asChild>
         <Button
           variant="ghost"
           size="sm"
@@ -387,18 +387,17 @@ export function ArchiveDialog() {
           )}
           <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">V</span></Kbd>
         </Button>
-      </SheetTrigger>
-      <SheetContent 
-        side="bottom" 
-        className="h-[80vh] rounded-t-3xl border-t border-border/30 shadow-2xl bg-background/98 backdrop-blur-xl"
+      </DialogTrigger>
+      <DialogContent 
+        className="max-w-2xl w-[90vw] h-[80vh] rounded-2xl border border-border/30 shadow-2xl bg-background/98 backdrop-blur-xl p-0"
       >
-        <div className="h-full flex flex-col px-[21px] sm:px-[34px] max-w-3xl mx-auto pt-[13px]">
+        <div className="h-full flex flex-col px-[21px] sm:px-[34px] pt-[21px]">
           {/* Header */}
-          <SheetHeader className="pb-[21px]">
+          <DialogHeader className="pb-[21px]">
             <div className="flex items-center justify-center gap-[13px]">
-              <SheetTitle className="text-[21px] font-semibold tracking-tight font-display">
+              <DialogTitle className="text-[21px] font-semibold tracking-tight font-display">
                 Vault
-              </SheetTitle>
+              </DialogTitle>
               {archivedTranscripts.length > 0 && (
                 <Button
                   variant="outline"
@@ -420,7 +419,7 @@ export function ArchiveDialog() {
                 </Button>
               )}
             </div>
-          </SheetHeader>
+          </DialogHeader>
 
           {/* Search bar and filter row - full width */}
           <div className="flex items-center gap-3 mb-[21px]">
@@ -637,7 +636,7 @@ export function ArchiveDialog() {
             </span>
           </div>
         </div>
-      </SheetContent>
-    </Sheet>
+      </DialogContent>
+    </Dialog>
   )
 }
