@@ -104,11 +104,13 @@ export function ApiKeyEditDialog({
               onClick={handleUpdate}
               disabled={!apiKey.trim() || isUpdating}
               className={cn(
-                'flex-1 h-[42px] rounded-xl font-medium text-[14px]',
-                'bg-foreground text-background',
-                'hover:bg-foreground/90 transition-colors',
+                'flex-1 h-[42px] rounded-xl font-medium text-[14px] text-white',
+                'hover:opacity-90 transition-opacity',
                 (!apiKey.trim() || isUpdating) && 'opacity-50 cursor-not-allowed'
               )}
+              style={{
+                background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
+              }}
             >
               {isUpdating ? (
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
