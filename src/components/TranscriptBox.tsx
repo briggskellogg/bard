@@ -229,9 +229,12 @@ export function TranscriptBox({
         <div className="p-[21px] pb-[55px]">
           {hasContent ? (
             <div className={cn(
-              "text-[15px] leading-[1.7] tracking-[-0.01em]",
-              // Use PP NeueBit (8-bit font) while transcribing, PP Neue Montreal Mono when archived
-              isRecording ? "font-transcribe" : "font-body"
+              "leading-[1.7]",
+              // Use PP NeueBit (8-bit font) while transcribing - larger size for readability
+              // PP Neue Montreal Mono when archived - standard size
+              isRecording 
+                ? "font-transcribe text-[20px] tracking-[0.02em]" 
+                : "font-body text-[15px] tracking-[-0.01em]"
             )}>
               {/* Multi-speaker view - show speaker labels */}
               {hasSpeakers ? (
