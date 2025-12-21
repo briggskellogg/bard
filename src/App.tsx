@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { WaveformDisplay } from './components/WaveformDisplay'
-import { BrandCopyIcon, BrandCheckIcon, BrandPauseIcon, BrandPlayIcon, ShieldIcon } from '@/components/ui/brand-icons'
+import { BrandCopyIcon, BrandCheckIcon, BrandPauseIcon, BrandPlayIcon } from '@/components/ui/brand-icons'
 import { RecordingBar, type ScribeLanguageCode } from './components/RecordingBar'
 import { TranscriptBox } from './components/TranscriptBox'
 import { ArchiveDialog } from './components/ArchiveDialog'
@@ -447,17 +447,14 @@ function App() {
 
       {/* Footer - minimal, elegant, with safe area padding for iOS home indicator */}
       <footer className={cn(
-        "relative flex items-center justify-center border-t border-border/20",
+        "relative flex items-center justify-between border-t border-border/20",
         isMobile 
           ? "h-auto min-h-[55px] px-[16px] pb-[env(safe-area-inset-bottom)]" 
           : "h-[55px] px-[21px]"
       )}>
-        <div className="flex items-center gap-2">
-          <ShieldIcon size={13} className="text-[#00D4FF]/60" />
-          <span className="text-[10px] text-muted-foreground/50 tracking-wide">
-            All data processed and stored locally on your device
-          </span>
-        </div>
+        <span className="text-[10px] text-muted-foreground/40 tracking-wide">
+          Bard v1.0.0
+        </span>
         <button
           onClick={() => {
             import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
@@ -466,10 +463,7 @@ function App() {
               window.open('https://briggskellogg.com', '_blank')
             })
           }}
-          className={cn(
-            "group absolute p-0 border-0 bg-transparent cursor-pointer",
-            isMobile ? "right-[16px]" : "right-[21px]"
-          )}
+          className="group p-0 border-0 bg-transparent cursor-pointer"
           aria-label="BEK"
         >
           <img 
