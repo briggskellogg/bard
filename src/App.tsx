@@ -342,7 +342,7 @@ function App() {
             className="px-1.5 h-[18px] flex items-center rounded-[4px] bg-muted/40 border border-border/30 text-[10px] text-muted-foreground/60"
             style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 400 }}
           >
-            v1
+            v1.1
           </span>
         </div>
         <div className={cn(
@@ -457,7 +457,7 @@ function App() {
         <div className="flex items-center gap-2">
           <img src={bardIcon} alt="" className="h-[16px] w-auto opacity-40" />
           <span className="text-[12px] text-muted-foreground/40 tracking-wide">
-            Bard v1.0.0
+            Bard v1.1.0
           </span>
         </div>
         <button
