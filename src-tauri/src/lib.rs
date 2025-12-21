@@ -1,7 +1,3 @@
-#[cfg(target_os = "macos")]
-#[macro_use]
-extern crate objc;
-
 use regex::Regex;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -11,7 +7,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 use tauri::menu::{MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuilder};
 #[cfg(not(mobile))]
 use tauri::Emitter;
-use tauri::{AppHandle, Manager, WebviewWindow};
+use tauri::{AppHandle, Manager};
 
 // Validation functions
 fn validate_filename(filename: &str) -> Result<(), String> {
