@@ -222,11 +222,13 @@ function App() {
       const appWindow = getCurrentWindow()
       
       if (newCompactMode) {
-        // Compact mode: small floating window
-        await appWindow.setSize(new LogicalSize(360, 280))
+        // Compact mode: small floating window that hovers above everything
+        await appWindow.setSize(new LogicalSize(340, 320))
+        await appWindow.setVisibleOnAllWorkspaces(true)
         await appWindow.center()
       } else {
         // Normal mode: full size
+        await appWindow.setVisibleOnAllWorkspaces(false)
         await appWindow.setSize(new LogicalSize(600, 800))
         await appWindow.center()
       }
@@ -345,21 +347,10 @@ function App() {
       <div className="flex flex-col h-screen bg-background text-foreground">
         {/* Compact Header */}
         <header 
-          className="relative flex items-center justify-between shrink-0 h-[40px] px-[13px]"
+          className="relative flex items-center justify-center shrink-0 h-[36px] px-[13px]"
           {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
         >
-          {/* Exit compact mode button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleToggleCompact}
-            className="h-[28px] w-[28px] p-0 rounded-lg"
-            aria-label="Exit compact mode"
-          >
-            <X className="h-4 w-4 opacity-60" />
-          </Button>
-          
-          {/* Logo */}
+          {/* Logo - centered */}
           <span 
             className="font-brand text-[14px] tracking-tight"
             style={{ 
@@ -374,51 +365,49 @@ function App() {
             Bard
           </span>
           
-          {/* Record/Stop button */}
+          {/* Exit button - right side */}
           <Button
             variant="ghost"
             size="sm"
-            onClick={isRecording ? handleStopRecording : handleStartRecording}
-            disabled={isStarting || isProcessing}
-            className={cn(
-              "h-[28px] w-[28px] p-0 rounded-lg",
-              isRecording && "text-[#EF4444]"
-            )}
-            aria-label={isRecording ? "Stop" : "Record"}
+            onClick={handleToggleCompact}
+            className="absolute right-[13px] h-[24px] w-[24px] p-0 rounded-lg"
+            aria-label="Exit compact mode"
           >
-            {isStarting || isProcessing ? (
-              <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
-            ) : (
-              <div className={cn(
-                "h-3 w-3 rounded-full",
-                isRecording ? "bg-[#EF4444] animate-pulse" : "bg-muted-foreground/40"
-              )} />
-            )}
+            <X className="h-3.5 w-3.5 opacity-60" />
           </Button>
         </header>
         
-        {/* Compact Transcript */}
-        <div className="flex-1 overflow-hidden px-[13px] pb-[13px]">
-          <div className="h-full rounded-xl bg-muted/20 border border-border/30 overflow-y-auto p-[13px]">
+        {/* Compact Content */}
+        <main className="flex flex-col flex-1 px-[13px] pb-[13px] gap-[8px] overflow-hidden">
+          {/* Waveform */}
+          <WaveformDisplay
+            isRecording={isRecording}
+            isPaused={isPaused}
+            isProcessing={status === 'connecting'}
+            deviceId={selectedDeviceId}
+          />
+          
+          {/* Transcript */}
+          <div className="flex-1 min-h-0 rounded-xl bg-muted/20 border border-border/30 overflow-y-auto p-[10px]">
             {hasContent ? (
-              <p className="text-[13px] leading-[1.6] text-foreground/80">
+              <p className="text-[12px] leading-[1.5] text-foreground/80">
                 {transcript || ''}
                 {partialTranscript && (
                   <span className="text-muted-foreground/60">
                     {transcript ? ' ' : ''}{partialTranscript}
                     {isRecording && (
-                      <span className="inline-block w-[2px] h-[14px] bg-primary/80 ml-1 animate-pulse align-text-bottom rounded-full" />
+                      <span className="inline-block w-[2px] h-[13px] bg-primary/80 ml-1 animate-pulse align-text-bottom rounded-full" />
                     )}
                   </span>
                 )}
               </p>
             ) : (
-              <p className="text-[11px] text-muted-foreground/30 text-center pt-4">
-                Press F to exit · R to record
+              <p className="text-[10px] text-muted-foreground/30 text-center pt-2">
+                F to exit · R to record
               </p>
             )}
           </div>
-        </div>
+        </main>
       </div>
     )
   }
@@ -433,22 +422,6 @@ function App() {
         )}
         {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
-        {/* Compact mode toggle - left side */}
-        {!isMobile && (
-          <div className="absolute left-[21px] flex items-center">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleToggleCompact}
-              className="h-[34px] px-2 gap-1 rounded-lg"
-              aria-label="Compact mode"
-            >
-              <PictureInPicture2 className="h-4 w-4 opacity-60" />
-              <Kbd>F</Kbd>
-            </Button>
-          </div>
-        )}
-        
         <span 
           className="font-brand text-[18px] tracking-tight"
           style={{ 
@@ -466,6 +439,19 @@ function App() {
           "absolute flex items-center gap-1",
           isMobile ? "right-[16px]" : "right-[21px]"
         )}>
+          {/* Compact mode toggle */}
+          {!isMobile && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleToggleCompact}
+              className="h-[34px] px-2 gap-1 rounded-lg"
+              aria-label="Compact mode"
+            >
+              <PictureInPicture2 className="h-4 w-4 opacity-60" />
+              <Kbd>F</Kbd>
+            </Button>
+          )}
           <ArchiveDialog />
           <ThemeToggle />
         </div>
