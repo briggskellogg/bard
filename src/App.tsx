@@ -6,6 +6,7 @@ import { TranscriptBox } from './components/TranscriptBox'
 import { ArchiveDialog } from './components/ArchiveDialog'
 import { ThemeToggle } from './components/ThemeToggle'
 import { ApiKeySetupDialog } from './components/ApiKeySetupDialog'
+import { ApiKeyEditDialog } from './components/ApiKeyEditDialog'
 import { useApiKey } from './hooks/useApiKey'
 import { useAnthropicApiKey } from './hooks/useAnthropicApiKey'
 import { useArchive } from './hooks/useArchive'
@@ -38,7 +39,7 @@ function Kbd({ children, className }: { children: React.ReactNode; className?: s
 }
 
 function App() {
-  const { apiKey, isLoaded, hasApiKey, saveApiKey } = useApiKey()
+  const { apiKey, isLoaded, hasApiKey, hasStoredKey, saveApiKey, clearApiKey } = useApiKey()
   useAnthropicApiKey() // Initialize Anthropic API key from env/localStorage
   const { archiveTranscript } = useArchive()
   const { setArchiveDialogOpen, theme } = useSettingsStore()
@@ -55,6 +56,9 @@ function App() {
   
   // Action feedback states
   const [copyTriggered, setCopyTriggered] = useState(false)
+  
+  // API key edit dialog
+  const [apiKeyDialogOpen, setApiKeyDialogOpen] = useState(false)
 
   const {
     status,
@@ -63,6 +67,7 @@ function App() {
     transcript,
     segments,
     partialTranscript,
+    error: apiError,
     start,
     stop,
     pause,
@@ -381,6 +386,9 @@ function App() {
           isPaused={isPaused}
           isProcessing={status === 'connecting'}
           deviceId={selectedDeviceId}
+          apiConnected={hasApiKey && !apiError}
+          apiError={apiError}
+          onKeyClick={() => setApiKeyDialogOpen(true)}
         />
 
         {/* Action Bar - minimal height */}
@@ -473,6 +481,15 @@ function App() {
           />
         </button>
       </footer>
+
+      {/* API Key Edit Dialog */}
+      <ApiKeyEditDialog
+        isOpen={apiKeyDialogOpen}
+        onClose={() => setApiKeyDialogOpen(false)}
+        onUpdate={saveApiKey}
+        onRemove={clearApiKey}
+        hasExistingKey={hasStoredKey}
+      />
     </div>
   )
 }
