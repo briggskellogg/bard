@@ -148,7 +148,7 @@ export function RecordingBar({
         <span className="flex-1 text-center text-[12px] opacity-70">
           {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New Recording' : 'Record'}
         </span>
-        {!isProcessing && <Kbd className="shrink-0">{isRecording ? 'E' : 'R'}</Kbd>}
+        {!isProcessing && <Kbd className="shrink-0 gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">↩</span></Kbd>}
       </button>
 
       {/* Microphone Selector - 1/3 width */}

@@ -286,20 +286,21 @@ function App() {
         return
       }
 
+      // Command+Enter for recording start/stop
+      if (e.key === 'Enter' && e.metaKey) {
+        e.preventDefault()
+        if (isConnected || isPaused) {
+          handleStopRecording()
+        } else {
+          handleStartRecording()
+        }
+        return
+      }
+
+      // All other hotkeys require Command key
+      if (!e.metaKey) return
+
       switch (e.key.toLowerCase()) {
-        case 'r':
-          e.preventDefault()
-          if (!isConnected) {
-            handleStartRecording()
-          }
-          break
-        case 'e':
-          e.preventDefault()
-          // Allow ending recording when connected OR when paused
-          if (isConnected || isPaused) {
-            handleStopRecording()
-          }
-          break
         case 'c':
           e.preventDefault()
           handleCopy()
@@ -436,7 +437,7 @@ function App() {
               </p>
             ) : (
               <p className="text-[10px] text-muted-foreground/30 text-center pt-2">
-                F to exit · R to record
+                ⌘F to exit · ⌘↩ to record
               </p>
             )}
           </div>
@@ -491,7 +492,7 @@ function App() {
               aria-label="Compact mode"
             >
               <PictureInPicture2 className="h-4 w-4 opacity-60" />
-              <Kbd>F</Kbd>
+              <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">F</span></Kbd>
             </Button>
           )}
           <ArchiveDialog />
@@ -548,7 +549,7 @@ function App() {
                   <BrandPauseIcon size={18} />
                 )}
                 {/* Hide keyboard hint on mobile */}
-                {!isMobile && <Kbd>P</Kbd>}
+                {!isMobile && <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">P</span></Kbd>}
               </Button>
             )}
           </div>
@@ -571,7 +572,7 @@ function App() {
               <BrandCopyIcon size={18} />
             )}
             {/* Hide keyboard hint on mobile */}
-            {!isMobile && <Kbd>C</Kbd>}
+            {!isMobile && <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">C</span></Kbd>}
           </Button>
         </div>
 

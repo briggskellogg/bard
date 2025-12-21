@@ -71,7 +71,7 @@ export function ThemeToggle() {
       ) : (
         <BrandMoonIcon size={21} />
       )}
-      <Kbd>T</Kbd>
+      <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">T</span></Kbd>
     </Button>
   )
 }

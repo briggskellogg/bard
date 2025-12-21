@@ -317,6 +317,7 @@ export function ArchiveDialog() {
           }
           break
         case 'c':
+          if (!e.metaKey) break
           e.preventDefault()
           {
             const toCopy = paginatedTranscripts[selectedIndex]
@@ -326,6 +327,18 @@ export function ArchiveDialog() {
           }
           break
         case 'd':
+          if (!e.metaKey) break
+          e.preventDefault()
+          {
+            const toDelete = paginatedTranscripts[selectedIndex]
+            if (toDelete) {
+              handleDelete(toDelete.id)
+              if (selectedIndex >= paginatedTranscripts.length - 1) {
+                setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
+              }
+            }
+          }
+          break
         case 'Backspace':
         case 'Delete':
           e.preventDefault()
@@ -372,7 +385,7 @@ export function ArchiveDialog() {
           ) : (
             <BrandHistoryIcon size={20} className="opacity-70" />
           )}
-          <Kbd>V</Kbd>
+          <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">V</span></Kbd>
         </Button>
       </SheetTrigger>
       <SheetContent 
@@ -523,7 +536,7 @@ export function ArchiveDialog() {
                             aria-label="Copy"
                           >
                             <BrandCopyIcon size={12} />
-                            <Kbd>C</Kbd>
+                            <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">C</span></Kbd>
                           </Button>
 
                           {/* Delete button */}
@@ -538,7 +551,7 @@ export function ArchiveDialog() {
                             aria-label="Delete"
                           >
                             <BrandTrashIcon size={12} />
-                            <Kbd>D</Kbd>
+                            <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">D</span></Kbd>
                           </Button>
                         </div>
                       </div>
