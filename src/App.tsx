@@ -18,6 +18,7 @@ import { toast } from 'sonner'
 import { FolderArchive, PictureInPicture2, X } from 'lucide-react'
 // Logo is rendered as text using PP Neue Machina Inktrap font
 import bekGold from './assets/bek-gold.png'
+import bardIcon from './assets/bard-icon.png'
 import './App.css'
 
 // Golden ratio based spacing (φ ≈ 1.618)
@@ -369,19 +370,28 @@ function App() {
           {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
         >
           {/* Logo - centered */}
-          <span 
-            className="font-brand text-[14px] tracking-tight"
-            style={{ 
-              fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
-              fontWeight: 800,
-              background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            Bard
-          </span>
+          <div className="flex items-center gap-1.5">
+            <img src={bardIcon} alt="" className="h-[14px] w-auto" />
+            <span 
+              className="font-brand text-[14px] tracking-tight"
+              style={{ 
+                fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
+                fontWeight: 800,
+                background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Bard
+            </span>
+            <span 
+              className="px-1 py-0.5 rounded bg-muted/40 border border-border/30 text-[8px] text-muted-foreground/60"
+              style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 400 }}
+            >
+              v1
+            </span>
+          </div>
           
           {/* Exit button - right side */}
           <Button
@@ -440,19 +450,28 @@ function App() {
         )}
         {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
-        <span 
-          className="font-brand text-[18px] tracking-tight"
-          style={{ 
-            fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
-            fontWeight: 800,
-            background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
-          Bard
-        </span>
+        <div className="flex items-center gap-2">
+          <img src={bardIcon} alt="" className="h-[18px] w-auto" />
+          <span 
+            className="font-brand text-[18px] tracking-tight"
+            style={{ 
+              fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
+              fontWeight: 800,
+              background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Bard
+          </span>
+          <span 
+            className="px-1.5 py-0.5 rounded-md bg-muted/40 border border-border/30 text-[10px] text-muted-foreground/60"
+            style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 400 }}
+          >
+            v1
+          </span>
+        </div>
         <div className={cn(
           "absolute flex items-center gap-0",
           isMobile ? "right-[16px]" : "right-[21px]"
