@@ -59,6 +59,7 @@ export function ArchiveDialog() {
   const [editingTitleValue, setEditingTitleValue] = useState('')
   const [currentPage, setCurrentPage] = useState(0)
   const [showImportantOnly, setShowImportantOnly] = useState(false)
+  const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
   
   // Open vault directly (no auth required)
   const handleOpenVault = useCallback(() => {
@@ -98,6 +99,7 @@ export function ArchiveDialog() {
   useEffect(() => {
     if (archiveDialogOpen) {
       setSelectedIndex(0)
+      setPendingDeleteId(null)
       setSearchQuery('')
       setCurrentPage(0)
       setShowImportantOnly(false)
@@ -107,6 +109,7 @@ export function ArchiveDialog() {
   useEffect(() => {
     setSelectedIndex(0)
     setCurrentPage(0)
+    setPendingDeleteId(null)
   }, [searchQuery])
 
   const copyTranscript = useCallback(async (text: string) => {
@@ -192,16 +195,19 @@ export function ArchiveDialog() {
         case 'ArrowUp':
           e.preventDefault()
           setSelectedIndex(prev => Math.max(0, prev - 1))
+          setPendingDeleteId(null)
           break
         case 'ArrowDown':
           e.preventDefault()
           setSelectedIndex(prev => Math.min(paginatedTranscripts.length - 1, prev + 1))
+          setPendingDeleteId(null)
           break
         case 'ArrowLeft':
           e.preventDefault()
           if (currentPage > 0) {
             setCurrentPage(prev => prev - 1)
             setSelectedIndex(0)
+            setPendingDeleteId(null)
           }
           break
         case 'ArrowRight':
@@ -209,11 +215,20 @@ export function ArchiveDialog() {
           if (currentPage < totalPages - 1) {
             setCurrentPage(prev => prev + 1)
             setSelectedIndex(0)
+            setPendingDeleteId(null)
           }
           break
         case 'Enter':
           e.preventDefault()
-          {
+          // If pending delete, confirm deletion
+          if (pendingDeleteId) {
+            handleDelete(pendingDeleteId)
+            const deleteIndex = paginatedTranscripts.findIndex(t => t.id === pendingDeleteId)
+            if (deleteIndex >= paginatedTranscripts.length - 1) {
+              setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
+            }
+            setPendingDeleteId(null)
+          } else {
             const selected = paginatedTranscripts[selectedIndex]
             if (selected) {
               setExpandedId(expandedId === selected.id ? null : selected.id)
@@ -221,7 +236,8 @@ export function ArchiveDialog() {
           }
           break
         case 'c':
-          if (!e.metaKey) break
+        case 'C':
+          if (e.metaKey || e.ctrlKey) break // Let native copy work
           e.preventDefault()
           {
             const toCopy = paginatedTranscripts[selectedIndex]
@@ -231,28 +247,13 @@ export function ArchiveDialog() {
           }
           break
         case 'd':
-          if (!e.metaKey) break
+        case 'D':
+          if (e.metaKey || e.ctrlKey) break
           e.preventDefault()
           {
             const toDelete = paginatedTranscripts[selectedIndex]
             if (toDelete) {
-              handleDelete(toDelete.id)
-              if (selectedIndex >= paginatedTranscripts.length - 1) {
-                setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
-              }
-            }
-          }
-          break
-        case 'Backspace':
-        case 'Delete':
-          e.preventDefault()
-          {
-            const toDelete = paginatedTranscripts[selectedIndex]
-            if (toDelete) {
-              handleDelete(toDelete.id)
-              if (selectedIndex >= paginatedTranscripts.length - 1) {
-                setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
-              }
+              setPendingDeleteId(toDelete.id)
             }
           }
           break
@@ -261,14 +262,20 @@ export function ArchiveDialog() {
           document.getElementById('archive-search')?.focus()
           break
         case 'Escape':
-          setArchiveDialogOpen(false)
+          // If pending delete, cancel it; otherwise close dialog
+          if (pendingDeleteId) {
+            e.preventDefault()
+            setPendingDeleteId(null)
+          } else {
+            setArchiveDialogOpen(false)
+          }
           break
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [archiveDialogOpen, paginatedTranscripts, selectedIndex, expandedId, copyTranscript, handleDelete, setArchiveDialogOpen, searchQuery, currentPage, totalPages, editingTitleId])
+  }, [archiveDialogOpen, paginatedTranscripts, selectedIndex, expandedId, copyTranscript, handleDelete, setArchiveDialogOpen, searchQuery, currentPage, totalPages, editingTitleId, pendingDeleteId])
 
   return (
     <Dialog open={archiveDialogOpen} onOpenChange={handleDialogChange}>
@@ -382,16 +389,20 @@ export function ArchiveDialog() {
             ) : (
               <div className="space-y-[13px] pb-[34px]">
                 {paginatedTranscripts.map((transcript, index) => {
+                  const isPendingDelete = pendingDeleteId === transcript.id
                   return (
                     <div
                       key={transcript.id}
                       className={cn(
-                        'rounded-2xl border bg-card/50 p-[21px] transition-all duration-200 cursor-pointer',
-                        selectedIndex === index 
-                          ? 'border-primary/50 shadow-lg shadow-primary/5 bg-card' 
-                          : 'border-border/30 hover:border-border/50 hover:bg-card/80',
+                        'relative rounded-2xl border bg-card/50 p-[21px] transition-all duration-200 cursor-pointer',
+                        isPendingDelete
+                          ? 'border-destructive/50 bg-destructive/5'
+                          : selectedIndex === index 
+                            ? 'border-primary/50 shadow-lg shadow-primary/5 bg-card' 
+                            : 'border-border/30 hover:border-border/50 hover:bg-card/80',
                       )}
                       onClick={() => {
+                        if (isPendingDelete) return
                         setSelectedIndex(index)
                         setExpandedId(expandedId === transcript.id ? null : transcript.id)
                       }}
@@ -436,7 +447,7 @@ export function ArchiveDialog() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[22px] px-0.5 gap-0 rounded-md"
+                            className="h-[22px] px-1.5 gap-1 rounded-md"
                             onClick={(e) => {
                               e.stopPropagation()
                               copyTranscript(transcript.text)
@@ -444,22 +455,22 @@ export function ArchiveDialog() {
                             aria-label="Copy"
                           >
                             <Copy size={12} />
-                            <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">C</span></Kbd>
+                            <Kbd><span className="text-[10px]">C</span></Kbd>
                           </Button>
 
                           {/* Delete button */}
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-[22px] px-0.5 gap-0 rounded-md hover:bg-destructive/10 hover:text-destructive"
+                            className="h-[22px] px-1.5 gap-1 rounded-md hover:bg-destructive/10 hover:text-destructive"
                             onClick={(e) => {
                               e.stopPropagation()
-                              handleDelete(transcript.id)
+                              setPendingDeleteId(transcript.id)
                             }}
                             aria-label="Delete"
                           >
                             <Trash2 size={12} />
-                            <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">D</span></Kbd>
+                            <Kbd><span className="text-[10px]">D</span></Kbd>
                           </Button>
                         </div>
                       </div>
@@ -495,6 +506,40 @@ export function ArchiveDialog() {
                           />
                         </Button>
                       </div>
+
+                      {/* Delete confirmation overlay */}
+                      {isPendingDelete && (
+                        <div className="absolute inset-0 rounded-2xl bg-background/95 backdrop-blur-sm flex items-center justify-center gap-4">
+                          <span className="text-[13px] text-destructive font-medium">Delete this recording?</span>
+                          <div className="flex items-center gap-2">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-[28px] px-3 text-[12px] rounded-lg"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                setPendingDeleteId(null)
+                              }}
+                            >
+                              Cancel
+                              <Kbd className="ml-1.5"><span className="text-[9px]">ESC</span></Kbd>
+                            </Button>
+                            <Button
+                              variant="destructive"
+                              size="sm"
+                              className="h-[28px] px-3 text-[12px] rounded-lg"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleDelete(transcript.id)
+                                setPendingDeleteId(null)
+                              }}
+                            >
+                              Delete
+                              <Kbd className="ml-1.5 bg-white/20 border-white/30"><span className="text-[9px]">↩</span></Kbd>
+                            </Button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )
                 })}
@@ -511,6 +556,7 @@ export function ArchiveDialog() {
                 onClick={() => {
                   setCurrentPage(prev => prev - 1)
                   setSelectedIndex(0)
+                  setPendingDeleteId(null)
                 }}
                 disabled={currentPage === 0}
                 className="h-[32px] px-2 gap-1 rounded-lg"
@@ -527,6 +573,7 @@ export function ArchiveDialog() {
                 onClick={() => {
                   setCurrentPage(prev => prev + 1)
                   setSelectedIndex(0)
+                  setPendingDeleteId(null)
                 }}
                 disabled={currentPage === totalPages - 1}
                 className="h-[32px] px-2 gap-1 rounded-lg"
