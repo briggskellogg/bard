@@ -37,6 +37,7 @@ interface SettingsState {
   archivedTranscripts: ArchivedTranscript[]
   isArchiveLoaded: boolean
   customCategories: string[] // User-defined categories that persist
+  compactMode: boolean // Floating compact window mode
 
   setApiKey: (key: string) => void
   setAnthropicApiKey: (key: string) => void
@@ -54,6 +55,8 @@ interface SettingsState {
   addCustomCategory: (category: string) => void
   removeCustomCategory: (category: string) => void
   setCustomCategories: (categories: string[]) => void
+  setCompactMode: (compact: boolean) => void
+  toggleCompactMode: () => void
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -68,6 +71,7 @@ export const useSettingsStore = create<SettingsState>()(
       archivedTranscripts: [],
       isArchiveLoaded: false,
       customCategories: [],
+      compactMode: false,
 
       setApiKey: key =>
         set({ apiKey: key }, undefined, 'setApiKey'),
@@ -156,6 +160,16 @@ export const useSettingsStore = create<SettingsState>()(
 
       setCustomCategories: categories =>
         set({ customCategories: categories }, undefined, 'setCustomCategories'),
+
+      setCompactMode: compact =>
+        set({ compactMode: compact }, undefined, 'setCompactMode'),
+
+      toggleCompactMode: () =>
+        set(
+          state => ({ compactMode: !state.compactMode }),
+          undefined,
+          'toggleCompactMode'
+        ),
     }),
     {
       name: 'settings-store',

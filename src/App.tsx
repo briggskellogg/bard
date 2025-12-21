@@ -15,7 +15,7 @@ import { useSettingsStore } from './store/settings'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
-import { FolderArchive } from 'lucide-react'
+import { FolderArchive, PictureInPicture2, X } from 'lucide-react'
 // Logo is rendered as text using PP Neue Machina Inktrap font
 import bekGold from './assets/bek-gold.png'
 import './App.css'
@@ -40,7 +40,7 @@ function App() {
   const { apiKey, isLoaded, hasApiKey, saveApiKey } = useApiKey()
   useAnthropicApiKey() // Initialize Anthropic API key from env/localStorage
   const { archiveTranscript } = useArchive()
-  const { setArchiveDialogOpen, theme } = useSettingsStore()
+  const { setArchiveDialogOpen, theme, compactMode, setCompactMode } = useSettingsStore()
   const { isMobile, isDesktop } = usePlatform()
   const [isStarting, setIsStarting] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
@@ -211,6 +211,30 @@ function App() {
     useSettingsStore.getState().setTheme(newTheme)
   }, [theme])
 
+  // Toggle compact floating mode
+  const handleToggleCompact = useCallback(async () => {
+    const newCompactMode = !compactMode
+    setCompactMode(newCompactMode)
+    
+    // Resize window using Tauri API
+    try {
+      const { getCurrentWindow, LogicalSize } = await import('@tauri-apps/api/window')
+      const appWindow = getCurrentWindow()
+      
+      if (newCompactMode) {
+        // Compact mode: small floating window
+        await appWindow.setSize(new LogicalSize(360, 280))
+        await appWindow.center()
+      } else {
+        // Normal mode: full size
+        await appWindow.setSize(new LogicalSize(600, 800))
+        await appWindow.center()
+      }
+    } catch (error) {
+      console.error('Failed to resize window:', error)
+    }
+  }, [compactMode, setCompactMode])
+
   // Global keyboard shortcuts (desktop only)
   useEffect(() => {
     // Skip keyboard shortcuts on mobile
@@ -282,12 +306,16 @@ function App() {
             }
           }
           break
+        case 'f':
+          e.preventDefault()
+          handleToggleCompact()
+          break
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
+  }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, handleToggleCompact, setArchiveDialogOpen])
 
   // Bard logo is rendered as text with PP Neue Machina Inktrap font
   // BEK logo for footer - gold color
@@ -311,6 +339,83 @@ function App() {
     )
   }
 
+  // Compact mode - minimal floating window
+  if (compactMode) {
+    return (
+      <div className="flex flex-col h-screen bg-background text-foreground">
+        {/* Compact Header */}
+        <header 
+          className="relative flex items-center justify-between shrink-0 h-[40px] px-[13px]"
+          {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
+        >
+          {/* Exit compact mode button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleToggleCompact}
+            className="h-[28px] w-[28px] p-0 rounded-lg"
+            aria-label="Exit compact mode"
+          >
+            <X className="h-4 w-4 opacity-60" />
+          </Button>
+          
+          {/* Logo */}
+          <span 
+            className="font-brand text-[14px] text-foreground tracking-tight uppercase"
+            style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 800 }}
+          >
+            Bard
+          </span>
+          
+          {/* Record/Stop button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={isRecording ? handleStopRecording : handleStartRecording}
+            disabled={isStarting || isProcessing}
+            className={cn(
+              "h-[28px] w-[28px] p-0 rounded-lg",
+              isRecording && "text-[#EF4444]"
+            )}
+            aria-label={isRecording ? "Stop" : "Record"}
+          >
+            {isStarting || isProcessing ? (
+              <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            ) : (
+              <div className={cn(
+                "h-3 w-3 rounded-full",
+                isRecording ? "bg-[#EF4444] animate-pulse" : "bg-muted-foreground/40"
+              )} />
+            )}
+          </Button>
+        </header>
+        
+        {/* Compact Transcript */}
+        <div className="flex-1 overflow-hidden px-[13px] pb-[13px]">
+          <div className="h-full rounded-xl bg-muted/20 border border-border/30 overflow-y-auto p-[13px]">
+            {hasContent ? (
+              <p className="text-[13px] leading-[1.6] text-foreground/80">
+                {transcript || ''}
+                {partialTranscript && (
+                  <span className="text-muted-foreground/60">
+                    {transcript ? ' ' : ''}{partialTranscript}
+                    {isRecording && (
+                      <span className="inline-block w-[2px] h-[14px] bg-primary/80 ml-1 animate-pulse align-text-bottom rounded-full" />
+                    )}
+                  </span>
+                )}
+              </p>
+            ) : (
+              <p className="text-[11px] text-muted-foreground/30 text-center pt-4">
+                Press F to exit · R to record
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col h-screen bg-background text-foreground">
       {/* Header - φ⁴ height (55px), with safe area padding for iOS notch */}
@@ -321,6 +426,22 @@ function App() {
         )}
         {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
+        {/* Compact mode toggle - left side */}
+        {!isMobile && (
+          <div className="absolute left-[21px] flex items-center">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleToggleCompact}
+              className="h-[34px] px-2 gap-1 rounded-lg"
+              aria-label="Compact mode"
+            >
+              <PictureInPicture2 className="h-4 w-4 opacity-60" />
+              <Kbd>F</Kbd>
+            </Button>
+          </div>
+        )}
+        
         <span 
           className="font-brand text-[18px] text-foreground tracking-tight uppercase"
           style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 800 }}
