@@ -34,7 +34,7 @@ async function authenticateWithBiometric(): Promise<boolean> {
   try {
     const { invoke } = await import('@tauri-apps/api/core')
     const result = await invoke<boolean>('authenticate_biometric', {
-      reason: 'Bard requires authentication to access your saved memos.'
+      reason: 'access your Bard vault'
     })
     return result
   } catch (e) {

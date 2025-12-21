@@ -41,68 +41,82 @@ fn validate_theme(theme: &str) -> Result<(), String> {
 }
 
 // Touch ID / Password authentication for macOS
-// Uses Swift helper to invoke LocalAuthentication framework
+// Uses bundled bard-auth helper to invoke LocalAuthentication framework
 #[tauri::command]
-async fn authenticate_biometric(reason: String) -> Result<bool, String> {
+async fn authenticate_biometric(app: tauri::AppHandle, reason: String) -> Result<bool, String> {
     log::info!("Biometric authentication requested: {reason}");
     
     #[cfg(target_os = "macos")]
     {
         use std::process::Command;
         
-        // Use Swift to call LocalAuthentication framework directly
-        // This triggers native Touch ID or password prompt
-        let swift_code = format!(
-            r#"
-            import LocalAuthentication
-            import Foundation
-            
-            let context = LAContext()
-            let reason = "{}"
-            var error: NSError?
-            
-            // Check if biometrics or password available
-            guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {{
-                print("ERROR: Biometrics not available")
-                exit(1)
-            }}
-            
-            let semaphore = DispatchSemaphore(value: 0)
-            var authSuccess = false
-            
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {{ success, authError in
-                authSuccess = success
-                if !success {{
-                    if let err = authError as? LAError {{
-                        switch err.code {{
-                        case .userCancel:
-                            print("CANCELLED")
-                        case .userFallback:
-                            print("FALLBACK")
-                        default:
-                            print("ERROR: \(err.localizedDescription)")
+        // Get the path to the bundled bard-auth helper
+        let resource_path = app.path().resource_dir()
+            .map_err(|e| format!("Failed to get resource dir: {}", e))?;
+        let helper_path = resource_path.join("bard-auth");
+        
+        log::info!("Looking for auth helper at: {:?}", helper_path);
+        
+        // Check if helper exists, fall back to swift -e if not (dev mode)
+        let output = if helper_path.exists() {
+            log::info!("Using bundled bard-auth helper");
+            Command::new(&helper_path)
+                .arg(&reason)
+                .output()
+        } else {
+            log::info!("Helper not found, using swift -e fallback");
+            // Fallback for development
+            let swift_code = format!(
+                r#"
+                import LocalAuthentication
+                import Foundation
+                
+                let context = LAContext()
+                let reason = "{}"
+                var error: NSError?
+                
+                guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {{
+                    print("ERROR: Biometrics not available")
+                    exit(1)
+                }}
+                
+                let semaphore = DispatchSemaphore(value: 0)
+                var authSuccess = false
+                
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {{ success, authError in
+                    authSuccess = success
+                    if !success {{
+                        if let err = authError as? LAError {{
+                            switch err.code {{
+                            case .userCancel:
+                                print("CANCELLED")
+                            case .userFallback:
+                                print("FALLBACK")
+                            default:
+                                print("ERROR: \(err.localizedDescription)")
+                            }}
                         }}
                     }}
+                    semaphore.signal()
                 }}
-                semaphore.signal()
-            }}
+                
+                semaphore.wait()
+                
+                if authSuccess {{
+                    print("SUCCESS")
+                    exit(0)
+                }} else {{
+                    exit(1)
+                }}
+                "#,
+                reason.replace('\\', "\\\\").replace('"', "\\\"")
+            );
             
-            semaphore.wait()
-            
-            if authSuccess {{
-                print("SUCCESS")
-                exit(0)
-            }} else {{
-                exit(1)
-            }}
-            "#,
-            reason.replace('\\', "\\\\").replace('"', "\\\"")
-        );
-        
-        let output = Command::new("swift")
-            .arg("-e")
-            .arg(&swift_code)
-            .output();
+            Command::new("swift")
+                .arg("-e")
+                .arg(&swift_code)
+                .output()
+        };
         
         match output {
             Ok(result) => {
@@ -121,7 +135,7 @@ async fn authenticate_biometric(reason: String) -> Result<bool, String> {
                 }
             }
             Err(e) => {
-                log::error!("Failed to run Swift authentication: {}", e);
+                log::error!("Failed to run authentication: {}", e);
                 Err(format!("Failed to authenticate: {}", e))
             }
         }
@@ -129,6 +143,7 @@ async fn authenticate_biometric(reason: String) -> Result<bool, String> {
     
     #[cfg(not(target_os = "macos"))]
     {
+        let _ = app; // Suppress unused warning
         log::warn!("Biometric authentication not supported on this platform");
         Ok(true) // Allow access on unsupported platforms
     }
