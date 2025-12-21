@@ -33,31 +33,11 @@ fn validate_filename(filename: &str) -> Result<(), String> {
     Ok(())
 }
 
-fn validate_string_input(input: &str, max_len: usize, field_name: &str) -> Result<(), String> {
-    if input.len() > max_len {
-        return Err(format!("{field_name} too long (max {max_len} characters)"));
-    }
-    Ok(())
-}
-
 fn validate_theme(theme: &str) -> Result<(), String> {
     match theme {
         "light" | "dark" | "system" => Ok(()),
         _ => Err("Invalid theme: must be 'light', 'dark', or 'system'".to_string()),
     }
-}
-
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-#[tauri::command]
-fn greet(name: &str) -> String {
-    // Input validation
-    if let Err(e) = validate_string_input(name, 100, "Name") {
-        log::warn!("Invalid greet input: {e}");
-        return format!("Error: {e}");
-    }
-
-    log::info!("Greeting user: {name}");
-    format!("Hello, {name}! You've been greeted from Rust!")
 }
 
 // Touch ID / Password authentication for macOS
@@ -446,22 +426,14 @@ fn create_app_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error
     log::info!("Setting up native menu system");
 
     // Build the main application submenu
-    let app_submenu = SubmenuBuilder::new(app, "Tauri Template")
-        .item(&MenuItemBuilder::with_id("about", "About Tauri Template").build(app)?)
+    let app_submenu = SubmenuBuilder::new(app, "Bard")
+        .item(&MenuItemBuilder::with_id("about", "About Bard").build(app)?)
         .separator()
-        .item(&MenuItemBuilder::with_id("check-updates", "Check for Updates...").build(app)?)
-        .separator()
-        .item(
-            &MenuItemBuilder::with_id("preferences", "Preferences...")
-                .accelerator("CmdOrCtrl+,")
-                .build(app)?,
-        )
-        .separator()
-        .item(&PredefinedMenuItem::hide(app, Some("Hide Tauri Template"))?)
+        .item(&PredefinedMenuItem::hide(app, Some("Hide Bard"))?)
         .item(&PredefinedMenuItem::hide_others(app, None)?)
         .item(&PredefinedMenuItem::show_all(app, None)?)
         .separator()
-        .item(&PredefinedMenuItem::quit(app, Some("Quit Tauri Template"))?)
+        .item(&PredefinedMenuItem::quit(app, Some("Quit Bard"))?)
         .build()?;
 
     // Build the Edit submenu with standard copy/paste/cut functionality
@@ -475,25 +447,10 @@ fn create_app_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Error
         .item(&PredefinedMenuItem::select_all(app, None)?)
         .build()?;
 
-    // Build the View submenu
-    let view_submenu = SubmenuBuilder::new(app, "View")
-        .item(
-            &MenuItemBuilder::with_id("toggle-left-sidebar", "Toggle Left Sidebar")
-                .accelerator("CmdOrCtrl+1")
-                .build(app)?,
-        )
-        .item(
-            &MenuItemBuilder::with_id("toggle-right-sidebar", "Toggle Right Sidebar")
-                .accelerator("CmdOrCtrl+2")
-                .build(app)?,
-        )
-        .build()?;
-
     // Build the main menu with submenus
     let menu = MenuBuilder::new(app)
         .item(&app_submenu)
         .item(&edit_submenu)
-        .item(&view_submenu)
         .build()?;
 
     // Set the menu for the app
@@ -515,42 +472,6 @@ fn setup_menu_events(app: &tauri::App) {
                 match app.emit("menu-about", ()) {
                     Ok(_) => log::debug!("Successfully emitted menu-about event"),
                     Err(e) => log::error!("Failed to emit menu-about event: {e}"),
-                }
-            }
-            "check-updates" => {
-                log::info!("Check for Updates menu item clicked");
-                match app.emit("menu-check-updates", ()) {
-                    Ok(_) => log::debug!("Successfully emitted menu-check-updates event"),
-                    Err(e) => log::error!("Failed to emit menu-check-updates event: {e}"),
-                }
-            }
-            "preferences" => {
-                log::info!("Preferences menu item clicked");
-                match app.emit("menu-preferences", ()) {
-                    Ok(_) => log::debug!("Successfully emitted menu-preferences event"),
-                    Err(e) => log::error!("Failed to emit menu-preferences event: {e}"),
-                }
-            }
-            "toggle-left-sidebar" => {
-                log::info!("Toggle Left Sidebar menu item clicked");
-                match app.emit("menu-toggle-left-sidebar", ()) {
-                    Ok(_) => {
-                        log::debug!("Successfully emitted menu-toggle-left-sidebar event")
-                    }
-                    Err(e) => {
-                        log::error!("Failed to emit menu-toggle-left-sidebar event: {e}")
-                    }
-                }
-            }
-            "toggle-right-sidebar" => {
-                log::info!("Toggle Right Sidebar menu item clicked");
-                match app.emit("menu-toggle-right-sidebar", ()) {
-                    Ok(_) => {
-                        log::debug!("Successfully emitted menu-toggle-right-sidebar event")
-                    }
-                    Err(e) => {
-                        log::error!("Failed to emit menu-toggle-right-sidebar event: {e}")
-                    }
                 }
             }
             _ => {
@@ -618,17 +539,9 @@ pub fn run() {
                 setup_menu_events(app);
             }
 
-            // Example of different log levels
-            log::trace!("This is a trace message (most verbose)");
-            log::debug!("This is a debug message (development only)");
-            log::info!("This is an info message (production)");
-            log::warn!("This is a warning message");
-            // log::error!("This is an error message");
-
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
-            greet,
             authenticate_biometric,
             load_preferences,
             save_preferences,
