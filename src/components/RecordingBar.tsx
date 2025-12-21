@@ -145,7 +145,7 @@ export function RecordingBar({
         ) : (
           <BrandRecordIcon size={18} className="opacity-50 shrink-0" />
         )}
-        <span className="flex-1 text-center text-[12px] opacity-70">
+        <span className="flex-1 text-center text-[12px] opacity-70 truncate min-w-0">
           {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New Recording' : 'Record'}
         </span>
         {!isProcessing && <Kbd className="shrink-0 gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">↩</span></Kbd>}
