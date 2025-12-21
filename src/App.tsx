@@ -361,8 +361,15 @@ function App() {
           
           {/* Logo */}
           <span 
-            className="font-brand text-[14px] text-foreground tracking-tight uppercase"
-            style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 800 }}
+            className="font-brand text-[14px] tracking-tight"
+            style={{ 
+              fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
+              fontWeight: 800,
+              background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
           >
             Bard
           </span>
@@ -443,8 +450,15 @@ function App() {
         )}
         
         <span 
-          className="font-brand text-[18px] text-foreground tracking-tight uppercase"
-          style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 800 }}
+          className="font-brand text-[18px] tracking-tight"
+          style={{ 
+            fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
+            fontWeight: 800,
+            background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
         >
           Bard
         </span>
