@@ -515,19 +515,19 @@ export function ArchiveDialog() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg"
+                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
                               onClick={(e) => {
                                 e.stopPropagation()
                                 setPendingDeleteId(null)
                               }}
                             >
                               Cancel
-                              <Kbd className="ml-1.5"><span className="text-[9px]">ESC</span></Kbd>
+                              <Kbd><span className="text-[9px]">ESC</span></Kbd>
                             </Button>
                             <Button
                               variant="destructive"
                               size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg"
+                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
                               onClick={(e) => {
                                 e.stopPropagation()
                                 handleDelete(transcript.id)
@@ -535,7 +535,7 @@ export function ArchiveDialog() {
                               }}
                             >
                               Delete
-                              <Kbd className="ml-1.5 bg-white/20 border-white/30"><span className="text-[9px]">↩</span></Kbd>
+                              <Kbd className="bg-white/20 border-white/30 text-white"><span className="text-[9px]">↩</span></Kbd>
                             </Button>
                           </div>
                         </div>

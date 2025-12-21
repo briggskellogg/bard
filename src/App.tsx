@@ -474,7 +474,7 @@ function App() {
           <img 
             src={footerLogo} 
             alt="BEK" 
-            className="h-[20px] w-auto opacity-40 hover:opacity-70 transition-opacity duration-200"
+            className="h-[14px] w-auto opacity-40 hover:opacity-70 transition-opacity duration-200"
           />
         </button>
       </footer>
