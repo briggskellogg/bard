@@ -240,7 +240,7 @@ export function RecordingBar({
           <PlayCircle size={18} className="opacity-50 shrink-0" />
         )}
         <span className="flex-1 text-[12px] opacity-70 truncate">
-          {isProcessing ? 'Processing' : isRecording ? 'End' : 'Record'}
+          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'Start' : 'Record'}
         </span>
         {!isProcessing && <Kbd className="shrink-0 gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">↩</span></Kbd>}
       </button>
