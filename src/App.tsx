@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
 import { FolderArchive } from 'lucide-react'
-import bardLogo from './assets/bard-logo.png'
+// Logo is rendered as text using PP Neue Machina Inktrap font
 import bekGold from './assets/bek-gold.png'
 import './App.css'
 
@@ -289,8 +289,7 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
-  // Bard logo
-  const headerLogo = bardLogo
+  // Bard logo is rendered as text with PP Neue Machina Inktrap font
   // BEK logo for footer - gold color
   const footerLogo = bekGold
 
@@ -322,11 +321,12 @@ function App() {
         )}
         {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
-        <img 
-          src={headerLogo} 
-          alt="Bard" 
-          className="h-[14px] w-auto opacity-90"
-        />
+        <span 
+          className="font-brand text-[18px] text-foreground tracking-tight uppercase"
+          style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 800 }}
+        >
+          Bard
+        </span>
         <div className={cn(
           "absolute flex items-center gap-1",
           isMobile ? "right-[16px]" : "right-[21px]"
