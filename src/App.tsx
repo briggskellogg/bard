@@ -339,7 +339,7 @@ function App() {
             Bard
           </span>
           <span 
-            className="px-1.5 py-0.5 rounded-md bg-muted/40 border border-border/30 text-[10px] text-muted-foreground/60"
+            className="px-1.5 h-[18px] flex items-center rounded-[4px] bg-muted/40 border border-border/30 text-[10px] text-muted-foreground/60"
             style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 400 }}
           >
             v1
