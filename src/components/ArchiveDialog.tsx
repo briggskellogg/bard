@@ -466,7 +466,7 @@ export function ArchiveDialog() {
                             aria-label="Copy"
                           >
                             {copiedId === transcript.id ? <Check size={12} /> : <Copy size={12} />}
-                            <Kbd><span className="text-[10px]">{copiedId === transcript.id ? '✓' : 'C'}</span></Kbd>
+                            <Kbd><span className="text-[10px]">C</span></Kbd>
                           </Button>
 
                           {/* Delete button */}
