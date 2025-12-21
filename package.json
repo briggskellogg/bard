@@ -1,7 +1,7 @@
 {
   "name": "bard",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.2",
   "type": "module",
   "author": "Briggs Kellogg",
   "copyright": "Copyright © 2025 Briggs Kellogg. All rights reserved.",

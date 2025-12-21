@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { FolderOpen, Search, X, Copy, Check, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import { FolderOpen, Search, X, Copy, Check, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star, CircleSlash } from 'lucide-react'
 import {
   Dialog,
   DialogClose,
@@ -449,40 +449,70 @@ export function ArchiveDialog() {
                         {/* Spacer */}
                         <div className="flex-1" />
 
-                        {/* Action buttons - Copy, Delete */}
-                        <div className="flex items-center -mr-1 shrink-0">
-                          {/* Copy button */}
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className={cn(
-                              "h-[22px] px-1.5 gap-1 rounded-md",
-                              copiedId === transcript.id && "text-green-500"
-                            )}
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              copyTranscript(transcript.text, transcript.id)
-                            }}
-                            aria-label="Copy"
-                          >
-                            {copiedId === transcript.id ? <Check size={12} /> : <Copy size={12} />}
-                            <Kbd><span className="text-[10px]">C</span></Kbd>
-                          </Button>
+                        {/* Action buttons - Copy/Delete or Cancel/Confirm when deleting */}
+                        <div className="flex items-center -mr-1 shrink-0 gap-1">
+                          {isPendingDelete ? (
+                            <>
+                              {/* Cancel delete */}
+                              <button
+                                className="h-[22px] px-1.5 text-muted-foreground/70 hover:text-foreground transition-colors flex items-center gap-1"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  setPendingDeleteId(null)
+                                }}
+                              >
+                                <CircleSlash size={12} />
+                                <Kbd><span className="text-[9px]">C</span></Kbd>
+                              </button>
+                              {/* Confirm delete */}
+                              <button
+                                className="h-[22px] px-2 text-[11px] rounded-full bg-destructive text-white hover:bg-destructive/90 transition-colors flex items-center gap-1"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  handleDelete(transcript.id)
+                                  setPendingDeleteId(null)
+                                }}
+                              >
+                                <Trash2 size={12} />
+                                <span className="text-[9px] font-medium">ENT</span>
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              {/* Copy button */}
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className={cn(
+                                  "h-[22px] px-1.5 gap-1 rounded-md",
+                                  copiedId === transcript.id && "text-green-500"
+                                )}
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  copyTranscript(transcript.text, transcript.id)
+                                }}
+                                aria-label="Copy"
+                              >
+                                {copiedId === transcript.id ? <Check size={12} /> : <Copy size={12} />}
+                                <Kbd><span className="text-[10px]">C</span></Kbd>
+                              </Button>
 
-                          {/* Delete button */}
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-[22px] px-1.5 gap-1 rounded-md hover:bg-destructive/10 hover:text-destructive"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setPendingDeleteId(transcript.id)
-                            }}
-                            aria-label="Delete"
-                          >
-                            <Trash2 size={12} />
-                            <Kbd><span className="text-[10px]">D</span></Kbd>
-                          </Button>
+                              {/* Delete button */}
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-[22px] px-1.5 gap-1 rounded-md hover:bg-destructive/10 hover:text-destructive"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  setPendingDeleteId(transcript.id)
+                                }}
+                                aria-label="Delete"
+                              >
+                                <Trash2 size={12} />
+                                <Kbd><span className="text-[10px]">D</span></Kbd>
+                              </Button>
+                            </>
+                          )}
                         </div>
                       </div>
                       
@@ -518,37 +548,6 @@ export function ArchiveDialog() {
                         </Button>
                       </div>
 
-                      {/* Delete confirmation overlay */}
-                      {isPendingDelete && (
-                        <div className="absolute inset-0 rounded-2xl bg-background/95 backdrop-blur-sm flex items-center justify-center gap-4">
-                          <span className="text-[13px] text-destructive font-medium">Delete this recording?</span>
-                          <div className="flex items-center gap-2">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                setPendingDeleteId(null)
-                              }}
-                            >
-                              Cancel <Kbd><span className="text-[9px]">C</span></Kbd>
-                            </Button>
-                            <Button
-                              variant="destructive"
-                              size="sm"
-                              className="h-[28px] px-3 text-[12px] rounded-lg gap-1.5"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                handleDelete(transcript.id)
-                                setPendingDeleteId(null)
-                              }}
-                            >
-                              Delete <Kbd className="bg-white/20 border-white/30 text-white px-1.5"><span className="text-[9px]">ENT</span></Kbd>
-                            </Button>
-                          </div>
-                        </div>
-                      )}
                     </div>
                   )
                 })}

@@ -1,6 +1,7 @@
 import { LiveWaveform } from '@/components/ui/live-waveform'
 import { cn } from '@/lib/utils'
 import { Key, Info } from 'lucide-react'
+import { Kbd } from '@/components/RecordingBar'
 import {
   Tooltip,
   TooltipContent,
@@ -130,10 +131,11 @@ export function WaveformDisplay({
           {/* Key button */}
           <button
             onClick={onKeyClick}
-            className="p-1 rounded-md hover:bg-muted/50 transition-colors cursor-pointer"
+            className="p-1 rounded-md hover:bg-muted/50 transition-colors cursor-pointer flex items-center gap-1"
             aria-label="Edit API key"
           >
             <Key className="h-4 w-4 text-muted-foreground/70 hover:text-foreground transition-colors" />
+            <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">K</span></Kbd>
           </button>
         </div>
       </div>

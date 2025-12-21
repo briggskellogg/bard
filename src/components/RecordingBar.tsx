@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 
-function Kbd({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Kbd({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <kbd className={cn(
       'inline-flex items-center justify-center px-[6px] py-[2px] rounded-[4px]',
@@ -240,7 +240,7 @@ export function RecordingBar({
           <PlayCircle size={18} className="opacity-50 shrink-0" />
         )}
         <span className="flex-1 text-[12px] opacity-70 truncate">
-          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'Start' : 'Record'}
+          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New File' : 'Record'}
         </span>
         {!isProcessing && <Kbd className="shrink-0 gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">↩</span></Kbd>}
       </button>
