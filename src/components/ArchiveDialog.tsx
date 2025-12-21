@@ -597,7 +597,7 @@ export function ArchiveDialog() {
           <div className="flex items-center justify-center gap-2 py-[13px] border-t border-border/20">
             <ShieldCheck size={13} className="text-[#00D4FF]/60" />
             <span className="text-[10px] text-muted-foreground/40 tracking-wide font-mono">
-              All data processed and stored locally on your device
+              Your data stays on your device and is never used to train models
             </span>
           </div>
         </div>
