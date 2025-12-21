@@ -223,12 +223,16 @@ function App() {
       
       if (newCompactMode) {
         // Compact mode: small floating window that hovers above everything
-        await appWindow.setSize(new LogicalSize(340, 320))
+        await appWindow.setAlwaysOnTop(true)
         await appWindow.setVisibleOnAllWorkspaces(true)
+        await appWindow.setResizable(false)
+        await appWindow.setSize(new LogicalSize(340, 320))
         await appWindow.center()
       } else {
-        // Normal mode: full size
+        // Normal mode: regular window behavior
+        await appWindow.setAlwaysOnTop(false)
         await appWindow.setVisibleOnAllWorkspaces(false)
+        await appWindow.setResizable(true)
         await appWindow.setSize(new LogicalSize(600, 800))
         await appWindow.center()
       }
