@@ -391,7 +391,7 @@ export function ArchiveDialog() {
               </DialogTitle>
               {archivedTranscripts.length > 0 && (
                 <Button
-                  variant="outline"
+                  variant="ghost"
                   size="sm"
                   onClick={async () => {
                     try {
@@ -402,7 +402,7 @@ export function ArchiveDialog() {
                       toast.error('Failed to export')
                     }
                   }}
-                  className="h-[28px] gap-2 px-3 text-[11px] font-medium rounded-lg border-[#00D4FF]/30 text-[#00D4FF] hover:bg-[#00D4FF]/10 hover:border-[#00D4FF]/50 transition-colors"
+                  className="h-[24px] gap-1.5 px-2 text-[10px] font-medium text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 transition-colors"
                   aria-label="Export all transcripts to CSV"
                 >
                   <Download className="h-3 w-3" />
