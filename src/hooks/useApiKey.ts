@@ -74,13 +74,16 @@ export function useApiKey() {
       if (store) {
         await store.delete(STORE_KEY)
         await store.save()
-        setStoredKey(null)
-        return true
       }
+      // Always clear local state regardless of store success
+      setStoredKey(null)
+      return true
     } catch (error) {
       console.error('[useApiKey] Failed to clear API key:', error)
+      // Still clear local state even on error
+      setStoredKey(null)
+      return true
     }
-    return false
   }, [])
 
   // Use stored key first, fall back to env variable

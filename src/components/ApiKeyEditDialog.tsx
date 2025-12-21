@@ -88,15 +88,15 @@ export function ApiKeyEditDialog({
       >
         {/* Header with logo, title, and connected badge */}
         <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <img 
               src={bardIcon} 
-              alt="ElevenLabs" 
-              className="h-12 w-12 object-contain"
+              alt="Intersect" 
+              className="h-[18px] w-auto object-contain"
             />
             <div>
-              <h2 className="text-[18px] font-semibold tracking-tight">ElevenLabs</h2>
-              <p className="text-[13px] text-muted-foreground/60">Powers Transcription</p>
+              <h2 className="text-[18px] font-semibold tracking-tight">Intersect</h2>
+              <p className="text-[13px] text-muted-foreground/60">Powered by ElevenLabs</p>
             </div>
           </div>
           {hasExistingKey && (
