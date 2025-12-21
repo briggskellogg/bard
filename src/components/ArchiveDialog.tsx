@@ -381,7 +381,7 @@ export function ArchiveDialog() {
         </Button>
       </DialogTrigger>
       <DialogContent 
-        className="max-w-2xl w-[90vw] h-[80vh] rounded-2xl border border-border/30 shadow-2xl bg-background/98 backdrop-blur-xl p-0"
+        className="max-w-2xl w-[90vw] h-[80vh] rounded-2xl border border-border/50 shadow-2xl bg-background p-0"
         showCloseButton={false}
       >
         <div className="h-full flex flex-col px-[21px] sm:px-[34px] pt-[21px]">
