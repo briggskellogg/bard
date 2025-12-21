@@ -38,7 +38,7 @@ function Kbd({ children, className }: { children: React.ReactNode; className?: s
 }
 
 function App() {
-  const { apiKey, isLoaded, hasApiKey, hasStoredKey, saveApiKey, clearApiKey } = useApiKey()
+  const { apiKey, isLoaded, hasApiKey, saveApiKey, clearApiKey } = useApiKey()
   useAnthropicApiKey() // Initialize Anthropic API key from env/localStorage
   const { archiveTranscript } = useArchive()
   const { setArchiveDialogOpen, theme } = useSettingsStore()
@@ -485,7 +485,7 @@ function App() {
         onClose={() => setApiKeyDialogOpen(false)}
         onUpdate={saveApiKey}
         onRemove={clearApiKey}
-        hasExistingKey={hasStoredKey}
+        hasExistingKey={hasApiKey}
       />
     </div>
   )

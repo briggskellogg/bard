@@ -402,7 +402,7 @@ export function ArchiveDialog() {
                       toast.error('Failed to export')
                     }
                   }}
-                  className="h-[24px] gap-1.5 px-2 text-[10px] font-medium text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 transition-colors"
+                  className="h-[24px] gap-1.5 px-2.5 text-[10px] font-medium text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 border border-border/30 rounded-full transition-colors"
                   aria-label="Export all transcripts to CSV"
                 >
                   <Download className="h-3 w-3" />
