@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-  BrandMicIcon,
-  BrandLanguagesIcon,
-  BrandRecordIcon,
-  BrandStopIcon,
-} from '@/components/ui/brand-icons'
+import { Mic, Languages, PlayCircle, StopCircle } from 'lucide-react'
 import {
   Select,
   SelectContent,
@@ -141,9 +136,9 @@ export function RecordingBar({
         {isLoading || isProcessing ? (
           <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent opacity-50 shrink-0" />
         ) : isRecording ? (
-          <BrandStopIcon size={18} className="opacity-50 shrink-0" />
+          <StopCircle size={18} className="opacity-50 shrink-0" />
         ) : (
-          <BrandRecordIcon size={18} className="opacity-50 shrink-0" />
+          <PlayCircle size={18} className="opacity-50 shrink-0" />
         )}
         <span className="flex-1 text-center text-[12px] opacity-70 truncate min-w-0">
           {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New Recording' : 'Record'}
@@ -158,7 +153,7 @@ export function RecordingBar({
         disabled={isRecording}
       >
         <SelectTrigger className="flex-1 basis-1/3 min-w-0 h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
-          <BrandMicIcon size={18} className="opacity-50 shrink-0" />
+          <Mic size={18} className="opacity-50 shrink-0" />
           <SelectValue placeholder="Select mic">
             <span className="truncate text-[12px] opacity-70">
               {getSelectedDeviceDisplay()}
@@ -186,7 +181,7 @@ export function RecordingBar({
         disabled={isRecording}
       >
         <SelectTrigger className="flex-1 basis-1/3 min-w-0 h-[40px] bg-muted/40 border-0 gap-2 rounded-xl hover:bg-muted/60 transition-all duration-200 shadow-sm">
-          <BrandLanguagesIcon size={18} className="opacity-50 shrink-0" />
+          <Languages size={18} className="opacity-50 shrink-0" />
           <SelectValue>
             <span className="truncate text-[12px] opacity-70">{currentLanguage?.name}</span>
           </SelectValue>

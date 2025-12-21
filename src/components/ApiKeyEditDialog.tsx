@@ -105,9 +105,8 @@ export function ApiKeyEditDialog({
               disabled={!apiKey.trim() || isUpdating}
               className={cn(
                 'flex-1 h-[42px] rounded-xl font-medium text-[14px]',
-                'bg-gradient-to-r from-[#EAB308] via-[#84cc16] to-[#22d3d1]',
-                'hover:opacity-90 transition-opacity',
-                'text-black',
+                'bg-foreground text-background',
+                'hover:bg-foreground/90 transition-colors',
                 (!apiKey.trim() || isUpdating) && 'opacity-50 cursor-not-allowed'
               )}
             >

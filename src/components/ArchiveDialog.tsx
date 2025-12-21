@@ -1,14 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import {
-  BrandHistoryIcon,
-  BrandSearchIcon,
-  BrandCloseIcon,
-  BrandCopyIcon,
-  BrandTrashIcon,
-  EmptyArchiveIcon,
-  ShieldIcon,
-} from '@/components/ui/brand-icons'
-import { Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import { FolderOpen, Search, X, Copy, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import {
   Dialog,
   DialogContent,
@@ -383,7 +374,7 @@ export function ArchiveDialog() {
           {isAuthenticating ? (
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
           ) : (
-            <BrandHistoryIcon size={20} className="opacity-70" />
+            <FolderOpen size={20} className="opacity-70" />
           )}
           <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">V</span></Kbd>
         </Button>
@@ -426,7 +417,7 @@ export function ArchiveDialog() {
             {/* Search bar - takes remaining space */}
             <div className="relative flex-1 min-w-0">
               <div className="absolute left-[13px] top-1/2 -translate-y-1/2">
-                <BrandSearchIcon size={18} className="opacity-40" />
+                <Search size={18} className="opacity-40" />
               </div>
               <Input
                 id="archive-search"
@@ -441,7 +432,7 @@ export function ArchiveDialog() {
                   onClick={() => setSearchQuery('')}
                   className="absolute right-[13px] top-1/2 -translate-y-1/2 text-muted-foreground/40 hover:text-foreground transition-colors"
                 >
-                  <BrandCloseIcon size={16} />
+                  <X size={16} />
                 </button>
               )}
             </div>
@@ -465,7 +456,7 @@ export function ArchiveDialog() {
           <div className="flex-1 overflow-y-auto">
             {filteredTranscripts.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-[89px] text-center">
-                <EmptyArchiveIcon size={55} className="text-muted-foreground/15 mb-[21px]" />
+                <Inbox size={55} className="text-muted-foreground/15 mb-[21px]" />
                 <p className="text-[13px] text-muted-foreground/30 tracking-wide">
                   {searchQuery ? 'No matches found' : 'Nothing here yet'}
                 </p>
@@ -534,7 +525,7 @@ export function ArchiveDialog() {
                             }}
                             aria-label="Copy"
                           >
-                            <BrandCopyIcon size={12} />
+                            <Copy size={12} />
                             <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">C</span></Kbd>
                           </Button>
 
@@ -549,7 +540,7 @@ export function ArchiveDialog() {
                             }}
                             aria-label="Delete"
                           >
-                            <BrandTrashIcon size={12} />
+                            <Trash2 size={12} />
                             <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">D</span></Kbd>
                           </Button>
                         </div>
@@ -630,7 +621,7 @@ export function ArchiveDialog() {
 
           {/* Footer */}
           <div className="flex items-center justify-center gap-2 py-[13px] border-t border-border/20">
-            <ShieldIcon size={13} className="text-[#00D4FF]/60" />
+            <ShieldCheck size={13} className="text-[#00D4FF]/60" />
             <span className="text-[10px] text-muted-foreground/40 tracking-wide font-mono">
               All data processed and stored locally on your device
             </span>

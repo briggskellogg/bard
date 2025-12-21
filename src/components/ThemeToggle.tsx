@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { useSettingsStore, type Theme } from '@/store/settings'
 import { useEffect } from 'react'
 import { cn } from '@/lib/utils'
-import { BrandSunIcon, BrandMoonIcon } from '@/components/ui/brand-icons'
+import { Sun, Moon } from 'lucide-react'
 
 function Kbd({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -67,9 +67,9 @@ export function ThemeToggle() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
-        <BrandSunIcon size={21} />
+        <Sun size={21} />
       ) : (
-        <BrandMoonIcon size={21} />
+        <Moon size={21} />
       )}
       <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">T</span></Kbd>
     </Button>

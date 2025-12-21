@@ -4,16 +4,7 @@
  */
 
 import { cn } from '@/lib/utils'
-import {
-  CategoryNoteIcon,
-  CategoryMessageIcon,
-  CategoryRantIcon,
-  CategoryIdeaIcon,
-  CategoryMeetingIcon,
-  CategoryConversationIcon,
-  CategoryTaskIcon,
-  CategoryJournalIcon,
-} from '@/components/ui/brand-icons'
+import { FileText, Mail, Flame, Lightbulb, Calendar, MessageSquare, CheckSquare, BookOpen } from 'lucide-react'
 
 // Bard brand color mapping for categories
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
@@ -61,19 +52,19 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string
 
 // Category icon mapping
 const CATEGORY_ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Note: CategoryNoteIcon,
-  Message: CategoryMessageIcon,
-  Rant: CategoryRantIcon,
-  Idea: CategoryIdeaIcon,
-  Meeting: CategoryMeetingIcon,
-  Conversation: CategoryConversationIcon,
-  Task: CategoryTaskIcon,
-  Journal: CategoryJournalIcon,
+  Note: FileText,
+  Message: Mail,
+  Rant: Flame,
+  Idea: Lightbulb,
+  Meeting: Calendar,
+  Conversation: MessageSquare,
+  Task: CheckSquare,
+  Journal: BookOpen,
 }
 
 // Helper to get category icon component
 export function getCategoryIcon(category: string): React.ComponentType<{ size?: number; className?: string }> {
-  return CATEGORY_ICONS[category] || CategoryNoteIcon
+  return CATEGORY_ICONS[category] || FileText
 }
 
 // Helper to get category colors
@@ -106,7 +97,7 @@ export function CategoryTag({
   showLabel = false,
 }: CategoryTagProps) {
   const colors = CATEGORY_COLORS[category] || DEFAULT_COLOR
-  const IconComponent = CATEGORY_ICONS[category] || CategoryNoteIcon
+  const IconComponent = CATEGORY_ICONS[category] || FileText
 
   const sizeClasses = {
     sm: 'p-1',

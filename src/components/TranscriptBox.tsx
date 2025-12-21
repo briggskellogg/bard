@@ -1,9 +1,8 @@
 import { useRef, useEffect, useState, useMemo } from 'react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
-import { Clock } from 'lucide-react'
+import { Clock, Mic } from 'lucide-react'
 import type { TranscriptSegment } from '@/hooks/useScribeTranscription'
-import { BrandMicIcon } from '@/components/ui/brand-icons'
 import { getSpeakerName, getSpeakerColor } from '@/lib/speakerNames'
 
 // Maximum recording time in milliseconds (1 hour)
@@ -306,7 +305,7 @@ export function TranscriptBox({
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full min-h-[144px] py-[34px] gap-[13px]">
-              <BrandMicIcon size={34} className="text-muted-foreground/20" />
+              <Mic size={34} className="text-muted-foreground/20" />
               <p className="text-[13px] text-muted-foreground/30 tracking-wide">Press R to start recording</p>
             </div>
           )}

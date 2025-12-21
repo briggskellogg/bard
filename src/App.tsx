@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { WaveformDisplay } from './components/WaveformDisplay'
-import { BrandCopyIcon, BrandCheckIcon, BrandPauseIcon, BrandPlayIcon } from '@/components/ui/brand-icons'
+import { Copy, Check, PauseCircle, PlayCircle, FolderArchive } from 'lucide-react'
 import { RecordingBar, type ScribeLanguageCode } from './components/RecordingBar'
 import { TranscriptBox } from './components/TranscriptBox'
 import { ArchiveDialog } from './components/ArchiveDialog'
@@ -16,7 +16,6 @@ import { useSettingsStore } from './store/settings'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { toast } from 'sonner'
-import { FolderArchive } from 'lucide-react'
 // Logo is rendered as text using PP Neue Machina Inktrap font
 import bekGold from './assets/bek-gold.png'
 import bardIcon from './assets/bard-icon.png'
@@ -407,9 +406,9 @@ function App() {
                 aria-label={isPaused ? "Resume recording" : "Pause recording"}
               >
                 {isPaused ? (
-                  <BrandPlayIcon size={18} />
+                  <PlayCircle size={18} />
                 ) : (
-                  <BrandPauseIcon size={18} />
+                  <PauseCircle size={18} />
                 )}
                 {/* Hide keyboard hint on mobile */}
                 {!isMobile && <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">P</span></Kbd>}
@@ -430,9 +429,9 @@ function App() {
             aria-label="Copy transcript"
           >
             {copyTriggered ? (
-              <BrandCheckIcon size={18} />
+              <Check size={18} />
             ) : (
-              <BrandCopyIcon size={18} />
+              <Copy size={18} />
             )}
             {/* Hide keyboard hint on mobile */}
             {!isMobile && <Kbd className="gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">C</span></Kbd>}
