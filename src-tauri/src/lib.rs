@@ -13,57 +13,6 @@ use tauri::menu::{MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuild
 use tauri::Emitter;
 use tauri::{AppHandle, Manager, WebviewWindow};
 
-// Set dock icon based on theme (macOS only)
-#[tauri::command]
-async fn set_dock_icon(app: AppHandle, dark_mode: bool) -> Result<(), String> {
-    #[cfg(target_os = "macos")]
-    {
-        use cocoa::appkit::NSImage;
-        use cocoa::base::{id, nil};
-        use cocoa::foundation::NSString;
-        use std::ffi::CString;
-        
-        // Get the path to the appropriate icon
-        let resource_dir = app.path().resource_dir()
-            .map_err(|e| format!("Failed to get resource dir: {}", e))?;
-        
-        let icon_name = if dark_mode { "icon-dark.icns" } else { "icon.icns" };
-        let icon_path = resource_dir.join("icons").join(icon_name);
-        
-        log::info!("Setting dock icon to: {:?}", icon_path);
-        
-        if !icon_path.exists() {
-            log::warn!("Icon file not found: {:?}", icon_path);
-            return Err(format!("Icon file not found: {:?}", icon_path));
-        }
-        
-        unsafe {
-            let path_str = icon_path.to_string_lossy();
-            let ns_string: id = NSString::alloc(nil).init_str(&path_str);
-            let image: id = msg_send![class!(NSImage), alloc];
-            let image: id = msg_send![image, initWithContentsOfFile: ns_string];
-            
-            if image != nil {
-                let ns_app: id = msg_send![class!(NSApplication), sharedApplication];
-                let _: () = msg_send![ns_app, setApplicationIconImage: image];
-                log::info!("Dock icon set successfully");
-            } else {
-                log::error!("Failed to load icon image");
-                return Err("Failed to load icon image".to_string());
-            }
-        }
-        
-        Ok(())
-    }
-    
-    #[cfg(not(target_os = "macos"))]
-    {
-        let _ = (app, dark_mode);
-        log::warn!("Dynamic dock icon not supported on this platform");
-        Ok(())
-    }
-}
-
 // Set window to float above fullscreen apps (macOS only)
 #[tauri::command]
 async fn set_floating_window_level(window: WebviewWindow, floating: bool) -> Result<(), String> {
@@ -734,8 +683,7 @@ pub fn run() {
             save_emergency_data,
             load_emergency_data,
             cleanup_old_recovery_files,
-            set_floating_window_level,
-            set_dock_icon
+            set_floating_window_level
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

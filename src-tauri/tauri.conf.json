@@ -40,8 +40,7 @@
     "active": true,
     "targets": "all",
     "resources": [
-      "icons/icon.icns",
-      "icons/icon-dark.icns"
+      "icons/icon.icns"
     ],
     "icon": [
       "icons/32x32.png",

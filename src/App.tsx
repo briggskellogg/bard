@@ -81,35 +81,21 @@ function App() {
   // Apply theme on mount and when it changes
   useEffect(() => {
     const root = document.documentElement
-    let isDark = false
     
     if (theme === 'dark') {
       root.classList.add('dark')
-      isDark = true
     } else if (theme === 'light') {
       root.classList.remove('dark')
-      isDark = false
     } else {
       // System preference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       if (prefersDark) {
         root.classList.add('dark')
-        isDark = true
       } else {
         root.classList.remove('dark')
-        isDark = false
       }
     }
-    
-    // Update dock icon to match theme (macOS only)
-    if (isDesktop) {
-      import('@tauri-apps/api/core').then(({ invoke }) => {
-        invoke('set_dock_icon', { darkMode: isDark }).catch((err) => {
-          console.debug('Failed to set dock icon:', err)
-        })
-      })
-    }
-  }, [theme, isDesktop])
+  }, [theme])
 
 
   // Check if there's existing content before starting new recording
