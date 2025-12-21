@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Mic, Languages, PlayCircle, StopCircle } from 'lucide-react'
+import { Mic, Languages, PlayCircle, StopCircle, FilePlus } from 'lucide-react'
 import {
   Select,
   SelectContent,
@@ -137,11 +137,13 @@ export function RecordingBar({
           <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent opacity-50 shrink-0" />
         ) : isRecording ? (
           <StopCircle size={18} className="opacity-50 shrink-0" />
+        ) : hasContent ? (
+          <FilePlus size={18} className="opacity-50 shrink-0" />
         ) : (
           <PlayCircle size={18} className="opacity-50 shrink-0" />
         )}
         <span className="flex-1 text-[12px] opacity-70 truncate">
-          {isProcessing ? 'Processing' : isRecording ? 'End' : hasContent ? 'New Recording' : 'Record'}
+          {isProcessing ? 'Processing' : isRecording ? 'End' : 'Record'}
         </span>
         {!isProcessing && <Kbd className="shrink-0 gap-0.5"><span className="text-[10px]">⌘</span><span className="text-[10px]">↩</span></Kbd>}
       </button>
