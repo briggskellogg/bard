@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { FolderOpen, Search, X, Copy, Trash2, Inbox, ShieldCheck, Download, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -381,34 +382,44 @@ export function ArchiveDialog() {
       </DialogTrigger>
       <DialogContent 
         className="max-w-2xl w-[90vw] h-[80vh] rounded-2xl border border-border/30 shadow-2xl bg-background/98 backdrop-blur-xl p-0"
+        showCloseButton={false}
       >
         <div className="h-full flex flex-col px-[21px] sm:px-[34px] pt-[21px]">
           {/* Header */}
           <DialogHeader className="pb-[21px]">
-            <div className="flex items-center justify-center gap-[13px]">
+            <div className="flex items-center justify-between">
               <DialogTitle className="text-[21px] font-semibold tracking-tight font-display">
                 Vault
               </DialogTitle>
-              {archivedTranscripts.length > 0 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={async () => {
-                    try {
-                      await exportToCSV()
-                      toast.success(`Exported ${archivedTranscripts.length} transcripts`)
-                    } catch (error) {
-                      console.error('Export failed:', error)
-                      toast.error('Failed to export')
-                    }
-                  }}
-                  className="h-[24px] gap-1.5 px-2.5 text-[10px] font-medium text-muted-foreground/60 hover:text-foreground hover:bg-muted/50 border border-border/30 rounded-full transition-colors"
-                  aria-label="Export all transcripts to CSV"
-                >
-                  <Download className="h-3 w-3" />
-                  Export
-                </Button>
-              )}
+              <div className="flex items-center gap-2">
+                {archivedTranscripts.length > 0 && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={async () => {
+                      try {
+                        await exportToCSV()
+                        toast.success(`Exported ${archivedTranscripts.length} transcripts`)
+                      } catch (error) {
+                        console.error('Export failed:', error)
+                        toast.error('Failed to export')
+                      }
+                    }}
+                    className="h-[24px] w-[24px] p-0 text-muted-foreground/40 hover:text-foreground hover:bg-muted/50 transition-colors"
+                    aria-label="Export all transcripts to CSV"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                  </Button>
+                )}
+                <DialogClose asChild>
+                  <button
+                    className="h-[24px] px-2 flex items-center justify-center rounded bg-muted/40 border border-border/30 text-[10px] font-medium text-muted-foreground/60 hover:text-foreground hover:bg-muted/60 transition-colors"
+                    aria-label="Close"
+                  >
+                    ESC
+                  </button>
+                </DialogClose>
+              </div>
             </div>
           </DialogHeader>
 
