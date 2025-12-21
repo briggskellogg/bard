@@ -228,7 +228,7 @@ export function TranscriptBox({
       <ScrollArea ref={scrollRef} className="flex-1 min-h-0">
         <div className="p-[21px] pb-[55px]">
           {hasContent ? (
-            <div className={`text-[16px] leading-[1.7] tracking-[-0.01em] ${isRecording ? 'font-transcribe' : 'font-body'}`}>
+            <div className="text-[15px] leading-[1.7] tracking-[-0.01em]">
               {/* Multi-speaker view - show speaker labels */}
               {hasSpeakers ? (
                 <div className="space-y-[13px]">
