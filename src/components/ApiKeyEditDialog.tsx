@@ -6,13 +6,12 @@ import { useState, useCallback, useEffect } from 'react'
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Key, Check, Trash2 } from 'lucide-react'
+import { Check, Trash2, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import bardIcon from '@/assets/bard-icon.png'
 
 interface ApiKeyEditDialogProps {
   isOpen: boolean
@@ -73,28 +72,40 @@ export function ApiKeyEditDialog({
     }
   }, [handleUpdate, isUpdating, apiKey])
 
+  const openElevenLabsKeys = () => {
+    import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
+      openUrl('https://elevenlabs.io/app/settings/api-keys')
+    }).catch(() => {
+      window.open('https://elevenlabs.io/app/settings/api-keys', '_blank')
+    })
+  }
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent 
-        className="max-w-sm rounded-2xl border-border/30 bg-background/98 backdrop-blur-xl p-6"
+        className="max-w-md rounded-2xl border-border/30 bg-background/98 backdrop-blur-xl p-6"
         showCloseButton={true}
       >
-        <DialogHeader className="pb-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Key className="h-5 w-5 text-[#00D4FF]" />
-              <DialogTitle className="text-[16px] font-semibold tracking-tight">
-                API Key
-              </DialogTitle>
+        {/* Header with logo, title, and connected badge */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-4">
+            <img 
+              src={bardIcon} 
+              alt="ElevenLabs" 
+              className="h-12 w-12 object-contain"
+            />
+            <div>
+              <h2 className="text-[18px] font-semibold tracking-tight">ElevenLabs</h2>
+              <p className="text-[13px] text-muted-foreground/60">Powers Transcription</p>
             </div>
-            {hasExistingKey && (
-              <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium text-emerald-400 border border-emerald-400/30 bg-emerald-400/10">
-                <Check className="h-3 w-3" />
-                Connected
-              </span>
-            )}
           </div>
-        </DialogHeader>
+          {hasExistingKey && (
+            <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium text-emerald-400 bg-emerald-400/15">
+              <Check className="h-3.5 w-3.5" />
+              Connected
+            </span>
+          )}
+        </div>
 
         <div className="space-y-4">
           {/* Remove Key button - only show if key exists */}
@@ -104,8 +115,8 @@ export function ApiKeyEditDialog({
               onClick={handleRemove}
               disabled={isRemoving}
               className={cn(
-                'w-full h-[42px] rounded-xl font-medium text-[14px] gap-2',
-                'border-border/30 text-muted-foreground',
+                'w-full h-[48px] rounded-xl font-medium text-[14px] gap-2',
+                'border-border/40 text-muted-foreground',
                 'hover:bg-muted/20 hover:text-foreground transition-colors',
                 isRemoving && 'opacity-50 cursor-not-allowed'
               )}
@@ -121,22 +132,31 @@ export function ApiKeyEditDialog({
             </Button>
           )}
 
-          {/* Divider with "or update" text */}
+          {/* Get API key link */}
+          <button
+            onClick={openElevenLabsKeys}
+            className="flex items-center gap-2 text-[13px] text-muted-foreground/70 hover:text-foreground transition-colors"
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+            Get your API key
+          </button>
+
+          {/* Divider with "or update" text - only if key exists */}
           {hasExistingKey && (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pt-2">
               <div className="flex-1 h-px bg-border/30" />
-              <span className="text-[11px] text-muted-foreground/50">or update</span>
+              <span className="text-[11px] text-muted-foreground/40">or enter a new key</span>
               <div className="flex-1 h-px bg-border/30" />
             </div>
           )}
 
           <Input
             type="password"
-            placeholder="Enter new key..."
+            placeholder={hasExistingKey ? "Enter new key..." : "Paste your API key..."}
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="h-[42px] rounded-xl bg-muted/30 border-border/30 text-[14px] placeholder:text-muted-foreground/40"
+            className="h-[48px] rounded-xl bg-muted/30 border-border/30 text-[14px] placeholder:text-muted-foreground/40"
             autoFocus={!hasExistingKey}
           />
 
@@ -144,7 +164,7 @@ export function ApiKeyEditDialog({
             onClick={handleUpdate}
             disabled={!apiKey.trim() || isUpdating}
             className={cn(
-              'w-full h-[42px] rounded-xl font-medium text-[14px] text-white',
+              'w-full h-[48px] rounded-xl font-medium text-[14px] text-white',
               'hover:opacity-90 transition-opacity',
               (!apiKey.trim() || isUpdating) && 'opacity-50 cursor-not-allowed'
             )}
@@ -155,7 +175,7 @@ export function ApiKeyEditDialog({
             {isUpdating ? (
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
             ) : (
-              'Update'
+              hasExistingKey ? 'Update Key' : 'Save Key'
             )}
           </Button>
         </div>
