@@ -329,16 +329,11 @@ function App() {
         {...(isDesktop ? { 'data-tauri-drag-region': true } : {})}
       >
         <div className="flex items-center gap-2">
-          <img src={bardIcon} alt="" className="h-[18px] w-auto brightness-0 dark:invert" />
           <span 
-            className="font-brand text-[18px] tracking-tight"
+            className="font-brand text-[18px] tracking-tight text-black dark:text-white"
             style={{ 
               fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
               fontWeight: 800,
-              background: 'linear-gradient(135deg, #EAB308 0%, #EF4444 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
             }}
           >
             Bard
@@ -459,9 +454,12 @@ function App() {
           ? "h-auto min-h-[55px] px-[16px] pb-[env(safe-area-inset-bottom)]" 
           : "h-[55px] px-[21px]"
       )}>
-        <span className="text-[10px] text-muted-foreground/40 tracking-wide">
-          Bard v1.0.0
-        </span>
+        <div className="flex items-center gap-1.5">
+          <img src={bardIcon} alt="" className="h-[12px] w-auto opacity-40" />
+          <span className="text-[10px] text-muted-foreground/40 tracking-wide">
+            Bard v1.0.0
+          </span>
+        </div>
         <button
           onClick={() => {
             import('@tauri-apps/plugin-opener').then(({ openUrl }) => {
