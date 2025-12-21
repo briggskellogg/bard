@@ -106,7 +106,7 @@ A: Yes, audio is streamed to ElevenLabs for transcription. Your transcripts are 
 A: No, Bard requires an internet connection for transcription.
 
 **Q: What languages are supported?**  
-A: Bard supports 30+ languages including English, Spanish, French, German, Japanese, and more. Select your language from the dropdown before recording.
+A: Bard supports 100+ languages with varying accuracy levels (Excellent, High, Good, Moderate). Top languages include English, Spanish, French, German, Japanese, Hindi, Portuguese, and many more. Select your language from the dropdown before recording — each language shows its accuracy tier.
 
 **Q: How much does it cost?**  
 A: Bard itself is free. You pay ElevenLabs directly for API usage (they offer free credits to start).

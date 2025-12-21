@@ -23,16 +23,113 @@ function Kbd({ children, className }: { children: React.ReactNode; className?: s
 }
 
 // Scribe v2 supported languages
+// Language quality tiers for ElevenLabs Scribe v2
+type QualityTier = 'excellent' | 'high' | 'good' | 'moderate'
+
 const SCRIBE_LANGUAGES = [
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'French' },
-  { code: 'de', name: 'German' },
-  { code: 'it', name: 'Italian' },
-  { code: 'es', name: 'Spanish' },
-  { code: 'pt', name: 'Portuguese' },
-  { code: 'hi', name: 'Hindi' },
-  { code: 'ja', name: 'Japanese' },
-  { code: 'th', name: 'Thai' },
+  // Excellent accuracy
+  { code: 'bg', name: 'Bulgarian', tier: 'excellent' as QualityTier },
+  { code: 'ca', name: 'Catalan', tier: 'excellent' as QualityTier },
+  { code: 'cs', name: 'Czech', tier: 'excellent' as QualityTier },
+  { code: 'da', name: 'Danish', tier: 'excellent' as QualityTier },
+  { code: 'nl', name: 'Dutch', tier: 'excellent' as QualityTier },
+  { code: 'en', name: 'English', tier: 'excellent' as QualityTier },
+  { code: 'fi', name: 'Finnish', tier: 'excellent' as QualityTier },
+  { code: 'fr', name: 'French', tier: 'excellent' as QualityTier },
+  { code: 'gl', name: 'Galician', tier: 'excellent' as QualityTier },
+  { code: 'de', name: 'German', tier: 'excellent' as QualityTier },
+  { code: 'el', name: 'Greek', tier: 'excellent' as QualityTier },
+  { code: 'hi', name: 'Hindi', tier: 'excellent' as QualityTier },
+  { code: 'id', name: 'Indonesian', tier: 'excellent' as QualityTier },
+  { code: 'it', name: 'Italian', tier: 'excellent' as QualityTier },
+  { code: 'ja', name: 'Japanese', tier: 'excellent' as QualityTier },
+  { code: 'kn', name: 'Kannada', tier: 'excellent' as QualityTier },
+  { code: 'ms', name: 'Malay', tier: 'excellent' as QualityTier },
+  { code: 'ml', name: 'Malayalam', tier: 'excellent' as QualityTier },
+  { code: 'mk', name: 'Macedonian', tier: 'excellent' as QualityTier },
+  { code: 'no', name: 'Norwegian', tier: 'excellent' as QualityTier },
+  { code: 'pl', name: 'Polish', tier: 'excellent' as QualityTier },
+  { code: 'pt', name: 'Portuguese', tier: 'excellent' as QualityTier },
+  { code: 'ro', name: 'Romanian', tier: 'excellent' as QualityTier },
+  { code: 'ru', name: 'Russian', tier: 'excellent' as QualityTier },
+  { code: 'sr', name: 'Serbian', tier: 'excellent' as QualityTier },
+  { code: 'sk', name: 'Slovak', tier: 'excellent' as QualityTier },
+  { code: 'es', name: 'Spanish', tier: 'excellent' as QualityTier },
+  { code: 'sv', name: 'Swedish', tier: 'excellent' as QualityTier },
+  { code: 'tr', name: 'Turkish', tier: 'excellent' as QualityTier },
+  { code: 'uk', name: 'Ukrainian', tier: 'excellent' as QualityTier },
+  { code: 'vi', name: 'Vietnamese', tier: 'excellent' as QualityTier },
+  // High accuracy
+  { code: 'bn', name: 'Bengali', tier: 'high' as QualityTier },
+  { code: 'be', name: 'Belarusian', tier: 'high' as QualityTier },
+  { code: 'bs', name: 'Bosnian', tier: 'high' as QualityTier },
+  { code: 'yue', name: 'Cantonese', tier: 'high' as QualityTier },
+  { code: 'et', name: 'Estonian', tier: 'high' as QualityTier },
+  { code: 'fil', name: 'Filipino', tier: 'high' as QualityTier },
+  { code: 'gu', name: 'Gujarati', tier: 'high' as QualityTier },
+  { code: 'hu', name: 'Hungarian', tier: 'high' as QualityTier },
+  { code: 'kk', name: 'Kazakh', tier: 'high' as QualityTier },
+  { code: 'lv', name: 'Latvian', tier: 'high' as QualityTier },
+  { code: 'lt', name: 'Lithuanian', tier: 'high' as QualityTier },
+  { code: 'zh', name: 'Mandarin', tier: 'high' as QualityTier },
+  { code: 'mr', name: 'Marathi', tier: 'high' as QualityTier },
+  { code: 'ne', name: 'Nepali', tier: 'high' as QualityTier },
+  { code: 'or', name: 'Odia', tier: 'high' as QualityTier },
+  { code: 'fa', name: 'Persian', tier: 'high' as QualityTier },
+  { code: 'sl', name: 'Slovenian', tier: 'high' as QualityTier },
+  { code: 'ta', name: 'Tamil', tier: 'high' as QualityTier },
+  { code: 'te', name: 'Telugu', tier: 'high' as QualityTier },
+  // Good accuracy
+  { code: 'af', name: 'Afrikaans', tier: 'good' as QualityTier },
+  { code: 'ar', name: 'Arabic', tier: 'good' as QualityTier },
+  { code: 'hy', name: 'Armenian', tier: 'good' as QualityTier },
+  { code: 'as', name: 'Assamese', tier: 'good' as QualityTier },
+  { code: 'ast', name: 'Asturian', tier: 'good' as QualityTier },
+  { code: 'az', name: 'Azerbaijani', tier: 'good' as QualityTier },
+  { code: 'my', name: 'Burmese', tier: 'good' as QualityTier },
+  { code: 'ceb', name: 'Cebuano', tier: 'good' as QualityTier },
+  { code: 'hr', name: 'Croatian', tier: 'good' as QualityTier },
+  { code: 'ka', name: 'Georgian', tier: 'good' as QualityTier },
+  { code: 'ha', name: 'Hausa', tier: 'good' as QualityTier },
+  { code: 'he', name: 'Hebrew', tier: 'good' as QualityTier },
+  { code: 'is', name: 'Icelandic', tier: 'good' as QualityTier },
+  { code: 'jv', name: 'Javanese', tier: 'good' as QualityTier },
+  { code: 'kea', name: 'Kabuverdianu', tier: 'good' as QualityTier },
+  { code: 'ko', name: 'Korean', tier: 'good' as QualityTier },
+  { code: 'ky', name: 'Kyrgyz', tier: 'good' as QualityTier },
+  { code: 'ln', name: 'Lingala', tier: 'good' as QualityTier },
+  { code: 'mt', name: 'Maltese', tier: 'good' as QualityTier },
+  { code: 'mn', name: 'Mongolian', tier: 'good' as QualityTier },
+  { code: 'mi', name: 'Māori', tier: 'good' as QualityTier },
+  { code: 'oc', name: 'Occitan', tier: 'good' as QualityTier },
+  { code: 'pa', name: 'Punjabi', tier: 'good' as QualityTier },
+  { code: 'sd', name: 'Sindhi', tier: 'good' as QualityTier },
+  { code: 'sw', name: 'Swahili', tier: 'good' as QualityTier },
+  { code: 'tg', name: 'Tajik', tier: 'good' as QualityTier },
+  { code: 'th', name: 'Thai', tier: 'good' as QualityTier },
+  { code: 'ur', name: 'Urdu', tier: 'good' as QualityTier },
+  { code: 'uz', name: 'Uzbek', tier: 'good' as QualityTier },
+  { code: 'cy', name: 'Welsh', tier: 'good' as QualityTier },
+  // Moderate accuracy
+  { code: 'am', name: 'Amharic', tier: 'moderate' as QualityTier },
+  { code: 'ny', name: 'Chichewa', tier: 'moderate' as QualityTier },
+  { code: 'ff', name: 'Fulah', tier: 'moderate' as QualityTier },
+  { code: 'lg', name: 'Ganda', tier: 'moderate' as QualityTier },
+  { code: 'ig', name: 'Igbo', tier: 'moderate' as QualityTier },
+  { code: 'ga', name: 'Irish', tier: 'moderate' as QualityTier },
+  { code: 'km', name: 'Khmer', tier: 'moderate' as QualityTier },
+  { code: 'ku', name: 'Kurdish', tier: 'moderate' as QualityTier },
+  { code: 'lo', name: 'Lao', tier: 'moderate' as QualityTier },
+  { code: 'lb', name: 'Luxembourgish', tier: 'moderate' as QualityTier },
+  { code: 'luo', name: 'Luo', tier: 'moderate' as QualityTier },
+  { code: 'nso', name: 'Northern Sotho', tier: 'moderate' as QualityTier },
+  { code: 'ps', name: 'Pashto', tier: 'moderate' as QualityTier },
+  { code: 'sn', name: 'Shona', tier: 'moderate' as QualityTier },
+  { code: 'so', name: 'Somali', tier: 'moderate' as QualityTier },
+  { code: 'umb', name: 'Umbundu', tier: 'moderate' as QualityTier },
+  { code: 'wo', name: 'Wolof', tier: 'moderate' as QualityTier },
+  { code: 'xh', name: 'Xhosa', tier: 'moderate' as QualityTier },
+  { code: 'zu', name: 'Zulu', tier: 'moderate' as QualityTier },
 ] as const
 
 export type ScribeLanguageCode = typeof SCRIBE_LANGUAGES[number]['code']
@@ -188,10 +285,21 @@ export function RecordingBar({
             <span className="truncate text-[12px] opacity-70">{currentLanguage?.name}</span>
           </SelectValue>
         </SelectTrigger>
-        <SelectContent className="rounded-xl border-border/30 shadow-xl">
+        <SelectContent className="rounded-xl border-border/30 shadow-xl max-h-[300px]">
           {SCRIBE_LANGUAGES.map((lang) => (
             <SelectItem key={lang.code} value={lang.code} className="rounded-lg text-[13px]">
-              {lang.name}
+              <span className="flex items-center gap-2">
+                {lang.name}
+                <span className={cn(
+                  'text-[9px] px-1.5 py-0.5 rounded-full font-medium',
+                  lang.tier === 'excellent' && 'bg-emerald-500/20 text-emerald-400',
+                  lang.tier === 'high' && 'bg-blue-500/20 text-blue-400',
+                  lang.tier === 'good' && 'bg-amber-500/20 text-amber-400',
+                  lang.tier === 'moderate' && 'bg-orange-500/20 text-orange-400',
+                )}>
+                  {lang.tier}
+                </span>
+              </span>
             </SelectItem>
           ))}
         </SelectContent>
