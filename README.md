@@ -20,25 +20,15 @@ The best thinking happens when you're not thinking about the tool.
 
 Bard is a lightweight macOS app powered by [ElevenLabs Scribe](https://elevenlabs.io/scribe). It transcribes your voice in real-time, auto-saves everything to a local library, and stays out of your way.
 
-### Download
-
-**[Download Bard-v1.1.dmg](https://github.com/briggskellogg/bard/releases/latest)** — Drag to Applications and enter your ElevenLabs API key when prompted.
-
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| ⌘ + Enter | Start/Stop recording |
-| ⌘ + C | Copy transcript |
-| ⌘ + D | Clear transcript |
-| ⌘ + V | Open library |
-| ⌘ + K | API key settings |
-| ⌘ + T | Toggle theme |
-| Escape | Discard recording |
-
----
+Your transcripts stay on your device. The app is always ready when you are.
 
 I built this for myself, but you can use it too.
+
+## Download
+
+**[Download Bard v1.1 for macOS (Apple Silicon)](https://github.com/briggskellogg/bard/releases/download/v1.1/Bard-v1.1.dmg)**
+
+Requires macOS 12+ and Apple Silicon (M1/M2/M3). You'll need your own ElevenLabs API key.
 
 Questions? **[me@briggskellogg.com](mailto:me@briggskellogg.com)**
 
