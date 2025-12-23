@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useMemo } from 'react'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { cn, formatSegmentsIntoParagraphs, formatTextIntoParagraphs } from '@/lib/utils'
+import { cn, formatSegmentsIntoParagraphs } from '@/lib/utils'
 import { Clock, Mic } from 'lucide-react'
 import type { TranscriptSegment } from '@/hooks/useScribeTranscription'
 import { getSpeakerName, getSpeakerColor } from '@/lib/speakerNames'

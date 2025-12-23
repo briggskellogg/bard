@@ -61,6 +61,8 @@ export function formatSegmentsIntoParagraphs(segments: TranscriptSegment[], fall
   
   for (let i = 0; i < segments.length; i++) {
     const segment = segments[i]
+    if (!segment) continue
+    
     const prevSegment = i > 0 ? segments[i - 1] : null
     
     if (prevSegment && currentParagraph.length > 0) {
