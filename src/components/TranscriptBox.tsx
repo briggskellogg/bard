@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useMemo } from 'react'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { cn } from '@/lib/utils'
+import { cn, formatSegmentsIntoParagraphs, formatTextIntoParagraphs } from '@/lib/utils'
 import { Clock, Mic } from 'lucide-react'
 import type { TranscriptSegment } from '@/hooks/useScribeTranscription'
 import { getSpeakerName, getSpeakerColor } from '@/lib/speakerNames'
@@ -109,86 +109,9 @@ export function TranscriptBox({
   const remainingTime = MAX_RECORDING_TIME_MS - elapsedTime
   const isLowTime = remainingTime < 5 * 60 * 1000 // Less than 5 minutes
 
-  // Group text into paragraphs
-  // First try sentence-ending punctuation, fallback to word count
-  const formatIntoParagraphs = (text: string): string[] => {
-    if (!text.trim()) return []
-    
-    const trimmedText = text.trim()
-    
-    // Check if text has sentence-ending punctuation
-    const hasPunctuation = /[.!?]/.test(trimmedText)
-    
-    if (hasPunctuation) {
-      // Split on sentence endings followed by space, but keep the punctuation
-      const sentences = trimmedText.split(/(?<=[.!?])\s+/)
-      
-      // Group sentences into paragraphs (roughly 4-6 sentences per paragraph)
-      const paragraphs: string[] = []
-      let currentParagraph: string[] = []
-      
-      for (const sentence of sentences) {
-        currentParagraph.push(sentence)
-        
-        // Start new paragraph after 5 sentences or if paragraph is long enough
-        if (currentParagraph.length >= 5 || currentParagraph.join(' ').length > 500) {
-          paragraphs.push(currentParagraph.join(' '))
-          currentParagraph = []
-        }
-      }
-      
-      // Don't forget remaining sentences
-      if (currentParagraph.length > 0) {
-        paragraphs.push(currentParagraph.join(' '))
-      }
-      
-      return paragraphs
-    } else {
-      // No punctuation - split by word count (roughly 75 words per paragraph)
-      const words = trimmedText.split(/\s+/)
-      const paragraphs: string[] = []
-      
-      for (let i = 0; i < words.length; i += 75) {
-        const paragraphWords = words.slice(i, i + 75)
-        paragraphs.push(paragraphWords.join(' '))
-      }
-      
-      return paragraphs.length > 0 ? paragraphs : [trimmedText]
-    }
-  }
-
-  // Group segments into paragraphs (every 4-6 sentences based on length)
+  // Group segments into paragraphs using shared utility
   const groupedParagraphs = useMemo(() => {
-    if (segments.length === 0) return formatIntoParagraphs(transcript)
-    
-    const paragraphs: string[] = []
-    let currentParagraph: string[] = []
-    let sentenceCount = 0
-    
-    for (const segment of segments) {
-      currentParagraph.push(segment.text)
-      
-      // Count sentences in this segment (by sentence-ending punctuation)
-      const sentencesInSegment = (segment.text.match(/[.!?]+/g) || []).length
-      sentenceCount += Math.max(1, sentencesInSegment)
-      
-      // Start new paragraph after 4-6 sentences or when paragraph gets long
-      const paragraphText = currentParagraph.join(' ')
-      const shouldBreak = sentenceCount >= 5 || paragraphText.length > 500
-      
-      if (shouldBreak && currentParagraph.length > 0) {
-        paragraphs.push(paragraphText)
-        currentParagraph = []
-        sentenceCount = 0
-      }
-    }
-    
-    // Don't forget remaining segments
-    if (currentParagraph.length > 0) {
-      paragraphs.push(currentParagraph.join(' '))
-    }
-    
-    return paragraphs.length > 0 ? paragraphs : formatIntoParagraphs(transcript)
+    return formatSegmentsIntoParagraphs(segments, transcript)
   }, [segments, transcript])
   
   // Check if we have multi-speaker content

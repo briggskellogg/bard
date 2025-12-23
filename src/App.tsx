@@ -14,7 +14,7 @@ import { useScribeTranscription } from './hooks/useScribeTranscription'
 import { usePlatform } from './hooks/use-platform'
 import { useSettingsStore } from './store/settings'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { cn, formatSegmentsIntoParagraphs } from '@/lib/utils'
 import { toast } from 'sonner'
 // Logo is rendered as text using PP Neue Machina Inktrap font
 import spiritAnimal from './assets/spirit_animal.png'
@@ -200,8 +200,21 @@ function App() {
   }, [transcript, partialTranscript, clearTranscript])
 
   const handleCopy = useCallback(async () => {
-    const textToCopy = transcript || partialTranscript
-    if (!textToCopy) return
+    if (!transcript && !partialTranscript) return
+    
+    // Format into paragraphs with double newlines between them
+    const paragraphs = formatSegmentsIntoParagraphs(segments, transcript)
+    
+    // Add partial transcript to the last paragraph if present
+    let textToCopy: string
+    if (partialTranscript && paragraphs.length > 0) {
+      paragraphs[paragraphs.length - 1] += ' ' + partialTranscript
+      textToCopy = paragraphs.join('\n\n')
+    } else if (partialTranscript) {
+      textToCopy = partialTranscript
+    } else {
+      textToCopy = paragraphs.join('\n\n')
+    }
     
     try {
       await navigator.clipboard.writeText(textToCopy)
@@ -210,7 +223,7 @@ function App() {
     } catch (error) {
       console.error('Failed to copy:', error)
     }
-  }, [transcript, partialTranscript])
+  }, [segments, transcript, partialTranscript])
 
   const handleToggleTheme = useCallback(() => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
@@ -461,7 +474,7 @@ function App() {
         <div className="flex items-center gap-2">
           <img src={bardIcon} alt="" className="h-[16px] w-auto opacity-40" />
           <span className="text-[12px] text-muted-foreground/40 tracking-wide">
-            Bard v1.1.2
+            Bard v1.0.1
           </span>
         </div>
         <button

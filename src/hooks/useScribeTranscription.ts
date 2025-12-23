@@ -5,6 +5,8 @@ import { fetchToken } from '@/lib/token'
 export interface TranscriptSegment {
   text: string
   speakerId: string | null
+  startTime: number | null // Start timestamp in seconds from first word
+  endTime: number | null // End timestamp in seconds from last word
 }
 
 export interface UseScribeTranscriptionOptions {
@@ -71,8 +73,11 @@ export function useScribeTranscription({
       if (processedTexts.has(segmentKey)) return
       processedTexts.add(segmentKey)
 
-      // Extract speaker from words if available
+      // Extract speaker and timing from words if available
       let speakerId: string | null = null
+      let startTime: number | null = null
+      let endTime: number | null = null
+      
       if (data.words && data.words.length > 0) {
         // Log word data for debugging diarization
         const wordWithSpeaker = data.words.find(w => w.speaker_id)
@@ -91,9 +96,21 @@ export function useScribeTranscription({
           speakerId = [...speakerCounts.entries()].reduce((a, b) => a[1] > b[1] ? a : b)[0]
           console.log('[Scribe] Assigned speaker:', speakerId, 'to segment:', text.substring(0, 50))
         }
+        
+        // Get start time from the first word
+        const firstWordWithTime = data.words[0] as { start?: number } | undefined
+        if (firstWordWithTime?.start !== undefined) {
+          startTime = firstWordWithTime.start
+        }
+        
+        // Get end time from the last word
+        const lastWord = data.words[data.words.length - 1] as { end?: number } | undefined
+        if (lastWord?.end !== undefined) {
+          endTime = lastWord.end
+        }
       }
 
-      setSegments(prev => [...prev, { text, speakerId }])
+      setSegments(prev => [...prev, { text, speakerId, startTime, endTime }])
       
       if (speakerId) {
         setSpeakers(prev => new Set([...prev, speakerId]))
@@ -160,7 +177,7 @@ export function useScribeTranscription({
       const segmentKey = `${partial}-stop-${Date.now()}`
       if (!processedTexts.has(segmentKey)) {
         processedTexts.add(segmentKey)
-        setSegments(prev => [...prev, { text: partial, speakerId: null }])
+        setSegments(prev => [...prev, { text: partial, speakerId: null, startTime: null, endTime: null }])
       }
       scribe.clearTranscripts()
     }
@@ -181,7 +198,7 @@ export function useScribeTranscription({
       const segmentKey = `${partial}-pause-${Date.now()}`
       if (!processedTexts.has(segmentKey)) {
         processedTexts.add(segmentKey)
-        setSegments(prev => [...prev, { text: textToCommit, speakerId: null }])
+        setSegments(prev => [...prev, { text: textToCommit, speakerId: null, startTime: null, endTime: null }])
       }
       // Clear the partial transcript in scribe
       scribe.clearTranscripts()
