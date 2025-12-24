@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button'
 import { cn, formatSegmentsIntoParagraphs } from '@/lib/utils'
 import { toast } from 'sonner'
 // Logo is rendered as text using PP Neue Machina Inktrap font
-import spiritAnimal from './assets/spirit_animal.png'
+import bekLogo from './assets/BEK.png'
 import bardIcon from './assets/bard-icon.png'
 import './App.css'
 
@@ -314,8 +314,8 @@ function App() {
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
   // Bard logo is rendered as text with PP Neue Machina Inktrap font
-  // Spirit Animal for footer
-  const footerLogo = spiritAnimal
+  // BEK logo for footer
+  const footerLogo = bekLogo
 
   // Show loading state while API key is being loaded
   if (!isLoaded) {
@@ -474,7 +474,7 @@ function App() {
         <div className="flex items-center gap-2">
           <img src={bardIcon} alt="" className="h-[16px] w-auto opacity-40" />
           <span className="text-[12px] text-muted-foreground/40 tracking-wide">
-            Bard v1.0.1
+            Bard v1.0.0
           </span>
         </div>
         <button
@@ -486,11 +486,11 @@ function App() {
             })
           }}
           className="group p-0 border-0 bg-transparent cursor-pointer"
-          aria-label="Spirit Animal"
+          aria-label="BEK"
         >
           <img 
             src={footerLogo} 
-            alt="Spirit Animal" 
+            alt="BEK" 
             className="h-5 w-auto opacity-40 hover:opacity-70 transition-opacity duration-200 cursor-pointer"
           />
         </button>
@@ -509,4 +509,3 @@ function App() {
 }
 
 export default App
-
