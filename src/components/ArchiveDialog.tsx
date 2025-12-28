@@ -225,7 +225,15 @@ export function ArchiveDialog() {
           break
         case 'Enter':
           e.preventDefault()
-          {
+          if (pendingDeleteId) {
+            // Confirm delete
+            handleDelete(pendingDeleteId)
+            const deleteIndex = paginatedTranscripts.findIndex(t => t.id === pendingDeleteId)
+            if (deleteIndex >= paginatedTranscripts.length - 1) {
+              setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
+            }
+            setPendingDeleteId(null)
+          } else {
             const selected = paginatedTranscripts[selectedIndex]
             if (selected) {
               setExpandedId(expandedId === selected.id ? null : selected.id)
@@ -234,12 +242,12 @@ export function ArchiveDialog() {
           break
         case 'c':
         case 'C':
-          // If pending delete, just 'c' cancels (no Command needed)
-          if (pendingDeleteId) {
+          // If Command+C and there's a pending delete, cancel the delete
+          if (pendingDeleteId && (e.metaKey || e.ctrlKey)) {
             e.preventDefault()
             setPendingDeleteId(null)
-          } else if (e.metaKey || e.ctrlKey) {
-            // Otherwise Command+C copies
+          } else if (!e.metaKey && !e.ctrlKey) {
+            // 'C' without Command always copies the hovered item
             e.preventDefault()
             const toCopy = paginatedTranscripts[selectedIndex]
             if (toCopy) {
@@ -249,20 +257,11 @@ export function ArchiveDialog() {
           break
         case 'd':
         case 'D':
-          // If pending delete, just 'd' confirms (no Command needed)
-          if (pendingDeleteId) {
-            e.preventDefault()
-            handleDelete(pendingDeleteId)
-            const deleteIndex = paginatedTranscripts.findIndex(t => t.id === pendingDeleteId)
-            if (deleteIndex >= paginatedTranscripts.length - 1) {
-              setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
-            }
-            setPendingDeleteId(null)
-          } else if (e.metaKey || e.ctrlKey) {
-            // Otherwise Command+D initiates delete
-            e.preventDefault()
+          e.preventDefault()
+          {
             const toDelete = paginatedTranscripts[selectedIndex]
             if (toDelete) {
+              // Pressing D initiates delete on hovered item (or switches to it)
               setPendingDeleteId(toDelete.id)
             }
           }
@@ -411,9 +410,13 @@ export function ArchiveDialog() {
                             ? 'border-primary/50 shadow-lg shadow-primary/5 bg-card' 
                             : 'border-border/30 hover:border-border/50 hover:bg-card/80',
                       )}
+                      onMouseEnter={() => {
+                        if (!isPendingDelete) {
+                          setSelectedIndex(index)
+                        }
+                      }}
                       onClick={() => {
                         if (isPendingDelete) return
-                        setSelectedIndex(index)
                         setExpandedId(expandedId === transcript.id ? null : transcript.id)
                       }}
                     >
@@ -464,11 +467,11 @@ export function ArchiveDialog() {
                                 }}
                               >
                                 <CircleSlash size={12} />
-                                <Kbd><span className="text-[9px]">C</span></Kbd>
+                                <Kbd className="gap-0.5"><span className="text-[9px]">⌘</span><span className="text-[9px]">C</span></Kbd>
                               </button>
                               {/* Confirm delete */}
                               <button
-                                className="h-[22px] px-2 text-[11px] rounded-full bg-destructive text-white hover:bg-destructive/90 transition-colors flex items-center gap-1"
+                                className="h-[22px] px-2 text-[11px] rounded-full bg-destructive text-white hover:bg-destructive/90 transition-colors flex items-center gap-1.5"
                                 onClick={(e) => {
                                   e.stopPropagation()
                                   handleDelete(transcript.id)
@@ -476,7 +479,7 @@ export function ArchiveDialog() {
                                 }}
                               >
                                 <Trash2 size={12} />
-                                <span className="text-[9px] opacity-70">D</span>
+                                <span className="text-[9px] font-medium opacity-80">↵</span>
                               </button>
                             </>
                           ) : (
