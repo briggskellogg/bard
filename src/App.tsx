@@ -474,7 +474,7 @@ function App() {
         <div className="flex items-center gap-2">
           <img src={bardIcon} alt="" className="h-[16px] w-auto opacity-40" />
           <span className="text-[12px] text-muted-foreground/40 tracking-wide">
-            Bard v1.0.0
+            Bard v1.0.2
           </span>
         </div>
         <button
