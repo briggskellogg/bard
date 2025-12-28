@@ -26,9 +26,30 @@ I built this for myself, but you can use it too.
 
 ## Download
 
-**[Download Bard v1.1 for macOS (Apple Silicon)](https://github.com/briggskellogg/bard/releases/download/v1.1/Bard-v1.1.dmg)**
+**[Download Bard v1.0 for macOS (Apple Silicon)](https://github.com/briggskellogg/bard/releases/download/v1.0.2/Bard-v1.0.dmg)**
 
 Requires macOS 12+ and Apple Silicon (M1/M2/M3). You'll need your own ElevenLabs API key.
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `⌘K` | Open API key settings |
+| `⌘V` | Open Library |
+| `Space` | Start/Stop recording |
+| `⌘C` | Copy transcript |
+
+### Library
+
+| Shortcut | Action |
+|----------|--------|
+| `C` | Copy selected transcript |
+| `D` | Delete selected transcript |
+| `Enter` | Confirm deletion |
+| `⌘C` | Cancel deletion |
+| `↑↓` | Navigate transcripts |
+| `←→` | Navigate pages |
+| `/` | Focus search |
 
 Questions? **[me@briggskellogg.com](mailto:me@briggskellogg.com)**
 
