@@ -234,12 +234,13 @@ export function ArchiveDialog() {
           break
         case 'c':
         case 'C':
-          if (!e.metaKey && !e.ctrlKey) break // Require Command key
-          e.preventDefault()
-          // If pending delete, cancel it; otherwise copy
+          // If pending delete, just 'c' cancels (no Command needed)
           if (pendingDeleteId) {
+            e.preventDefault()
             setPendingDeleteId(null)
-          } else {
+          } else if (e.metaKey || e.ctrlKey) {
+            // Otherwise Command+C copies
+            e.preventDefault()
             const toCopy = paginatedTranscripts[selectedIndex]
             if (toCopy) {
               copyTranscript(toCopy.text, toCopy.id)
@@ -248,17 +249,18 @@ export function ArchiveDialog() {
           break
         case 'd':
         case 'D':
-          if (!e.metaKey && !e.ctrlKey) break // Require Command key
-          e.preventDefault()
-          // If pending delete, confirm deletion; otherwise initiate delete
+          // If pending delete, just 'd' confirms (no Command needed)
           if (pendingDeleteId) {
+            e.preventDefault()
             handleDelete(pendingDeleteId)
             const deleteIndex = paginatedTranscripts.findIndex(t => t.id === pendingDeleteId)
             if (deleteIndex >= paginatedTranscripts.length - 1) {
               setSelectedIndex(Math.max(0, paginatedTranscripts.length - 2))
             }
             setPendingDeleteId(null)
-          } else {
+          } else if (e.metaKey || e.ctrlKey) {
+            // Otherwise Command+D initiates delete
+            e.preventDefault()
             const toDelete = paginatedTranscripts[selectedIndex]
             if (toDelete) {
               setPendingDeleteId(toDelete.id)
@@ -454,28 +456,28 @@ export function ArchiveDialog() {
                           {isPendingDelete ? (
                             <>
 {/* Cancel delete */}
-                                            <button
-                                                className="h-[22px] px-1.5 text-muted-foreground/70 hover:text-foreground transition-colors flex items-center gap-1"
-                                                onClick={(e) => {
-                                                  e.stopPropagation()
-                                                  setPendingDeleteId(null)
-                                                }}
-                                              >
-                                                <CircleSlash size={12} />
-                                                <Kbd className="gap-0.5"><span className="text-[9px]">⌘</span><span className="text-[9px]">C</span></Kbd>
-                                              </button>
-                                              {/* Confirm delete */}
-                                              <button
-                                                className="h-[22px] px-2 text-[11px] rounded-full bg-destructive text-white hover:bg-destructive/90 transition-colors flex items-center gap-1"
-                                                onClick={(e) => {
-                                                  e.stopPropagation()
-                                                  handleDelete(transcript.id)
-                                                  setPendingDeleteId(null)
-                                                }}
-                                              >
-                                                <Trash2 size={12} />
-                                                <Kbd className="gap-0.5 bg-white/20 border-white/30"><span className="text-[9px]">⌘</span><span className="text-[9px]">D</span></Kbd>
-                                              </button>
+                              <button
+                                className="h-[22px] px-1.5 text-muted-foreground/70 hover:text-foreground transition-colors flex items-center gap-1"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  setPendingDeleteId(null)
+                                }}
+                              >
+                                <CircleSlash size={12} />
+                                <Kbd><span className="text-[9px]">C</span></Kbd>
+                              </button>
+                              {/* Confirm delete */}
+                              <button
+                                className="h-[22px] px-2 text-[11px] rounded-full bg-destructive text-white hover:bg-destructive/90 transition-colors flex items-center gap-1"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  handleDelete(transcript.id)
+                                  setPendingDeleteId(null)
+                                }}
+                              >
+                                <Trash2 size={12} />
+                                <span className="text-[9px] opacity-70">D</span>
+                              </button>
                             </>
                           ) : (
                             <>
