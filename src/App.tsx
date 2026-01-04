@@ -16,7 +16,7 @@ import { useSettingsStore } from './store/settings'
 import { Button } from '@/components/ui/button'
 import { cn, formatSegmentsIntoParagraphs } from '@/lib/utils'
 import { toast } from 'sonner'
-// Logo is rendered as text using PP Neue Machina Inktrap font
+// Logo is rendered as text using PP Neue York font
 import bekLogo from './assets/BEK.png'
 import bardIcon from './assets/bard-icon.png'
 import './App.css'
@@ -313,7 +313,7 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isMobile, isConnected, isRecording, isPaused, handleStartRecording, handleStopRecording, handlePauseRecording, handleResumeRecording, handleCopy, handleClear, handleDiscard, handleToggleTheme, setArchiveDialogOpen])
 
-  // Bard logo is rendered as text with PP Neue Machina Inktrap font
+  // Bard logo is rendered as text with PP Neue York font
   // BEK logo for footer
   const footerLogo = bekLogo
 
@@ -349,7 +349,7 @@ function App() {
           <span 
             className="font-brand text-[18px] tracking-tight text-black dark:text-white"
             style={{ 
-              fontFamily: "'PP Neue Machina Inktrap', sans-serif", 
+              fontFamily: "'PP Neue York', serif", 
               fontWeight: 800,
             }}
           >
@@ -357,7 +357,7 @@ function App() {
           </span>
           <span 
             className="px-1.5 h-[18px] flex items-center rounded-[4px] bg-muted/40 border border-border/30 text-[10px] text-muted-foreground/60"
-            style={{ fontFamily: "'PP Neue Machina Inktrap', sans-serif", fontWeight: 400 }}
+            style={{ fontFamily: "'PP Neue York', serif", fontWeight: 500 }}
           >
             v1
           </span>
