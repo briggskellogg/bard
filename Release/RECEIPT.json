@@ -17,27 +17,11 @@
     "notarized": false,
     "installed_and_started": true,
     "git_commit_at_build": null,
-    "equivalent_source_commit": null,
+    "equivalent_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
     "source_input_manifest_sha256": "2eb1a1f0fa008df5d2329960eaa4d9d798135db02256cb58f25b9e5f31e7bcc9",
-    "provenance_note": "Built before canonical Git commit. Compare frozen input hashes before recording equivalence to a later commit."
+    "provenance_note": "Built before this commit; every recorded compiler and resource input matches the committed source byte-for-byte."
   },
   "iphone": {
-    "version": "1.2.2",
-    "build": "6",
-    "delivery_uuid": "171d025f-0e98-425c-86ec-dbdc3a2bd459",
-    "uploaded_at": "2026-11-08T17:25:50-07:00",
-    "processed": true,
-    "testflight_group": "Personal",
-    "available_to_internal_testers": true,
-    "physical_device_installation_verified": false
-  },
-  "pc_archive": {
-    "status": "NOT CONFIGURED"
-  },
-  "proton_backup": {
-    "status": "NOT CONFIGURED"
-  },
-  "iphone_candidate": {
     "version": "1.2.3",
     "build": "7",
     "bundle_id": "com.briggskellogg.wisp.ios",
@@ -45,8 +29,36 @@
     "ipa_sha256": "da55a0ed83a62359e079e69e1ad83ff18686bb8ca6d0853f47e413abf4f8dd12",
     "source_input_manifest_sha256": "dd1f0694e2f4789767c5ee3d7bde018051420ac0ba71fc22b2ed654e503a30ce",
     "git_commit_at_build": null,
-    "equivalent_source_commit": null,
-    "upload_status": "in progress",
-    "available_to_testers": false
-  }
+    "equivalent_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
+    "upload_status": "processed; Testing",
+    "available_to_testers": true,
+    "delivery_uuid": "7e9320e4-fa0a-4174-b0a2-1e235b8398ff",
+    "provenance_note": "Built before this commit; all 62 frozen inputs match the committed source byte-for-byte. Local export and Apple upload independently sign the same frozen archive.",
+    "processed": true,
+    "app_store_connect_display_name": "Bard by Briggs Kellogg",
+    "app_store_connect_app_id": "6829608471",
+    "testflight_group": "Personal",
+    "available_to_internal_testers": true,
+    "physical_device_installation_verified": false,
+    "ipa_bytes": 1915849,
+    "public_app_store_release_submitted": false,
+    "verification": "App Store Connect displayed build 1.2.3 (7) as Testing in the existing Personal group after release notes were saved."
+  },
+  "pc_archive": {
+    "status": "NOT CONFIGURED"
+  },
+  "proton_backup": {
+    "status": "NOT CONFIGURED"
+  },
+  "github": {
+    "repository": "briggskellogg/bard",
+    "visibility": "public",
+    "source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
+    "archive_branch": "archive/legacy-transcription-before-music",
+    "archive_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
+    "personal_library_included": false,
+    "verified_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
+    "verification_note": "Source and predecessor archive branch were verified remotely; this receipt is a later documentation-only update."
+  },
+  "recorded_at_utc": "2026-11-09T04:01:33.154987+00:00"
 }

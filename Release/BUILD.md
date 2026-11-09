@@ -30,7 +30,7 @@ The project is `iOS/WispIOS.xcodeproj`; the shared scheme is `WispIOS`. The visi
 
 `iOS/scripts/archive.sh` requires `WISP_TEAM_ID` and a new archive path. Automatic provisioning updates require the separate opt-in `WISP_ALLOW_PROVISIONING_UPDATES=1`. `export-testflight.sh` creates a local distribution export; `upload-testflight.sh` uploads an authorized frozen archive. They do not assign a tester group or verify Apple processing. See [iPhone development notes](../iOS/README.md).
 
-Build 6 already uploaded successfully. Do not re-upload it. Check App Store Connect before choosing the next build number, then validate the archived version, bundle, team, entitlements, icon, privacy manifest, and distribution signature. Retain dSYMs, checksums, source commit, build manifest, and receipt separately from source control.
+Build 7 (1.2.3) has already uploaded, processed, and reached Testing in the Personal internal group. Do not re-upload it. Check App Store Connect before choosing the next build number, then validate the archived version, bundle, team, entitlements, icon, privacy manifest, and distribution signature. Retain dSYMs, checksums, source commit, build manifest, and receipt separately from source control.
 
 ## Portable assets
 
