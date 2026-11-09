@@ -8,6 +8,8 @@ This is the music application formerly named Wisp. The owner has chosen it to re
 
 The current installed Mac app is Bard 1.3.3 (53), with startup, search, and data-preservation checks passed. **Bard by Briggs Kellogg 1.2.3 (7)** is processed and Testing in the existing Personal internal TestFlight group. Physical installation and interaction checks for build 7 remain unverified. See [release status](Release/STATUS.md) for the exact evidence and remaining work.
 
+[Download the current Mac release and view its verification records](https://github.com/briggskellogg/bard/releases/tag/mac-1.3.3-ios-1.2.3). Update the iPhone app through TestFlight.
+
 The app requires macOS 14 or later, or iOS 17 or later. The Mac package supports Apple Silicon and Intel. The current personal Mac distribution has an ad-hoc integrity signature and is not notarized. iPhone delivery uses TestFlight, not the unsigned device build.
 
 ## Development

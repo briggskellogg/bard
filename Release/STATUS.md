@@ -5,6 +5,7 @@ Recorded November 8, 2026 (America/Phoenix).
 | Area | State | Evidence and limits |
 | --- | --- | --- |
 | GitHub source | Verified | Public `briggskellogg/bard` now holds the native music app. Source commit `1ad267cc9b9642e2faff7e11c3b9d15870be6e8d` and predecessor branch `archive/legacy-transcription-before-music` were verified remotely. The old transcription history remains intact. Personal library contents are excluded. |
+| GitHub app release | Verified | [Mac 1.3.3 / iPhone 1.2.3](https://github.com/briggskellogg/bard/releases/tag/mac-1.3.3-ios-1.2.3) is published with eight assets. GitHub-reported SHA-256 values match the local files, including the universal DMG, distribution IPA, dSYMs, manifests, notes, and checksums. |
 | Clean checkout validation | Passed | 178 shared-core tests passed with zero failures; the Mac debug target compiled. Nine brand exports reproduced byte-for-byte. Existing deprecation and Swift 6 concurrency warnings remain; this is not a strict Swift 6 build. |
 | Mac installed release | Verified | Bard 1.3.3 (53), universal arm64/x86_64, installed at `/Applications/Developer/Bard.app`. Four native main-screen renders, packaging, startup, Command-F search, and data-preservation checks passed. Ad-hoc signed; not notarized. |
 | iPhone TestFlight | Verified | **Bard by Briggs Kellogg 1.2.3 (7)** is processed and **Testing** in the existing Personal internal group. Release notes and app name were saved. App Store Connect app `6829608471`, delivery `7e9320e4-fa0a-4174-b0a2-1e235b8398ff`. No public App Store release. |

@@ -16,7 +16,7 @@ Generation requires XcodeGen 2.44 or newer. Builds use `iOS/.build` unless `WISP
 
 Set `WISP_TEAM_ID` to the verified personal Apple team before `archive.sh`, `export-testflight.sh`, or `upload-testflight.sh`. Set `WISP_ALLOW_PROVISIONING_UPDATES=1` only for authorized Xcode-managed signing. Supply fresh output paths; preserve existing archive/export evidence. Never copy a work-machine keychain or include signing credentials in source.
 
-`export-testflight.sh` produces a local distribution export. `upload-testflight.sh` uploads an authorized frozen build but does not prove Apple processing, assign a tester group, or verify physical installation. Version 1.2.2 (6) has already been delivered; do not repeat that upload. The current state and registered destinations are in [release status](../Release/STATUS.md) and [project-destinations.json](../project-destinations.json).
+`export-testflight.sh` produces a local distribution export. `upload-testflight.sh` uploads an authorized frozen build but does not prove Apple processing, assign a tester group, or verify physical installation. Version 1.2.3 (7) has already been delivered and is Testing in the Personal internal group; do not repeat that upload. The current state and registered destinations are in [release status](../Release/STATUS.md) and [project-destinations.json](../project-destinations.json).
 
 ## Runtime and branding
 
