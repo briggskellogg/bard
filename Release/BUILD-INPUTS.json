@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
-  "scope": "Reviewed compiler inputs and bundled resources; no private library or generated build outputs.",
+  "scope": "Committed compiler/resource inputs for the wordless Bard release; no personal library data.",
+  "source_commit": "431939886ea5c6e808b310bea85221bb688d8713",
   "mac": {
-    "version": "1.3.3",
-    "build": "53",
+    "version": "1.3.4",
+    "build": "54",
     "files": [
       {
         "path": "Package.swift",
-        "sha256": "b00dc5716cc4e9528b09cd5db3da24e1e409018ebcb02768c0a00a91e7f54996"
+        "sha256": "ba7b48e125e8513002d697990362df3e0d9df3e9037b05de4783ee9a67bbccc0"
       },
       {
         "path": "Sources/Wisp/AppSupport.swift",
@@ -462,16 +463,8 @@
         "sha256": "3f00afd32da08f09ce0858e6e97ee3b8b66e461be0c494b903e9ba0d3833199d"
       },
       {
-        "path": "Sources/Wisp/Resources/wisp-lockup.png",
-        "sha256": "33cd0bacd77b574496bc2ace5e71a6fc5a96de7d17a045b4733bf7d6dd25ad54"
-      },
-      {
         "path": "Sources/Wisp/Resources/wisp-mark.png",
         "sha256": "81a945280fb9b3fcad0d209d3ef5ded93ceb50dacf5f1ee56b8eee753514dbd6"
-      },
-      {
-        "path": "Sources/Wisp/Resources/wisp-wordmark.png",
-        "sha256": "7d896283edf886e4bee309cfb5b9ad586ab269b89680e0b352590d0a57479e5f"
       },
       {
         "path": "Sources/Wisp/SidebarHoverState.swift",
@@ -503,7 +496,7 @@
       },
       {
         "path": "Sources/Wisp/Views/Components.swift",
-        "sha256": "facadd389e48e4558ef903d9b8ae284e2061ca1da0ad60b04fef929adeec8a5d"
+        "sha256": "d96189e6c03036391768159281db8bac6b4e33ffac00c558c4ea4c6c7f85955a"
       },
       {
         "path": "Sources/Wisp/Views/DiscoAtmosphere.swift",
@@ -627,7 +620,7 @@
       },
       {
         "path": "Sources/Wisp/WispResources.swift",
-        "sha256": "2fd379a81073f665eb493bfc3497eb163ef9a11929ffb5a2895746dd9344e3bf"
+        "sha256": "46d7ab6e7fa386c0deabd087f0b49dfab06ab471198982c0c0a3d7d99af14eec"
       },
       {
         "path": "Sources/Wisp/WispTheme.swift",
@@ -635,7 +628,7 @@
       },
       {
         "path": "Sources/Wisp/WispTypography.swift",
-        "sha256": "a57dfebcdc3bbfab2d629099c3aaf98ee0362a865cb04c8e6002a916e1c283d3"
+        "sha256": "64fdb2381548516a6011fb12d60b82e4ec283d3a7176289590d936358e39fb15"
       },
       {
         "path": "Sources/WispAudioAtomics/WispAudioAtomics.c",
@@ -759,19 +752,19 @@
       },
       {
         "path": "Support/Info.plist",
-        "sha256": "243865eafbfa82d060b524bb3176c9627d63d4cf2d98c13abe889656837f5f21"
+        "sha256": "23748e1d035f22878b5937d014673e54747407912b4074fe50c9c5516c6d9225"
       }
     ],
-    "input_manifest_sha256": "2eb1a1f0fa008df5d2329960eaa4d9d798135db02256cb58f25b9e5f31e7bcc9"
+    "input_manifest_sha256": "313f2ea0ea21cf5c5864e1817cd9c301b1e99dbb268476c4817ca41d5466f4d5"
   },
   "iphone": {
-    "version": "1.2.3",
-    "build": "7",
-    "source_frozen_utc": "2026-11-09T03:49:00.716920+00:00",
+    "version": "1.2.4",
+    "build": "8",
+    "source_frozen_utc": "2026-11-09T04:46:30.772224+00:00",
     "files": [
       {
         "path": "Package.swift",
-        "sha256": "b00dc5716cc4e9528b09cd5db3da24e1e409018ebcb02768c0a00a91e7f54996"
+        "sha256": "ba7b48e125e8513002d697990362df3e0d9df3e9037b05de4783ee9a67bbccc0"
       },
       {
         "path": "Sources/WispCore/ArtworkCropGeometry.swift",
@@ -926,14 +919,6 @@
         "sha256": "7e49138fa4da07ab6cf05986663f8d6836ed1fead8406e8b35889ce9c47d9a21"
       },
       {
-        "path": "iOS/Resources/Assets.xcassets/wisp-wordmark.imageset/Contents.json",
-        "sha256": "c708d7294c2e8aed02626397222ccb6a72ed5c9cd0b06ff487027cc209b75adc"
-      },
-      {
-        "path": "iOS/Resources/Assets.xcassets/wisp-wordmark.imageset/wisp-wordmark.png",
-        "sha256": "bb0e22a6689137503bcd86dda5906093c5eaab15f6f18416bba444fe303a6c59"
-      },
-      {
         "path": "iOS/Resources/Fonts/IBMPlexMono-Medium.ttf",
         "sha256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755"
       },
@@ -963,11 +948,11 @@
       },
       {
         "path": "iOS/Sources/WispIOS/Design.swift",
-        "sha256": "c10e91495b195c72f98c59768f797b6dc07a9214d9b728358d5999ba35e5bbe5"
+        "sha256": "d4da7cc51b6f0f54e2da6e93a9af1cc97e843d9aefe5e54478c6794a29d37d21"
       },
       {
         "path": "iOS/Sources/WispIOS/LibraryView.swift",
-        "sha256": "6d3d71d0945d27ae1d7b2f4ea4818a99f59e58259ef30b74a3105e87f547a0b1"
+        "sha256": "3f749e25f750435f6798f7ccdb207e458344eb3a1e72468a52cefcaf8c41296d"
       },
       {
         "path": "iOS/Sources/WispIOS/PhoneAppearance.swift",
@@ -999,7 +984,7 @@
       },
       {
         "path": "iOS/Sources/WispIOS/PlayerView.swift",
-        "sha256": "26a71b605d2adea8025c6642a01a6e9bb1c21419753ff3b747fd7f0976bdc10d"
+        "sha256": "237a531deede5956e1257642b0c433a572bf47cf53e35c7ce551bdebb52d6584"
       },
       {
         "path": "iOS/Sources/WispIOS/WispIOSApp.swift",
@@ -1007,7 +992,7 @@
       },
       {
         "path": "iOS/WispIOS.xcodeproj/project.pbxproj",
-        "sha256": "0eb8a4320d9609c30fa0d64a3088d46edab4057031a039458becee2d87cdb55d"
+        "sha256": "ccaefb3aee4e9574e92b787de7ea4f72892a00f55febaa66072e2945d5d524ab"
       },
       {
         "path": "iOS/WispIOS.xcodeproj/xcshareddata/xcschemes/WispIOS.xcscheme",
@@ -1015,10 +1000,10 @@
       },
       {
         "path": "iOS/project.yml",
-        "sha256": "10c9b80bd167b1a5292fdb4c080ce51248ff21f15642483a0161d5284841899d"
+        "sha256": "46991f359c6808f6d764a3600b1907d42ac2c1406c5e95cd15a0019f49100b86"
       }
     ],
-    "input_manifest_sha256": "dd1f0694e2f4789767c5ee3d7bde018051420ac0ba71fc22b2ed654e503a30ce",
+    "input_manifest_sha256": "d015daaea686ce53e7437603e3269fe3f9334b0cf38a5d67a6e828864a719f56",
     "all_inputs_byte_equal_to_signed_export_source": true
   }
 }

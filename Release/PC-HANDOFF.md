@@ -7,10 +7,10 @@ This is a scoped setup guide for the next PC session, not a running backup job. 
 | Item | Verified identity or state |
 | --- | --- |
 | Personal source repository | `https://github.com/briggskellogg/bard`, repository ID `1112021879`, branch `main`. The owner explicitly chose public **source code**. |
-| Native music source baseline | Commit `1ad267cc9b9642e2faff7e11c3b9d15870be6e8d`. Fetch and review subsequent commits before using a newer revision. |
+| Native music source baseline | Commit `431939886ea5c6e808b310bea85221bb688d8713`. Fetch and review subsequent commits before using a newer revision. |
 | Preserved predecessor | Branch `archive/legacy-transcription-before-music`, retaining commit `5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b`. This is the old transcription application, not the current music app. |
-| Mac app | Bard 1.3.3 (53); universal Mac package, ad-hoc signed and not notarized. |
-| iPhone app | **Bard by Briggs Kellogg**, App Store Connect ID `6829608471`; version 1.2.3 (7) is Testing in the Personal internal TestFlight group. Physical installation/testing of build 7 has not been verified. |
+| Mac app | Bard 1.3.4 (54); universal Mac package, ad-hoc signed and not notarized. |
+| iPhone app | **Bard by Briggs Kellogg**, App Store Connect ID `6829608471`; version 1.2.4 (8) is Testing in the Personal internal TestFlight group. Physical installation/testing of build 8 has not been verified. |
 | Runtime data transfer | The current music library remains Mac-authoritative, using a user-selected shared provider folder, downloaded phone copies, and favorite changes that can return to the Mac. |
 | PC archive / Proton backup | Not configured or tested. Exact host, account, resolved paths, retention, and approved scope are unknown. |
 
@@ -41,7 +41,7 @@ After the exact personal repository identity and PC staging/archive locations ar
 1. Clone or update **only** `briggskellogg/bard` in its approved PC source folder. Confirm the remote URL and repository ID; preserve local edits and reconcile normally. Do not force-push or substitute a similarly named repository.
 2. Retain the selected commit and its manifest. Preserve the predecessor archive branch if repository history is being archived. Do not archive every repository the account can access.
 3. Retrieve only explicitly selected Bard release assets from their verified release or authorized artifact locations. Verify release/tag identity, asset names, hashes, and completeness against the sanitized receipt. A source ZIP is not an installable app; TestFlight availability is not proof that the PC holds an IPA or archive.
-4. Keep signed products, dSYMs, build-input manifests, checksums, and release receipts together where available. Do not collect signing keys, provisioning credentials, account cookies, or keychains. Current pre-commit builds have recorded input-hash equivalence; do not claim they originally ran from a later Git commit.
+4. Keep signed products, dSYMs, build-input manifests, checksums, and release receipts together where available. Do not collect signing keys, provisioning credentials, account cookies, or keychains. The current builds ran from recorded source commit `431939886ea5c6e808b310bea85221bb688d8713`; their compiler/resource inputs were verified unchanged after packaging.
 5. Record exactly which source commit and artifacts reached the PC archive. If an artifact was never uploaded to the verified location, report it missing instead of retrieving it from the work Mac filesystem.
 
 ## Establish a complete personal-data export

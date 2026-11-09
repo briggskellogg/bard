@@ -17,7 +17,7 @@
     "replacement_of_transcription_source_authorized": true,
     "prior_main_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
     "archive_ref": "refs/heads/archive/legacy-transcription-before-music",
-    "verified_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
+    "verified_source_commit": "431939886ea5c6e808b310bea85221bb688d8713",
     "latest_verified_release": {
       "tag": "mac-1.3.3-ios-1.2.3",
       "url": "https://github.com/briggskellogg/bard/releases/tag/mac-1.3.3-ios-1.2.3",
@@ -61,8 +61,8 @@
       }
     ],
     "latest_verified_testflight": {
-      "version": "1.2.3",
-      "build": "7",
+      "version": "1.2.4",
+      "build": "8",
       "status": "Testing",
       "group": "Personal",
       "physical_device_tested": false

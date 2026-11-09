@@ -1,74 +1,63 @@
 {
   "schema_version": 1,
+  "recorded_at_utc": "2026-11-09T04:59:42.978440+00:00",
+  "source_commit": "431939886ea5c6e808b310bea85221bb688d8713",
   "mac": {
-    "version": "1.3.3",
-    "build": "53",
+    "version": "1.3.4",
+    "build": "54",
     "architectures": [
       "arm64",
       "x86_64"
     ],
     "dmg": {
-      "filename": "Bard-1.3.3-universal.dmg",
-      "bytes": 9130486,
-      "sha256": "acf27f4f33229f84c94eda2827e80b3ed13d3e0bda33bde163532c14339d7255"
+      "filename": "Bard-1.3.4-universal.dmg",
+      "bytes": 9307754,
+      "sha256": "fef834b72bb07dfe60787b43fcc3d543f891d54d958514d912acb41e278d5b9b"
     },
-    "executable_sha256": "4b6c4307faff144a539920129286e7216256cad9e0f37ad1955d51a74d7d0c55",
     "signature": "ad-hoc",
     "notarized": false,
     "installed_and_started": true,
-    "git_commit_at_build": null,
-    "equivalent_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
-    "source_input_manifest_sha256": "2eb1a1f0fa008df5d2329960eaa4d9d798135db02256cb58f25b9e5f31e7bcc9",
-    "provenance_note": "Built before this commit; every recorded compiler and resource input matches the committed source byte-for-byte."
+    "git_commit_at_build": "431939886ea5c6e808b310bea85221bb688d8713",
+    "source_input_manifest_sha256": "313f2ea0ea21cf5c5864e1817cd9c301b1e99dbb268476c4817ca41d5466f4d5",
+    "native_render_cases": 6,
+    "handwritten_resources_absent": true,
+    "transparent_finder_icon_verified": true,
+    "library_and_preferences_preserved": true
   },
   "iphone": {
-    "version": "1.2.3",
-    "build": "7",
+    "version": "1.2.4",
+    "build": "8",
     "bundle_id": "com.briggskellogg.wisp.ios",
-    "distribution_checks_passed": 16,
-    "ipa_sha256": "da55a0ed83a62359e079e69e1ad83ff18686bb8ca6d0853f47e413abf4f8dd12",
-    "source_input_manifest_sha256": "dd1f0694e2f4789767c5ee3d7bde018051420ac0ba71fc22b2ed654e503a30ce",
-    "git_commit_at_build": null,
-    "equivalent_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
-    "upload_status": "processed; Testing",
-    "available_to_testers": true,
-    "delivery_uuid": "7e9320e4-fa0a-4174-b0a2-1e235b8398ff",
-    "provenance_note": "Built before this commit; all 62 frozen inputs match the committed source byte-for-byte. Local export and Apple upload independently sign the same frozen archive.",
+    "distribution_checks_passed": 18,
+    "native_render_cases": 6,
+    "ipa_sha256": "0ed2fc391670f453031a56f3feb892c974810644151bff29d1ca109c774e8fd4",
+    "ipa_bytes": 1895792,
+    "source_input_manifest_sha256": "d015daaea686ce53e7437603e3269fe3f9334b0cf38a5d67a6e828864a719f56",
+    "git_commit_at_build": "431939886ea5c6e808b310bea85221bb688d8713",
+    "delivery_uuid": "b993525d-fa38-4f61-9929-ead1b94e71f0",
     "processed": true,
+    "upload_status": "Testing",
     "app_store_connect_display_name": "Bard by Briggs Kellogg",
     "app_store_connect_app_id": "6829608471",
     "testflight_group": "Personal",
     "available_to_internal_testers": true,
     "physical_device_installation_verified": false,
-    "ipa_bytes": 1915849,
     "public_app_store_release_submitted": false,
-    "verification": "App Store Connect displayed build 1.2.3 (7) as Testing in the existing Personal group after release notes were saved."
+    "handwritten_compiled_assets_absent": true,
+    "provenance_note": "Built from the recorded source commit; local export and Apple upload separately sign the same frozen archive."
+  },
+  "github": {
+    "repository": "briggskellogg/bard",
+    "visibility": "public",
+    "source_commit": "431939886ea5c6e808b310bea85221bb688d8713",
+    "archive_branch": "archive/legacy-transcription-before-music",
+    "archive_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
+    "personal_library_included": false
   },
   "pc_archive": {
     "status": "NOT CONFIGURED"
   },
   "proton_backup": {
     "status": "NOT CONFIGURED"
-  },
-  "github": {
-    "repository": "briggskellogg/bard",
-    "visibility": "public",
-    "source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
-    "archive_branch": "archive/legacy-transcription-before-music",
-    "archive_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
-    "personal_library_included": false,
-    "verified_source_commit": "1ad267cc9b9642e2faff7e11c3b9d15870be6e8d",
-    "verification_note": "Source and predecessor archive branch were verified remotely; this receipt is a later documentation-only update.",
-    "release": {
-      "tag": "mac-1.3.3-ios-1.2.3",
-      "url": "https://github.com/briggskellogg/bard/releases/tag/mac-1.3.3-ios-1.2.3",
-      "target_commit": "56036fa8b7ab06519ebe3d418bf0bec57666d090",
-      "published_at_utc": "2026-11-09T04:03:03Z",
-      "draft": false,
-      "asset_count": 8,
-      "uploaded_asset_hashes_verified": true,
-      "personal_library_included": false
-    }
-  },
-  "recorded_at_utc": "2026-11-09T04:01:33.154987+00:00"
+  }
 }
