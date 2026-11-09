@@ -1,0 +1,1841 @@
+{
+  "schemaVersion": 1,
+  "description": "Reviewed app source staging from the existing music project; not a filesystem backup or personal library export.",
+  "excluded": [
+    "Validation",
+    "iOS/Validation",
+    "build products",
+    "caches",
+    "signing credentials",
+    "user audio",
+    "personal library",
+    "obsolete Wisp brand studies",
+    "unused original-wordmark.png",
+    "legacy installers"
+  ],
+  "files": [
+    {
+      "path": "Package.swift",
+      "sourceSHA256": "b00dc5716cc4e9528b09cd5db3da24e1e409018ebcb02768c0a00a91e7f54996",
+      "sha256": "b00dc5716cc4e9528b09cd5db3da24e1e409018ebcb02768c0a00a91e7f54996",
+      "bytes": 1238,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/AppSupport.swift",
+      "sourceSHA256": "a6d1bd13b27c8607a4d4f24c28b32e0061e165713b302caef021583dea87bf8b",
+      "sha256": "a6d1bd13b27c8607a4d4f24c28b32e0061e165713b302caef021583dea87bf8b",
+      "bytes": 3316,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/ArtworkClipboard.swift",
+      "sourceSHA256": "31b50579cc4675e8fa3de8a5a76517e125804a53f42b138fe18cb6d2ed943454",
+      "sha256": "31b50579cc4675e8fa3de8a5a76517e125804a53f42b138fe18cb6d2ed943454",
+      "bytes": 1176,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/ArtworkCrop.swift",
+      "sourceSHA256": "a5a3b1c8a2b0034e6e942478b0aa17bf2f842154c8b2d0598f0349006e214b7e",
+      "sha256": "a5a3b1c8a2b0034e6e942478b0aa17bf2f842154c8b2d0598f0349006e214b7e",
+      "bytes": 5474,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/ArtworkDiscovery.swift",
+      "sourceSHA256": "a5619ae85a970226e800e07aa4ca902b1dee9305902d2157783335921bc35df8",
+      "sha256": "a5619ae85a970226e800e07aa4ca902b1dee9305902d2157783335921bc35df8",
+      "bytes": 31884,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/ArtworkKeyboardShortcuts.swift",
+      "sourceSHA256": "4447bba95db6478e4991bdbeeec0a24693047040751bea0cdb92e6a673c981ae",
+      "sha256": "4447bba95db6478e4991bdbeeec0a24693047040751bea0cdb92e6a673c981ae",
+      "bytes": 5130,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/AudioArchive.swift",
+      "sourceSHA256": "82a48dba47cd33803f703ffbe482f89e5b7fe7701cced27c7f31601862ce77e4",
+      "sha256": "82a48dba47cd33803f703ffbe482f89e5b7fe7701cced27c7f31601862ce77e4",
+      "bytes": 9127,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/AudioImporter.swift",
+      "sourceSHA256": "50e755061bd0b920f1543bc50f211bf5a17cc100c7434d386cf2a21903ff0a64",
+      "sha256": "50e755061bd0b920f1543bc50f211bf5a17cc100c7434d386cf2a21903ff0a64",
+      "bytes": 13701,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/AudioVersionImporter.swift",
+      "sourceSHA256": "d76b8c38600ab7676e4651b8fa2129998fca3a03fcb3ffda73f7f227bf768d55",
+      "sha256": "d76b8c38600ab7676e4651b8fa2129998fca3a03fcb3ffda73f7f227bf768d55",
+      "bytes": 5364,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/AuraMotionEnvelope.swift",
+      "sourceSHA256": "2cf5b8ec02b0beaf6f2695116eae3eb23e5e8cc4200188b5f6d2ad381136596a",
+      "sha256": "2cf5b8ec02b0beaf6f2695116eae3eb23e5e8cc4200188b5f6d2ad381136596a",
+      "bytes": 3911,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/DownloadImporter.swift",
+      "sourceSHA256": "5be23d0b0378734f5e16b8b33cf6b983ea9a76769f6339620623fdc9445d3721",
+      "sha256": "5be23d0b0378734f5e16b8b33cf6b983ea9a76769f6339620623fdc9445d3721",
+      "bytes": 6469,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/DriveSyncStore.swift",
+      "sourceSHA256": "ac9d9c20ca6f31cf1ce9ee54229ce4f88e6d863de1e9c529387de418ad0a878e",
+      "sha256": "ac9d9c20ca6f31cf1ce9ee54229ce4f88e6d863de1e9c529387de418ad0a878e",
+      "bytes": 15390,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/ImportReview.swift",
+      "sourceSHA256": "19f05c8eca6eea27eac2bd71a512be9f52973acd612fed53c89427039066360f",
+      "sha256": "19f05c8eca6eea27eac2bd71a512be9f52973acd612fed53c89427039066360f",
+      "bytes": 312,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/InstrumentPhrase.swift",
+      "sourceSHA256": "6cdfec3c73d6365170684473982a928a25a4c90a741490d8db872d3a5fc65b6f",
+      "sha256": "6cdfec3c73d6365170684473982a928a25a4c90a741490d8db872d3a5fc65b6f",
+      "bytes": 7115,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/InstrumentStore.swift",
+      "sourceSHA256": "1563def433f1927398f6519d31c986763aa68b846fe6b1705dcaca9759de6922",
+      "sha256": "1563def433f1927398f6519d31c986763aa68b846fe6b1705dcaca9759de6922",
+      "bytes": 26660,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/LibraryDownloadExporter.swift",
+      "sourceSHA256": "37f2a33220110bdbe91abf03b7423f3191f05158ce032d0a8b0606266c355e14",
+      "sha256": "37f2a33220110bdbe91abf03b7423f3191f05158ce032d0a8b0606266c355e14",
+      "bytes": 12512,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/LibraryStore.swift",
+      "sourceSHA256": "44db416b7e21a3777899b349e5a34a11c351018ab70f9198d0e55b7f0028bed6",
+      "sha256": "44db416b7e21a3777899b349e5a34a11c351018ab70f9198d0e55b7f0028bed6",
+      "bytes": 44512,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/ListeningStore.swift",
+      "sourceSHA256": "a516b33c66c90187f1ed8c43c1feb18fb350b6eef9e7cbc46c5a5f0e6de061c9",
+      "sha256": "a516b33c66c90187f1ed8c43c1feb18fb350b6eef9e7cbc46c5a5f0e6de061c9",
+      "bytes": 4247,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MixtapeExporter.swift",
+      "sourceSHA256": "9855fbb743bc552428f760b4ef72725824d50b07181b3cb87de7955abea17464",
+      "sha256": "9855fbb743bc552428f760b4ef72725824d50b07181b3cb87de7955abea17464",
+      "bytes": 10621,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MixtapeSyncStore.swift",
+      "sourceSHA256": "556c79e5a7ac079cc13743be3d9db7a2dda5a34afc39320b7bfaae49e831e8cc",
+      "sha256": "556c79e5a7ac079cc13743be3d9db7a2dda5a34afc39320b7bfaae49e831e8cc",
+      "bytes": 6091,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MountedInstallerHandoff.swift",
+      "sourceSHA256": "de2c434125e4bd6678e58a2d8c8b626627cf6cafe76531f2b2d8d3afb60108c1",
+      "sha256": "de2c434125e4bd6678e58a2d8c8b626627cf6cafe76531f2b2d8d3afb60108c1",
+      "bytes": 25692,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MusicLightAnalysis.swift",
+      "sourceSHA256": "74accdc231bcbeac097b4c73f06f3cfe7fc84dada196968571ea1f1f4d6770cd",
+      "sha256": "74accdc231bcbeac097b4c73f06f3cfe7fc84dada196968571ea1f1f4d6770cd",
+      "bytes": 5869,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MusicLightAnalysisService.swift",
+      "sourceSHA256": "3f0ef2b37c34d327d63ce70d162d0ffa1004ca12162daed797c3190cb2bd4ecf",
+      "sha256": "3f0ef2b37c34d327d63ce70d162d0ffa1004ca12162daed797c3190cb2bd4ecf",
+      "bytes": 4628,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MusicOnsetDetector.swift",
+      "sourceSHA256": "c763b6a44e00889920ed1c56e00e8bafb34c8f74bf7ec6841863f5840a1595bb",
+      "sha256": "c763b6a44e00889920ed1c56e00e8bafb34c8f74bf7ec6841863f5840a1595bb",
+      "bytes": 2131,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MusicPlaylistBridge.swift",
+      "sourceSHA256": "b015684ab87baddac1ab710d48fc55ab07ff8c9d007da387cae200d9ac1ce5d1",
+      "sha256": "b015684ab87baddac1ab710d48fc55ab07ff8c9d007da387cae200d9ac1ce5d1",
+      "bytes": 49051,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/MusicSyncWorker.swift",
+      "sourceSHA256": "71927648f335f89ef87438c92c872a1fcf781428bb586793840714c9d0163bba",
+      "sha256": "71927648f335f89ef87438c92c872a1fcf781428bb586793840714c9d0163bba",
+      "bytes": 5315,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/PhoneSyncFolder.swift",
+      "sourceSHA256": "9d3c0e127da9029e2424ae67ea7e8a0d0a9f53350ed2bf7735ac8711c78d7842",
+      "sha256": "9d3c0e127da9029e2424ae67ea7e8a0d0a9f53350ed2bf7735ac8711c78d7842",
+      "bytes": 5874,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/PhoneSyncStore.swift",
+      "sourceSHA256": "8f20e5f35013abb5cc2ddbe3c6c370fd2494a4e463bccc1696c9182b5a85118d",
+      "sha256": "8f20e5f35013abb5cc2ddbe3c6c370fd2494a4e463bccc1696c9182b5a85118d",
+      "bytes": 17533,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/PlayerStore.swift",
+      "sourceSHA256": "fb881c332a4b26ae918f0480db114d0dff9178104e9136b868b1d43fa2069b69",
+      "sha256": "fb881c332a4b26ae918f0480db114d0dff9178104e9136b868b1d43fa2069b69",
+      "bytes": 32376,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/RemixDSP.swift",
+      "sourceSHA256": "a1a9de9e3ec7866c035592145d300b60ca7d2a6bdebb82f6ef17ac3877665b26",
+      "sha256": "a1a9de9e3ec7866c035592145d300b60ca7d2a6bdebb82f6ef17ac3877665b26",
+      "bytes": 9011,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/RemixRecorder.swift",
+      "sourceSHA256": "c5581e515886200701687ecae7500c3f951cde31cab9380b7e385394723271dc",
+      "sha256": "c5581e515886200701687ecae7500c3f951cde31cab9380b7e385394723271dc",
+      "bytes": 11632,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/RemixStore.swift",
+      "sourceSHA256": "c6665f48ef6f3791eca18ffd4246e7750626cd56b3f9d66e07a35b1fb61ee358",
+      "sha256": "c6665f48ef6f3791eca18ffd4246e7750626cd56b3f9d66e07a35b1fb61ee358",
+      "bytes": 25729,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/IBMPlexMono-Medium.ttf",
+      "sourceSHA256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "sha256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "bytes": 136704,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/IBMPlexMono-Regular.ttf",
+      "sourceSHA256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/OFL.txt",
+      "sourceSHA256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "bytes": 4456,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPHatton-Light.otf",
+      "sourceSHA256": "9fda27c3823b617c85d3a6214516a8710cfecf2958062b586ecc599d1f352300",
+      "sha256": "9fda27c3823b617c85d3a6214516a8710cfecf2958062b586ecc599d1f352300",
+      "bytes": 94884,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPHatton-Medium.otf",
+      "sourceSHA256": "7dd4f3388356edc83d8bb958d656c976136d6d87f34931bced8307c05211b10a",
+      "sha256": "7dd4f3388356edc83d8bb958d656c976136d6d87f34931bced8307c05211b10a",
+      "bytes": 96416,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueBit-Regular.ttf",
+      "sourceSHA256": "1275ed04024019b761466b05d615e8264211741ee92ee7397df45b78b6b15941",
+      "sha256": "1275ed04024019b761466b05d615e8264211741ee92ee7397df45b78b6b15941",
+      "bytes": 183580,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueMontreal-Bold.ttf",
+      "sourceSHA256": "5e18408ef0f7168389b1ed6b327740e54e037136b3be9a2a3bcb0c177ad6db4e",
+      "sha256": "5e18408ef0f7168389b1ed6b327740e54e037136b3be9a2a3bcb0c177ad6db4e",
+      "bytes": 162264,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueMontreal-Regular.ttf",
+      "sourceSHA256": "44c3e09aeda4ca6c4308fc6bee0ae3e10d42eaf4d837fc729440973cc999faf7",
+      "sha256": "44c3e09aeda4ca6c4308fc6bee0ae3e10d42eaf4d837fc729440973cc999faf7",
+      "bytes": 143752,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueYork-NormalExtrabold.otf",
+      "sourceSHA256": "f64f9e44e54295a202f8bbd2bb5f9f14a6008cd779cecc36079452335356e7c7",
+      "sha256": "f64f9e44e54295a202f8bbd2bb5f9f14a6008cd779cecc36079452335356e7c7",
+      "bytes": 92120,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueYork-NormalLight.otf",
+      "sourceSHA256": "cdce1c4a19366551845ecabdf536f657b9ed9fba605d264074960b5d0619ace2",
+      "sha256": "cdce1c4a19366551845ecabdf536f657b9ed9fba605d264074960b5d0619ace2",
+      "bytes": 90828,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueYork-NormalMedium.otf",
+      "sourceSHA256": "799194095ee45e988a490423baf087ce704c03041de5ba27352af716c489ea81",
+      "sha256": "799194095ee45e988a490423baf087ce704c03041de5ba27352af716c489ea81",
+      "bytes": 91064,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/LICENSE-LUCIDE.txt",
+      "sourceSHA256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "bytes": 3208,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/LICENSE.txt",
+      "sourceSHA256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2",
+      "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2",
+      "bytes": 1071,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/README.md",
+      "sourceSHA256": "5e12942885ac838c8eb21c6472181963031007eec24f839030c31ff4dcbf6f95",
+      "sha256": "5e12942885ac838c8eb21c6472181963031007eec24f839030c31ff4dcbf6f95",
+      "bytes": 2694,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/book-open.svg",
+      "sourceSHA256": "9b9bed0ff057283d5c5c5a1c71f8d3e927db26a56639603a92fdf7b25961510e",
+      "sha256": "9b9bed0ff057283d5c5c5a1c71f8d3e927db26a56639603a92fdf7b25961510e",
+      "bytes": 387,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/eighth-notes.json",
+      "sourceSHA256": "709595395af1696e826df6e2187e0050031283f266c6cf900594cfb4284490ca",
+      "sha256": "709595395af1696e826df6e2187e0050031283f266c6cf900594cfb4284490ca",
+      "bytes": 541,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/eighth-notes.svg",
+      "sourceSHA256": "528230f1df292eff5cdd6d20f80e80123676ca1efcc043e51b11e25222f7a4e9",
+      "sha256": "528230f1df292eff5cdd6d20f80e80123676ca1efcc043e51b11e25222f7a4e9",
+      "bytes": 350,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/film.svg",
+      "sourceSHA256": "85cfa80821b34f512bd401a1249957c9f2f612497602ecc31dff39517823ee52",
+      "sha256": "85cfa80821b34f512bd401a1249957c9f2f612497602ecc31dff39517823ee52",
+      "bytes": 432,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/gamepad-2.svg",
+      "sourceSHA256": "b0671de7afbebdafc4d655d867d9851947170b906fb187e749410039df867509",
+      "sha256": "b0671de7afbebdafc4d655d867d9851947170b906fb187e749410039df867509",
+      "bytes": 680,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/layers.svg",
+      "sourceSHA256": "ce16d0a955e3581cda17f6b2fd5c5bc2034b405f9cecc31c8ebb8495b4afc1bb",
+      "sha256": "ce16d0a955e3581cda17f6b2fd5c5bc2034b405f9cecc31c8ebb8495b4afc1bb",
+      "bytes": 510,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/mic.svg",
+      "sourceSHA256": "9b940cd735d1ffa270ba670c4e677d9a09400f3fa81d6b3f405b12a3b67a59a8",
+      "sha256": "9b940cd735d1ffa270ba670c4e677d9a09400f3fa81d6b3f405b12a3b67a59a8",
+      "bytes": 326,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/provenance.json",
+      "sourceSHA256": "a4d10e549763d2e173c1b605c1866dccdd656a0987a93d1c27d665fa66247157",
+      "sha256": "a4d10e549763d2e173c1b605c1866dccdd656a0987a93d1c27d665fa66247157",
+      "bytes": 1459,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/LucideOriginal/tv.svg",
+      "sourceSHA256": "0ef7db17794919d11c241d7f12e23c4cfd3f9e536c0d59fc282657666ed0b39f",
+      "sha256": "0ef7db17794919d11c241d7f12e23c4cfd3f9e536c0d59fc282657666ed0b39f",
+      "bytes": 290,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/arrow-line-down.svg",
+      "sourceSHA256": "c026117ec5d2a13c48affc761ed28060d5c09aeb6989c0b447e2696765179620",
+      "sha256": "c026117ec5d2a13c48affc761ed28060d5c09aeb6989c0b447e2696765179620",
+      "bytes": 278,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/cassette-tape.svg",
+      "sourceSHA256": "d329192396a188ed243b70b40f48d147590c9321de55b78ec63a119ba71b2c87",
+      "sha256": "d329192396a188ed243b70b40f48d147590c9321de55b78ec63a119ba71b2c87",
+      "bytes": 502,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/clock-counter-clockwise.svg",
+      "sourceSHA256": "7329ff1646b191c6c8390d7c45948a347212e428f559bcd9f3f3a6e436a4208b",
+      "sha256": "7329ff1646b191c6c8390d7c45948a347212e428f559bcd9f3f3a6e436a4208b",
+      "bytes": 410,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/cloud.svg",
+      "sourceSHA256": "c17f4ff083635e8d35ffc660a57bc00691ec4a927a3cbcc113e8805da934b82a",
+      "sha256": "c17f4ff083635e8d35ffc660a57bc00691ec4a927a3cbcc113e8805da934b82a",
+      "bytes": 278,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/flame.svg",
+      "sourceSHA256": "dfdaad1bd180900e7d2d14aea66d2f487104fd3c797c136ce76df4cbf3ed908c",
+      "sha256": "dfdaad1bd180900e7d2d14aea66d2f487104fd3c797c136ce76df4cbf3ed908c",
+      "bytes": 673,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/folder-simple.svg",
+      "sourceSHA256": "4f1095e1e06992aee012643ff845c34a2245584d5a3444a9840949731468252a",
+      "sha256": "4f1095e1e06992aee012643ff845c34a2245584d5a3444a9840949731468252a",
+      "bytes": 305,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/headphones.svg",
+      "sourceSHA256": "6de6d721f32199fdfa757f26eea578a0ef86d1d5c7922af717ee905015ff4565",
+      "sha256": "6de6d721f32199fdfa757f26eea578a0ef86d1d5c7922af717ee905015ff4565",
+      "bytes": 509,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/heart.svg",
+      "sourceSHA256": "08682bcf1915a6238c05410b94fffdd122c2b4bba7de4dae46e842a2c5b779a0",
+      "sha256": "08682bcf1915a6238c05410b94fffdd122c2b4bba7de4dae46e842a2c5b779a0",
+      "bytes": 490,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/leaf.svg",
+      "sourceSHA256": "90995fad7248d2f623d44585678d768b5c896d85f60d37d8e0205b0586ce45b2",
+      "sha256": "90995fad7248d2f623d44585678d768b5c896d85f60d37d8e0205b0586ce45b2",
+      "bytes": 575,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-book-open.svg",
+      "sourceSHA256": "931198881d63d2d560b38520d2790bd01ff38b7a084a840acf78732fb5b93924",
+      "sha256": "931198881d63d2d560b38520d2790bd01ff38b7a084a840acf78732fb5b93924",
+      "bytes": 389,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-eighth-notes.svg",
+      "sourceSHA256": "7e2ec892065b0d6a466e6f9a19d600511ce0793461e06a4d58f8ea61f9e0264e",
+      "sha256": "7e2ec892065b0d6a466e6f9a19d600511ce0793461e06a4d58f8ea61f9e0264e",
+      "bytes": 352,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-film.svg",
+      "sourceSHA256": "58f5cde8f76ee63759e8a8740aedd9372ff23fd425df4edc3e44cd018f3cc6bc",
+      "sha256": "58f5cde8f76ee63759e8a8740aedd9372ff23fd425df4edc3e44cd018f3cc6bc",
+      "bytes": 434,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-gamepad-2.svg",
+      "sourceSHA256": "844acb36f63ae0d2a846ab58e2c02d9b1cc3d045ce2e9a9b7f8bdff2dd2b5b3b",
+      "sha256": "844acb36f63ae0d2a846ab58e2c02d9b1cc3d045ce2e9a9b7f8bdff2dd2b5b3b",
+      "bytes": 682,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-layers.svg",
+      "sourceSHA256": "02f3b07e65796b85602e4277b1921468d9cfc319d6e0b19f91a54bb056fd904b",
+      "sha256": "02f3b07e65796b85602e4277b1921468d9cfc319d6e0b19f91a54bb056fd904b",
+      "bytes": 512,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-mic.svg",
+      "sourceSHA256": "5182d7e022026b3786b216ec2f5b215a0489fc50e44114fe26aba31665932e59",
+      "sha256": "5182d7e022026b3786b216ec2f5b215a0489fc50e44114fe26aba31665932e59",
+      "bytes": 328,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/lucide-tv.svg",
+      "sourceSHA256": "dc77038adde2bdbe2018eeeab376b0e4fd659cea27610ad13c697dd7696198c3",
+      "sha256": "dc77038adde2bdbe2018eeeab376b0e4fd659cea27610ad13c697dd7696198c3",
+      "bytes": 292,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/moon.svg",
+      "sourceSHA256": "93d0379587fa9baf3f5078d87bfc9915e61e1a0e601350e45fd74c9f809d7d0b",
+      "sha256": "93d0379587fa9baf3f5078d87bfc9915e61e1a0e601350e45fd74c9f809d7d0b",
+      "bytes": 468,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/music-notes-simple.svg",
+      "sourceSHA256": "d69c88ee7b261861a70bbbcef15e5299a7c2a3d8b3743ed0cfa4efe4490cb69f",
+      "sha256": "d69c88ee7b261861a70bbbcef15e5299a7c2a3d8b3743ed0cfa4efe4490cb69f",
+      "bytes": 341,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/pen-nib.svg",
+      "sourceSHA256": "c13c733b81067a9fc2f44a757d656586a27c8e0c46c416cb9a29cbf2a93b737b",
+      "sha256": "c13c733b81067a9fc2f44a757d656586a27c8e0c46c416cb9a29cbf2a93b737b",
+      "bytes": 549,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/person-simple-walk.svg",
+      "sourceSHA256": "804e85a049ec33d88a1299592fad5e7c0d37e71dfe9516167a74a84fc2b1fd40",
+      "sha256": "804e85a049ec33d88a1299592fad5e7c0d37e71dfe9516167a74a84fc2b1fd40",
+      "bytes": 632,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/piano-keys.svg",
+      "sourceSHA256": "1d7d16936cc7951e4c83f6114208f0d00f97c1eeb0d217b6331d84fcd9ec68f3",
+      "sha256": "1d7d16936cc7951e4c83f6114208f0d00f97c1eeb0d217b6331d84fcd9ec68f3",
+      "bytes": 366,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/playlist.svg",
+      "sourceSHA256": "196bc1ac52da889c76d9630d1b700e239f33fcdc92af5a59f900961a1cd9d853",
+      "sha256": "196bc1ac52da889c76d9630d1b700e239f33fcdc92af5a59f900961a1cd9d853",
+      "bytes": 419,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/plus.svg",
+      "sourceSHA256": "96b24cf8fd7305767791d43231271c47d24f2be856eb2a474df0e67a80840f2f",
+      "sha256": "96b24cf8fd7305767791d43231271c47d24f2be856eb2a474df0e67a80840f2f",
+      "bytes": 213,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/sliders-horizontal.svg",
+      "sourceSHA256": "61d6ac319532e5a76711640d21b5220b3e221cba78bd19d5e1d6c4d291fe9b3a",
+      "sha256": "61d6ac319532e5a76711640d21b5220b3e221cba78bd19d5e1d6c4d291fe9b3a",
+      "bytes": 361,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/sparkle.svg",
+      "sourceSHA256": "bd674f021581e7e62d3638d59435020c0cd72f814532661d30551270914f9bea",
+      "sha256": "bd674f021581e7e62d3638d59435020c0cd72f814532661d30551270914f9bea",
+      "bytes": 667,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/sun.svg",
+      "sourceSHA256": "388e12b52b1f75c059f6812726cab9287500712671c7facf310c4f15f8c9222c",
+      "sha256": "388e12b52b1f75c059f6812726cab9287500712671c7facf310c4f15f8c9222c",
+      "bytes": 686,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/user-sound.svg",
+      "sourceSHA256": "61538347868721799106884a5999a06d63cec44f965ed5765d564a317e9843b3",
+      "sha256": "61538347868721799106884a5999a06d63cec44f965ed5765d564a317e9843b3",
+      "bytes": 604,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/Sources/waveform.svg",
+      "sourceSHA256": "eedf99716df00dfcab5a5eb82a6d5c7031bade771254e5db4b45bfaf9cd5e1b4",
+      "sha256": "eedf99716df00dfcab5a5eb82a6d5c7031bade771254e5db4b45bfaf9cd5e1b4",
+      "bytes": 381,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/arrow-line-down.pdf",
+      "sourceSHA256": "125c8d80ad66d68e422527ca3d3170d4aef4c467fb7a4b2712666a0b8da4929e",
+      "sha256": "125c8d80ad66d68e422527ca3d3170d4aef4c467fb7a4b2712666a0b8da4929e",
+      "bytes": 1254,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/cassette-tape.pdf",
+      "sourceSHA256": "af67db59e05d943ab60f1c1c4690fac7b8ce2e278e38db0af839287ccfe14850",
+      "sha256": "af67db59e05d943ab60f1c1c4690fac7b8ce2e278e38db0af839287ccfe14850",
+      "bytes": 1381,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/clock-counter-clockwise.pdf",
+      "sourceSHA256": "8cae70e99e9105952d2d3d389c8f9fc799c620dc51ee181464062c80e2796758",
+      "sha256": "8cae70e99e9105952d2d3d389c8f9fc799c620dc51ee181464062c80e2796758",
+      "bytes": 1477,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/cloud.pdf",
+      "sourceSHA256": "87ae0dcaea3fdfd8d470f052634ebe075426ba6fe10d447aa4e9f6b084de0e76",
+      "sha256": "87ae0dcaea3fdfd8d470f052634ebe075426ba6fe10d447aa4e9f6b084de0e76",
+      "bytes": 1291,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/flame.pdf",
+      "sourceSHA256": "e3f182fb33cdc8335c15d6f582e05b36e9869052e7cb3a21bf60c4541baf6611",
+      "sha256": "e3f182fb33cdc8335c15d6f582e05b36e9869052e7cb3a21bf60c4541baf6611",
+      "bytes": 1423,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/folder-simple.pdf",
+      "sourceSHA256": "c2d6f3b102e2e2522e91d8431f7cf9eb427b86cdd4c4c04979d25120bdcf1639",
+      "sha256": "c2d6f3b102e2e2522e91d8431f7cf9eb427b86cdd4c4c04979d25120bdcf1639",
+      "bytes": 1200,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/headphones.pdf",
+      "sourceSHA256": "34258699e60b774a746f31fde995cab4c01de01c359a6b538a39eb5335a4b432",
+      "sha256": "34258699e60b774a746f31fde995cab4c01de01c359a6b538a39eb5335a4b432",
+      "bytes": 1351,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/heart.pdf",
+      "sourceSHA256": "2db104f86e42cee304aead13a3281342dfa4384e17ffea70ddd2cd020d97e932",
+      "sha256": "2db104f86e42cee304aead13a3281342dfa4384e17ffea70ddd2cd020d97e932",
+      "bytes": 1313,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/leaf.pdf",
+      "sourceSHA256": "640a225eb1463de077a47c81e7cca47c9bb9247cd6b44ab71994143a9ac0b19b",
+      "sha256": "640a225eb1463de077a47c81e7cca47c9bb9247cd6b44ab71994143a9ac0b19b",
+      "bytes": 1431,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-book-open.pdf",
+      "sourceSHA256": "9d1b6df45438c3ddfb218825b86e03831b2b5725517a7fd9c481721c4bbdd030",
+      "sha256": "9d1b6df45438c3ddfb218825b86e03831b2b5725517a7fd9c481721c4bbdd030",
+      "bytes": 1183,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-eighth-notes.pdf",
+      "sourceSHA256": "7b44db1122c40491672580fb12f2f214f925e577ef2abebb8c02ea46af9cfffd",
+      "sha256": "7b44db1122c40491672580fb12f2f214f925e577ef2abebb8c02ea46af9cfffd",
+      "bytes": 1222,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-film.pdf",
+      "sourceSHA256": "39393d809e5f0d7ee0a0330e36258ec524ad0073d2d4ab2ada876786f549276e",
+      "sha256": "39393d809e5f0d7ee0a0330e36258ec524ad0073d2d4ab2ada876786f549276e",
+      "bytes": 1154,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-gamepad-2.pdf",
+      "sourceSHA256": "5dbe45fd4c1107acc17ca1f29fad3472307ebb9a2396a50638489f9be69634a5",
+      "sha256": "5dbe45fd4c1107acc17ca1f29fad3472307ebb9a2396a50638489f9be69634a5",
+      "bytes": 1284,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-layers.pdf",
+      "sourceSHA256": "2cfc0d97bd6e2f2d7665c2e195b443d015806fd703d42f028a9f86e539614d91",
+      "sha256": "2cfc0d97bd6e2f2d7665c2e195b443d015806fd703d42f028a9f86e539614d91",
+      "bytes": 1276,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-mic.pdf",
+      "sourceSHA256": "f95ae217ac9d8f7eeff6bddff67fc81acb7bb075084cccd4e0601d58fd929169",
+      "sha256": "f95ae217ac9d8f7eeff6bddff67fc81acb7bb075084cccd4e0601d58fd929169",
+      "bytes": 1146,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/lucide-tv.pdf",
+      "sourceSHA256": "100116564599e2b6c67dcf01e7f743c91b3e4c50bca17e3b495e061b6ede53e8",
+      "sha256": "100116564599e2b6c67dcf01e7f743c91b3e4c50bca17e3b495e061b6ede53e8",
+      "bytes": 1123,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/moon.pdf",
+      "sourceSHA256": "c6a356ef6fa9536acc2c9a49691df8477693a01875fe746676abeb9d6320336b",
+      "sha256": "c6a356ef6fa9536acc2c9a49691df8477693a01875fe746676abeb9d6320336b",
+      "bytes": 1450,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/music-notes-simple.pdf",
+      "sourceSHA256": "98ac238a013bcb8852d1ea102cf230b34fa5b266684600d5ece42d0206e115fd",
+      "sha256": "98ac238a013bcb8852d1ea102cf230b34fa5b266684600d5ece42d0206e115fd",
+      "bytes": 1406,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/pen-nib.pdf",
+      "sourceSHA256": "1d25b3c967a42b8628e25b7c2092f009e0dcb7d13b2fa18ef77fb062e53aa760",
+      "sha256": "1d25b3c967a42b8628e25b7c2092f009e0dcb7d13b2fa18ef77fb062e53aa760",
+      "bytes": 1484,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/person-simple-walk.pdf",
+      "sourceSHA256": "dff3a692bc50b93632eae9bf1ca0dc114e323cc6c09aeae9848731bf55f2df90",
+      "sha256": "dff3a692bc50b93632eae9bf1ca0dc114e323cc6c09aeae9848731bf55f2df90",
+      "bytes": 1513,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/piano-keys.pdf",
+      "sourceSHA256": "75a11a1b56231e3ce25621518bafd74bb06a4de25ba686e9fa976f682f1b5e15",
+      "sha256": "75a11a1b56231e3ce25621518bafd74bb06a4de25ba686e9fa976f682f1b5e15",
+      "bytes": 1238,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/playlist.pdf",
+      "sourceSHA256": "88a04560fca61708019cc207b35e9b0fabb871b38890698347cce4fac0a8eaed",
+      "sha256": "88a04560fca61708019cc207b35e9b0fabb871b38890698347cce4fac0a8eaed",
+      "bytes": 1494,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/plus.pdf",
+      "sourceSHA256": "04fb8a19ef9e1d0dfa69e788f522fb01dbd4e85916e0c53575f2211487ed5349",
+      "sha256": "04fb8a19ef9e1d0dfa69e788f522fb01dbd4e85916e0c53575f2211487ed5349",
+      "bytes": 1146,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/sliders-horizontal.pdf",
+      "sourceSHA256": "bfe90be51573aada4807619965249705f05b246d9f1bfab3dc674786f37188c0",
+      "sha256": "bfe90be51573aada4807619965249705f05b246d9f1bfab3dc674786f37188c0",
+      "bytes": 1394,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/sparkle.pdf",
+      "sourceSHA256": "bb6549589657062574f0452381dc816e347fe8dc06da7d2291baf0611b6115c2",
+      "sha256": "bb6549589657062574f0452381dc816e347fe8dc06da7d2291baf0611b6115c2",
+      "bytes": 1596,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/sun.pdf",
+      "sourceSHA256": "a56b2c2ce5dc502435935cee89ab386c1ec255ddc592a0e3b4c5b37fa21abcb9",
+      "sha256": "a56b2c2ce5dc502435935cee89ab386c1ec255ddc592a0e3b4c5b37fa21abcb9",
+      "bytes": 1611,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/user-sound.pdf",
+      "sourceSHA256": "c20970701a7ac5d5ba3634d13dbd9839d7c7ecdfcf45cea75e8cc90a89caffd3",
+      "sha256": "c20970701a7ac5d5ba3634d13dbd9839d7c7ecdfcf45cea75e8cc90a89caffd3",
+      "bytes": 1657,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Icons/waveform.pdf",
+      "sourceSHA256": "bfbf6f8bf0a1a922fbae4f4fa5331ab55c13b6964207af9c42477dbeff358334",
+      "sha256": "bfbf6f8bf0a1a922fbae4f4fa5331ab55c13b6964207af9c42477dbeff358334",
+      "bytes": 1313,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/maker-mark.png",
+      "sourceSHA256": "28fdbed18575b99104c7a0c745fc9099ce86462744f0b01bfea2308876d03fe6",
+      "sha256": "28fdbed18575b99104c7a0c745fc9099ce86462744f0b01bfea2308876d03fe6",
+      "bytes": 13253,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/mixtape-cover.png",
+      "sourceSHA256": "ed0d677a2fae3a4c3420f8fe4428e8b2b88093c2d0eee2111d612c035cacb7b7",
+      "sha256": "ed0d677a2fae3a4c3420f8fe4428e8b2b88093c2d0eee2111d612c035cacb7b7",
+      "bytes": 78187,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/wisp-insignia.png",
+      "sourceSHA256": "3f00afd32da08f09ce0858e6e97ee3b8b66e461be0c494b903e9ba0d3833199d",
+      "sha256": "3f00afd32da08f09ce0858e6e97ee3b8b66e461be0c494b903e9ba0d3833199d",
+      "bytes": 94261,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/wisp-lockup.png",
+      "sourceSHA256": "33cd0bacd77b574496bc2ace5e71a6fc5a96de7d17a045b4733bf7d6dd25ad54",
+      "sha256": "33cd0bacd77b574496bc2ace5e71a6fc5a96de7d17a045b4733bf7d6dd25ad54",
+      "bytes": 86752,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/wisp-mark.png",
+      "sourceSHA256": "81a945280fb9b3fcad0d209d3ef5ded93ceb50dacf5f1ee56b8eee753514dbd6",
+      "sha256": "81a945280fb9b3fcad0d209d3ef5ded93ceb50dacf5f1ee56b8eee753514dbd6",
+      "bytes": 80768,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Resources/wisp-wordmark.png",
+      "sourceSHA256": "7d896283edf886e4bee309cfb5b9ad586ab269b89680e0b352590d0a57479e5f",
+      "sha256": "7d896283edf886e4bee309cfb5b9ad586ab269b89680e0b352590d0a57479e5f",
+      "bytes": 80815,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/SidebarHoverState.swift",
+      "sourceSHA256": "3ab81927cbae01c3a1f7ed44a11b5b99b8b15804828caa7c1e0efa434325c945",
+      "sha256": "3ab81927cbae01c3a1f7ed44a11b5b99b8b15804828caa7c1e0efa434325c945",
+      "bytes": 3258,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/SongEnergyAnalysis.swift",
+      "sourceSHA256": "d156c45742a20d9179a587a525d4c179c832870b87b1ebcc0c230f4662a775fd",
+      "sha256": "d156c45742a20d9179a587a525d4c179c832870b87b1ebcc0c230f4662a775fd",
+      "bytes": 4536,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/TrackArtworkEdit.swift",
+      "sourceSHA256": "c6317daae0b3e92cc43e8b522d4a272dea689bb9c5c42095e51f17b881efc617",
+      "sha256": "c6317daae0b3e92cc43e8b522d4a272dea689bb9c5c42095e51f17b881efc617",
+      "bytes": 2566,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/AppearancePopover.swift",
+      "sourceSHA256": "98410c0a77ddfec21d0a03d6f117f918a5e56c9a37a1c676ac82d0801f57b92e",
+      "sha256": "98410c0a77ddfec21d0a03d6f117f918a5e56c9a37a1c676ac82d0801f57b92e",
+      "bytes": 1034,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/ArtworkCropPreview.swift",
+      "sourceSHA256": "33257dd925d688bec3d0cebf7ce736b1c1833ee8cea7e935a1c010713a3e294f",
+      "sha256": "33257dd925d688bec3d0cebf7ce736b1c1833ee8cea7e935a1c010713a3e294f",
+      "bytes": 2907,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/ArtworkReviewView.swift",
+      "sourceSHA256": "25cd3076235d114b7431593deee982975d2b036b2147056a3b0bd48c86dd4bdb",
+      "sha256": "25cd3076235d114b7431593deee982975d2b036b2147056a3b0bd48c86dd4bdb",
+      "bytes": 27324,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/AuraIcon.swift",
+      "sourceSHA256": "06383aaa879207302c7776484244306410fddfda465586573de297f37ae68eba",
+      "sha256": "06383aaa879207302c7776484244306410fddfda465586573de297f37ae68eba",
+      "bytes": 1466,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/Components.swift",
+      "sourceSHA256": "facadd389e48e4558ef903d9b8ae284e2061ca1da0ad60b04fef929adeec8a5d",
+      "sha256": "facadd389e48e4558ef903d9b8ae284e2061ca1da0ad60b04fef929adeec8a5d",
+      "bytes": 19182,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/DiscoAtmosphere.swift",
+      "sourceSHA256": "0833ee84f2fcc188ba556af38f1d5a5c2f3b6aad075482f9ed3403cb48a9c028",
+      "sha256": "0833ee84f2fcc188ba556af38f1d5a5c2f3b6aad075482f9ed3403cb48a9c028",
+      "bytes": 9938,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/DriveSyncSettingsView.swift",
+      "sourceSHA256": "6dc2c131a68f4e26df0f03de797deaa1f1fb2cdd066841f107d93091946719bd",
+      "sha256": "6dc2c131a68f4e26df0f03de797deaa1f1fb2cdd066841f107d93091946719bd",
+      "bytes": 3785,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/EditorArtworkDraft.swift",
+      "sourceSHA256": "b453b11a79baa0390bf4deed443ada09d1e9c23ae3742a30a2802d9f14b6f65e",
+      "sha256": "b453b11a79baa0390bf4deed443ada09d1e9c23ae3742a30a2802d9f14b6f65e",
+      "bytes": 8451,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/EditorArtworkSection.swift",
+      "sourceSHA256": "96f6cfa0164a1a57c4389e8508fa6c30dc6b89394b3c387acd6cb495df8bde59",
+      "sha256": "96f6cfa0164a1a57c4389e8508fa6c30dc6b89394b3c387acd6cb495df8bde59",
+      "bytes": 8476,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/EditorComponents.swift",
+      "sourceSHA256": "83cf2e149512ce6fd02513ab319fbe5dedb08041f121ccb2a7b72e5427d6d8e7",
+      "sha256": "83cf2e149512ce6fd02513ab319fbe5dedb08041f121ccb2a7b72e5427d6d8e7",
+      "bytes": 2898,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/Editors.swift",
+      "sourceSHA256": "953f41c5c077bf06d7c27c93db57fac503ab36c5bd2179e79e693210f7176504",
+      "sha256": "953f41c5c077bf06d7c27c93db57fac503ab36c5bd2179e79e693210f7176504",
+      "bytes": 25861,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/EnergyCurvePopover.swift",
+      "sourceSHA256": "d346b3a36e578a1ebf09fc5a150164079e1c7d837b85bd3c07eeeafdf9a6611c",
+      "sha256": "d346b3a36e578a1ebf09fc5a150164079e1c7d837b85bd3c07eeeafdf9a6611c",
+      "bytes": 10173,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/ExpandedPlayerView.swift",
+      "sourceSHA256": "ccc38e95b2d56c140722444f7931de7d55597b2f8c4e696c601283ed1c485b78",
+      "sha256": "ccc38e95b2d56c140722444f7931de7d55597b2f8c4e696c601283ed1c485b78",
+      "bytes": 5576,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/ImportReviewView.swift",
+      "sourceSHA256": "42c00aeb37e39a58756bab92037a636f2fc2e76ef77a2eac9fa03efbc22947dc",
+      "sha256": "42c00aeb37e39a58756bab92037a636f2fc2e76ef77a2eac9fa03efbc22947dc",
+      "bytes": 10676,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/InstrumentView.swift",
+      "sourceSHA256": "5ed84fe867408092f00b00b8229b8766bd058fc6448264d4ca4c95b39a54686b",
+      "sha256": "5ed84fe867408092f00b00b8229b8766bd058fc6448264d4ca4c95b39a54686b",
+      "bytes": 16974,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/LibraryContentView.swift",
+      "sourceSHA256": "f6cc1d98e041753acad153c88168193f8463d3aaa57cf68f98dffbad754906a3",
+      "sha256": "f6cc1d98e041753acad153c88168193f8463d3aaa57cf68f98dffbad754906a3",
+      "bytes": 30345,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/MixtapeEditor.swift",
+      "sourceSHA256": "49fd27d2217ea379330b19f1a8943d14782848a2ed0e5a0bd92f8eaa90340c01",
+      "sha256": "49fd27d2217ea379330b19f1a8943d14782848a2ed0e5a0bd92f8eaa90340c01",
+      "bytes": 7905,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/NowPlayingVisual.swift",
+      "sourceSHA256": "4c1778394e032ecca9bc7da42d674f5aabf0fcd365f296f38060d41d4adbe5af",
+      "sha256": "4c1778394e032ecca9bc7da42d674f5aabf0fcd365f296f38060d41d4adbe5af",
+      "bytes": 1603,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/PhoneSyncSettingsView.swift",
+      "sourceSHA256": "4eb48c6f8430e27608aedeb16afe5630296c9e15e664939c42b6ca1bf7a01387",
+      "sha256": "4eb48c6f8430e27608aedeb16afe5630296c9e15e664939c42b6ca1bf7a01387",
+      "bytes": 5251,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/PlayerBar.swift",
+      "sourceSHA256": "2f7cbaf8b2e13b1fc294ca5a20b237a6b1f3835dacc57f95c8db9c51310eb574",
+      "sha256": "2f7cbaf8b2e13b1fc294ca5a20b237a6b1f3835dacc57f95c8db9c51310eb574",
+      "bytes": 11099,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/PlayerCoverLink.swift",
+      "sourceSHA256": "d781aff43dc0b9de76dcfce789fb28f7b4f42d13bc6b58cd7541116ded38cb65",
+      "sha256": "d781aff43dc0b9de76dcfce789fb28f7b4f42d13bc6b58cd7541116ded38cb65",
+      "bytes": 3156,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/QueueView.swift",
+      "sourceSHA256": "125dcdf23d14dc19d2c69de44aaf12d4f55e742ef6289878e0a6cbbf5c8c9494",
+      "sha256": "125dcdf23d14dc19d2c69de44aaf12d4f55e742ef6289878e0a6cbbf5c8c9494",
+      "bytes": 6844,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/RemixView.swift",
+      "sourceSHA256": "ec5fc81e6dd02a7eb292fdda32ed3428b7044ce2877306b0884bf5905d8744e0",
+      "sha256": "ec5fc81e6dd02a7eb292fdda32ed3428b7044ce2877306b0884bf5905d8744e0",
+      "bytes": 28618,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/RootView.swift",
+      "sourceSHA256": "644b8aca4c13a1447a7f158ba6c164cf2cb270b5c9371b0ab772dbd1ea7803be",
+      "sha256": "644b8aca4c13a1447a7f158ba6c164cf2cb270b5c9371b0ab772dbd1ea7803be",
+      "bytes": 23498,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/SettingsView.swift",
+      "sourceSHA256": "89429b6d1fe479280cb89b29a07c09c5b4729c3ed5fdfd1c5af520397b77433c",
+      "sha256": "89429b6d1fe479280cb89b29a07c09c5b4729c3ed5fdfd1c5af520397b77433c",
+      "bytes": 14592,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/SidebarView.swift",
+      "sourceSHA256": "addb0373bc66389929fab906f39316822aaee84e7cf124524a3c1969004cabb9",
+      "sha256": "addb0373bc66389929fab906f39316822aaee84e7cf124524a3c1969004cabb9",
+      "bytes": 16588,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/SourceImportView.swift",
+      "sourceSHA256": "51b5fc3b59f86881099ac99d36b3af3cae587b7fe38cbd94e4f40693d35aeb8c",
+      "sha256": "51b5fc3b59f86881099ac99d36b3af3cae587b7fe38cbd94e4f40693d35aeb8c",
+      "bytes": 4594,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/TrackCoverBadge.swift",
+      "sourceSHA256": "c9188efd69df3f080e332bf42502198f7899478765031358d8e6cd533c295ef7",
+      "sha256": "c9188efd69df3f080e332bf42502198f7899478765031358d8e6cd533c295ef7",
+      "bytes": 2010,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/TrackFilterMenu.swift",
+      "sourceSHA256": "5877d7befdf2a91653f553112c2fb58dc6f762af564f5e0f37031fe8dc541d4c",
+      "sha256": "5877d7befdf2a91653f553112c2fb58dc6f762af564f5e0f37031fe8dc541d4c",
+      "bytes": 2390,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/TrackMetadataFields.swift",
+      "sourceSHA256": "a73cccf51179bd16f82a88261dbe0ca1ea9bf788d19cc8303a8650608a1bfb4d",
+      "sha256": "a73cccf51179bd16f82a88261dbe0ca1ea9bf788d19cc8303a8650608a1bfb4d",
+      "bytes": 11054,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/Views/WispIcon.swift",
+      "sourceSHA256": "f77ed17f59da27df26be20a9727a407d0b6af36d95d219f7de7ed3eefaa6f814",
+      "sha256": "f77ed17f59da27df26be20a9727a407d0b6af36d95d219f7de7ed3eefaa6f814",
+      "bytes": 5742,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispApp.swift",
+      "sourceSHA256": "cd19606dd90925556c9097d4430bcfd440e73c8683357ebbce24f7864649536a",
+      "sha256": "cd19606dd90925556c9097d4430bcfd440e73c8683357ebbce24f7864649536a",
+      "bytes": 4321,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispFolderIcon.swift",
+      "sourceSHA256": "248da1e644e7876c9871ac2b135a1d56e722b6f6f9ddacfcf643edb5334ebad2",
+      "sha256": "248da1e644e7876c9871ac2b135a1d56e722b6f6f9ddacfcf643edb5334ebad2",
+      "bytes": 6515,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispImageCache.swift",
+      "sourceSHA256": "68b836de11996e4b5a57c8ee7e7c22a9d1d57a5a0d4d14aa61e87240379ced35",
+      "sha256": "68b836de11996e4b5a57c8ee7e7c22a9d1d57a5a0d4d14aa61e87240379ced35",
+      "bytes": 2925,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispLauncher.swift",
+      "sourceSHA256": "96aa53a858704eea0768d4b67752e5d757beedb074a1b9e4b32fc3d242b914d2",
+      "sha256": "96aa53a858704eea0768d4b67752e5d757beedb074a1b9e4b32fc3d242b914d2",
+      "bytes": 313,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispResources.swift",
+      "sourceSHA256": "2fd379a81073f665eb493bfc3497eb163ef9a11929ffb5a2895746dd9344e3bf",
+      "sha256": "2fd379a81073f665eb493bfc3497eb163ef9a11929ffb5a2895746dd9344e3bf",
+      "bytes": 2434,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispTheme.swift",
+      "sourceSHA256": "6ce8543a6382db3a34de54b56dc462fb1b1a4ce9ef44734868200b50eeb6250d",
+      "sha256": "6ce8543a6382db3a34de54b56dc462fb1b1a4ce9ef44734868200b50eeb6250d",
+      "bytes": 11937,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/Wisp/WispTypography.swift",
+      "sourceSHA256": "a57dfebcdc3bbfab2d629099c3aaf98ee0362a865cb04c8e6002a916e1c283d3",
+      "sha256": "a57dfebcdc3bbfab2d629099c3aaf98ee0362a865cb04c8e6002a916e1c283d3",
+      "bytes": 3205,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispAudioAtomics/WispAudioAtomics.c",
+      "sourceSHA256": "eefdae36f3a5ffef090d0f9f5c11172077b2214a7e908233985bb0b30e97a953",
+      "sha256": "eefdae36f3a5ffef090d0f9f5c11172077b2214a7e908233985bb0b30e97a953",
+      "bytes": 4195,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispAudioAtomics/include/WispAudioAtomics.h",
+      "sourceSHA256": "2f4aaf69868249c45b3bc3343178eb29701aa74a656f0e6c8c8139e76f67dd63",
+      "sha256": "2f4aaf69868249c45b3bc3343178eb29701aa74a656f0e6c8c8139e76f67dd63",
+      "bytes": 1064,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispAudioAtomics/include/module.modulemap",
+      "sourceSHA256": "58b378a7d8e8a4cc8d4614d9f6bbf6b0cebec5ff544cbeadf21bd77be56529c3",
+      "sha256": "58b378a7d8e8a4cc8d4614d9f6bbf6b0cebec5ff544cbeadf21bd77be56529c3",
+      "bytes": 73,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ArtworkCropGeometry.swift",
+      "sourceSHA256": "55fddcc01229f4652de04fe9f6b81b374e6736e2cc2ef97ec6a3159e9a20fe59",
+      "sha256": "55fddcc01229f4652de04fe9f6b81b374e6736e2cc2ef97ec6a3159e9a20fe59",
+      "bytes": 2921,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ArtworkMatch.swift",
+      "sourceSHA256": "97c54fe5f24213366af84e5e25e6ff8ca267a6670618d9dcb0a605b7b0edd150",
+      "sha256": "97c54fe5f24213366af84e5e25e6ff8ca267a6670618d9dcb0a605b7b0edd150",
+      "bytes": 11925,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ArtworkSearch.swift",
+      "sourceSHA256": "93c2efdc5dfe0cfb629e048e6adafc4ef33b5c2e1e1108606cca8a63063e4d2f",
+      "sha256": "93c2efdc5dfe0cfb629e048e6adafc4ef33b5c2e1e1108606cca8a63063e4d2f",
+      "bytes": 1006,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/DriveLibraryMirror.swift",
+      "sourceSHA256": "c62a05a5743d204fd499de0e2b41485ec9e765a388b78bf6686f8d5092cf1d82",
+      "sha256": "c62a05a5743d204fd499de0e2b41485ec9e765a388b78bf6686f8d5092cf1d82",
+      "bytes": 29772,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/EnergyShuffle.swift",
+      "sourceSHA256": "72ae735ebba94d730b7da2b04d38d54f77161a8c068e8d7a168ad566f802d98d",
+      "sha256": "72ae735ebba94d730b7da2b04d38d54f77161a8c068e8d7a168ad566f802d98d",
+      "bytes": 8786,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ImportSuggestion.swift",
+      "sourceSHA256": "fc25c62347f82a8118daaf7f057bf08830fadbde7ef63cca5fd6704823b6be68",
+      "sha256": "fc25c62347f82a8118daaf7f057bf08830fadbde7ef63cca5fd6704823b6be68",
+      "bytes": 7887,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/LibraryRepository.swift",
+      "sourceSHA256": "5893c91b607c53376196ebfc82e100578bef15ea8e098f89241c5d505d3b0f8f",
+      "sha256": "5893c91b607c53376196ebfc82e100578bef15ea8e098f89241c5d505d3b0f8f",
+      "bytes": 4248,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ListeningHistory.swift",
+      "sourceSHA256": "8b54ac01babdb699c9426d1df9e95a397daa43e20455452771f9f8bff043174d",
+      "sha256": "8b54ac01babdb699c9426d1df9e95a397daa43e20455452771f9f8bff043174d",
+      "bytes": 10837,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ListeningRepository.swift",
+      "sourceSHA256": "b02eab57ec43a332dac74da374f2fc88cc0226801a7f07be7846c351db7f591e",
+      "sha256": "b02eab57ec43a332dac74da374f2fc88cc0226801a7f07be7846c351db7f591e",
+      "bytes": 2474,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ListeningSessionAccumulator.swift",
+      "sourceSHA256": "7ac5d4c83fa4dd185d7e48469b66ef6dd09d0b0c246f93749e38626ab1e34b88",
+      "sha256": "7ac5d4c83fa4dd185d7e48469b66ef6dd09d0b0c246f93749e38626ab1e34b88",
+      "bytes": 1955,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/MixtapeCollection.swift",
+      "sourceSHA256": "df3a6f2899f95454aa7002df74c042d7cde496df3b3379333be30f6df4e99c0e",
+      "sha256": "df3a6f2899f95454aa7002df74c042d7cde496df3b3379333be30f6df4e99c0e",
+      "bytes": 2011,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/MixtapePlan.swift",
+      "sourceSHA256": "9f2530352e7fdb5ba60550557678bc5770bc41f0533e4bcb6a27edac159fdb54",
+      "sha256": "9f2530352e7fdb5ba60550557678bc5770bc41f0533e4bcb6a27edac159fdb54",
+      "bytes": 3276,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/Models.swift",
+      "sourceSHA256": "cb6bcf5f4a6b3d6f5c1dd66e22a64047bb9e3b88a6e0a344606e6da1dfdd5b72",
+      "sha256": "cb6bcf5f4a6b3d6f5c1dd66e22a64047bb9e3b88a6e0a344606e6da1dfdd5b72",
+      "bytes": 18010,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/MusicSource.swift",
+      "sourceSHA256": "e6275aa3dae36ec5044d9b5cbe783cd5168ff90167179098540c250cffa77332",
+      "sha256": "e6275aa3dae36ec5044d9b5cbe783cd5168ff90167179098540c250cffa77332",
+      "bytes": 1348,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/OriginMediaKind.swift",
+      "sourceSHA256": "6028de878a07ea3939b76a635005aafb8e37b815324d7bb8d25aade11f5d4b1f",
+      "sha256": "6028de878a07ea3939b76a635005aafb8e37b815324d7bb8d25aade11f5d4b1f",
+      "bytes": 4440,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/PhoneFavorites.swift",
+      "sourceSHA256": "e4d80027cba23afc02b52ec7086b87d9adef51cb928377852dc0e7468b479591",
+      "sha256": "e4d80027cba23afc02b52ec7086b87d9adef51cb928377852dc0e7468b479591",
+      "bytes": 13043,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/PhoneLibrarySync.swift",
+      "sourceSHA256": "7a07dbc16a2553198c54d6e2315ab0add9061f518c331f523f98e3d7778a3b0f",
+      "sha256": "7a07dbc16a2553198c54d6e2315ab0add9061f518c331f523f98e3d7778a3b0f",
+      "bytes": 33615,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/PlaybackQueue.swift",
+      "sourceSHA256": "37aef4ddb3c4706298488a38ecbadd5c713e5dfb7e67fb394d578b37c1565286",
+      "sha256": "37aef4ddb3c4706298488a38ecbadd5c713e5dfb7e67fb394d578b37c1565286",
+      "bytes": 9556,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/RemixSource.swift",
+      "sourceSHA256": "d3ae36f10a4735a04967743671c03cdfaffff300e254f3b6896caffed56d2e2f",
+      "sha256": "d3ae36f10a4735a04967743671c03cdfaffff300e254f3b6896caffed56d2e2f",
+      "bytes": 2532,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackArtworkSource.swift",
+      "sourceSHA256": "d95640c0fea62eb27b50241a01ee6cc357f19e27551bdb567a0bc3a1abc50178",
+      "sha256": "d95640c0fea62eb27b50241a01ee6cc357f19e27551bdb567a0bc3a1abc50178",
+      "bytes": 1752,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackAudioVersion.swift",
+      "sourceSHA256": "8ad24d9579ca9d5d6a8dd2d401387d6659f2203edfc427ab16ec863728381c95",
+      "sha256": "8ad24d9579ca9d5d6a8dd2d401387d6659f2203edfc427ab16ec863728381c95",
+      "bytes": 6755,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackCategories.swift",
+      "sourceSHA256": "3acda0dc72e81ddfd961b9b9e9441010776d969ca0b6a3386cbc4c8c163abb57",
+      "sha256": "3acda0dc72e81ddfd961b9b9e9441010776d969ca0b6a3386cbc4c8c163abb57",
+      "bytes": 1207,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackLibraryFilter.swift",
+      "sourceSHA256": "52e7cd8b80e73510dbe7c133a3cbaeaeca285bd9286b8c0a014b0370244e1bdc",
+      "sha256": "52e7cd8b80e73510dbe7c133a3cbaeaeca285bd9286b8c0a014b0370244e1bdc",
+      "bytes": 3335,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackMetadataPatch.swift",
+      "sourceSHA256": "de1fe2a22706599570cd1f97d3c4af015d0f4c570e2da476ef1d6317bfb35414",
+      "sha256": "de1fe2a22706599570cd1f97d3c4af015d0f4c570e2da476ef1d6317bfb35414",
+      "bytes": 4062,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackNameParser.swift",
+      "sourceSHA256": "9152f1b65aaf32e8a6386a2f733b924371533bc0e95b3019b0ea6defbb470f5d",
+      "sha256": "9152f1b65aaf32e8a6386a2f733b924371533bc0e95b3019b0ea6defbb470f5d",
+      "bytes": 3992,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/TrackSearch.swift",
+      "sourceSHA256": "702197c68eafe4f6732c228ca947fc30396777b5e83237c58b8bd3e0bf3198d4",
+      "sha256": "702197c68eafe4f6732c228ca947fc30396777b5e83237c58b8bd3e0bf3198d4",
+      "bytes": 1280,
+      "mode": "0o644"
+    },
+    {
+      "path": "Sources/WispCore/ZIPPreflight.swift",
+      "sourceSHA256": "2fb6e2273e18c7b211d3a9e211a341abab46de03c691d5a2b60520894d1e6a4e",
+      "sha256": "2fb6e2273e18c7b211d3a9e211a341abab46de03c691d5a2b60520894d1e6a4e",
+      "bytes": 16968,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-app-icon.svg",
+      "sourceSHA256": "bc1a40f88dc2e4c65fa1001a1f72e3ef7f39ec57899d76700a3398f69ed10862",
+      "sha256": "bc1a40f88dc2e4c65fa1001a1f72e3ef7f39ec57899d76700a3398f69ed10862",
+      "bytes": 3315,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-cover.svg",
+      "sourceSHA256": "7be74376b940a88336eda284f09669bb171fda5d2baabba5a5eca251c20816df",
+      "sha256": "7be74376b940a88336eda284f09669bb171fda5d2baabba5a5eca251c20816df",
+      "bytes": 1842,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-insignia.svg",
+      "sourceSHA256": "68d09a860ac5019b200ca370c54a2890e337fbbbdab7733f460ead86bc74cfe8",
+      "sha256": "68d09a860ac5019b200ca370c54a2890e337fbbbdab7733f460ead86bc74cfe8",
+      "bytes": 1751,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-iphone-icon-dark.svg",
+      "sourceSHA256": "71c1b74f509f5a1e174e93df862902903f3244292942ce0a123a423a83f74fe5",
+      "sha256": "71c1b74f509f5a1e174e93df862902903f3244292942ce0a123a423a83f74fe5",
+      "bytes": 3364,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-iphone-icon-light.svg",
+      "sourceSHA256": "f8f7d0e7528f4702f82a7f77216823ab076f2af42eff84360509a5eb4ef8a111",
+      "sha256": "f8f7d0e7528f4702f82a7f77216823ab076f2af42eff84360509a5eb4ef8a111",
+      "bytes": 3365,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-lockup.svg",
+      "sourceSHA256": "4f0c2b81ea87b05f42b88985052a1fead0b0b60da1c67532f846128f648f9f22",
+      "sha256": "4f0c2b81ea87b05f42b88985052a1fead0b0b60da1c67532f846128f648f9f22",
+      "bytes": 4306,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/bard-wordmark.svg",
+      "sourceSHA256": "5f55a608bc090009adcbe1245cd14d6fecbec35e604ed050b5d2bad55755584e",
+      "sha256": "5f55a608bc090009adcbe1245cd14d6fecbec35e604ed050b5d2bad55755584e",
+      "bytes": 2684,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Brand/Bard/briggs-maker-mark-gold.svg",
+      "sourceSHA256": "f5abd566c9c70ea65bfd7165d63fb12cf36471a8d491d129b8f26e5279e9594b",
+      "sha256": "f5abd566c9c70ea65bfd7165d63fb12cf36471a8d491d129b8f26e5279e9594b",
+      "bytes": 1575,
+      "mode": "0o644"
+    },
+    {
+      "path": "Support/Info.plist",
+      "sourceSHA256": "243865eafbfa82d060b524bb3176c9627d63d4cf2d98c13abe889656837f5f21",
+      "sha256": "243865eafbfa82d060b524bb3176c9627d63d4cf2d98c13abe889656837f5f21",
+      "bytes": 1202,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/AudioVersionTests.swift",
+      "sourceSHA256": "1310af89f828b28c083b761f613b42b51da10adfd34ea72ce37f1d95e5cdae53",
+      "sha256": "1310af89f828b28c083b761f613b42b51da10adfd34ea72ce37f1d95e5cdae53",
+      "bytes": 9903,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/DriveLibraryMirrorTests.swift",
+      "sourceSHA256": "33cee5fbfc9e842a44698fd0a62faf2d65ebbc984a8ff2a2ce3dc952294d2d0f",
+      "sha256": "33cee5fbfc9e842a44698fd0a62faf2d65ebbc984a8ff2a2ce3dc952294d2d0f",
+      "bytes": 14649,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/EnergyShuffleTests.swift",
+      "sourceSHA256": "272f246ce1eb24b52d95a9e94763726e05f262da67901fc5da10c6d7305d2c15",
+      "sha256": "272f246ce1eb24b52d95a9e94763726e05f262da67901fc5da10c6d7305d2c15",
+      "bytes": 10128,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/ImportSuggestionTests.swift",
+      "sourceSHA256": "ae154dab064569de30982aac89a67b50cf9c6d0f5d07b16f9ee499a9e57e74c0",
+      "sha256": "ae154dab064569de30982aac89a67b50cf9c6d0f5d07b16f9ee499a9e57e74c0",
+      "bytes": 7901,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/LibraryTests.swift",
+      "sourceSHA256": "b811b849b123a16add04ac40ded27a6e33e882c635946659cba179d2c73639ea",
+      "sha256": "b811b849b123a16add04ac40ded27a6e33e882c635946659cba179d2c73639ea",
+      "bytes": 12545,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/ListeningHistoryTests.swift",
+      "sourceSHA256": "0de1cfe300d64c4949b5b9b034995221e2fbd04f65a9cce2d8cf17969cb3931b",
+      "sha256": "0de1cfe300d64c4949b5b9b034995221e2fbd04f65a9cce2d8cf17969cb3931b",
+      "bytes": 14582,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/MusicSourceTests.swift",
+      "sourceSHA256": "e2dc7593fa157dc2efb4c10e61de29db032925107b9ef652ab12bdf99211090a",
+      "sha256": "e2dc7593fa157dc2efb4c10e61de29db032925107b9ef652ab12bdf99211090a",
+      "bytes": 1188,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/PhoneFavoritesTests.swift",
+      "sourceSHA256": "4ad289a6fb7bed056cfa7c581efcebc0ca02b8ef9e7dbe7a66270bd5dcc21a06",
+      "sha256": "4ad289a6fb7bed056cfa7c581efcebc0ca02b8ef9e7dbe7a66270bd5dcc21a06",
+      "bytes": 11059,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/PhoneLibrarySyncTests.swift",
+      "sourceSHA256": "6f058ef116898117980b4ecd6254514a714cbed76a2ce6a05c077f2e4deb26d2",
+      "sha256": "6f058ef116898117980b4ecd6254514a714cbed76a2ce6a05c077f2e4deb26d2",
+      "bytes": 28554,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/PlaybackQueueTests.swift",
+      "sourceSHA256": "a8314400a789958da7a5c0a0b3703cfdcada0fa2cd122e6f82b9a154d7c3f63e",
+      "sha256": "a8314400a789958da7a5c0a0b3703cfdcada0fa2cd122e6f82b9a154d7c3f63e",
+      "bytes": 6785,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/TrackNameParserTests.swift",
+      "sourceSHA256": "70891539111e5ec90feb2fcaa11b35daea0df75d860209c62b8979032beb94c0",
+      "sha256": "70891539111e5ec90feb2fcaa11b35daea0df75d860209c62b8979032beb94c0",
+      "bytes": 4622,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/TrackSearchTests.swift",
+      "sourceSHA256": "ee9cc0544a26d322ac2500843e44e35844a51c62a327338768ab4b0479d64663",
+      "sha256": "ee9cc0544a26d322ac2500843e44e35844a51c62a327338768ab4b0479d64663",
+      "bytes": 2797,
+      "mode": "0o644"
+    },
+    {
+      "path": "Tests/WispCoreTests/ZIPPreflightTests.swift",
+      "sourceSHA256": "12d491a411bc6558817878f9f764fb1ababf5a431a36e486a091a24f96d0dfec",
+      "sha256": "12d491a411bc6558817878f9f764fb1ababf5a431a36e486a091a24f96d0dfec",
+      "bytes": 14660,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Config/Base.xcconfig",
+      "sourceSHA256": "9615e82513db7e9c8173e97700f73189c27c6c1fd2f3173b28f403dfbe74c94b",
+      "sha256": "9615e82513db7e9c8173e97700f73189c27c6c1fd2f3173b28f403dfbe74c94b",
+      "bytes": 354,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Config/Info.plist",
+      "sourceSHA256": "dcfb21d7bf1396124c6944c9cea93f467eaada2eb528c323f4fe4b5715614907",
+      "sha256": "dcfb21d7bf1396124c6944c9cea93f467eaada2eb528c323f4fe4b5715614907",
+      "bytes": 1633,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/AccentColor.colorset/Contents.json",
+      "sourceSHA256": "709f5c5810ec93d9fd86a437d0df19425aeb99e6e2a1f7abf93f966d5ce0db0f",
+      "sha256": "709f5c5810ec93d9fd86a437d0df19425aeb99e6e2a1f7abf93f966d5ce0db0f",
+      "bytes": 317,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "sourceSHA256": "3e3eb5ad257ec6993a9dd4ae35b4d7342e5d69d9102acbd083851e14de455023",
+      "sha256": "3e3eb5ad257ec6993a9dd4ae35b4d7342e5d69d9102acbd083851e14de455023",
+      "bytes": 456,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/AppIcon.appiconset/WispAppIcon.png",
+      "sourceSHA256": "1564c32b0762e952b2be8d5bc282e28fa8dc6d4f15e64c17401d4a5efc0d2b1d",
+      "sha256": "1564c32b0762e952b2be8d5bc282e28fa8dc6d4f15e64c17401d4a5efc0d2b1d",
+      "bytes": 30450,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/AppIcon.appiconset/WispAppIconDark.png",
+      "sourceSHA256": "b923ac1a7e21155b99ef11a652c2a79aa912c17dab2b5001f658c7f8a89c4f7d",
+      "sha256": "b923ac1a7e21155b99ef11a652c2a79aa912c17dab2b5001f658c7f8a89c4f7d",
+      "bytes": 34326,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/Contents.json",
+      "sourceSHA256": "f5fb0e1f3a8142892ed092efb5955c1c2cc537003a89ad7bbdb9dade7fe8985f",
+      "sha256": "f5fb0e1f3a8142892ed092efb5955c1c2cc537003a89ad7bbdb9dade7fe8985f",
+      "bytes": 60,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/maker-mark.imageset/Contents.json",
+      "sourceSHA256": "653bb8d4c28462e722d9ba6957caeae7f8ba0bc19c25a17ed95fe29c83fc13eb",
+      "sha256": "653bb8d4c28462e722d9ba6957caeae7f8ba0bc19c25a17ed95fe29c83fc13eb",
+      "bytes": 154,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/maker-mark.imageset/maker-mark.png",
+      "sourceSHA256": "ee16aaa60cffdf922aef6aa45cd6dd567a500425f58b4aecf1f45878649f6c72",
+      "sha256": "ee16aaa60cffdf922aef6aa45cd6dd567a500425f58b4aecf1f45878649f6c72",
+      "bytes": 6181,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/wisp-insignia.imageset/Contents.json",
+      "sourceSHA256": "dc029148e7ccd4504067ee47ee2274b82a494c0ed9c5f6ccfac009ac94399ba7",
+      "sha256": "dc029148e7ccd4504067ee47ee2274b82a494c0ed9c5f6ccfac009ac94399ba7",
+      "bytes": 157,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/wisp-insignia.imageset/wisp-insignia.png",
+      "sourceSHA256": "7e49138fa4da07ab6cf05986663f8d6836ed1fead8406e8b35889ce9c47d9a21",
+      "sha256": "7e49138fa4da07ab6cf05986663f8d6836ed1fead8406e8b35889ce9c47d9a21",
+      "bytes": 43034,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/wisp-wordmark.imageset/Contents.json",
+      "sourceSHA256": "c708d7294c2e8aed02626397222ccb6a72ed5c9cd0b06ff487027cc209b75adc",
+      "sha256": "c708d7294c2e8aed02626397222ccb6a72ed5c9cd0b06ff487027cc209b75adc",
+      "bytes": 157,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Assets.xcassets/wisp-wordmark.imageset/wisp-wordmark.png",
+      "sourceSHA256": "bb0e22a6689137503bcd86dda5906093c5eaab15f6f18416bba444fe303a6c59",
+      "sha256": "bb0e22a6689137503bcd86dda5906093c5eaab15f6f18416bba444fe303a6c59",
+      "bytes": 37116,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Fonts/IBMPlexMono-Medium.ttf",
+      "sourceSHA256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "sha256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "bytes": 136704,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Fonts/IBMPlexMono-Regular.ttf",
+      "sourceSHA256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Fonts/OFL.txt",
+      "sourceSHA256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "bytes": 4456,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Fonts/PPNeueMontreal-Bold.ttf",
+      "sourceSHA256": "5e18408ef0f7168389b1ed6b327740e54e037136b3be9a2a3bcb0c177ad6db4e",
+      "sha256": "5e18408ef0f7168389b1ed6b327740e54e037136b3be9a2a3bcb0c177ad6db4e",
+      "bytes": 162264,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Fonts/PPNeueMontreal-Regular.ttf",
+      "sourceSHA256": "44c3e09aeda4ca6c4308fc6bee0ae3e10d42eaf4d837fc729440973cc999faf7",
+      "sha256": "44c3e09aeda4ca6c4308fc6bee0ae3e10d42eaf4d837fc729440973cc999faf7",
+      "bytes": 143752,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/Fonts/PPNeueYork-NormalExtrabold.otf",
+      "sourceSHA256": "f64f9e44e54295a202f8bbd2bb5f9f14a6008cd779cecc36079452335356e7c7",
+      "sha256": "f64f9e44e54295a202f8bbd2bb5f9f14a6008cd779cecc36079452335356e7c7",
+      "bytes": 92120,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Resources/PrivacyInfo.xcprivacy",
+      "sourceSHA256": "51d96ce9decfd0c62c543747cab808586bfe14b08109c6a781d17e8b6e0572ba",
+      "sha256": "51d96ce9decfd0c62c543747cab808586bfe14b08109c6a781d17e8b6e0572ba",
+      "bytes": 1061,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/Design.swift",
+      "sourceSHA256": "c10e91495b195c72f98c59768f797b6dc07a9214d9b728358d5999ba35e5bbe5",
+      "sha256": "c10e91495b195c72f98c59768f797b6dc07a9214d9b728358d5999ba35e5bbe5",
+      "bytes": 10113,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/LibraryView.swift",
+      "sourceSHA256": "6d3d71d0945d27ae1d7b2f4ea4818a99f59e58259ef30b74a3105e87f547a0b1",
+      "sha256": "6d3d71d0945d27ae1d7b2f4ea4818a99f59e58259ef30b74a3105e87f547a0b1",
+      "bytes": 25730,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhoneAppearance.swift",
+      "sourceSHA256": "33c0a006bc8344ffefa999b8dd19d74a8fe37df0ad68e48d1baa2713914486cd",
+      "sha256": "33c0a006bc8344ffefa999b8dd19d74a8fe37df0ad68e48d1baa2713914486cd",
+      "bytes": 1363,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhoneLibraryNavigation.swift",
+      "sourceSHA256": "b9224e02fdb6a8bbae3b019c576b84ff3d763bf02168806c7799a2b7a3dbd5da",
+      "sha256": "b9224e02fdb6a8bbae3b019c576b84ff3d763bf02168806c7799a2b7a3dbd5da",
+      "bytes": 7932,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhoneLibraryStore.swift",
+      "sourceSHA256": "ee3c34608f78ef92711daa5ef5f9c6ef40e7a42b7125749f6ca6e290d2ca1661",
+      "sha256": "ee3c34608f78ef92711daa5ef5f9c6ef40e7a42b7125749f6ca6e290d2ca1661",
+      "bytes": 15821,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhonePlayerStore.swift",
+      "sourceSHA256": "6e949c2c3789f64672d8d765bfd0993488917d52dd24b8a198962c68f4b2c88b",
+      "sha256": "6e949c2c3789f64672d8d765bfd0993488917d52dd24b8a198962c68f4b2c88b",
+      "bytes": 34938,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhoneSmartShuffleView.swift",
+      "sourceSHA256": "c3dbf1b4e8ce721f8fac167ef22bc516633751e464cd785bae6c28199913a290",
+      "sha256": "c3dbf1b4e8ce721f8fac167ef22bc516633751e464cd785bae6c28199913a290",
+      "bytes": 11102,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhoneSongEnergyAnalysis.swift",
+      "sourceSHA256": "fb5807eb6614d48fdcb8c29f0354e35b1004b51254347dabf0a786e4d4e7238c",
+      "sha256": "fb5807eb6614d48fdcb8c29f0354e35b1004b51254347dabf0a786e4d4e7238c",
+      "bytes": 13673,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PhoneSyncView.swift",
+      "sourceSHA256": "c70d02765ac47aa41b34200b47b95846022f6407d9edf1d043b0d9a640d08669",
+      "sha256": "c70d02765ac47aa41b34200b47b95846022f6407d9edf1d043b0d9a640d08669",
+      "bytes": 6252,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/PlayerView.swift",
+      "sourceSHA256": "26a71b605d2adea8025c6642a01a6e9bb1c21419753ff3b747fd7f0976bdc10d",
+      "sha256": "26a71b605d2adea8025c6642a01a6e9bb1c21419753ff3b747fd7f0976bdc10d",
+      "bytes": 14969,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/Sources/WispIOS/WispIOSApp.swift",
+      "sourceSHA256": "a5c9140b61347ee9912ffa5db06e6151376c922a60a14a6dcb37804baafdeb9a",
+      "sha256": "a5c9140b61347ee9912ffa5db06e6151376c922a60a14a6dcb37804baafdeb9a",
+      "bytes": 850,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/WispIOS.xcodeproj/project.pbxproj",
+      "sourceSHA256": "0eb8a4320d9609c30fa0d64a3088d46edab4057031a039458becee2d87cdb55d",
+      "sha256": "0eb8a4320d9609c30fa0d64a3088d46edab4057031a039458becee2d87cdb55d",
+      "bytes": 16762,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/WispIOS.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+      "sourceSHA256": "7f3b00b5c3fdb45242d7b87e1e5c4e25d1fa8129a16c94295ecc4e8ea2235c5f",
+      "sha256": "7f3b00b5c3fdb45242d7b87e1e5c4e25d1fa8129a16c94295ecc4e8ea2235c5f",
+      "bytes": 135,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/WispIOS.xcodeproj/xcshareddata/xcschemes/WispIOS.xcscheme",
+      "sourceSHA256": "e1750ac21e44ee9f8956f6697ddf8c02d35ef1fee1a526a2432d7d3e1d8fcb06",
+      "sha256": "e1750ac21e44ee9f8956f6697ddf8c02d35ef1fee1a526a2432d7d3e1d8fcb06",
+      "bytes": 3393,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/project.yml",
+      "sourceSHA256": "10c9b80bd167b1a5292fdb4c080ce51248ff21f15642483a0161d5284841899d",
+      "sha256": "10c9b80bd167b1a5292fdb4c080ce51248ff21f15642483a0161d5284841899d",
+      "bytes": 1677,
+      "mode": "0o644"
+    },
+    {
+      "path": "iOS/scripts/archive.sh",
+      "sourceSHA256": "4bb7440275c9e3b4321a20f288dba9f70e35f1a0974fcf0da4184629d0170358",
+      "sha256": "4bb7440275c9e3b4321a20f288dba9f70e35f1a0974fcf0da4184629d0170358",
+      "bytes": 889,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/build-device-unsigned.sh",
+      "sourceSHA256": "33d2b785ec4a88203515783c6b4fc25854048772ee92122b8ed130b1b7c1e152",
+      "sha256": "33d2b785ec4a88203515783c6b4fc25854048772ee92122b8ed130b1b7c1e152",
+      "bytes": 374,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/build-simulator.sh",
+      "sourceSHA256": "24bc999f50c1aef24fb17d1aff2b3d5785d33a61f981175b10a02266c112b924",
+      "sha256": "24bc999f50c1aef24fb17d1aff2b3d5785d33a61f981175b10a02266c112b924",
+      "bytes": 408,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/common.sh",
+      "sourceSHA256": "78d92a79c67483eaea5abe8de62e015b7cbf094a7ab8e5e90ceff3db307eccb0",
+      "sha256": "78d92a79c67483eaea5abe8de62e015b7cbf094a7ab8e5e90ceff3db307eccb0",
+      "bytes": 1301,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/export-testflight.sh",
+      "sourceSHA256": "cf16a9ab4ef2ad9bfdd8f712a4624fa7b665c5a29b90fe136ec6cc9fd27e100d",
+      "sha256": "cf16a9ab4ef2ad9bfdd8f712a4624fa7b665c5a29b90fe136ec6cc9fd27e100d",
+      "bytes": 1191,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/generate-project.sh",
+      "sourceSHA256": "b1288831d383a867fef5eac093a4a1ac5a4c0afb77a44275810e07137d9d4238",
+      "sha256": "b1288831d383a867fef5eac093a4a1ac5a4c0afb77a44275810e07137d9d4238",
+      "bytes": 97,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/prepare-icon.sh",
+      "sourceSHA256": "743a8e201ba7942248ee890e4a27d2165874804af7ac9cab44d134fb48fe3da9",
+      "sha256": "743a8e201ba7942248ee890e4a27d2165874804af7ac9cab44d134fb48fe3da9",
+      "bytes": 1127,
+      "mode": "0o755"
+    },
+    {
+      "path": "iOS/scripts/upload-testflight.sh",
+      "sourceSHA256": "59f22476d49d2f4ce17fe2dfd666ef4a188ec7de22b67fab30140888fe934e4f",
+      "sha256": "59f22476d49d2f4ce17fe2dfd666ef4a188ec7de22b67fab30140888fe934e4f",
+      "bytes": 1182,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/build-universal.sh",
+      "sourceSHA256": "c15ebaf63a273a1f0f83442c3ab2ae90ff8ee3b9c92a9440ee86d60944bdd9cf",
+      "sha256": "c15ebaf63a273a1f0f83442c3ab2ae90ff8ee3b9c92a9440ee86d60944bdd9cf",
+      "bytes": 1355,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/build.sh",
+      "sourceSHA256": "6b76f8a9f8c7623def9e4ada9756083750f7636478a39e6aaa146f1f75d6b6a3",
+      "sha256": "6b76f8a9f8c7623def9e4ada9756083750f7636478a39e6aaa146f1f75d6b6a3",
+      "bytes": 4353,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/package-custom-icon.sh",
+      "sourceSHA256": "6893dd7597a2ec9002bc268a7686f554e2f78f0697e1df1b414095b61825477c",
+      "sha256": "6893dd7597a2ec9002bc268a7686f554e2f78f0697e1df1b414095b61825477c",
+      "bytes": 1378,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/package-custom-icon.swift",
+      "sourceSHA256": "8b6056e22a6eadc9718e3944dd931186b6e93f70c4ae3c8ddc73ca5ffb9ba11e",
+      "sha256": "8b6056e22a6eadc9718e3944dd931186b6e93f70c4ae3c8ddc73ca5ffb9ba11e",
+      "bytes": 6887,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/package-icon.sh",
+      "sourceSHA256": "20382a7493dc97fdb8ba73cd7b1633365683896c05a5ab6672356f43f9ded296",
+      "sha256": "20382a7493dc97fdb8ba73cd7b1633365683896c05a5ab6672356f43f9ded296",
+      "bytes": 3262,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/package-release.sh",
+      "sourceSHA256": "a39b28a8170316d764477a096d7a2d7c89ecd602d77d1610a5c18bf2a82368a3",
+      "sha256": "7cac57dd7ddb5c3addd99eaec539b38c346a1b30dea50a490f8535555f7fc8f6",
+      "bytes": 7899,
+      "mode": "0o755",
+      "adjustment": "Keep default packaging output inside ignored build/release for a standalone checkout."
+    },
+    {
+      "path": "scripts/prepare-bard-assets.cjs",
+      "sourceSHA256": "62487fa2fceac450393505128df83ad5b09f6f884f1b3de17531239093e7d47e",
+      "sha256": "50b3dcefe156c95994b7d06aab5dbd48be60e9c4c0b4e33e301c6266c32ed96b",
+      "bytes": 2262,
+      "mode": "0o644",
+      "adjustment": "Resolve librsvg from PATH or BARD_RSVG_CONVERT; write generated manifest into ignored build/brand."
+    }
+  ],
+  "snapshotSHA256": "d586e36bf74b3e65d31550275357672500b54d226816d80c3de682f95366a01b"
+}

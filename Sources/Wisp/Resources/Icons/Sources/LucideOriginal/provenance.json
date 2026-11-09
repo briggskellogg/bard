@@ -1,0 +1,44 @@
+{
+  "repository": "lucide-icons/lucide",
+  "ref": "main",
+  "fetched": "2026-10-28",
+  "source": "Connected GitHub fetch_file",
+  "configuredStrokeWidth": 1.5,
+  "assets": [
+    {
+      "name": "gamepad-2",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/gamepad-2.svg",
+      "gitBlobSHA": "bc7f08c59863d3eb8e48febaf8d17bd30ca41e1b"
+    },
+    {
+      "name": "film",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/film.svg",
+      "gitBlobSHA": "fae756862406a2e36566334e77b77c1fbc4ebb92"
+    },
+    {
+      "name": "tv",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/tv.svg",
+      "gitBlobSHA": "96140a5a4df86a88536cf3918f97cddb7448db13"
+    },
+    {
+      "name": "book-open",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/book-open.svg",
+      "gitBlobSHA": "9e0ace59b788e2b45fc35d9fbf68c2a80bd518bc"
+    },
+    {
+      "name": "mic",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/mic.svg",
+      "gitBlobSHA": "2a1698d75fb786209ce79b44dd050b9e1e33f62a"
+    },
+    {
+      "name": "eighth-notes",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/eighth-notes.svg",
+      "gitBlobSHA": "aedfde1d6d41ff774013a9b3e2b9ef1125095b36"
+    },
+    {
+      "name": "layers",
+      "url": "https://github.com/lucide-icons/lucide/blob/main/icons/layers.svg",
+      "gitBlobSHA": "a3b69ae319a8d3036bb5b26f92195bfe337e17bf"
+    }
+  ]
+}

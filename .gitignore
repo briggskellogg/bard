@@ -1,39 +1,62 @@
-# Logs
-logs
+# Build products, caches, local evidence and temporary staging
+.build/
+.build-*/
+.module-cache*/
+.swiftpm/
+build/
+Builds/
+DerivedData/
+outputs/
+Validation/
+**/Validation/
+__pycache__/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+*.xcarchive/
+*.ipa
+*.dmg
+*.app/
+*.dSYM/
+*.zip
+(A Document Being Saved By *)/
 
-node_modules
-dist
-dist-ssr
+# Personal libraries and media must never be committed
+Library.json
+LibraryState.json
+MusicSync.json
+PhoneSync.json
+DriveSync.json
+ListeningHistory.json
+PhoneLibrary/
+Music/
+Artwork/
+Backups/
+*.mp3
+*.wav
+*.aif
+*.aiff
+*.m4a
+*.aac
+*.flac
+*.sqlite
+*.sqlite-*
+*.db
+
+# Local credentials, signing and destination configuration
+.env
+.env.*
 *.local
 *.local.*
+*.p8
+*.p12
+*.pem
+*.key
+*.mobileprovision
+*.provisionprofile
+AuthKey_*
+ExportOptions.generated.plist
+Signing.local.xcconfig
 
-# Environment variables (keep .env.example tracked)
-.env
-.env.local
-.env.*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-.idea
+# User workspace metadata
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# IDE-specific
-.cursor/
-
-# Lock files (using pnpm)
-package-lock.json
-yarn.lock
-private/
+xcuserdata/
+*.xcuserstate

@@ -1,0 +1,9 @@
+// Signing is deliberately unassigned. Choose your own Apple Developer team in
+// Xcode or pass DEVELOPMENT_TEAM to the local archive script.
+SWIFT_VERSION = 5.0
+IPHONEOS_DEPLOYMENT_TARGET = 17.0
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator
+ENABLE_BITCODE = NO
+CLANG_ENABLE_MODULES = YES
+CODE_SIGN_STYLE = Automatic
+ENABLE_USER_SCRIPT_SANDBOXING = YES

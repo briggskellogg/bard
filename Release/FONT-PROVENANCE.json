@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "comparison_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
+  "comparison_is_not_license_authorization": true,
+  "fonts": [
+    {
+      "path": "Sources/Wisp/Resources/Fonts/IBMPlexMono-Medium.ttf",
+      "alreadyInOldPublicHead": false,
+      "oldPublicPath": null,
+      "licenseNote": "SIL Open Font License included"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/IBMPlexMono-Regular.ttf",
+      "alreadyInOldPublicHead": false,
+      "oldPublicPath": null,
+      "licenseNote": "SIL Open Font License included"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPHatton-Light.otf",
+      "alreadyInOldPublicHead": false,
+      "oldPublicPath": null,
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPHatton-Medium.otf",
+      "alreadyInOldPublicHead": false,
+      "oldPublicPath": null,
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueBit-Regular.ttf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueBit-Regular.ttf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueMontreal-Bold.ttf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueMontreal-Bold.ttf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueMontreal-Regular.ttf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueMontreal-Regular.ttf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueYork-NormalExtrabold.otf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueYork-NormalExtrabold.otf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueYork-NormalLight.otf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueYork-NormalLight.otf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "Sources/Wisp/Resources/Fonts/PPNeueYork-NormalMedium.otf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueYork-NormalMedium.otf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "iOS/Resources/Fonts/IBMPlexMono-Medium.ttf",
+      "alreadyInOldPublicHead": false,
+      "oldPublicPath": null,
+      "licenseNote": "SIL Open Font License included"
+    },
+    {
+      "path": "iOS/Resources/Fonts/IBMPlexMono-Regular.ttf",
+      "alreadyInOldPublicHead": false,
+      "oldPublicPath": null,
+      "licenseNote": "SIL Open Font License included"
+    },
+    {
+      "path": "iOS/Resources/Fonts/PPNeueMontreal-Bold.ttf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueMontreal-Bold.ttf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "iOS/Resources/Fonts/PPNeueMontreal-Regular.ttf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueMontreal-Regular.ttf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    },
+    {
+      "path": "iOS/Resources/Fonts/PPNeueYork-NormalExtrabold.otf",
+      "alreadyInOldPublicHead": true,
+      "oldPublicPath": "public/fonts/PPNeueYork-NormalExtrabold.otf",
+      "licenseNote": "Proprietary font; embedded ownership retained; no additional redistribution grant asserted"
+    }
+  ]
+}

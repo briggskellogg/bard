@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A37F4445D939ACB800A5882 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 898F7AB876C157D7C845D1C7 /* PrivacyInfo.xcprivacy */; };
+		375AD45581C0BDF2A4CEBA7B /* PPNeueMontreal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C2842D468CFAE8FD5E6B076 /* PPNeueMontreal-Bold.ttf */; };
+		45272B8D3A29DBEABF044393 /* IBMPlexMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BFE34F05B39EB4F21E743BD /* IBMPlexMono-Medium.ttf */; };
+		6B11BEF761633FCD53EA9CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37EE67C35B5E4D81F2E0EBF /* Assets.xcassets */; };
+		6CEA14C2E94DE8AC8C2BF3D1 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 88A46FD0DE45F007AD6FB46C /* OFL.txt */; };
+		CD4F0E80B0C8C84B61D19E9A /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C44A98AE07AF750DD86D393 /* IBMPlexMono-Regular.ttf */; };
+		CDFC04912C5A75279FDFBCFA /* PPNeueMontreal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB24F7EC1A8D3A3144C04210 /* PPNeueMontreal-Regular.ttf */; };
+		D6766E7D4750727C45ECACCF /* PPNeueYork-NormalExtrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9F8012B7B08EE35E4845E47 /* PPNeueYork-NormalExtrabold.otf */; };
+		F3B0B855EAABD01665CFC74E /* WispCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A11B268CDC28D8E4EE0B492 /* WispCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C2842D468CFAE8FD5E6B076 /* PPNeueMontreal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueMontreal-Bold.ttf"; sourceTree = "<group>"; };
+		2C44A98AE07AF750DD86D393 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
+		825CBEC8B62405A083AA0747 /* Wisp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Wisp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A46FD0DE45F007AD6FB46C /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		898F7AB876C157D7C845D1C7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		9BFE34F05B39EB4F21E743BD /* IBMPlexMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Medium.ttf"; sourceTree = "<group>"; };
+		BB24F7EC1A8D3A3144C04210 /* PPNeueMontreal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueMontreal-Regular.ttf"; sourceTree = "<group>"; };
+		D00EFE0E80504052327AD909 /* Wisp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Wisp; path = ..; sourceTree = SOURCE_ROOT; };
+		D37EE67C35B5E4D81F2E0EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E138F6AF6B8288C62175C0EC /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		E9F8012B7B08EE35E4845E47 /* PPNeueYork-NormalExtrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueYork-NormalExtrabold.otf"; sourceTree = "<group>"; };
+		F7AC917C2886DD9B52F4E549 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FE09B027AAD4D3BB75515323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2283C1C1B2946C70080B9F9A /* Sources/WispIOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Sources/WispIOS;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24489F5C01133B1905A2E512 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B0B855EAABD01665CFC74E /* WispCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1610DFA7B22B519A33CF9FE3 = {
+			isa = PBXGroup;
+			children = (
+				F7AC917C2886DD9B52F4E549 /* README.md */,
+				2283C1C1B2946C70080B9F9A /* Sources/WispIOS */,
+				77178292AEAD102CA1C33BA4 /* Config */,
+				9850213D36C08EEB7ACC3F50 /* Packages */,
+				CC1F6A9AAA44ABEAFB4B7607 /* Resources */,
+				234201618A3748046CA9509B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		234201618A3748046CA9509B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				825CBEC8B62405A083AA0747 /* Wisp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77178292AEAD102CA1C33BA4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E138F6AF6B8288C62175C0EC /* Base.xcconfig */,
+				FE09B027AAD4D3BB75515323 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		96F754643269575BBB1E86A0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BFE34F05B39EB4F21E743BD /* IBMPlexMono-Medium.ttf */,
+				2C44A98AE07AF750DD86D393 /* IBMPlexMono-Regular.ttf */,
+				88A46FD0DE45F007AD6FB46C /* OFL.txt */,
+				0C2842D468CFAE8FD5E6B076 /* PPNeueMontreal-Bold.ttf */,
+				BB24F7EC1A8D3A3144C04210 /* PPNeueMontreal-Regular.ttf */,
+				E9F8012B7B08EE35E4845E47 /* PPNeueYork-NormalExtrabold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9850213D36C08EEB7ACC3F50 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D00EFE0E80504052327AD909 /* Wisp */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		CC1F6A9AAA44ABEAFB4B7607 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D37EE67C35B5E4D81F2E0EBF /* Assets.xcassets */,
+				898F7AB876C157D7C845D1C7 /* PrivacyInfo.xcprivacy */,
+				96F754643269575BBB1E86A0 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B98DA21FDF00A91563D3168 /* WispIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C17E6577EBF0FBC4F62C019B /* Build configuration list for PBXNativeTarget "WispIOS" */;
+			buildPhases = (
+				0D0421B774B00550C944727A /* Sources */,
+				A8CCBD68CE2BB07D92F612CB /* Resources */,
+				24489F5C01133B1905A2E512 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2283C1C1B2946C70080B9F9A /* Sources/WispIOS */,
+			);
+			name = WispIOS;
+			packageProductDependencies = (
+				4A11B268CDC28D8E4EE0B492 /* WispCore */,
+			);
+			productName = WispIOS;
+			productReference = 825CBEC8B62405A083AA0747 /* Wisp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77B321F5789343F64668A38D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3B98DA21FDF00A91563D3168 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E5D99D474B1428F31C64525F /* Build configuration list for PBXProject "WispIOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1610DFA7B22B519A33CF9FE3;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E848CC7D03CD00E3EA06EBFC /* XCLocalSwiftPackageReference ".." */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B98DA21FDF00A91563D3168 /* WispIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8CCBD68CE2BB07D92F612CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B11BEF761633FCD53EA9CD4 /* Assets.xcassets in Resources */,
+				45272B8D3A29DBEABF044393 /* IBMPlexMono-Medium.ttf in Resources */,
+				CD4F0E80B0C8C84B61D19E9A /* IBMPlexMono-Regular.ttf in Resources */,
+				6CEA14C2E94DE8AC8C2BF3D1 /* OFL.txt in Resources */,
+				375AD45581C0BDF2A4CEBA7B /* PPNeueMontreal-Bold.ttf in Resources */,
+				CDFC04912C5A75279FDFBCFA /* PPNeueMontreal-Regular.ttf in Resources */,
+				D6766E7D4750727C45ECACCF /* PPNeueYork-NormalExtrabold.otf in Resources */,
+				1A37F4445D939ACB800A5882 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D0421B774B00550C944727A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		079D80CFFC8F3145BFFC9FD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		70174E78ED56F7E3F3E551B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E138F6AF6B8288C62175C0EC /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.briggskellogg.wisp.ios;
+				PRODUCT_NAME = Wisp;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A101AAE460000176F66BB93A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E138F6AF6B8288C62175C0EC /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.briggskellogg.wisp.ios;
+				PRODUCT_NAME = Wisp;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D14FB723C579DBA54E7FCAFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C17E6577EBF0FBC4F62C019B /* Build configuration list for PBXNativeTarget "WispIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A101AAE460000176F66BB93A /* Debug */,
+				70174E78ED56F7E3F3E551B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E5D99D474B1428F31C64525F /* Build configuration list for PBXProject "WispIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				079D80CFFC8F3145BFFC9FD7 /* Debug */,
+				D14FB723C579DBA54E7FCAFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E848CC7D03CD00E3EA06EBFC /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A11B268CDC28D8E4EE0B492 /* WispCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WispCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 77B321F5789343F64668A38D /* Project object */;
+}

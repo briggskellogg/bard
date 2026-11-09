@@ -1,0 +1,9 @@
+# Asset provenance
+
+The selected Bard identity is the original flat blue lyre and handwritten Bard lettering. `Support/Brand/Bard` contains actual SVG paths for the insignia, wordmark, lockup, app compositions, cover, and the supplied maker mark. Blue is `#42A6FC`; the maker mark is `#D1A13A`. The compact app icons scale the approved composition without changing its paths. Runtime filenames retain their Wisp identifiers for compatibility.
+
+The app uses PP Neue Montreal for controls and rows, PP Neue York for selected title roles, and IBM Plex Mono for numeric readouts. Existing fonts from the approved application were preserved byte-for-byte. Their embedded copyright/licensing metadata remains intact; permission to publish application source does not grant additional font redistribution rights. The IBM Plex license is included beside its font files. Other bundled icon licenses and provenance remain under `Sources/Wisp/Resources/Icons`.
+
+`FONT-PROVENANCE.json` compares exact font blobs with the prior public repository head. Six distinct Pangram family files (nine copies across the Mac and phone resources) already match that head. The two Hatton files were not in that head; IBM Plex is also newly present here and carries its included SIL Open Font License. Prior public availability is provenance, not proof of licensing permission. This project does not relicense third-party assets.
+
+No private music, user cover artwork, library snapshots, screenshots, or downloaded album artwork belongs in this source package. Production icon and logo exports are app resources, not personal library data.

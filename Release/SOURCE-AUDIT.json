@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "scope": "Current reviewed native working-tree files only; historical transcription Git objects and compiled binary internals are not a credential audit.",
+  "copied_source_files": 260,
+  "unchanged_source_files": 258,
+  "documented_portability_adjustments": 2,
+  "source_snapshot_sha256": "d586e36bf74b3e65d31550275357672500b54d226816d80c3de682f95366a01b",
+  "source_files_hash_verified": true,
+  "iphone7_frozen_inputs_matched": 62,
+  "secret_pattern_candidate_files": [],
+  "personal_absolute_path_candidate_files": [],
+  "forbidden_data_or_build_files": [],
+  "symlinks": [],
+  "core_tests": {
+    "passed": 178,
+    "failed": 0
+  },
+  "brand_regeneration": {
+    "exports": 9,
+    "byte_exact": true
+  },
+  "proton_filesystem_writes": false,
+  "jobs_created": false
+}

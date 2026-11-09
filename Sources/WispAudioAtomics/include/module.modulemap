@@ -1,0 +1,4 @@
+module WispAudioAtomics {
+    header "WispAudioAtomics.h"
+    export *
+}

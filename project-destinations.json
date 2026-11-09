@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "project_slug": "bard",
+  "display_name": "Bard",
+  "source_role": "native personal music app formerly named Wisp",
+  "github": {
+    "repository": "briggskellogg/bard",
+    "repository_id": 1112021879,
+    "repository_url": "https://github.com/briggskellogg/bard",
+    "required_visibility": "public",
+    "observed_visibility": "public",
+    "public_source_explicitly_authorized": true,
+    "personal_app_contents_must_never_enter_github": true,
+    "visibility_approval_pending": false,
+    "release_branch": "main",
+    "configured": true,
+    "replacement_of_transcription_source_authorized": true,
+    "prior_main_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
+    "archive_ref": "archive/legacy-transcription-before-music"
+  },
+  "apple": {
+    "team_id": "24KAG7M42P",
+    "app_store_connect_app_id": "6829608471",
+    "app_store_connect_display_name": "Bard by Briggs Kellogg",
+    "supported_targets": [
+      {
+        "platform": "macOS",
+        "product": "Wisp",
+        "scheme": null,
+        "build_system": "Swift Package Manager",
+        "bundle_id": "com.briggskellogg.wisp",
+        "minimum_os": "14.0",
+        "architectures": ["arm64", "x86_64"],
+        "testflight_configured": false,
+        "developer_id_notarization_configured": false
+      },
+      {
+        "platform": "iOS",
+        "product": "Wisp",
+        "scheme": "WispIOS",
+        "project": "iOS/WispIOS.xcodeproj",
+        "bundle_id": "com.briggskellogg.wisp.ios",
+        "minimum_os": "17.0",
+        "testflight_configured": true,
+        "tester_groups": [
+          {
+            "id": "439a0959-efd5-4652-91e8-f35bd754e8a4",
+            "name": "Personal",
+            "type": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "runtime_sync": {
+    "current_design": "Mac-authoritative music library with user-selected shared provider folder and two-way favorites",
+    "icloud_container_ids": [],
+    "confirmed_personal_export_paths": [],
+    "independent_iphone_export_configured": false,
+    "mac_off_backup_verified": false
+  },
+  "personal_archive": {
+    "enabled": false,
+    "scope_approval": null,
+    "confirmed_personal_accounts": [],
+    "confirmed_personal_source_allowlist": [],
+    "confirmed_personal_repository_allowlist": [],
+    "confirmed_personal_artifact_allowlist": [],
+    "pc_host": null,
+    "pc_staging_paths": [],
+    "pc_archive_paths": [],
+    "proton_account": null,
+    "proton_remote_paths": [],
+    "retention_policy": null,
+    "restore_test": null,
+    "deny_work_mac_filesystem_backups": true,
+    "deny_credential_keychain_backups": true,
+    "deny_broad_profile_or_drive_sources": true,
+    "reject_symlinks_and_junctions": true,
+    "require_hydrated_verified_cloud_files": true
+  },
+  "schedules": {
+    "enabled": false,
+    "timezone": "America/Phoenix",
+    "configured_jobs": [],
+    "proposed_only": ["hourly PC snapshots", "nightly Proton uploads", "daily TestFlight expiration check"]
+  },
+  "notification_channel": null
+}
