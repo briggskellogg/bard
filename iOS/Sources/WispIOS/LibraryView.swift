@@ -104,29 +104,21 @@ struct PhoneLibraryView: View {
 
             Section {
                 HStack(spacing: 8) {
-                    Image("maker-mark").resizable().scaledToFit().frame(width: 10, height: 15).accessibilityHidden(true)
                     Text("\(library.document.tracks.count) songs available offline")
                         .font(.wispText(.small)).foregroundStyle(.tertiary)
                     Spacer()
+                    PhoneMakerMark()
                 }.padding(.vertical, 6).accessibilityElement(children: .combine).modifier(PhoneListRow())
             }
         }
         .modifier(PhonePlainList())
         .toolbar {
             if #available(iOS 26.0, *) {
-                ToolbarItem(placement: .topBarLeading) { brand }.sharedBackgroundVisibility(.hidden)
+                ToolbarItem(placement: .topBarLeading) { PhoneBrandSignature() }.sharedBackgroundVisibility(.hidden)
             } else {
-                ToolbarItem(placement: .topBarLeading) { brand }
+                ToolbarItem(placement: .topBarLeading) { PhoneBrandSignature() }
             }
         }
-    }
-
-    private var brand: some View {
-        HStack(alignment: .center, spacing: 7) {
-            Image("wisp-insignia").resizable().scaledToFit().frame(width: 18, height: 22)
-            Text("Bard").font(.custom("PPNeueMontreal-Bold", size: 20, relativeTo: .headline))
-                .foregroundStyle(Color.primary).lineLimit(1)
-        }.fixedSize().accessibilityLabel("Bard")
     }
 
     private func showLibrarySmartShuffle() {
@@ -148,10 +140,7 @@ struct PhoneLibraryView: View {
     private var emptyLibrary: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
-                HStack(spacing: 8) {
-                    Image("wisp-insignia").resizable().scaledToFit().frame(width: 26, height: 31)
-                    Image("wisp-wordmark").resizable().scaledToFit().frame(width: 65, height: 27)
-                }.accessibilityLabel("Bard")
+                PhoneBrandSignature()
                 Text(library.hasPendingConnection ? "Connecting your library…" : "Made on your Mac.\nPlayed everywhere.")
                     .font(.wispText(.title)).fixedSize(horizontal: false, vertical: true)
                 Text(library.hasPendingConnection ? library.status : "Your songs and playlists, downloaded for the moments offline.")
@@ -160,6 +149,10 @@ struct PhoneLibraryView: View {
                     .font(.wispText(.body, medium: true)).buttonStyle(PhoneActionButtonStyle(prominent: true))
                 PhoneAura(level: 0, playing: false).frame(height: 120).padding(.top, 22)
             }.frame(maxWidth: 540, alignment: .leading).padding(28).padding(.top, 38)
+        }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            PhoneMakerMark().frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.horizontal, 28).padding(.bottom, 16)
         }
     }
 }

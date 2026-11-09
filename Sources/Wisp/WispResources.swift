@@ -4,10 +4,8 @@ import Foundation
 /// whereas packaged macOS resources live inside Contents/Resources. Resolve the
 /// packaged layout directly so an installed app never depends on a build folder.
 enum WispResources {
-    static var wordmarkURL: URL? { url(forResource: "wisp-wordmark", withExtension: "png") }
     static var makerMarkURL: URL? { url(forResource: "maker-mark", withExtension: "png") }
     static var logoURL: URL? { url(forResource: "wisp-insignia", withExtension: "png") }
-    static var lockupURL: URL? { url(forResource: "wisp-lockup", withExtension: "png") }
     static var mixtapeCoverURL: URL? { url(forResource: "mixtape-cover", withExtension: "png") }
 
     static func url(forResource name: String, withExtension ext: String?, subdirectory: String? = nil) -> URL? {

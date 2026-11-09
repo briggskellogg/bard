@@ -15,8 +15,7 @@ targets.append(.executableTarget(
     dependencies: ["WispCore", "WispAudioAtomics"],
     // Retain the former instrument's source for future work without shipping it.
     exclude: ["InstrumentStore.swift", "InstrumentPhrase.swift", "Views/InstrumentView.swift"],
-    resources: [.copy("Resources/wisp-mark.png"), .copy("Resources/wisp-lockup.png"),
-                .copy("Resources/wisp-insignia.png"), .copy("Resources/wisp-wordmark.png"),
+    resources: [.copy("Resources/wisp-mark.png"), .copy("Resources/wisp-insignia.png"),
                 .copy("Resources/mixtape-cover.png"), .copy("Resources/maker-mark.png"),
                 .copy("Resources/Fonts"), .copy("Resources/Icons")]
 ))

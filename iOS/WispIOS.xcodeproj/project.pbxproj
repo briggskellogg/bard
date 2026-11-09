@@ -21,12 +21,12 @@
 /* Begin PBXFileReference section */
 		0C2842D468CFAE8FD5E6B076 /* PPNeueMontreal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueMontreal-Bold.ttf"; sourceTree = "<group>"; };
 		2C44A98AE07AF750DD86D393 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
+		422EA9FC48B392A38DBD0279 /* bard */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bard; path = ..; sourceTree = SOURCE_ROOT; };
 		825CBEC8B62405A083AA0747 /* Wisp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Wisp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A46FD0DE45F007AD6FB46C /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		898F7AB876C157D7C845D1C7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9BFE34F05B39EB4F21E743BD /* IBMPlexMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Medium.ttf"; sourceTree = "<group>"; };
 		BB24F7EC1A8D3A3144C04210 /* PPNeueMontreal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueMontreal-Regular.ttf"; sourceTree = "<group>"; };
-		D00EFE0E80504052327AD909 /* Wisp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Wisp; path = ..; sourceTree = SOURCE_ROOT; };
 		D37EE67C35B5E4D81F2E0EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E138F6AF6B8288C62175C0EC /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		E9F8012B7B08EE35E4845E47 /* PPNeueYork-NormalExtrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PPNeueYork-NormalExtrabold.otf"; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		9850213D36C08EEB7ACC3F50 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				D00EFE0E80504052327AD909 /* Wisp */,
+				422EA9FC48B392A38DBD0279 /* bard */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Config/Info.plist;
@@ -289,7 +289,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.briggskellogg.wisp.ios;
 				PRODUCT_NAME = Wisp;
 				SDKROOT = iphoneos;
@@ -309,14 +309,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.briggskellogg.wisp.ios;
 				PRODUCT_NAME = Wisp;
 				SDKROOT = iphoneos;

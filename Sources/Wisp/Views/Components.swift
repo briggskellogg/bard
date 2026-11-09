@@ -3,31 +3,7 @@ import AppKit
 import UniformTypeIdentifiers
 import WispCore
 
-/// Keep the approved lettering independent of the app insignia and downsample
-/// each original asset for the display's actual pixel density.
-@MainActor
-struct WispWordmark: View {
-    @Environment(\.displayScale) private var displayScale
-    var width: CGFloat = 58
-    var height: CGFloat = 30
-
-    var body: some View {
-        if let image = WispImageCache.image(at: WispResources.wordmarkURL,
-                                           fitting: CGSize(width: width, height: height),
-                                           scale: displayScale) {
-            Image(nsImage: image).resizable().renderingMode(.original)
-                .interpolation(.high).scaledToFit()
-                .frame(width: width, height: height)
-                .accessibilityLabel("Bard")
-        } else {
-            Text("Bard").font(WispType.ui(16, weight: .medium))
-                .frame(width: width, height: height)
-        }
-    }
-}
-
-/// A compact family header: the approved flat symbol with a typeset name.
-/// The handwritten wordmark remains available for exported brand artwork.
+/// The approved flat symbol with the app name in the standard interface face.
 @MainActor
 struct WispBrandSignature: View {
     @Environment(\.displayScale) private var displayScale
@@ -44,7 +20,7 @@ struct WispBrandSignature: View {
                     .accessibilityHidden(true)
             }
             Text("Bard")
-                .font(WispType.brand(min(20, height * 0.87)))
+                .font(WispType.ui(min(20, height * 0.87), weight: .bold))
                 .foregroundStyle(WispSurface.ink)
                 .fixedSize()
         }

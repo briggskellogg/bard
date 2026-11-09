@@ -54,6 +54,26 @@ enum PhoneStyle {
     }
 }
 
+struct PhoneBrandSignature: View {
+    var body: some View {
+        HStack(alignment: .center, spacing: 7) {
+            Image("wisp-insignia").resizable().scaledToFit().frame(width: 18, height: 22)
+            Text("Bard").font(.custom("PPNeueMontreal-Bold", size: 20, relativeTo: .headline))
+                .foregroundStyle(Color.primary).lineLimit(1)
+        }
+        .fixedSize()
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Bard")
+    }
+}
+
+struct PhoneMakerMark: View {
+    var body: some View {
+        Image("maker-mark").resizable().scaledToFit().frame(width: 11, height: 16)
+            .accessibilityHidden(true)
+    }
+}
+
 /// Main destinations have confident, colored silhouettes. Browsing and utility
 /// glyphs retain an outline and a neutral tone so emphasis stays meaningful.
 struct PhoneNavigationGlyph: View {

@@ -4,7 +4,7 @@ Read `RELEASE_PROMPT.txt`, `project-destinations.json`, and `Release/STATUS.md` 
 
 ## Product and data preservation
 
-Keep the approved flat blue lyre and supplied gold maker mark, compact family typography, restrained colored destination icons, neutral utility icons, and System/Light/Dark appearance. Preserve the original music/audio, approved artwork, library IDs, playlists, favorite history, archives, and playback state. The internal Wisp module, bundle, preference, and storage names are compatibility identifiers, not stale branding to replace globally.
+Keep the approved flat blue lyre without handwritten lettering. The Mac app icon is transparent with the supplied gold maker mark at bottom right. In-app headers pair the symbol with a standard PP Neue Montreal typeset name, and the maker mark sits near a bottom corner. Preserve compact family typography, restrained colored destination icons, neutral utility icons, and System/Light/Dark appearance. Preserve the original music/audio, approved artwork, library IDs, playlists, favorite history, archives, and playback state. The internal Wisp module, bundle, preference, and storage names are compatibility identifiers, not stale branding to replace globally.
 
 The Mac owns import, editing, and Remix alpha. iPhone is the listening companion with offline playback, Smart Shuffle, queue, and favorites. Do not describe the current Mac-authoritative folder transfer as an independent phone export or completed Mac-off backup system.
 

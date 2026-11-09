@@ -138,14 +138,12 @@ struct PhonePlayerView: View {
                 PhoneAudioOutputPicker().frame(width: 44, height: 44)
             }
             HStack {
-                Image("wisp-wordmark").resizable().scaledToFit().frame(width: 43, height: 24).opacity(0.75).accessibilityHidden(true)
-                Spacer()
                 if let index = player.currentQueueIndex {
                     Text("\(index + 1) / \(player.queue.count)").font(.wisp(10)).monospacedDigit().foregroundStyle(.secondary)
                         .accessibilityLabel("Song \(index + 1) of \(player.queue.count)")
                 }
                 Spacer()
-                Image("maker-mark").resizable().scaledToFit().frame(width: 13, height: 19).accessibilityHidden(true)
+                PhoneMakerMark()
             }.padding(.bottom, 4)
         }
     }

@@ -17,11 +17,6 @@ enum WispType {
                     size: points, fallback: .system(size: points, weight: weight))
     }
 
-    /// The family header uses the same face as Clay, independent of logo artwork.
-    static func brand(_ size: CGFloat) -> Font {
-        font("PPNeueMontreal-Bold", size: size, fallback: .system(size: size, weight: .bold))
-    }
-
     static func display(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
         let points = max(17, size * 0.86)
         return font("PPNeueYork-NormalExtrabold", size: points,
