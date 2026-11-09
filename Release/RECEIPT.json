@@ -52,7 +52,17 @@
     "source_commit": "431939886ea5c6e808b310bea85221bb688d8713",
     "archive_branch": "archive/legacy-transcription-before-music",
     "archive_commit": "5d9d3bd87fff69b092bd4227f8f80fe0cd02f01b",
-    "personal_library_included": false
+    "personal_library_included": false,
+    "release": {
+      "tag": "mac-1.3.4-ios-1.2.4",
+      "url": "https://github.com/briggskellogg/bard/releases/tag/mac-1.3.4-ios-1.2.4",
+      "target_commit": "f608fcec2134d491023a1b927a3efa14234f17bc",
+      "published_at_utc": "2026-11-09T05:01:19Z",
+      "draft": false,
+      "asset_count": 10,
+      "uploaded_asset_hashes_verified": true,
+      "personal_library_included": false
+    }
   },
   "pc_archive": {
     "status": "NOT CONFIGURED"
